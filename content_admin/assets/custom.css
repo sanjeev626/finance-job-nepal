@@ -1,0 +1,19 @@
+ul.profile-width {
+	list-style-type: none;
+}
+ul.profile-width strong{
+	width:175px;
+	display: inline-table;
+}
+
+.buttons{
+	padding-bottom: 10px;
+	text-align: right;
+}
+
+.sub-heading{
+	/*padding-top: 10px;*/
+	font-weight: bold;
+}
+
+

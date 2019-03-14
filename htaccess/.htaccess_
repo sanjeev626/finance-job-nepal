@@ -1,0 +1,19 @@
+RewriteEngine On
+
+RewriteRule ^admin$ admin/index.php
+RewriteRule ^admin/$ admin/index.php
+
+RewriteRule ^([a-zA-Z0-9_-]+)$ corporate/index.php?corporatename=$1
+RewriteRule ^([a-zA-Z0-9_-]+)/$ corporate/index.php?corporatename=$1
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ corporate/index.php?corporatename=$1&id=$2
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ corporate/index.php?corporatename=$1&id=$2
+
+
+# Begin: CloudFlare enabled for www.globaljob.com.np
+RewriteCond %{HTTPS}s ^(on(s)|off)$
+RewriteRule .* - [E=schar:%2]
+RewriteCond %{HTTP_HOST} ^(globaljob\.com\.np)$
+RewriteRule ^(.*)$ http%{ENV:schar}://www.%1/$1 [R=301,L]
+# End: CloudFlare enabled for www.globaljob.com.np
+
