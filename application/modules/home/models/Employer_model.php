@@ -33,67 +33,69 @@ class Employer_model extends CI_Model {
 
         $employer_data =array(
 
-            'username' =>$this->input->post('username'),
+            'username' =>$this->input->post('email'),
 
             'password' =>md5($this->input->post('password')),
 
             'email' =>$this->input->post('email'),
 
-            'email2' =>$this->input->post('email2'),
+            //'email2' =>$this->input->post('email2'),
 
-            'orgcode' =>$orgcode,
+            'organization_code' =>$orgcode,
 
-            'orgname' =>$orgname,  
+            'organization_name' =>$orgname,
 
-            'orgdesc' =>$this->input->post('orgdesc'),
+            //'orgdesc' =>$this->input->post('orgdesc'),
 
-            'natureoforg' =>$this->input->post('natureoforg'),
+            //'natureoforg' =>$this->input->post('natureoforg'),
 
-            'orgtype' =>$this->input->post('orgtype'),
+            //'orgtype' =>$this->input->post('orgtype'),
 
-            'ownership' =>$this->input->post('ownership'),
+            //'ownership' =>$this->input->post('ownership'),
 
-            'logo' => $logo,
+            //'logo' => $logo,
 
-            'salutation' =>$this->input->post('salutation'),
+            //'salutation' =>$this->input->post('salutation'),
 
-            'fname' =>$this->input->post('fname'),
+            //'fname' =>$this->input->post('fname'),
 
-            'mname' =>$this->input->post('mname'),
+            //'mname' =>$this->input->post('mname'),
 
-            'lname' =>$this->input->post('lname'),
+            //'lname' =>$this->input->post('lname'),
 
-            'designation' =>$this->input->post('designation'),
+            //'designation' =>$this->input->post('designation'),
 
-            'address' =>$this->input->post('address'),
+            //'address' =>$this->input->post('address'),
 
-            'phone' =>$this->input->post('phone'),
+            'organization_phone' =>$this->input->post('phone'),
 
-            'fax' =>$this->input->post('fax'),
+            //'fax' =>$this->input->post('fax'),
 
-            'pobox' =>$this->input->post('pobox'),
+            //'pobox' =>$this->input->post('pobox'),
 
-            'website' =>$this->input->post('website'),
+            //'website' =>$this->input->post('website'),
 
-            'contactperson' =>$this->input->post('contactperson'),
+            //'contactperson' =>$this->input->post('contactperson'),
 
-            'consalutation' =>$this->input->post('consalutation'),
+            //'consalutation' =>$this->input->post('consalutation'),
 
-            'confname' =>$this->input->post('confname'),
+            //'confname' =>$this->input->post('confname'),
 
-            'conmname' =>$this->input->post('conmname'),
+            //'conmname' =>$this->input->post('conmname'),
 
-            'conlname' =>$this->input->post('conlname'),
+            //'conlname' =>$this->input->post('conlname'),
 
             'joindate'=> $joindate,
 
-            'isCorporate' => 'No'            
+            'isActivated' => 'Yes'
 
         );
 
-        
 
         $this->db->insert($this->table_employer,$employer_data);
+        $insert_id = $this->db->insert_id();
+        $data['organization_code'] = $orgcode.'-'.$insert_id;
+        $this->db->update($this->table_employer,$data);
 
     }
 
@@ -141,7 +143,7 @@ class Employer_model extends CI_Model {
 
         $data =array(
 
-            'lastaccess' =>$last_access
+            'last_accessed' =>$last_access
 
         );
 
@@ -199,31 +201,32 @@ class Employer_model extends CI_Model {
         $folder_name = url_title($orgname, '-', true);
         $orgcode = substr($folder_name, 0, 30);
         $employer_data =array(
-            'email' =>$this->input->post('email'),
-            'email2' =>$this->input->post('email2'),
-            'orgcode' =>$orgcode,
-            'orgname' =>$orgname,
-            'no_of_employees' =>$this->input->post('no_of_employees'),
-            'orgdesc' =>$this->input->post('orgdesc'),
-            'natureoforg' =>$this->input->post('natureoforg'),
-            'orgtype' =>$this->input->post('orgtype'),
-            'ownership' =>$this->input->post('ownership'),
-            'salutation' =>$this->input->post('salutation'),
-            'fname' =>$this->input->post('fname'),
-            'mname' =>$this->input->post('mname'),
-            'lname' =>$this->input->post('lname'),
-            'designation' =>$this->input->post('designation'),
-            'address' =>$this->input->post('address'),
-            'phone' =>$this->input->post('phone'),
-            'fax' =>$this->input->post('fax'),
-            'pobox' =>$this->input->post('pobox'),
-            'website' =>$this->input->post('website'),
-            'contactperson' =>$this->input->post('contactperson'),
-            'consalutation' =>$this->input->post('consalutation'),
-            'confname' =>$this->input->post('confname'),
-            'conmname' =>$this->input->post('conmname'),
-            'conlname' =>$this->input->post('conlname'),
-            'isCorporate' => 'No'
+            //'username' =>$this->input->post('email'),
+            //'email' =>$this->input->post('email'),
+            //'email2' =>$this->input->post('email2'),
+            'orgname' =>$orgcode.'-'.$eid,
+            'organization_code' =>$orgname,
+            //'no_of_employees' =>$this->input->post('no_of_employees'),
+            'organization_description' =>$this->input->post('orgdesc'),
+            //'natureoforg' =>$this->input->post('natureoforg'),
+            //'orgtype' =>$this->input->post('orgtype'),
+            //'ownership' =>$this->input->post('ownership'),
+            //'salutation' =>$this->input->post('salutation'),
+            //'fname' =>$this->input->post('fname'),
+            //'mname' =>$this->input->post('mname'),
+            //'lname' =>$this->input->post('lname'),
+
+            'organization_address' =>$this->input->post('address'),
+            'organization_phone' =>$this->input->post('phone'),
+            'organization_fax' =>$this->input->post('fax'),
+            'organization_pobox' =>$this->input->post('pobox'),
+            'organization_website' =>$this->input->post('website'),
+            'contact_name' =>$this->input->post('contact_name'),
+            'contact_designation' =>$this->input->post('contact_designation'),
+            'contact_email' =>$this->input->post('contact_email'),
+            'contact_mobile' =>$this->input->post('contact_mobile'),
+            'alternate_contact_name' =>$this->input->post('alternate_contact_name'),
+            'isActivated' => 'Yes'
         );
         if(!empty($logo)){
             $employer_data['logo'] = $logo;

@@ -13,6 +13,7 @@ class Home extends View_Controller {
         parent::__construct();
         $this->load->model('home_model');
         $this->load->helper("view_helper");
+        $this->load->helper('url');
         $this->load->model('admin/general_model','general_model');
     }
 
@@ -31,7 +32,7 @@ class Home extends View_Controller {
         }
 
         $data['menu'] = 'home';
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['page_title'] = '.:: Finance Job Nepal ..';
         $data['premium_job'] = $this->home_model->get_job_by_type('PJob',5);
         $data['no_of_corporate_job'] = 16;
         $data['corporate_job'] = $this->home_model->get_job_by_type('CJob',$no_of_corporate_jobs);
@@ -46,11 +47,11 @@ class Home extends View_Controller {
         $data['location'] = $this->general_model->getAll('dropdown','fid = 2','dropvalue ASC','id,dropvalue','',200);
         $data['type'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue','',6);        
         $data['job_display_in'] = $this->general_model->getAll('dropdown','fid = 16','ordering','id,dropvalue');
-        $data['sliders'] = $this->general_model->getAll('slider',array('status' => 'Enabled','type' => 'slider'),'ordering');
-        $data['middle_banner'] = $this->general_model->getAll('slider',array('status' => 'Enabled','type' => 'middle_portion'),'','','',2);
-        $data['candidate_services']= $this->general_model->getAll('jobseek_banner',array('publish'=>1));
-        $data['employer_services']=  $this->general_model->getAll('globaljob_service','','','id,urlcode,title');
-        $data['clients']=  $this->general_model->getAll('clients','','','id,clientname,image');
+        //$data['sliders'] = $this->general_model->getAll('slider',array('status' => 'Enabled','type' => 'slider'),'ordering');
+        //$data['middle_banner'] = $this->general_model->getAll('slider',array('status' => 'Enabled','type' => 'middle_portion'),'','','',2);
+        //$data['candidate_services']= $this->general_model->getAll('jobseek_banner',array('publish'=>1));
+       // $data['employer_services']=  $this->general_model->getAll('globaljob_service','','','id,urlcode,title');
+       // $data['clients']=  $this->general_model->getAll('clients','','','id,clientname,image');
 
         $data['main'] = 'home';
         $this->load->view('main',$data);
@@ -547,7 +548,7 @@ class Home extends View_Controller {
                     $fromEmail = $jobseeker_profile->email;
                     $fromName = $jobseeker_profile->fname.' '.$jobseeker_profile->mname.' '.$jobseeker_profile->lname;
 
-                    $employerInfo = $this->general_model->getById('employer','id',$eid,'email,orgname');
+                    $employerInfo = $this->general_model->getById('employer','id',$eid,'email,organization_name');
 
                     $toEmail = $employerInfo->email;
                     $toName = $employerInfo->orgname;
@@ -1582,7 +1583,7 @@ class Home extends View_Controller {
     public function clients(){
         $data['menu'] = 'home';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
-        $data['client_list'] = $this->general_model->getAll('clients','','','id,clientname,image');
+        //$data['client_list'] = $this->general_model->getAll('clients','','','id,clientname,image');
         
         $this->load->view('client-list',$data);
     }

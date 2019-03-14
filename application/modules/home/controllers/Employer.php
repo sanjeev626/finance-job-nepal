@@ -50,11 +50,13 @@ class Employer extends View_Controller {
 //            $this->session->unset_userdata('jobseeker_profile');
 //        }
 
-        $data['menu'] = 'home';
+        $data['menu'] = 'employer';
         $data['page_title'] = 'Employer Login - Global Job :: A complete HR Solution';
-        $data['clients'] = $this->general_model->getAll('clients','image!=""','','id,clientname,image','',30);
-        $data['services']=  $this->general_model->getAll('globaljob_service','','','id,title,urlcode,logo,short_description');
-        $this->load->view('employer-login',$data);
+        //$data['clients'] = $this->general_model->getAll('clients','image!=""','','id,clientname,image','',30);
+        //$data['services']=  $this->general_model->getAll('globaljob_service','','','id,title,urlcode,logo,short_description');
+
+        $data['main'] = 'employer-login';
+        $this->load->view('main',$data);
     }
     
     public function signup(){
@@ -72,14 +74,7 @@ class Employer extends View_Controller {
     public function employerRegistration(){
     
         $this->form_validation->set_rules('orgname', 'Organisation Name', 'required');
-        $this->form_validation->set_rules('fname', 'First Name', 'required');
-        $this->form_validation->set_rules('lname', 'Last Name', 'required');
-        $this->form_validation->set_rules('address', 'Address', 'required');
         $this->form_validation->set_rules('phone', 'Phone', 'required');
-        $this->form_validation->set_rules('contactperson', 'Contact Person', 'required');
-        //$this->form_validation->set_rules('confname', 'Organization Head\'s First Name', 'required');
-        //$this->form_validation->set_rules('conlname', 'Organization Head\'s Last Name', 'required');
-        $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]');
         $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[8]');
         $this->form_validation->set_rules('confirm_password', 'Password Confirmation', 'trim|required|matches[password]');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
@@ -88,7 +83,7 @@ class Employer extends View_Controller {
             $data['message'] ='';
             $data['message'] = validation_errors();
             $data['menu'] = 'home';
-            $data['page_title'] = 'Employer Registration - Global Job :: A complete HR Solution';
+            $data['page_title'] = 'Employer Registration - Finance Job Nepal';
             $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue'); 
             $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue'); 
             $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
@@ -105,25 +100,11 @@ class Employer extends View_Controller {
             }
             echo "complogo = ".$complogo;
 
-            /*$a = $_FILES['logo']['name'];
-            if ($a != "") {
-               //echo "Upload Employer Logo";
-               $config['upload_path'] = './././uploads/employer/';
-               $config['log_threshold'] = 1;
-               $config['allowed_types'] = 'jpg|png|jpeg|gif';
-               $config['max_size'] = '100000'; // 0 = no file size limit
-               $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['logo']['name']));
-               $config['overwrite'] = false;
-               $this->load->library('upload', $config);
-               $this->upload->do_upload('logo');
-               $upload_data = $this->upload->data();
-               $complogo = $upload_data['file_name'];
-            }
-            if(!isset($complogo))  $complogo = '';*/
+
             
             $employerInsert = $this->employer_model->insert_employer_info($complogo);    
-            $this->session->set_flashdata('success', 'Employer Successfully Register. ');
-            redirect(base_url() . 'home', 'refresh');   
+            $this->session->set_flashdata('message', 'Employer Successfully Register. ');
+            redirect(base_url() . 'Employer/signup', 'refresh');
         }
     }
     
@@ -294,12 +275,12 @@ class Employer extends View_Controller {
         $eid = $employer_profile->id;
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);  
         $data['post_job'] = $this->general_model->getAll('jobs',array('eid'=>$eid));
-        $data['menu'] = 'home';
+        $data['menu'] = 'dashboard';
         $data['sidebar'] = 'employer';
         $data['select'] = '';
         $data['page_title'] = 'Employer Dashboard - Global Job :: A complete HR Solution';
         $data['main'] = 'employer-dashboard';
-        $this->load->view('dashboard',$data);
+        $this->load->view('main',$data);
     }
 
     public function profile(){
@@ -746,7 +727,7 @@ class Employer extends View_Controller {
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
-        $data['menu'] = 'home';
+        $data['menu'] = 'employer';
         $data['sidebar'] = 'employer';
         $data['select'] = 'editprofile';
         $data['page_title'] = 'Profile Edit - Global Job :: Complete HR Solution';
@@ -755,7 +736,7 @@ class Employer extends View_Controller {
         $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
         $data['nature_of_organisation'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');
         $data['main'] = 'employer-edit-profile';
-        $this->load->view('dashboard',$data);
+        $this->load->view('main',$data);
     }
 
      public function viewSeekerDetail($sid){
@@ -789,7 +770,7 @@ class Employer extends View_Controller {
         /*----------------------------------------------------------------
             Upload JobSeeker banner  on Server
         -----------------------------------------------------------------*/
-        $b = $_FILES['banner']['name'];
+        /*$b = $_FILES['banner']['name'];
         if ($b != "") {
             $config['upload_path'] = './././uploads/employer/';
             $config['log_threshold'] = 1;
@@ -817,9 +798,10 @@ class Employer extends View_Controller {
            $this->upload->do_upload('logo');
            $upload_data = $this->upload->data();
            $complogo = $upload_data['file_name'];
-        }
+        }*/
         if(!isset($complogo))  $complogo = '';
         //echo "complogo = ".$complogo.", banner = ".$banner.", eid = ".$eid;
+        $banner = '';
         $this->employer_model->updateEmployerProfile($complogo,$banner,$eid);
         $this->session->set_flashdata('success', 'Profile Update Successfully !!!');
         redirect(base_url() . 'Employer/editEmployerProfile');
