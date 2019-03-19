@@ -757,20 +757,20 @@ class Employer extends View_Controller {
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
-        
+
         //$emp_logo = $_FILES['logo']['name'];
-            
-        /*$picture = resize_image_upload('logo','employer');
+
+        $picture = resize_image_upload('logo','employer');
         if ($picture['status'] === true) {
             $complogo = $picture['images'];  
         }else{
             $picture = '';
-        }*/
+        }
         
         /*----------------------------------------------------------------
             Upload JobSeeker banner  on Server
         -----------------------------------------------------------------*/
-        /*$b = $_FILES['banner']['name'];
+        $b = $_FILES['banner']['name'];
         if ($b != "") {
             $config['upload_path'] = './././uploads/employer/';
             $config['log_threshold'] = 1;
@@ -798,10 +798,10 @@ class Employer extends View_Controller {
            $this->upload->do_upload('logo');
            $upload_data = $this->upload->data();
            $complogo = $upload_data['file_name'];
-        }*/
+        }
         if(!isset($complogo))  $complogo = '';
         //echo "complogo = ".$complogo.", banner = ".$banner.", eid = ".$eid;
-        $banner = '';
+
         $this->employer_model->updateEmployerProfile($complogo,$banner,$eid);
         $this->session->set_flashdata('success', 'Profile Update Successfully !!!');
         redirect(base_url() . 'Employer/editEmployerProfile');

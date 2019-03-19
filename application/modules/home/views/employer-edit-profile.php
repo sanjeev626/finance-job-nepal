@@ -1,3 +1,10 @@
+<style>
+    .bannerimg {
+        border: 1px solid #ccc;
+        padding: 2px;
+        margin-top: 5px;
+    }
+</style>
 <!-- Breadcromb Area Start -->
 <section class="fjn-breadcromb-area">
 
@@ -15,29 +22,56 @@
             <div class="col-lg-9 col-md-12">
                 <div class="dashboard-right">
                     <div class="candidate-profile">
+                        <?php
+                        $action =base_url().'Employer/updateEmployerProfile';
+                        $attributes = array('class' => 'form-horizontal user-logIn','name'=>'employersignup',);
+                        echo form_open_multipart($action, $attributes);
+                        ?>
                         <div class="candidate-single-profile-info">
 
                             <div class="single-resume-feild resume-avatar">
                                 <div class="resume-image">
-                                    <img src="<?php echo base_url()?>content_home/img/author.jpg" alt="resume avatar">
+                                    <?php
+                                        if (!empty($employerInfo))
+                                            $imgurl = base_url().'uploads/employer/'.$employerInfo->organization_logo;
+                                        else
+                                            $imgurl = base_url().'content_home/img/author.jpg';
+                                    ?>
+                                    <img src="<?php echo $imgurl;?>" alt="<?php if (!empty($employerInfo)) echo $employerInfo->organization_name; ?>">
                                     <div class="resume-avatar-hover">
                                         <div class="resume-avatar-upload">
                                             <p>
                                                 <i class="fa fa-pencil"></i>
                                                 Edit
                                             </p>
-                                            <input type="file">
+                                            <input type="file" name="logo" value="">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="single-resume-feild resume-avatar">
+                                <div class="single-resume-feild ">
+                                    <div class="single-input">
+                                        <label for="name">Organization Banner:</label>
+                                        <input type="file" id="banner" value="" name="banner" placeholder="Organization Banner" class="form-control" autofocus>
+                                        <?php
+                                        if (!empty($employerInfo))
+                                            $bannerimgurl = base_url().'uploads/employer/'.$employerInfo->organization_banner;
+                                        else
+                                            $bannerimgurl = base_url().'content_home/img/author.jpg';
+                                        ?>
+                                        <div class="bannerimg">
+                                            <img src="<?php echo $bannerimgurl;?>" alt="<?php if (!empty($employerInfo)) echo $employerInfo->organization_banner; ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
                         <div class="candidate-single-profile-info">
-                            <?php
-                            $action =base_url().'Employer/updateEmployerProfile';
-                            $attributes = array('class' => 'form-horizontal user-logIn','name'=>'employersignup',);
-                            echo form_open_multipart($action, $attributes);
-                            ?>
+
                             <div class="resume-box">
                                 <h3>company profile</h3>
                                 <div class="single-resume-feild ">
@@ -48,23 +82,22 @@
                                 </div>
                                 <div class="single-resume-feild feild-flex-2">
                                     <div class="single-input">
-                                        <label for="c_cat">Organization_type::</label>
-                                        <select id="c_cat">
-                                            <option selected>Choose Category</option>
-                                            <option>IT Service</option>
-                                            <option>Non-Profit</option>
-                                            <option>StartUP</option>
-                                            <option>Corporate</option>
+                                        <label for="c_cat">Organization_type:</label>
+                                        <select class="form-control" name="natureoforg" >
+                                            <?php foreach ($nature_of_organisation as $key => $value) {?>
+                                                <option <?php if(!empty($employerInfo) && $employerInfo->organization_type == $value->id){ echo "selected='selected'"; } ?> <?php echo set_select('natureoforg', $value->id); ?> value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
+                                            <?php  } ?>
                                         </select>
                                     </div>
                                     <div class="single-input">
                                         <label for="Start">Organization_size:</label>
-                                        <select id="c_cat">
-                                            <option selected>Choose Size</option>
-                                            <option>1 - 10</option>
-                                            <option>11 - 25</option>
-                                            <option>25 - 100</option>
-                                            <option>100 Plus</option>
+                                        <select class="form-control" name="no_of_employees" >
+                                            <option value="0-10"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '0-10'){ echo "selected='selected'"; } ?>>0-10</option>
+                                            <option value="11-50"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '11-50'){ echo "selected='selected'"; } ?>>11-50</option>
+                                            <option value="51-100"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '51-100'){ echo "selected='selected'"; } ?>>51-100</option>
+                                            <option value="101-250"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '101-250'){ echo "selected='selected'"; } ?>>101-250</option>
+                                            <option value="251-1000"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '251-1000'){ echo "selected='selected'"; } ?>>251-1000</option>
+                                            <option value="1000+"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '1000+'){ echo "selected='selected'"; } ?>>1000 or more</option>
                                         </select>
                                     </div>
                                 </div>
@@ -75,7 +108,8 @@
                                     </div>
                                     <div class="single-input">
                                         <label for="Email">Email:</label>
-                                        <input type="text" id="email" value="<?php if (!empty($employerInfo)) echo $employerInfo->email; ?>" name="email" placeholder="Email" class="form-control" autofocus>
+                                        <input type="text" id="email" readonly value="<?php if (!empty($employerInfo)) echo $employerInfo->email; ?>" name="email" placeholder="Email" class="form-control" autofocus>
+                                        <small>Email cannot be changed</small>
                                     </div>
                                 </div>
                                 <div class="single-resume-feild feild-flex-2">
@@ -139,22 +173,23 @@
                                             <i class="fa fa-facebook facebook"></i>
                                             facebook
                                         </label>
-                                        <input type="text" value="https://www.facebook.com/" id="facebook" name="facebook">
+                                        <input type="text" value="<?php if (!empty($employerInfo)) echo $employerInfo->organization_facebook; ?>" id="facebook" name="facebook">
                                     </div>
                                     <div class="single-input">
                                         <label for="linkedin">
                                             <i class="fa fa-linkedin linkedin"></i>
                                             linkedin
                                         </label>
-                                        <input type="text" value="https://www.linkedin.com/" id="linkedin" name="twitter">
+                                        <input type="text" value="<?php if (!empty($employerInfo)) echo $employerInfo->organization_linkedin; ?>" id="linkedin" name="twitter">
                                     </div>
                                 </div>
                             </div>
                             <div class="submit-resume">
                                 <button type="submit">Update</button>
                             </div>
-                            <?php echo form_close(); ?>
+
                         </div>
+                        <?php echo form_close(); ?>
                     </div>
                 </div>
             </div>

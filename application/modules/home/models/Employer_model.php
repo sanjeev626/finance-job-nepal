@@ -39,51 +39,49 @@ class Employer_model extends CI_Model {
 
             'email' =>$this->input->post('email'),
 
-            //'email2' =>$this->input->post('email2'),
-
             'organization_code' =>$orgcode,
 
             'organization_name' =>$orgname,
 
-            //'orgdesc' =>$this->input->post('orgdesc'),
+            /*'orgdesc' =>$this->input->post('orgdesc'),
 
-            //'natureoforg' =>$this->input->post('natureoforg'),
+            'natureoforg' =>$this->input->post('natureoforg'),
 
-            //'orgtype' =>$this->input->post('orgtype'),
+            'orgtype' =>$this->input->post('orgtype'),
 
-            //'ownership' =>$this->input->post('ownership'),
+            'ownership' =>$this->input->post('ownership'),
 
-            //'logo' => $logo,
+            'logo' => $logo,
 
-            //'salutation' =>$this->input->post('salutation'),
+            'salutation' =>$this->input->post('salutation'),
 
-            //'fname' =>$this->input->post('fname'),
+            'fname' =>$this->input->post('fname'),
 
-            //'mname' =>$this->input->post('mname'),
+            'mname' =>$this->input->post('mname'),
 
-            //'lname' =>$this->input->post('lname'),
+            'lname' =>$this->input->post('lname'),
 
-            //'designation' =>$this->input->post('designation'),
+            'designation' =>$this->input->post('designation'),
 
-            //'address' =>$this->input->post('address'),
+            'address' =>$this->input->post('address'),*/
 
             'organization_phone' =>$this->input->post('phone'),
 
-            //'fax' =>$this->input->post('fax'),
+            /*'fax' =>$this->input->post('fax'),
 
-            //'pobox' =>$this->input->post('pobox'),
+            'pobox' =>$this->input->post('pobox'),
 
-            //'website' =>$this->input->post('website'),
+            'website' =>$this->input->post('website'),
 
-            //'contactperson' =>$this->input->post('contactperson'),
+            'contactperson' =>$this->input->post('contactperson'),
 
-            //'consalutation' =>$this->input->post('consalutation'),
+            'consalutation' =>$this->input->post('consalutation'),
 
-            //'confname' =>$this->input->post('confname'),
+            'confname' =>$this->input->post('confname'),
 
-            //'conmname' =>$this->input->post('conmname'),
+            'conmname' =>$this->input->post('conmname'),
 
-            //'conlname' =>$this->input->post('conlname'),
+            'conlname' =>$this->input->post('conlname'),*/
 
             'joindate'=> $joindate,
 
@@ -204,23 +202,19 @@ class Employer_model extends CI_Model {
             //'username' =>$this->input->post('email'),
             //'email' =>$this->input->post('email'),
             //'email2' =>$this->input->post('email2'),
-            'orgname' =>$orgcode.'-'.$eid,
-            'organization_code' =>$orgname,
-            //'no_of_employees' =>$this->input->post('no_of_employees'),
+            'orgname' =>$orgname,
+            'organization_code' =>$orgcode.'-'.$eid,
+            'organization_size' =>$this->input->post('no_of_employees'),
             'organization_description' =>$this->input->post('orgdesc'),
-            //'natureoforg' =>$this->input->post('natureoforg'),
-            //'orgtype' =>$this->input->post('orgtype'),
-            //'ownership' =>$this->input->post('ownership'),
-            //'salutation' =>$this->input->post('salutation'),
-            //'fname' =>$this->input->post('fname'),
-            //'mname' =>$this->input->post('mname'),
-            //'lname' =>$this->input->post('lname'),
+            'organization_type' =>$this->input->post('natureoforg'),
 
             'organization_address' =>$this->input->post('address'),
             'organization_phone' =>$this->input->post('phone'),
             'organization_fax' =>$this->input->post('fax'),
             'organization_pobox' =>$this->input->post('pobox'),
             'organization_website' =>$this->input->post('website'),
+            'organization_facebook' =>$this->input->post('facebook'),
+            'organization_linkedin' =>$this->input->post('twitter'),
             'contact_name' =>$this->input->post('contact_name'),
             'contact_designation' =>$this->input->post('contact_designation'),
             'contact_email' =>$this->input->post('contact_email'),
@@ -229,10 +223,10 @@ class Employer_model extends CI_Model {
             'isActivated' => 'Yes'
         );
         if(!empty($logo)){
-            $employer_data['logo'] = $logo;
+            $employer_data['organization_logo'] = $logo;
         }
         if($banner){
-            $employer_data['banner_image'] = $banner;
+            $employer_data['organization_banner'] = $banner;
         } 
         $this->db->where('id',$eid);
         $this->db->update($this->table_employer,$employer_data);

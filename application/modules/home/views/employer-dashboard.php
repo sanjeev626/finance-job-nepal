@@ -23,14 +23,23 @@
                                     </div>
                                     <div class="single-input">
                                         <div class="resume-image company-resume-image" style="width:60px; height:60px;margin: 0px;">
-                                            <img src="<?php echo base_url()?>content_home/img/company_page_logo.jpg" alt="resume avatar">
+                                            <?php
+                                            if (!empty($employerInfo))
+                                                $imgurl = base_url().'uploads/employer/'.$employerInfo->organization_logo;
+                                            else
+                                                $imgurl = base_url().'content_home/img/company_page_logo.jpg';
+                                            ?>
+                                            <img src="<?php echo $imgurl?>" alt="<?php echo $employerInfo->organization_name;?>">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="single-resume-feild feild-flex-2">
                                     <div class="single-input">
                                         <label for="c_cat">organization_type:</label><br>
-                                        <?php echo $employerInfo->organization_type;?>
+                                        <?php
+                                        echo $orgType =$this->general_model->getById('dropdown','id',$employerInfo->organization_type)->dropvalue;
+                                        ?>
+
                                     </div>
                                     <div class="single-input">
                                         <label for="member">organization_size:</label><br>
@@ -111,14 +120,14 @@
                                             <i class="fa fa-facebook facebook"></i>
                                             facebook page
                                         </label><br>
-                                        https://www.facebook.com
+                                        <?php echo $employerInfo->organization_facebook;?>
                                     </div>
                                     <div class="single-input">
                                         <label for="linkedin">
                                             <i class="fa fa-linkedin linkedin"></i>
                                             linkedin
                                         </label><br>
-                                        https://www.linkedin.com
+                                        <?php echo $employerInfo->organization_linkedin;?>
                                     </div>
                                 </div>
                             </div>

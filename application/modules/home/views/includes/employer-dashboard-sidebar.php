@@ -13,7 +13,7 @@
             <li><a href="manage-candidates.html"><i class="fa fa-briefcase"></i>manage candidates</a></li>
             <li><a href="transaction.html"><i class="fa fa-rocket"></i>transaction</a></li>
             <li><a href="change-password.html"><i class="fa fa-lock"></i>change password</a></li>
-            <li><a href="#"><i class="fa fa-power-off"></i>LogOut</a></li>
+            <!--<li><a href="#"><i class="fa fa-power-off"></i>LogOut</a></li>-->
         </ul>
     </div>
 </div>
