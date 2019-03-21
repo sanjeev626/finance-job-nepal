@@ -21,7 +21,7 @@ class Dashboard extends MY_Controller {
         $data['main'] = 'dashboard_view';
         $data['parent_nav'] = '';
         $data['nav'] = 'dashboard';
-        $data['total_clients'] = $this->general_model->countTotal('clients');
+        //$data['total_clients'] = $this->general_model->countTotal('clients');
         $data['total_employer'] = $this->general_model->countTotal('employer');
         $data['total_job_seeker'] = $this->general_model->countTotal('seeker');
         $data['total_job'] = $this->general_model->countTotal('jobs');

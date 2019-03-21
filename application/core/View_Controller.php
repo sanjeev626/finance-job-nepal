@@ -32,7 +32,7 @@ class View_Controller extends CI_Controller
 
         $data['clients']= $this->home_model->get_all_clients();
 
-        $data['right_banner'] = $this->general_model->getResultById('slider',array('status' => 'Enabled','type'=>'right_portion'),'',1);
+       // $data['right_banner'] = $this->general_model->getResultById('slider',array('status' => 'Enabled','type'=>'right_portion'),'',1);
 
         
 

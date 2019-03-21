@@ -1,112 +1,141 @@
-<div class="col-md-9 login-contains">
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="My-Profile">
-            <div class="educational-detail">
-                <h3>Dashboard</h3>
-                <table class="table table-condensed">
-                    <thead>
-                        <tr>
-                            <th style='width:5%'>S.N.</th>
-                            <th style='width:30%'>Positions</th>
-                            <th style='width:14%'>Required No.</th>
-                            <th style='width:23%'>Applications Received</th>
-                            <th style='width:13%'>Total Views</th>
-                            <th>Deadline Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                         if(!empty($post_job)){
-                        foreach($post_job as $key => $val):
-                        $key += 1;
-                        $receivedJob = $this->employer_model->total_received_job($val->id);
-                        $date =$val->applybefore;
-                        ?>
-                        <tr>
-                            <td><?php echo $key++; ?></td>
-                            <td><?php echo $val->jobtitle;?></td>
-                            <td><?php echo $val->requiredno;?></td>
-                            <td><?php echo $receivedJob; ?> <?php if($receivedJob > 0){?>[ <a href="<?php echo base_url();?>Employer/showApplicants/<?php echo $val->id; ?>" aria-controls="profile"><i class="fa fa-eye" aria-hidden="true"></i>View</a> ] <?php } ?></td>
-                            <td><?php echo ($val->no_of_views != '') ? $val->no_of_views : 0;?></td>
-                            <td><?php echo date('d M Y',strtotime($date)); ?></td>
-                        </tr>
-                        <?php endforeach;
-                        } else{ ?>
-                        <tr>
-                            <td colspan="6">You haven't posted any Job</td>
-                        </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
+<!-- Breadcromb Area Start -->
+<section class="fjn-breadcromb-area">
+
+</section>
+<!-- Breadcromb Area End -->
+
+
+<!-- Candidate Dashboard Area Start -->
+<section class="candidate-dashboard-area section_70">
+    <div class="container">
+        <div class="row">
+            <?php $this->load->view('includes/employer-dashboard-sidebar');?>
+
+            <div class="col-md-12 col-lg-9">
+                <div class="dashboard-right">
+                    <div class="candidate-profile">
+                        <div class="candidate-single-profile-info">
+                            <div class="resume-box">
+                                <h3>company profile</h3>
+                                <div class="single-resume-feild feild-flex-2">
+                                    <div class="single-input">
+                                        <label for="name">Organization Name:</label><br><?php echo $employerInfo->organization_name;?>
+                                    </div>
+                                    <div class="single-input">
+                                        <div class="resume-image company-resume-image" style="width:60px; height:60px;margin: 0px;">
+                                            <?php
+                                            if (!empty($employerInfo))
+                                                $imgurl = base_url().'uploads/employer/'.$employerInfo->organization_logo;
+                                            else
+                                                $imgurl = base_url().'content_home/img/company_page_logo.jpg';
+                                            ?>
+                                            <img src="<?php echo $imgurl?>" alt="<?php echo $employerInfo->organization_name;?>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="single-resume-feild feild-flex-2">
+                                    <div class="single-input">
+                                        <label for="c_cat">organization_type:</label><br>
+                                        <?php
+                                        echo $orgType =$this->general_model->getById('dropdown','id',$employerInfo->organization_type)->dropvalue;
+                                        ?>
+
+                                    </div>
+                                    <div class="single-input">
+                                        <label for="member">organization_size:</label><br>
+                                        <?php echo $employerInfo->organization_size;?>
+                                    </div>
+                                </div>
+                                <div class="single-resume-feild feild-flex-2">
+                                    <div class="single-input">
+                                        <label for="Phone">Phone:</label><br>
+                                        <?php echo $employerInfo->organization_phone;?>
+                                    </div>
+                                    <div class="single-input">
+                                        <label for="Email">Email:</label><br>
+                                        <?php echo $employerInfo->email;?>
+                                    </div>
+                                </div>
+                                <div class="single-resume-feild feild-flex-2">
+                                    <div class="single-input">
+                                        <label for="Phone">POBox:</label><br>
+                                        <?php echo $employerInfo->organization_pobox;?>
+                                    </div>
+                                    <div class="single-input">
+                                        <label for="Email">Website:</label><br>
+                                        <?php echo $employerInfo->organization_website;?>
+                                    </div>
+                                </div>
+                                <div class="single-resume-feild feild-flex-2">
+                                    <div class="single-input">
+                                        <label for="Address22">organization_address:</label><br>
+                                        <?php echo $employerInfo->organization_address;?>
+                                    </div>
+                                    <div class="single-input">
+                                        <label for="Zip"></label>
+                                    </div>
+                                </div>
+                                <div class="single-resume-feild ">
+                                    <div class="single-input">
+                                        <label for="Bio">Description:</label><br>
+                                        <?php echo $employerInfo->organization_description;?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="resume-box">
+                                <h3>Contact Information</h3>
+                                <div class="single-resume-feild feild-flex-2">
+                                    <div class="single-input">
+                                        <label for="Phone">Contact Name:</label><br>
+                                        <?php echo $employerInfo->contact_name;?>
+                                    </div>
+                                    <div class="single-input">
+                                        <label for="Email">Designation:</label><br>
+                                        <?php echo $employerInfo->contact_designation;?>
+                                    </div>
+                                </div>
+                                <div class="single-resume-feild feild-flex-2">
+                                    <div class="single-input">
+                                        <label for="Phone">Contact Email:</label><br>
+                                        <?php echo $employerInfo->contact_email;?>
+                                    </div>
+                                    <div class="single-input">
+                                        <label for="Email">Contact Mobile:</label><br>
+                                        <?php echo $employerInfo->contact_mobile;?>
+                                    </div>
+                                </div>
+
+                                <div class="single-resume-feild ">
+                                    <div class="single-input">
+                                        <label for="Bio">Alternate Contact Name:</label><br>
+                                        <?php echo $employerInfo->alternate_contact_name;?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="resume-box">
+                                <h3>social link</h3>
+                                <div class="single-resume-feild feild-flex-2">
+                                    <div class="single-input">
+                                        <label for="twitter">
+                                            <i class="fa fa-facebook facebook"></i>
+                                            facebook page
+                                        </label><br>
+                                        <?php echo $employerInfo->organization_facebook;?>
+                                    </div>
+                                    <div class="single-input">
+                                        <label for="linkedin">
+                                            <i class="fa fa-linkedin linkedin"></i>
+                                            linkedin
+                                        </label><br>
+                                        <?php echo $employerInfo->organization_linkedin;?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-  <!-- Delete Modal -->
-
-  <div id="myModalDelete" class="modal fade" role="dialog">
-
-    <div class="modal-dialog">
-
-
-
-      <!-- Modal content-->
-
-      <div class="modal-content">
-
-        <div class="modal-header">
-
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-          <h4 class="modal-title green">Are you sure to Remove a Applied Job ?</h4>
-
-        </div>
-
-        <div class="modal-body center">
-
-
-
-          <a class="btn btn-success get_link" href="">Yes</a>
-
-          &nbsp; | &nbsp;
-
-          <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-
-
-
-        </div>
-
-        <div class="modal-footer">
-
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-        </div>
-
-      </div>
-
-
-
-    </div>
-
-  </div>
-
-
-
-  <script type="text/javascript">
-
-    $('document').ready(function(){
-
-      $('.delete_job_applied').on('click',function(){
-
-        var link  = $(this).attr('link');
-
-        $('.get_link').attr('href',link);
-
-
-
-      });
-
-    });
-
-  </script>
-
+</section>
+<!-- Candidate Dashboard Area End -->

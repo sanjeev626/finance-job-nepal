@@ -320,14 +320,14 @@ class Home_model extends CI_Model {
     }
     
     public function get_all_clients(){
-        $this->db->select();
+        /*$this->db->select();
         $this->db->order_by('id','ASC');
         $query = $this->db->get('clients');
         if($query->num_rows() == 0){
             return FALSE;
         }else{
             return $query->result();
-        }
+        }*/
     }
 
     /**

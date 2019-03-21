@@ -46,7 +46,7 @@ class Client extends MY_Controller {
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
         
-        $config['total_rows'] = $this->db->count_all('clients');
+        //$config['total_rows'] = $this->db->count_all('clients');
         $data['client_info'] = $this->client_model->get_client_details($config['per_page'], $page);
         
 
