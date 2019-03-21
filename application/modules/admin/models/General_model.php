@@ -58,7 +58,7 @@ class General_model extends CI_Model {
 
 
 
-    function getAll($table, $where = NULL, $orderBy = NULL, $select = NULL, $group_by = NULL,$limit = NULL) {
+    function getAll($table, $where = NULL, $orderBy = NULL, $select = NULL, $group_by = NULL,$limit = NULL, $offset = NULL) {
         if ($select)
             $this->db->select($select);
         if ($where)
@@ -69,6 +69,9 @@ class General_model extends CI_Model {
             $this->db->group_by($group_by);
         if($limit)
             $this->db->limit($limit);
+        if($offset)
+            $this->db->offset($offset);
+
         $query = $this->db->get($table); 
         //echo $this->db->last_query();
         if ($query->num_rows() == 0) {

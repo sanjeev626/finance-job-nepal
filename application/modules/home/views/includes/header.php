@@ -36,6 +36,9 @@
     <link rel="stylesheet" href="<?php echo base_url();?>content_home/css/style.css">
     <!--Responsive css-->
     <link rel="stylesheet" href="<?php echo base_url();?>content_home/css/responsive.css">
+
+    <!--Jquery js-->
+    <script src="<?php echo base_url();?>content_home/js/jquery-3.0.0.min.js"></script>
 </head>
 <body>
 

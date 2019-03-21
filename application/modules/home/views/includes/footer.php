@@ -7,10 +7,11 @@
                     <div class="single-footer-widget">
                         <div class="footer-logo">
                             <a href="index.html">
-                                <img src="<?php echo base_url();?>content_home/img/logo.png" alt="jobguru logo" />
+                                <img src="<?php echo base_url(); ?>content_home/img/logo.png" alt="jobguru logo"/>
                             </a>
                         </div>
-                        <p>Our unique, ethically led approach to Accounts & Finance recruitment meets the Industry expectations & requirement for a truly sustainable recruitment solution.</p>
+                        <p>Our unique, ethically led approach to Accounts & Finance recruitment meets the Industry
+                            expectations & requirement for a truly sustainable recruitment solution.</p>
                         <ul class="footer-social">
                             <li><a href="#" class="fb"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
@@ -23,21 +24,24 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="single-footer-widget">
                         <h3>recent post</h3>
+
                         <div class="latest-post-footer clearfix">
                             <div class="latest-post-footer-left">
-                                <img src="<?php echo base_url();?>content_home/img/footer-post-2.jpg" alt="post" />
+                                <img src="<?php echo base_url(); ?>content_home/img/footer-post-2.jpg" alt="post"/>
                             </div>
                             <div class="latest-post-footer-right">
                                 <h4><a href="#">Website design trends for 2018</a></h4>
+
                                 <p>January 14 - 2018</p>
                             </div>
                         </div>
                         <div class="latest-post-footer clearfix">
                             <div class="latest-post-footer-left">
-                                <img src="<?php echo base_url();?>content_home/img/footer-post-3.jpg" alt="post" />
+                                <img src="<?php echo base_url(); ?>content_home/img/footer-post-3.jpg" alt="post"/>
                             </div>
                             <div class="latest-post-footer-right">
                                 <h4><a href="#">UI experts and modern designs</a></h4>
+
                                 <p>January 12 - 2018</p>
                             </div>
                         </div>
@@ -60,8 +64,12 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="single-footer-widget footer-contact">
                         <h3>Contact Info</h3>
-                        <p><i class="fa fa-map-marker"></i> 4th Floor, Everest Bank Building, Bagdole, Lalitpur, Nepal </p>
+
+                        <p><i class="fa fa-map-marker"></i> 4th Floor, Everest Bank Building, Bagdole, Lalitpur, Nepal
+                        </p>
+
                         <p><i class="fa fa-phone"></i> +977 1 6226783</p>
+
                         <p><i class="fa fa-envelope-o"></i> info@financejobnepal.com</p>
                         <!-- <p><i class="fa fa-envelope-o"></i> info@jobguru.com</p>
                         <p><i class="fa fa-fax"></i> 112-3456-7898</p> -->
@@ -76,6 +84,7 @@
                 <div class="col-lg-12">
                     <div class="copyright-left">
                         <p>Copyright &copy; 2019 Finance Job Nepal. All Rights Reserved</p>
+
                         <p>Powered by DAC</p>
                     </div>
                 </div>
@@ -86,27 +95,48 @@
 <!-- Footer Area End -->
 
 
-<!--Jquery js-->
-<script src="<?php echo base_url();?>content_home/js/jquery-3.0.0.min.js"></script>
 <!--Popper js-->
-<script src="<?php echo base_url();?>content_home/js/popper.min.js"></script>
+<script src="<?php echo base_url(); ?>content_home/js/popper.min.js"></script>
 <!--Bootstrap js-->
-<script src="<?php echo base_url();?>content_home/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>content_home/js/bootstrap.min.js"></script>
 <!--Bootstrap Datepicker js-->
-<script src="<?php echo base_url();?>content_home/js/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo base_url(); ?>content_home/js/bootstrap-datepicker.min.js"></script>
 <!--Perfect Scrollbar js-->
-<script src="<?php echo base_url();?>content_home/js/jquery-perfect-scrollbar.min.js"></script>
+<script src="<?php echo base_url(); ?>content_home/js/jquery-perfect-scrollbar.min.js"></script>
 <!--Owl-Carousel js-->
-<script src="<?php echo base_url();?>content_home/js/owl.carousel.min.js"></script>
+<script src="<?php echo base_url(); ?>content_home/js/owl.carousel.min.js"></script>
 <!--SlickNav js-->
-<script src="<?php echo base_url();?>content_home/js/jquery.slicknav.min.js"></script>
+<script src="<?php echo base_url(); ?>content_home/js/jquery.slicknav.min.js"></script>
 <!--Magnific js-->
-<script src="<?php echo base_url();?>content_home/js/jquery.magnific-popup.min.js"></script>
+<script src="<?php echo base_url(); ?>content_home/js/jquery.magnific-popup.min.js"></script>
 <!--Select2 js-->
-<script src="<?php echo base_url();?>content_home/js/select2.min.js"></script>
+<script src="<?php echo base_url(); ?>content_home/js/select2.min.js"></script>
 <!--jquery-ui js-->
-<script src="<?php echo base_url();?>content_home/js/jquery-ui.min.js"></script>
+<script src="<?php echo base_url(); ?>content_home/js/jquery-ui.min.js"></script>
+<!--Tinymce-->
+<script src="<?php echo base_url(); ?>/tinymce/js/tinymce/tinymce.min.js"></script>
 <!--Main js-->
-<script src="<?php echo base_url();?>content_home/js/main.js"></script>
+<script src="<?php echo base_url(); ?>content_home/js/main.js"></script>
+
+<script>
+    $('document').ready(function () {
+        tinymce.init({
+            selector: "textarea", theme: "modern", height: 500,
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            image_caption: true,
+            image_advtab: true,
+            relative_urls: false,
+            external_filemanager_path: "<?php echo base_url();?>" + "tinymce/file_manager/filemanager/",
+            filemanager_title: "Responsive Filemanager",
+            external_plugins: {"filemanager": "<?php echo base_url();?>" + "tinymce/file_manager/filemanager/plugin.min.js"}
+        });
+    });
+</script>
+
 </body>
 </html>
