@@ -34,7 +34,7 @@ class Advertisement_model extends CI_Model {
             'website' => $this->input->post('website')
             );
         $this->db->insert($this->table_advertisement,$data);
-        retun $this->db->insert_id();
+        return $this->db->insert_id();
     }
 
     public function get_advertisement_by_id($id){

@@ -298,16 +298,54 @@ class Employer extends View_Controller {
 
     public function employerJobList(){
         $this->employerSessionCheck();
+
+
+
+
+
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
+
+        $config['base_url'] = base_url() . 'Employer/employerJobList';
+        $config['uri_segment'] = 3;
+        $config['per_page'] = 10;
+
+        /* Bootstrap Pagination  */
+
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+
+        /* End of Bootstrap Pagination */
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+
+        $config['total_rows'] = $this->general_model->countTotal('jobs',array('eid'=>$eid));
+
+        $this->pagination->initialize($config);
+
+
+
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
-        $data['menu'] = 'home';
+        $data['menu'] = 'jobList';
         $data['sidebar'] = 'employer';
         $data['select'] = 'listjob';
-        $data['list_job'] = $this->general_model->getAll('jobs',array('eid'=>$eid));
+        $data['list_job'] = $this->general_model->getAll('jobs',array('eid'=>$eid),'','','',$config['per_page'],$page);
         $data['page_title'] = 'List of Jobs Posted - Global Job :: A complete HR Solution';
         $data['main'] = 'employer-job-list';
-        $this->load->view('dashboard',$data);
+        $this->load->view('main',$data);
     }
 
     public function postJob(){
@@ -315,17 +353,18 @@ class Employer extends View_Controller {
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
-        $data['menu'] = 'home';
+        $data['menu'] = 'postJob';
         $data['sidebar'] = 'employer';
         $data['select'] = 'postjob';
-        $data['jobcategory'] = $this->general_model->getAll('dropdown','fid = 9','dropvalue','dropvalue');
+        $data['jobcategory'] = $this->general_model->getAll('dropdown','fid = 9','dropvalue','id,dropvalue');
         $data['joblocation'] = $this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');
         $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','dropvalue','id,dropvalue');
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','dropvalue','id,dropvalue');
+        $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','dropvalue','id,dropvalue');
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         $data['main'] = 'add-edit-postjob';
-        $this->load->view('dashboard',$data);
+        $this->load->view('main',$data);
     }
 
     public function addPostJob(){
@@ -334,7 +373,7 @@ class Employer extends View_Controller {
         $eid = $employer_profile->id;
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
-        $a = $_FILES['logo']['name'];
+        /*$a = $_FILES['logo']['name'];
 
             if ($a !== "") {
                 $config['upload_path'] = './././uploads/employer/';
@@ -349,7 +388,7 @@ class Employer extends View_Controller {
                 $complogo = $upload_data['file_name'];
             }
 
-            if(!isset($complogo))  $complogo = '';
+            if(!isset($complogo))  */$complogo = '';
 
 
         $this->employer_model->insertPostJob($complogo,$eid);
@@ -363,7 +402,7 @@ class Employer extends View_Controller {
         $eid = $employer_profile->id;
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
-        $a = $_FILES['logo']['name'];
+        /*$a = $_FILES['logo']['name'];
 
             if ($a !== "") {
                 $config['upload_path'] = './././uploads/employer/';
@@ -378,7 +417,7 @@ class Employer extends View_Controller {
                 $complogo = $upload_data['file_name'];
             }
 
-            if(!isset($complogo))  $complogo = '';
+            if(!isset($complogo))*/  $complogo = '';
 
         $this->employer_model->updatePostJob($complogo,$eid,$jid);
         $this->session->set_flashdata('success', 'Job detail updated Successfully !!!');
@@ -398,17 +437,18 @@ class Employer extends View_Controller {
         $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','','id,dropvalue');
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','dropvalue','id,dropvalue');
+        $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','dropvalue','id,dropvalue');
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         $data['jobpost_detail'] = $this->general_model->getById('jobs','id',$id);
         $data['main'] = 'add-edit-postjob';
-        $this->load->view('dashboard',$data);
+        $this->load->view('main',$data);
     }
 
     public function deleteJob($jid){
         $this->employerSessionCheck();
         $this->general_model->delete('jobs',array('id'=>$jid));
         $this->session->set_flashdata('success', 'Job Deleted From the List.');
-        redirect(base_url() . 'Employer/dashboard');
+        redirect(base_url() . 'Employer/employerJobList');
     }
 
     public function showApplicants($jid){
@@ -727,7 +767,7 @@ class Employer extends View_Controller {
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
-        $data['menu'] = 'employer';
+        $data['menu'] = 'companyprofile';
         $data['sidebar'] = 'employer';
         $data['select'] = 'editprofile';
         $data['page_title'] = 'Profile Edit - Global Job :: Complete HR Solution';
@@ -807,25 +847,42 @@ class Employer extends View_Controller {
         redirect(base_url() . 'Employer/editEmployerProfile');
     }
 
+    public function editPassword(){
+        $this->employerSessionCheck();
+        $employer_profile = $this->session->userdata('employer_profile');
+        $eid = $employer_profile->id;
+
+        $data['menu'] = 'editPassword';
+        $data['page_title'] = 'Edit Password - Global Job :: Complete HR Solution';
+        $data['main'] = 'employer-edit-password';
+        $this->load->view('main',$data);
+    }
+
     public function changeEmployerPassword(){
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
 
-        $old_password = $this->input->post('oldpassword');
-        $chekseeker = $this->general_model->getAll('employer',array('id' => $eid,'password'=> md5($old_password)));
-        if($chekseeker){
-            $data =array(
-                        'password' => md5($this->input->post('password'))
-            );
+        $this->form_validation->set_rules('oldpassword', 'oldpassword', 'trim|required|min_length[8]');
+        $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[8]');
+        $this->form_validation->set_rules('confirm_pass', 'Password Confirmation', 'trim|required|matches[password]');
 
-            $this->general_model->update('employer',$data, array('id' => $eid));
-            $this->session->set_flashdata('success', 'Password Changed Update Successfully !!!');
-            $this->session->unset_userdata('employer_profile');
-            redirect(base_url() . 'Employer/login');
-        }else{
-            $this->session->set_flashdata('error', 'Old Password not found in our Database.Please Try Again');
-            redirect(base_url() . 'Employer/dashboard');
+        if(TRUE == $this->form_validation->run()){
+            $old_password = $this->input->post('oldpassword');
+            $chekseeker = $this->general_model->getAll('employer',array('id' => $eid,'password'=> md5($old_password)));
+            if($chekseeker){
+                $data =array(
+                    'password' => md5($this->input->post('password'))
+                );
+
+                $this->general_model->update('employer',$data, array('id' => $eid));
+                $this->session->set_flashdata('success', 'Password Changed Update Successfully !!!');
+                $this->session->unset_userdata('employer_profile');
+                redirect(base_url() . 'Employer/login');
+            }else{
+                $this->session->set_flashdata('error', 'Old Password not found in our Database.Please Try Again');
+                redirect(base_url() . 'Employer/dashboard');
+            }
         }
     }
 
