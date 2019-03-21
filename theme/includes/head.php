@@ -6,7 +6,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="description" content="Finance Job Nepal | Job Portal">
       <meta name="keyword" content="Job, freelancer, employee, marketplace">
-      <meta name="author" content="Themescare">
+      <meta name="author" content="Digital Agency Catmandu">
       <!-- Title -->
       <title>Finance Job Nepal</title>
       <!-- Favicon -->
