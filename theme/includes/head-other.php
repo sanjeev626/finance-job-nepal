@@ -39,4 +39,7 @@
    </head>
    <body>
 
-<?php include('includes/header.php');?> 
+<?php include('includes/header-other.php');?> 
+
+<section class="fjn-breadcromb-area">
+</section>
