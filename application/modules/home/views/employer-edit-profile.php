@@ -32,10 +32,13 @@
                             <div class="single-resume-feild resume-avatar">
                                 <div class="resume-image">
                                     <?php
-                                        if (!empty($employerInfo))
+                                        if (!empty($employerInfo->organization_logo)){
                                             $imgurl = base_url().'uploads/employer/'.$employerInfo->organization_logo;
-                                        else
-                                            $imgurl = base_url().'content_home/img/author.jpg';
+                                        }
+                                        else{
+                                            $imgurl = base_url().'content_home/img/company_logo.png';
+                                        }
+
                                     ?>
                                     <img src="<?php echo $imgurl;?>" alt="<?php if (!empty($employerInfo)) echo $employerInfo->organization_name; ?>">
                                     <div class="resume-avatar-hover">
@@ -56,14 +59,13 @@
                                         <label for="name">Organization Banner:</label>
                                         <input type="file" id="banner" value="" name="banner" placeholder="Organization Banner" class="form-control" autofocus>
                                         <?php
-                                        if (!empty($employerInfo))
+                                        if (!empty($employerInfo->organization_banner)){
                                             $bannerimgurl = base_url().'uploads/employer/'.$employerInfo->organization_banner;
-                                        else
-                                            $bannerimgurl = base_url().'content_home/img/author.jpg';
                                         ?>
                                         <div class="bannerimg">
                                             <img src="<?php echo $bannerimgurl;?>" alt="<?php if (!empty($employerInfo)) echo $employerInfo->organization_banner; ?>">
                                         </div>
+                                        <?php }?>
                                     </div>
                                 </div>
                             </div>

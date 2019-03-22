@@ -74,6 +74,7 @@ class Employer extends View_Controller {
     public function employerRegistration(){
     
         $this->form_validation->set_rules('orgname', 'Organisation Name', 'required');
+
         $this->form_validation->set_rules('phone', 'Phone', 'required');
         $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[8]');
         $this->form_validation->set_rules('confirm_password', 'Password Confirmation', 'trim|required|matches[password]');

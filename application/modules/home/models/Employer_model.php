@@ -43,6 +43,8 @@ class Employer_model extends CI_Model {
 
             'organization_name' =>$orgname,
 
+            'organization_type' =>$this->input->post('orgtype'),
+
             /*'orgdesc' =>$this->input->post('orgdesc'),
 
             'natureoforg' =>$this->input->post('natureoforg'),

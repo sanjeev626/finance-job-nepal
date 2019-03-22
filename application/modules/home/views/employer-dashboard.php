@@ -24,10 +24,12 @@
                                     <div class="single-input">
                                         <div class="resume-image company-resume-image" style="width:60px; height:60px;margin: 0px;">
                                             <?php
-                                            if (!empty($employerInfo))
+                                            if ($employerInfo->organization_logo != ''){
                                                 $imgurl = base_url().'uploads/employer/'.$employerInfo->organization_logo;
-                                            else
-                                                $imgurl = base_url().'content_home/img/company_page_logo.jpg';
+                                            }
+                                            else{
+                                                $imgurl = base_url().'content_home/img/company_logo.png';
+                                            }
                                             ?>
                                             <img src="<?php echo $imgurl?>" alt="<?php echo $employerInfo->organization_name;?>">
                                         </div>
@@ -37,7 +39,9 @@
                                     <div class="single-input">
                                         <label for="c_cat">organization_type:</label><br>
                                         <?php
-                                        echo $orgType =$this->general_model->getById('dropdown','id',$employerInfo->organization_type)->dropvalue;
+                                        if(!empty($employerInfo->organization_type)){
+                                            echo $orgType =$this->general_model->getById('dropdown','id',$employerInfo->organization_type)->dropvalue;
+                                        }
                                         ?>
 
                                     </div>

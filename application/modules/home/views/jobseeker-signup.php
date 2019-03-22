@@ -13,7 +13,7 @@
                 <div class="dashboard-right">
                     <div class="earnings-page-box manage-jobs">
                         <div class="manage-jobs-heading">
-                            <h3>Employer Registration</h3>
+                            <h3>Job Seeker Registration</h3>
                         </div>
                         <?php if($message){ ?>
                             <div class="alert alert-danger alert-dismissible">
@@ -22,7 +22,7 @@
                         <?php } ?>
                         <div class="new-job-submission">
                             <?php
-                            $action =base_url().'Employer/employerRegistration';
+                            $action =base_url().'Jobseeker/jobseekerRegistration';
                             $attributes = array('id' => 'employersignup_demo','name'=>'employersignup',);
                             echo form_open_multipart($action, $attributes);
                             ?>
@@ -33,7 +33,7 @@
                                     <select name="orgtype" id="orgtype">
                                         <option value="">Select Organization Industry Type</option>
                                         <?php foreach ($nature_of_organisation as $key => $value) {?>
-                                            <option <?php echo set_select('orgtype', $value->id); ?> value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
+                                            <option <?php echo set_select('natureoforg', $value->id); ?> value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
                                         <?php  } ?>
                                     </select>
                                 </div>
@@ -60,7 +60,7 @@
                                 </div>
                             <?php echo form_close(); ?>
                             <div class="dont_have">
-                                <a href="<?php echo base_url();?>Employer/login">Already have an account?</a>
+                                <a href="<?php echo base_url();?>Jobseeker/login">Already have an account?</a>
                             </div>
                         </div>
                     </div>

@@ -49,7 +49,7 @@ class Jobseeker extends View_Controller {
 //            $this->session->unset_userdata('employer_profile');
 //        }
 
-        $data['menu'] = 'home';
+        $data['menu'] = 'login';
         if($_GET){
             $data['job_id'] = $jobid =  $_GET['jobid'];
             $data['job_detail'] = $this->general_model->getAll('jobs',array('id'=>$jobid));
@@ -58,8 +58,10 @@ class Jobseeker extends View_Controller {
             $data['job_detail'] = '';
         }
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
-        $data['seeker_right_banner']= $this->general_model->getAll('jobseek_banner',array('publish'=>1),'ordering asc');
-        $this->load->view('jobseeker-login',$data);
+        //$data['seeker_right_banner']= $this->general_model->getAll('jobseek_banner',array('publish'=>1),'ordering asc');
+        //$this->load->view('jobseeker-login',$data);
+        $data['main'] = 'jobseeker-login';
+        $this->load->view('main',$data);
     }
     
     public function signup(){

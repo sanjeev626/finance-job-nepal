@@ -39,6 +39,9 @@
 
     <!--Jquery js-->
     <script src="<?php echo base_url();?>content_home/js/jquery-3.0.0.min.js"></script>
+    <style>
+        .header-right-menu ul li.has-children ul{text-align: left}
+    </style>
 </head>
 <body>
 
@@ -136,8 +139,9 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="header-right-menu">
-                        <ul>
+                    <div class="header-right-menu header-menu">
+                        <nav id="navigation">
+                            <ul id="fjn_navigation">
                             <li><a href="post-job.html" class="post-jobs">Post jobs</a></li>
                             <?php
                             $employer_profile = $this->session->userdata('employer_profile');
@@ -145,10 +149,28 @@
                                 <li><a href="<?php echo base_url();?>Employer/dashboard"><i class="fa fa-tachometer"></i>Dashboard</a></li>
                                 <li><a href="<?php echo base_url();?>Employer/logout"><i class="fa fa-power-off"></i>logout</a></li>
                             <?php }else{?>
-                            <li><a href="<?php echo base_url();?>Employer/signup"><i class="fa fa-user"></i>sign up</a></li>
-                            <li><a href="<?php echo base_url();?>Employer/login"><i class="fa fa-lock"></i>login</a></li>
+
+                                <li class="has-children">
+                                    <a href="#"><i class="fa fa-user"></i>sign up</a>
+                                    <ul>
+                                        <li><a href="<?php echo base_url();?>Employer/signup">Employer Signup</a></li>
+                                        <li><a href="<?php echo base_url();?>Jobseeker/signup">Job Seeker Signup</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="#"><i class="fa fa-lock"></i>login</a>
+                                    <ul>
+                                        <li><a href="<?php echo base_url();?>Employer/login">Employer Login</a></li>
+                                        <li><a href="<?php echo base_url();?>Jobseeker/login">Job Seeker Login</a></li>
+
+                                    </ul>
+                                </li>
+                            <!--<li><a href="<?php /*echo base_url();*/?>Employer/signup"><i class="fa fa-user"></i>sign up</a></li>-->
+                            <!--<li><a href="<?php /*echo base_url();*/?>Employer/login"><i class="fa fa-lock"></i>login</a></li>-->
                             <?php }?>
+
                         </ul>
+                        </nav>
                     </div>
                 </div>
             </div>

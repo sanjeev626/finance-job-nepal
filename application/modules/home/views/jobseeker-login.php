@@ -14,8 +14,8 @@
                     </div>
 
                     <?php
-                    $action =base_url().'Employer/loginCheck';
-                    $attributes = array('name'=>'employerlogin',);
+                    $action =base_url().'Jobseeker/seekerloginCheck';
+                    $attributes = array('name'=>'jobseekerlogin',);
                     echo form_open_multipart($action, $attributes);
                     ?>
                         <div class="single-login-field">
@@ -38,7 +38,7 @@
                         </div>
                     <?php echo form_close(); ?>
                     <div class="dont_have">
-                        <a href="<?php echo base_url();?>Employer/signup">Don't have an account?</a>
+                        <a href="<?php echo base_url();?>Jobseeker/signup">Don't have an account?</a>
                     </div>
                 </div>
             </div>
