@@ -24,7 +24,7 @@ date_default_timezone_set("Asia/Kathmandu");
 |
 */
 	//$config['base_url'] = 'https://www.globaljob.com.np';
-	$config['base_url'] = 'http://dac.technocreates.net/finance-job-nepal/';
+	$config['base_url'] = 'http://localhost/financejobnepal/';
 
 
 /*
