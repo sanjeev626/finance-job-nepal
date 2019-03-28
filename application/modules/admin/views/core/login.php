@@ -3,7 +3,7 @@
    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>.:: Global Job :: CMS Login ::.</title>
+    <title>.:: Finance Job Nepal :: CMS Login ::.</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -31,7 +31,7 @@
     </div> -->
 
     <div class="login-logo">
-      <img src="<?php echo base_url();?>/content_admin/images/logo.png" style="width: 300px;" />
+      <img src="<?php echo base_url();?>content_home/img/logo.png" style="width: 300px;" />
     </div>
     <hr>
     <!-- /.login-logo -->
@@ -78,7 +78,7 @@
       </div>
 
       <br>
-      <center>&copy; <?php echo date("Y"); ?>. All Rights Reserved.Global Job CMS.</center>
+      <center>&copy; <?php echo date("Y"); ?>. All Rights Reserved. Finance Job Nepal.</center>
     </div>
     <!-- /.login-box-body -->
   </div>

@@ -27,6 +27,11 @@ if (!empty($jobpost_detail)) {
                     <div class="earnings-page-box manage-jobs">
                         <div class="manage-jobs-heading">
                             <h3>Post A new job</h3>
+                            <?php if($this->session->flashdata('success')){ ?>
+                                <div class="alert alert-success alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+                                    <?php echo $this->session->flashdata('success');?> </div>
+                            <?php } ?>
                         </div>
                         <div class="new-job-submission">
                             <?php

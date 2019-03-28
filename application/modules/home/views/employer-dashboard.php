@@ -22,7 +22,7 @@
                                         <label for="name">Organization Name:</label><br><?php echo $employerInfo->organization_name;?>
                                     </div>
                                     <div class="single-input">
-                                        <div class="resume-image company-resume-image" style="width:60px; height:60px;margin: 0px;">
+                                        <div class="resume-image company-resume-image" style="max-height:60px;margin: 0px;">
                                             <?php
                                             if ($employerInfo->organization_logo != ''){
                                                 $imgurl = base_url().'uploads/employer/'.$employerInfo->organization_logo;

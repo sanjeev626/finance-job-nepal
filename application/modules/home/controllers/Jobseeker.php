@@ -84,12 +84,12 @@ class Jobseeker extends View_Controller {
     
         $this->form_validation->set_rules('fname', 'First Name', 'required');
         $this->form_validation->set_rules('lname', 'Last Name', 'required');
-        $this->form_validation->set_rules('phoneres', 'Phone(Res)', 'required');
-        $this->form_validation->set_rules('phonecell', 'Mobile No', 'required');
+        //$this->form_validation->set_rules('phoneres', 'Phone(Res)', 'required');
+        //$this->form_validation->set_rules('phonecell', 'Mobile No', 'required');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('permanentadd', 'Permanent Address', 'required');
+        //$this->form_validation->set_rules('permanentadd', 'Permanent Address', 'required');
         $this->form_validation->set_rules('currentadd', 'Current Address', 'required');
-        $this->form_validation->set_rules('joblocation','Job Location','required');
+        //$this->form_validation->set_rules('joblocation','Job Location','required');
         //$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]');
         $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[5]');
         $this->form_validation->set_rules('confirm_password', 'Password Confirmation', 'trim|required|matches[password]');
@@ -99,18 +99,7 @@ class Jobseeker extends View_Controller {
         -----------------------------------------------------------------*/
         if (FALSE == $this->form_validation->run()) {
             $data['message'] ='';
-            /*$data['message'] .= 'First Name is Required<br>';
-            $data['message'] .= 'Last Name is Required<br>';
-            $data['message'] .= 'Phone(Res) is Required<br>';
-            $data['message'] .= 'Phone(Cell) is Required<br>';
-            $data['message'] .= 'Email is Required and must be valid email<br>';
-            $data['message'] .= 'Permanent Address is Required<br>';
-            $data['message'] .= 'Current Address is Required<br>';
-            $data['message'] .= 'Attach Resume is Required<br>';
-            $data['message'] .= 'Job Location is Required<br>';
-            $data['message'] .= 'UserName is Required and Minimum legth must be 5 and Maximum length is 12<br>';
-            $data['message'] .= 'Password is Required and Minimum length must be 8<br>';  
-            $data['message'] .= 'Confirm Password must match with Password';  */
+
             $data['message'] .= validation_errors();
             
             $data['menu'] = 'home';
@@ -175,17 +164,17 @@ class Jobseeker extends View_Controller {
             /*----------------------------------------------------------------
                               Upload JobSeeker Video Resume
               -----------------------------------------------------------------*/
-              if (!empty($_FILES['video_resume']['name'][0])) {
+              /*if (!empty($_FILES['video_resume']['name'][0])) {
                   $uploads = $this->multiupload->upload("video_resume", 'video_resume');
                   if ($uploads['status'] === true) {
                       $video_resume = $uploads['images'];
                   }
               }
-             if(!isset($video_resume))  $video_resume = '';
+             if(!isset($video_resume)) */ $video_resume = '';
 
 
             /* ------------------------------ Upload Documents on Server ----------------------------*/
-            $slc_docs = $_FILES['slc_docs']['name'];
+            /*$slc_docs = $_FILES['slc_docs']['name'];
             if ($slc_docs !== "") { 
                 $config1['upload_path'] = './././uploads/documents/';
                 $config1['log_threshold'] = 1;
@@ -198,9 +187,9 @@ class Jobseeker extends View_Controller {
                 $upload_data1 = $this->upload->data();
                 $slc_docs = $upload_data1['file_name'];
             }
-            if(!isset($slc_docs))  $slc_docs = '';  
+            if(!isset($slc_docs))*/  $slc_docs = '';
 
-            $docs_11_12 = $_FILES['docs_11_12']['name'];
+            /*$docs_11_12 = $_FILES['docs_11_12']['name'];
             if ($docs_11_12 !== "") { 
                 $config1['upload_path'] = './././uploads/documents/';
                 $config1['log_threshold'] = 1;
@@ -213,9 +202,9 @@ class Jobseeker extends View_Controller {
                 $upload_data1 = $this->upload->data();
                 $docs_11_12 = $upload_data1['file_name'];
             }
-            if(!isset($docs_11_12))  $docs_11_12 = '';
+            if(!isset($docs_11_12))*/  $docs_11_12 = '';
 
-            $bachelor_docs = $_FILES['bachelor_docs']['name'];
+            /*$bachelor_docs = $_FILES['bachelor_docs']['name'];
             if ($bachelor_docs !== "") { 
                 $config1['upload_path'] = './././uploads/documents/';
                 $config1['log_threshold'] = 1;
@@ -228,9 +217,9 @@ class Jobseeker extends View_Controller {
                 $upload_data1 = $this->upload->data();
                 $bachelor_docs = $upload_data1['file_name'];
             }
-            if(!isset($bachelor_docs))  $bachelor_docs = '';  
+            if(!isset($bachelor_docs))*/  $bachelor_docs = '';
 
-            $masters_docs = $_FILES['masters_docs']['name'];
+            /*$masters_docs = $_FILES['masters_docs']['name'];
             if ($masters_docs !== "") { 
                 $config1['upload_path'] = './././uploads/documents/';
                 $config1['log_threshold'] = 1;
@@ -243,9 +232,9 @@ class Jobseeker extends View_Controller {
                 $upload_data1 = $this->upload->data();
                 $masters_docs = $upload_data1['file_name'];
             }
-            if(!isset($masters_docs))  $masters_docs = ''; 
+            if(!isset($masters_docs))*/  $masters_docs = '';
 
-            $other_docs = $_FILES['other_docs']['name'];
+            /*$other_docs = $_FILES['other_docs']['name'];
             if ($other_docs !== "") { 
                 $config1['upload_path'] = './././uploads/documents/';
                 $config1['log_threshold'] = 1;
@@ -258,7 +247,7 @@ class Jobseeker extends View_Controller {
                 $upload_data1 = $this->upload->data();
                 $other_docs = $upload_data1['file_name'];
             }
-            if(!isset($other_docs))  $other_docs = ''; 
+            if(!isset($other_docs))*/  $other_docs = '';
 
             /* -------------------------- Upload Documents on Server ends here------------------------*/
 
@@ -269,12 +258,12 @@ class Jobseeker extends View_Controller {
             
             //Insert Seeker Id in Resume Table
             $data1['sid'] = $insertId; 
-            $this->general_model->insert('resume',$data1);
+            //$this->general_model->insert('resume',$data1);
             
             /*----------------------------------------------------------------
                     Functional Area 1 Insert in table `checkvalue`
             -----------------------------------------------------------------*/
-            $natureoforg1 = $this->input->post('natureoforg1');
+            /*$natureoforg1 = $this->input->post('natureoforg1');
             if(count($natureoforg1)>0){
 					$count1 = count($natureoforg1);
 					for($c=0;$c<$count1;$c++){
@@ -284,22 +273,22 @@ class Jobseeker extends View_Controller {
                         
                         $this->general_model->insert('checkvalue',$data2);
 					}
-				}
+				}*/
                     
             /*----------------------------------------------------------------
                     Functional Area 2 Insert in table `checkvalue`
             -----------------------------------------------------------------*/
-            $natureoforg2 = $this->input->post('natureoforg2');
+            /*$natureoforg2 = $this->input->post('natureoforg2');
             if(count($natureoforg2)>0){
 					$count2 = count($natureoforg2);
 					for($c=0;$c<$count2;$c++){
                         $data3['sid'] = $insertId;
                         $data3['attid'] = '2';
                         $data3['chkvalue'] =$natureoforg2[$c];
-                        
+
                         $this->general_model->insert('checkvalue',$data3);
 					}
-				}
+				}*/
               
               /*----------------------------------------------------------------
                            Send Mail to JobSeeker for Activation 
@@ -314,12 +303,12 @@ class Jobseeker extends View_Controller {
                 $mess = '
                 <html>
                 <head>
-                  <title>Thank you for registering with globaljob.com.np</title>
+                  <title>Thank you for registering with financejobnepal.com</title>
                 </head>
                 <body>
                   Dear '.$toName.'<br><br>
-                  Thank you for registering with globaljob.com.np. Please <a href="'.base_url().'Jobseeker/activate/?code='.$activation_code.'">click here</a> to activate your account.<br><br>
-                  globaljob.com.np<br>
+                  Thank you for registering with financejobnepal.com. Please <a href="'.base_url().'Jobseeker/activate/?code='.$activation_code.'">click here</a> to activate your account.<br><br>
+                  financejobnepal.com<br>
                   A COMPLETE HR SOLUTION
                 </body>
                 </html>
@@ -331,17 +320,17 @@ class Jobseeker extends View_Controller {
 
                 // Additional headers
                 $headers .= 'To: '.$toName.' <'.$to.'>' . "\r\n";
-                $admin_email  = 'info@globaljob.com.np';
-                $headers .= 'From: Global Job Pvt Ltd <'.$admin_email.'>' . "\r\n";
+                $admin_email  = 'info@financejobnepal.com';
+                $headers .= 'From: Finance Job Nepal <'.$admin_email.'>' . "\r\n";
                 //$headers .= 'From: '.$admin_email;
 
                 // Send Mail 
                 if(@mail($to, $subject, $mess, $headers)){            		
                 	$this->session->set_flashdata('success',"The username ".$username." has been created Successfully.<br>Please click on the activation link sent to your email address to activate your account.");
-                    redirect(base_url() . 'home', 'refresh'); 
+                    redirect(base_url() . 'Jobseeker/signup', 'refresh');
                 }else{
                     $this->session->set_flashdata('error',"Mail Couldn't be Send. There must be something wrong with mail.");
-                    redirect(base_url() . 'home', 'refresh'); 
+                    redirect(base_url() . 'Jobseeker/signup', 'refresh');
                 }
           }else{
               
@@ -425,6 +414,7 @@ class Jobseeker extends View_Controller {
     }
 
     public function seekerloginCheck(){
+
         $this->form_validation->set_rules('username', 'username', 'required');
         $this->form_validation->set_rules('password', 'password', 'required|md5');
 
@@ -573,13 +563,13 @@ class Jobseeker extends View_Controller {
         $this->jobSeekerSessionCheck();
         $jobseeker_profile = $this->session->userdata('jobseeker_profile');
         $sid = $jobseeker_profile->id;
-        $data['menu'] = 'home';
+        $data['menu'] = 'dashboard';
         $data['sidebar'] = 'jobseeker';
         $data['sid']= $sid;
         $data['select']='profile';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         $data['main'] = 'jobseeker-dashboard';
-        $this->load->view('dashboard',$data);
+        $this->load->view('main',$data);
     }
     
     public function updateProfilePic(){
@@ -626,7 +616,7 @@ class Jobseeker extends View_Controller {
         $this->jobSeekerSessionCheck();
         $jobseeker_profile = $this->session->userdata('jobseeker_profile');
         $sid = $jobseeker_profile->id;
-        $data['menu'] = 'home';
+        $data['menu'] = 'editProfile';
         $data['sidebar'] = 'jobseeker';
         $data['sid']= $sid;
         $data['select']='editprofile';
@@ -648,7 +638,7 @@ class Jobseeker extends View_Controller {
         $data['language_detail'] = $this->general_model->getAll('seeker_language',array('sid'=>$sid));
         $data['reference_detail'] = $this->general_model->getAll('seeker_reference',array('sid'=>$sid));
         $data['main'] = 'jobseeker-edit-profile';
-        $this->load->view('dashboard',$data);
+        $this->load->view('main',$data);
     }
 
     public function updatePersonalDetail($sid){

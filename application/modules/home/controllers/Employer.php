@@ -431,7 +431,7 @@ class Employer extends View_Controller {
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
-        $data['menu'] = 'home';
+        $data['menu'] = 'update';
         $data['sidebar'] = 'employer';
         $data['select'] = 'postjob';
         $data['jobcategory'] = $this->general_model->getAll('dropdown','fid = 9','dropvalue','id,dropvalue');

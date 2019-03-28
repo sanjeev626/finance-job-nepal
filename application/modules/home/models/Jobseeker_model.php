@@ -29,9 +29,21 @@ class Jobseeker_model extends CI_Model {
             'username' =>$this->input->post('username'),
             'password' =>md5($this->input->post('password')),
             'email' =>$this->input->post('email'),
+            'profile_picture' =>$picture,
+            'resume' =>$resume,
+            'fname' =>$this->input->post('fname'),
+            'mname' =>$this->input->post('mname'),
+            'lname' =>$this->input->post('lname'),
+            'gender' =>$this->input->post('gender'),
+            'dob' =>$dob,
+            'phone_cell' =>$this->input->post('phonecell'),
+            'address_current' =>$this->input->post('currentadd'),
+            'faculty' =>$this->input->post('faculty'),
+            'experience_years' =>$this->input->post('expyrs'),
+            'cjobposiiton' =>$this->input->post('cjobposiiton'),
+            'desired_expected_salary' =>$this->input->post('expsal'),
+            /*
             'email2' =>$this->input->post('email2'),
-            'picture' =>$picture,
-            'resume' =>$resume,  
             'video_resume'=> $videoresume,
             'slc_docs'=> $slc_docs,
             'docs_11_12'=> $docs_11_12,
@@ -40,49 +52,47 @@ class Jobseeker_model extends CI_Model {
             'other_docs'=> $other_docs,
             'summary' =>$this->input->post('summary'),
             'salutation' =>$this->input->post('salutation'),
-            'fname' =>$this->input->post('fname'),
-            'mname' =>$this->input->post('mname'),
-            'lname' =>$this->input->post('lname'),
-            'gender' =>$this->input->post('gender'),
-            'mm' =>$mm,
-            'dd' =>$dd,
-            'yy' =>$yy,
-            'dob' =>$dob,
             'nationality' =>$this->input->post('nationality'),
             'phoneres' =>$this->input->post('phoneres'),
             'phoneoff' =>$this->input->post('phoneoff'),
-            'phonecell' =>$this->input->post('phonecell'),
+
             'phonecell2' =>$this->input->post('phonecell2'),
             'maritalstatus' =>$this->input->post('maritalstatus'),
-            'currentadd' =>$this->input->post('currentadd'),
+
             'currentcon' =>$this->input->post('currentcon'),
             'permanentadd' =>$this->input->post('permanentadd'),
             'permanentcon' =>$this->input->post('permanentcon'),
-            'faculty' =>$this->input->post('faculty'),
+
             'other_faculty' =>$this->input->post('other_faculty'),
             'workexp' =>$this->input->post('workexp'),
-            'expyrs' =>$this->input->post('expyrs'),
+
             'expmths' =>$this->input->post('expmths'),
-            'cjobposiiton' =>$this->input->post('cjobposiiton'),
+
             'keyskills' =>$this->input->post('keyskills'),
             'preunit' =>$this->input->post('preunit'),
             'presal' =>$this->input->post('presal'),
             'expunit' =>$this->input->post('expunit'),
             'exptype' =>$this->input->post('exptype'),
-            'salrange' =>$this->input->post('salrange'),
+
             'funcarea1' =>$this->input->post('funcarea1'),
-           // 'natureoforg1' =>$this->input->post('natureoforg1'),
+            'natureoforg1' =>$this->input->post('natureoforg1'),
             'funcarea2' =>$this->input->post('funcarea2'),
-            //'natureoforg2' =>$this->input->post('natureoforg2'),
+            'natureoforg2' =>$this->input->post('natureoforg2'),
             'job_region' =>$this->input->post('job_region'),
             'joblocation' =>$this->input->post('joblocation'),
             'education_details' =>$this->input->post('education_details'),
-            'latest_education_qualification' =>$this->input->post('latest_education_qualification'),
-            'isActivated' => '1',
+            'latest_education_qualification' =>$this->input->post('latest_education_qualification'),*/
+
+            'isActivated' => '0',
             'activation_code' =>$this->input->post('activation_code'),
-            'apdate' => $joindate
+            'facebook' =>$this->input->post('facebook'),
+            'linkedin' =>$this->input->post('linkedin'),
+            'date_created' => $joindate
         );
-        
+        /*echo '<pre>';
+        print_r($seeker_data);
+        echo '</pre>';
+        die();*/
         $this->db->insert($this->table_seeker,$seeker_data);
         return $this->db->insert_id();
     }

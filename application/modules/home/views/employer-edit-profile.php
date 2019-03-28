@@ -27,6 +27,11 @@
                         $attributes = array('class' => 'form-horizontal user-logIn','name'=>'employersignup',);
                         echo form_open_multipart($action, $attributes);
                         ?>
+                        <?php if($this->session->flashdata('success')){ ?>
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+                                <?php echo $this->session->flashdata('success');?> </div>
+                        <?php } ?>
                         <div class="candidate-single-profile-info">
 
                             <div class="single-resume-feild resume-avatar">
