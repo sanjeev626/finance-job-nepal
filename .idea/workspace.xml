@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3da696f5-cde1-48e8-8cf2-14a8b91c0225" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-login.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-signup.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/controllers/Employer.php" afterPath="$PROJECT_DIR$/application/modules/home/controllers/Employer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/models/Employer_model.php" afterPath="$PROJECT_DIR$/application/modules/home/models/Employer_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" afterPath="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/employer-dashboard.php" afterPath="$PROJECT_DIR$/application/modules/home/views/employer-dashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/employer-edit-profile.php" afterPath="$PROJECT_DIR$/application/modules/home/views/employer-edit-profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/employer-login.php" afterPath="$PROJECT_DIR$/application/modules/home/views/employer-login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/employer-signup.php" afterPath="$PROJECT_DIR$/application/modules/home/views/employer-signup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/includes/header.php" afterPath="$PROJECT_DIR$/application/modules/home/views/includes/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content_home/css/style.css" afterPath="$PROJECT_DIR$/content_home/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="finance-job-nepal.iws" />
@@ -34,69 +27,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Employer.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Jobseeker.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.0898876">
+              <caret line="474" column="23" selection-start-line="474" selection-start-column="23" selection-end-line="474" selection-end-column="23" />
+              <folding>
+                <element signature="e#7535#8210#0#PHP" expanded="false" />
+                <element signature="e#8489#8756#0#PHP" expanded="false" />
+                <element signature="e#9044#9373#0#PHP" expanded="false" />
+                <element signature="e#10337#11145#0#PHP" expanded="false" />
+                <element signature="e#11178#12007#0#PHP" expanded="false" />
+                <element signature="e#12043#12865#0#PHP" expanded="false" />
+                <element signature="e#12900#13708#0#PHP" expanded="false" />
+                <element signature="e#28607#29465#0#PHP" expanded="false" />
+                <marker date="1553756229031" expanded="true" signature="16307:16831" placeholder="..." />
+                <marker date="1553756229031" expanded="true" signature="16330:16438" placeholder="..." />
+                <marker date="1553756229031" expanded="true" signature="16461:16807" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Employer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Employer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9">
-              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.19959678">
+              <caret line="258" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="926" selection-end-column="0" />
               <folding>
-                <element signature="e#6187#8572#0#PHP" expanded="false" />
-                <element signature="e#9193#10722#0#PHP" expanded="false" />
-                <element signature="e#10939#12909#0#PHP" expanded="false" />
-                <element signature="e#13561#14109#0#PHP" expanded="false" />
-                <element signature="e#29253#31962#0#PHP" expanded="false" />
-                <element signature="e#31968#34648#0#PHP" expanded="false" />
-                <element signature="e#34654#35209#0#PHP" expanded="false" />
-                <element signature="e#36201#36794#0#PHP" expanded="false" />
-                <element signature="e#36800#39201#0#PHP" expanded="false" />
+                <element signature="e#34795#35350#0#PHP" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Employer_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/models/Employer_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.4333333">
-              <caret line="45" column="64" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="64" />
-              <folding>
-                <element signature="e#1694#2150#0#PHP" expanded="false" />
-                <element signature="e#3665#3931#0#PHP" expanded="false" />
-                <marker date="1553250733759" expanded="true" signature="22532:23749" placeholder="..." />
-                <marker date="1553250733759" expanded="true" signature="22555:22625" placeholder="..." />
-                <marker date="1553250733759" expanded="true" signature="22648:23725" placeholder="..." />
-                <marker date="1553250733759" expanded="true" signature="23084:23633" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employer-dashboard.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-dashboard.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.32258">
-              <caret line="30" column="103" selection-start-line="30" selection-start-column="87" selection-end-line="30" selection-end-column="103" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employer-edit-profile.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-edit-profile.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2867784">
-              <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="67" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employer-signup.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-signup.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.5161295">
-              <caret line="35" column="82" selection-start-line="35" selection-start-column="75" selection-end-line="35" selection-end-column="82" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -138,7 +98,6 @@
         <option value="$PROJECT_DIR$/application/modules/home/views/dashbaord.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views_back/employer-edit-profile.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views_back/add-edit-postjob.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/add-edit-postjob.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/views/common/footer.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/includes/footer.php" />
         <option value="$PROJECT_DIR$/index.php" />
@@ -151,16 +110,22 @@
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/models/Advertisement_model.php" />
         <option value="$PROJECT_DIR$/application/config/config.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/employer-login.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/includes/header.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-signup.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-login.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/employer-signup.php" />
         <option value="$PROJECT_DIR$/application/modules/home/models/Employer_model.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/controllers/Employer.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/employer-dashboard.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/employer-signup.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views_back/jobseeker-signup.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/models/Jobseeker_model.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-login.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/employer-login.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-signup.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/employer-edit-profile.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/add-edit-postjob.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/includes/header.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-dashboard.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-dashboard-sidebar.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-edit-profile.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/employer-dashboard.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/controllers/Employer.php" />
       </list>
     </option>
   </component>
@@ -176,8 +141,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1366" />
-    <option name="height" value="728" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -202,8 +169,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -275,88 +240,6 @@
               <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views_back" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finance-job-nepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financejobnepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finance-job-nepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financejobnepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finance-job-nepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financejobnepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -382,19 +265,27 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../easymandu.pr" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../xerafyorg" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\financejobnepal\application\modules\home\views\includes" />
       <recent name="D:\xampp\htdocs\financejobnepal\application\modules\home\views" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.views">
+    <configuration default="false" name="views" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/application/modules/home/views" />
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -421,6 +312,14 @@
       <envs />
       <method />
     </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="PHPUnit.views" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="PHPUnit.views" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -435,17 +334,26 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="728" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22205207" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20272315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -503,117 +411,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/employer-signup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.666667">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theme/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.580646">
-          <caret line="181" column="34" selection-start-line="152" selection-start-column="6" selection-end-line="181" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/helpers/url_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.39145496">
-          <caret line="469" column="21" selection-start-line="469" selection-start-column="21" selection-end-line="469" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theme/employer-dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.870968">
-          <caret line="185" column="38" selection-start-line="152" selection-start-column="6" selection-end-line="252" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/employer-login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72759855">
-          <caret line="79" column="65" selection-start-line="79" selection-start-column="58" selection-end-line="79" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.967742">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/includes/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57852197">
-          <caret line="261" column="66" selection-start-line="261" selection-start-column="60" selection-end-line="261" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/employer-dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.870968">
-          <caret line="291" column="21" selection-start-line="177" selection-start-column="15" selection-end-line="291" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7096774">
-          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theme/candidate-profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.548388">
-          <caret line="364" column="43" selection-start-line="152" selection-start-column="6" selection-end-line="364" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/company-profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33256352">
-          <caret line="202" column="30" selection-start-line="202" selection-start-column="30" selection-end-line="315" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/helpers/view_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2007233">
-          <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/employer-edit-profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41221374">
-          <caret line="54" column="23" selection-start-line="47" selection-start-column="14" selection-end-line="54" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/employer-dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.645162">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/employer-profile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -645,13 +446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/add-edit-postjob.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5925197">
-          <caret line="91" column="179" selection-start-line="91" selection-start-column="179" selection-end-line="91" selection-end-column="179" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/admin/views/home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.7783985">
@@ -680,24 +474,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system/libraries/Session/Session.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.9350394">
           <caret line="240" column="13" selection-start-line="240" selection-start-column="13" selection-end-line="240" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/General_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5833335">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -729,13 +509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-job-list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.354839">
-          <caret line="82" column="37" selection-start-line="7" selection-start-column="0" selection-end-line="82" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/includes/employer-dashboard-sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.133333">
@@ -761,7 +534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,23 +541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="36" column="15" selection-start-line="36" selection-start-column="15" selection-end-line="36" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3225806">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/jobseeker-signup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8387096">
-          <caret line="4" column="56" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -793,108 +548,244 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.935484">
           <caret line="23" column="79" selection-start-line="23" selection-start-column="65" selection-end-line="23" selection-end-column="79" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-login.php">
+    <entry file="file://$PROJECT_DIR$/theme/jobseeker-signup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53887886">
-          <caret line="40" column="100" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="100" />
-          <folding />
+        <state vertical-scroll-proportion="0.358047">
+          <caret line="163" column="63" selection-start-line="163" selection-start-column="12" selection-end-line="163" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/header.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-signup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49909583">
-          <caret line="159" column="50" selection-start-line="159" selection-start-column="50" selection-end-line="159" selection-end-column="50" />
-          <folding />
+        <state vertical-scroll-proportion="-7.806452">
+          <caret line="70" column="44" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.7096774">
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.676311">
+          <caret line="52" column="2" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/manage-jobs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="44.0">
+          <caret line="76" column="62" selection-start-line="76" selection-start-column="62" selection-end-line="76" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/manage-jobs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/includes/head-other.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="8.419354">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/includes/header-other.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.935484">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theme/includes/navigation-inner.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.064516">
+          <caret line="17" column="14" selection-start-line="3" selection-start-column="9" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/jobseeker-signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.129771">
+          <caret line="260" column="32" selection-start-line="260" selection-start-column="32" selection-end-line="260" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../easymandu.pr/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18835616">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../venuemanagement.pr/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5273973">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-job-list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8387096">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/models/Employer_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.7096774">
+          <caret line="45" column="64" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-signup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="62" column="74" selection-start-line="62" selection-start-column="74" selection-end-line="62" selection-end-column="74" />
-          <folding />
+        <state vertical-scroll-proportion="-16.419355">
+          <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/models/Jobseeker_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1666667">
+          <caret line="186" column="8" selection-start-line="186" selection-start-column="8" selection-end-line="186" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-edit-profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.903226">
+          <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/includes/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.0">
+          <caret line="256" column="60" selection-start-line="256" selection-start-column="51" selection-end-line="256" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4050633">
+          <caret line="102" column="49" selection-start-line="102" selection-start-column="49" selection-end-line="102" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.039783">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.482821">
-          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+        <state vertical-scroll-proportion="-6.387097">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/add-edit-postjob.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34900543">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-edit-profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-dashboard-sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/jobseeker-changepassword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="57.48387">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/General_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1516246">
+          <caret line="168" column="5" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1450381">
-          <caret line="66" column="13" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
+        <state vertical-scroll-proportion="-3.0898876">
+          <caret line="474" column="23" selection-start-line="474" selection-start-column="23" selection-end-line="474" selection-end-column="23" />
           <folding>
-            <marker date="1553247792216" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1553247792216" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1553247792216" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-signup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5161295">
-          <caret line="35" column="82" selection-start-line="35" selection-start-column="75" selection-end-line="35" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/models/Employer_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4333333">
-          <caret line="45" column="64" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="64" />
-          <folding>
-            <element signature="e#1694#2150#0#PHP" expanded="false" />
-            <element signature="e#3665#3931#0#PHP" expanded="false" />
-            <marker date="1553250733759" expanded="true" signature="22532:23749" placeholder="..." />
-            <marker date="1553250733759" expanded="true" signature="22555:22625" placeholder="..." />
-            <marker date="1553250733759" expanded="true" signature="22648:23725" placeholder="..." />
-            <marker date="1553250733759" expanded="true" signature="23084:23633" placeholder="..." />
+            <element signature="e#7535#8210#0#PHP" expanded="false" />
+            <element signature="e#8489#8756#0#PHP" expanded="false" />
+            <element signature="e#9044#9373#0#PHP" expanded="false" />
+            <element signature="e#10337#11145#0#PHP" expanded="false" />
+            <element signature="e#11178#12007#0#PHP" expanded="false" />
+            <element signature="e#12043#12865#0#PHP" expanded="false" />
+            <element signature="e#12900#13708#0#PHP" expanded="false" />
+            <element signature="e#28607#29465#0#PHP" expanded="false" />
+            <marker date="1553756229031" expanded="true" signature="16307:16831" placeholder="..." />
+            <marker date="1553756229031" expanded="true" signature="16330:16438" placeholder="..." />
+            <marker date="1553756229031" expanded="true" signature="16461:16807" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Employer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.19959678">
+          <caret line="258" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="926" selection-end-column="0" />
           <folding>
-            <element signature="e#6187#8572#0#PHP" expanded="false" />
-            <element signature="e#9193#10722#0#PHP" expanded="false" />
-            <element signature="e#10939#12909#0#PHP" expanded="false" />
-            <element signature="e#13561#14109#0#PHP" expanded="false" />
-            <element signature="e#29253#31962#0#PHP" expanded="false" />
-            <element signature="e#31968#34648#0#PHP" expanded="false" />
-            <element signature="e#34654#35209#0#PHP" expanded="false" />
-            <element signature="e#36201#36794#0#PHP" expanded="false" />
-            <element signature="e#36800#39201#0#PHP" expanded="false" />
+            <element signature="e#34795#35350#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.32258">
-          <caret line="30" column="103" selection-start-line="30" selection-start-column="87" selection-end-line="30" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-edit-profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2867784">
-          <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="67" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>

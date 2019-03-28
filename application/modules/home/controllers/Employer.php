@@ -51,7 +51,7 @@ class Employer extends View_Controller {
 //        }
 
         $data['menu'] = 'employer';
-        $data['page_title'] = 'Employer Login - Global Job :: A complete HR Solution';
+        $data['page_title'] = 'Employer Login - Finance Job Nepal :: A complete HR Solution';
         //$data['clients'] = $this->general_model->getAll('clients','image!=""','','id,clientname,image','',30);
         //$data['services']=  $this->general_model->getAll('globaljob_service','','','id,title,urlcode,logo,short_description');
 
@@ -61,7 +61,7 @@ class Employer extends View_Controller {
     
     public function signup(){
         $data['menu'] = 'employer';
-        $data['page_title'] = 'Employer Registration - Global Job :: A complete HR Solution';
+        $data['page_title'] = 'Employer Registration - Finance Job Nepal :: A complete HR Solution';
         $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue'); 
         $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue'); 
         $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
@@ -157,16 +157,16 @@ class Employer extends View_Controller {
             $content .= "<br><br>To update your password, click the link below<br>";
             $content .= "<a href='".base_url()."Employer/changePassword/?token=".$token."'>Reset my password";
             $content .= "<br><br><br><br>Cheers,<br>";
-            $content .= "Global Job Team";
+            $content .= "Finance Job Nepal Team";
 
 
-            $adminEmail = 'info@globaljob.com.np';
-            $mail_subject = "Forget Password Response from Global Job :: A Complete HR solution";
+            $adminEmail = 'info@financejobnepal.com';
+            $mail_subject = "Forget Password Response from Finance Job Nepal :: A Complete HR solution";
             $mail_body = $content;
             $mail_header  = 'MIME-Version: 1.0' . "\r\n";
             $mail_header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $mail_header .= 'To: '.$mail_to.' <'.$mail_to.'>' . "\r\n";
-            $mail_header .= 'From: Global Job :: Complete HR solution <'.$adminEmail.'>' . "\r\n";
+            $mail_header .= 'From: Finance Job Nepal :: Complete HR solution <'.$adminEmail.'>' . "\r\n";
 
             if(@mail($mail_to,$mail_subject,$mail_body,$mail_header)){
                      $this->session->set_flashdata('success', 'Password reset link has been Sent. Please check your Email.');
@@ -187,7 +187,7 @@ class Employer extends View_Controller {
         if($countToken > 0){
                  $data['menu'] = 'home';
                  $data['token'] = $token;
-                 $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+                 $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
                  $this->load->view('employer-changepassword',$data);
         }else{
             $this->session->set_flashdata('error', 'The token provided doesnt exists in our record');
@@ -245,9 +245,9 @@ class Employer extends View_Controller {
         {
             $jobs.=$job_detail->jobtitle.', ';
         }
-        $data['page_title'] = $ogtitle = 'List of Jobs posted by '.$employer_info->orgname.' on Global Job :: A complete HR Solution';
-        $data['page_keywords'] = $jobs.' posted by '.$employer_info->orgname.' on Global Job :: A complete HR Solution';
-        $data['page_description'] = $ogdescription = $jobs.' posted by '.$employer_info->orgname.' on Global Job :: A complete HR Solution';
+        $data['page_title'] = $ogtitle = 'List of Jobs posted by '.$employer_info->orgname.' on Finance Job Nepal :: A complete HR Solution';
+        $data['page_keywords'] = $jobs.' posted by '.$employer_info->orgname.' on Finance Job Nepal :: A complete HR Solution';
+        $data['page_description'] = $ogdescription = $jobs.' posted by '.$employer_info->orgname.' on Finance Job Nepal :: A complete HR Solution';
         
         $ogurl = base_url().'Employer/jobList/'.$employer_info->orgcode.'/'.$employer_info->id;
 
@@ -259,7 +259,7 @@ class Employer extends View_Controller {
             $ogimage = "";
 
         $data['ogurl'] = $ogurl;
-        $data['ogwebsite'] = 'http://globaljob.com.np';
+        $data['ogwebsite'] = 'http://financejobnepal.com';
         $data['ogtitle'] = $ogtitle;
         $data['ogdescription'] = $ogdescription;
         $data['ogimage'] = $ogimage;
@@ -280,7 +280,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'dashboard';
         $data['sidebar'] = 'employer';
         $data['select'] = '';
-        $data['page_title'] = 'Employer Dashboard - Global Job :: A complete HR Solution';
+        $data['page_title'] = 'Employer Dashboard - Finance Job Nepal :: A complete HR Solution';
         $data['main'] = 'employer-dashboard';
         $this->load->view('main',$data);
     }
@@ -293,7 +293,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = 'profile';
-        $data['page_title'] = 'My Profile - Global Job :: A complete HR Solution';
+        $data['page_title'] = 'My Profile - Finance Job Nepal :: A complete HR Solution';
         $data['main'] = 'employer-profile';
         $this->load->view('dashboard',$data);
     }
@@ -345,7 +345,7 @@ class Employer extends View_Controller {
         $data['sidebar'] = 'employer';
         $data['select'] = 'listjob';
         $data['list_job'] = $this->general_model->getAll('jobs',array('eid'=>$eid),'','','',$config['per_page'],$page);
-        $data['page_title'] = 'List of Jobs Posted - Global Job :: A complete HR Solution';
+        $data['page_title'] = 'List of Jobs Posted - Finance Job Nepal :: A complete HR Solution';
         $data['main'] = 'employer-job-list';
         $this->load->view('main',$data);
     }
@@ -364,7 +364,7 @@ class Employer extends View_Controller {
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','dropvalue','id,dropvalue');
         $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','dropvalue','id,dropvalue');
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
         $data['main'] = 'add-edit-postjob';
         $this->load->view('main',$data);
     }
@@ -440,7 +440,7 @@ class Employer extends View_Controller {
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','dropvalue','id,dropvalue');
         $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','dropvalue','id,dropvalue');
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
         $data['jobpost_detail'] = $this->general_model->getById('jobs','id',$id);
         $data['main'] = 'add-edit-postjob';
         $this->load->view('main',$data);
@@ -460,7 +460,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = '';
-        $data['page_title'] = 'List of Job Applicants - Global Job :: A complete HR Solution';
+        $data['page_title'] = 'List of Job Applicants - Finance Job Nepal :: A complete HR Solution';
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
         /* Bootstrap Pagination  */
@@ -519,7 +519,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = 'rejected';
-        $data['page_title'] = 'Rejected Applicants - Global Job :: A complete HR Solution';
+        $data['page_title'] = 'Rejected Applicants - Finance Job Nepal :: A complete HR Solution';
         $data['title'] = 'List of Rejected Applicants'; 
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
@@ -579,7 +579,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = '';
-        $data['page_title'] = 'Shortlisted Applicants - Global Job :: A complete HR Solution';
+        $data['page_title'] = 'Shortlisted Applicants - Finance Job Nepal :: A complete HR Solution';
         $data['title'] = 'List of Shortlisted Applicants'; 
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
@@ -639,7 +639,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = 'shortlisted';
-        $data['page_title'] = 'Shortlisted Applicants - Global Job :: A complete HR Solution..';
+        $data['page_title'] = 'Shortlisted Applicants - Finance Job Nepal :: A complete HR Solution..';
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
         /* Bootstrap Pagination  */
@@ -698,7 +698,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = 'rejected';
-        $data['page_title'] = 'Rejected Applicants - Global Job :: A complete HR Solution';
+        $data['page_title'] = 'Rejected Applicants - Finance Job Nepal :: A complete HR Solution';
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
         /* Bootstrap Pagination  */
@@ -772,7 +772,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'companyprofile';
         $data['sidebar'] = 'employer';
         $data['select'] = 'editprofile';
-        $data['page_title'] = 'Profile Edit - Global Job :: Complete HR Solution';
+        $data['page_title'] = 'Profile Edit - Finance Job Nepal :: Complete HR Solution';
         $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
         $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue');
         $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
@@ -790,7 +790,7 @@ class Employer extends View_Controller {
         $data['sidebar'] = 'employer';
         $data['sid']= $sid;
         $data['select'] = '';
-        $data['page_title'] = 'Job Seeker Details - Global Job :: A complete HR Solution';
+        $data['page_title'] = 'Job Seeker Details - Finance Job Nepal :: A complete HR Solution';
         $data['main'] = 'view-seeker-details';
         $this->load->view('dashboard',$data);
     }
@@ -855,7 +855,7 @@ class Employer extends View_Controller {
         $eid = $employer_profile->id;
 
         $data['menu'] = 'editPassword';
-        $data['page_title'] = 'Edit Password - Global Job :: Complete HR Solution';
+        $data['page_title'] = 'Edit Password - Finance Job Nepal :: Complete HR Solution';
         $data['main'] = 'employer-edit-password';
         $this->load->view('main',$data);
     }
@@ -894,7 +894,7 @@ class Employer extends View_Controller {
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
         $data['menu'] = 'home';
-        $data['page_title'] = 'Change Password - Global Job :: A complete HR Solution';
+        $data['page_title'] = 'Change Password - Finance Job Nepal :: A complete HR Solution';
         $this->employer_model->change_pasword($eid);
         $this->session->set_flashdata('success', 'Your Password has been changed. Please login and proceed');
         redirect(base_url() . 'Employer/login', 'refresh');
