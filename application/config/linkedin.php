@@ -12,7 +12,7 @@
 |  linkedin_redirect_url   string   URL to redirect back to after login. (do not include base URL)
 |  linkedin_scope          array    Your required permissions.
 */
-$config['linkedin_api_key']       = '81v4c13pocdxqw';
-$config['linkedin_api_secret']    = '4p8WJJMXcvfiesRz';
+$config['linkedin_api_key']       = 'linkedin_api_key'; //81v4c13pocdxqw
+$config['linkedin_api_secret']    = 'linkedin_api_secret'; //4p8WJJMXcvfiesRz
 $config['linkedin_redirect_url']  = 'Jobseeker/loginLinkedin/';
 $config['linkedin_scope']         = 'r_basicprofile r_emailaddress';

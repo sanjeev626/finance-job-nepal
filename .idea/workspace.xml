@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3da696f5-cde1-48e8-8cf2-14a8b91c0225" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/libraries/Facebook.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/libraries/Google.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/config/google.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/config/linkedin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/controllers/Dashboard.php" afterPath="$PROJECT_DIR$/application/modules/admin/controllers/Dashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" afterPath="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/models/Jobseeker_model.php" afterPath="$PROJECT_DIR$/application/modules/home/models/Jobseeker_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/dashboard_view.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/dashboard_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/dropdown/dropdown_manager_view.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/dropdown/dropdown_manager_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/common/footer.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/common/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/common/header.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/common/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-signup.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-signup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/common/sidenav.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/common/sidenav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/facebook.php" afterPath="$PROJECT_DIR$/application/config/facebook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/google.php" afterPath="$PROJECT_DIR$/application/config/google.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/linkedin.php" afterPath="$PROJECT_DIR$/application/config/linkedin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="finance-job-nepal.iws" />
@@ -40,7 +30,7 @@
       <file leaf-file-name="Jobseeker.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.774194">
+            <state vertical-scroll-proportion="0.0">
               <caret line="1487" column="9" selection-start-line="1487" selection-start-column="9" selection-end-line="1487" selection-end-column="9" />
               <folding>
                 <element signature="e#1348#3257#0#PHP" expanded="false" />
@@ -96,8 +86,8 @@
       <file leaf-file-name="linkedin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/config/linkedin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.806452">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+            <state vertical-scroll-proportion="-10.645162">
+              <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -106,7 +96,7 @@
       <file leaf-file-name="jobseeker-signup.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-signup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.774194">
+            <state vertical-scroll-proportion="0.0">
               <caret line="236" column="51" selection-start-line="236" selection-start-column="51" selection-end-line="236" selection-end-column="51" />
               <folding />
             </state>
@@ -116,8 +106,8 @@
       <file leaf-file-name="google.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/config/google.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6437613">
-              <caret line="20" column="62" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.6425993">
+              <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -126,8 +116,8 @@
       <file leaf-file-name="facebook.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/config/facebook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.645162">
-              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+            <state vertical-scroll-proportion="-9.354838">
+              <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -206,14 +196,14 @@
         <option value="$PROJECT_DIR$/application/libraries/Facebook.php" />
         <option value="$PROJECT_DIR$/application/modules/home/controllers/Home.php" />
         <option value="$PROJECT_DIR$/application/modules/home/models/Jobseeker_model.php" />
-        <option value="$PROJECT_DIR$/application/config/facebook.php" />
         <option value="$PROJECT_DIR$/application/libraries/Google.php" />
-        <option value="$PROJECT_DIR$/application/config/google.php" />
-        <option value="$PROJECT_DIR$/application/config/linkedin.php" />
         <option value="$PROJECT_DIR$/application/config/config.php" />
         <option value="$PROJECT_DIR$/application/libraries/linkedin-oauth-client/oauth_client.php" />
         <option value="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-signup.php" />
+        <option value="$PROJECT_DIR$/application/config/linkedin.php" />
+        <option value="$PROJECT_DIR$/application/config/facebook.php" />
+        <option value="$PROJECT_DIR$/application/config/google.php" />
       </list>
     </option>
   </component>
@@ -257,8 +247,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -535,6 +523,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -615,7 +605,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30030257" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21785174" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -971,9 +961,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="429" column="31" selection-start-line="429" selection-start-column="31" selection-end-line="429" selection-end-column="31" />
-          <folding>
-            <element signature="e#6#109#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -994,7 +981,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.068716">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1002,7 +988,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.238698">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1018,21 +1003,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6708861">
           <caret line="439" column="8" selection-start-line="439" selection-start-column="8" selection-end-line="439" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/linkedin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.806452">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-signup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.774194">
+        <state vertical-scroll-proportion="0.0">
           <caret line="236" column="51" selection-start-line="236" selection-start-column="51" selection-end-line="236" selection-end-column="51" />
           <folding />
         </state>
@@ -1040,7 +1016,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.774194">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1487" column="9" selection-start-line="1487" selection-start-column="9" selection-end-line="1487" selection-end-column="9" />
           <folding>
             <element signature="e#1348#3257#0#PHP" expanded="false" />
@@ -1092,18 +1068,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/facebook.php">
+    <entry file="file://$PROJECT_DIR$/application/config/linkedin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.645162">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/facebook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.354838">
+          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/google.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6437613">
-          <caret line="20" column="62" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.6425993">
+          <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
           <folding />
         </state>
       </provider>
