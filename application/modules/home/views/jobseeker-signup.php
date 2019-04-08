@@ -234,9 +234,10 @@
                             </div>
                             <div class="submit-resume">
                                 <button type="submit" name="submit">Signup</button>
-                                Signup via Facebook |
-                                Signup via Linked In |
-                                Signup via gmail </div>
+                                <a href="<?php echo $authURL; ?>">Signup via Facebook |</a>
+                                <!--<a href="<?php /*echo $oauthURL;*/?>">Signup via Linked In |</a>-->
+                                <a href="<?php echo base_url().'Jobseeker/loginGoogle';?>">Signup via gmail |</a>
+                            </div>
                         <?php echo form_close(); ?>
                     </div>
                 </div>

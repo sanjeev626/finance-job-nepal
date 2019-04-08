@@ -13,6 +13,7 @@ class Jobseeker_model extends CI_Model {
     
     public function __construct() {
         parent::__construct();
+        $this->primaryKey = 'id';
     }
     
     
@@ -234,7 +235,38 @@ class Jobseeker_model extends CI_Model {
         return $num_results;
     }
 
-    
+    public function checkUser($userData= array()){
+        if(!empty($userData)){
+            //check whether user data already exists in database with same oauth info
+            $this->db->select($this->primaryKey);
+            $this->db->from($this->table_seeker);
+            $this->db->where(array('oauth_provider'=>$userData['oauth_provider'], 'oauth_uid'=>$userData['oauth_uid']));
+            $prevQuery = $this->db->get();
+            $prevCheck = $prevQuery->num_rows();
+
+            if($prevCheck > 0){
+                $prevResult = $prevQuery->row_array();
+
+                //update user data
+                $userData['date_modified'] = date("Y-m-d H:i:s");
+                $update = $this->db->update($this->table_seeker, $userData, array('id' => $prevResult['id']));
+
+                //get user ID
+                $userID = $prevResult['id'];
+            }else{
+                //insert user data
+                $userData['date_created']  = date("Y-m-d H:i:s");
+                $userData['date_modified'] = date("Y-m-d H:i:s");
+                $insert = $this->db->insert($this->table_seeker, $userData);
+
+                //get user ID
+                $userID = $this->db->insert_id();
+            }
+        }
+
+        //return user ID
+        return $userID?$userID:FALSE;
+    }
 }
 
 /* End of file Jobseeker_model.php

@@ -11,11 +11,24 @@ class Jobseeker extends View_Controller {
 
     public function __construct() {
         parent::__construct();
+
+        $this->load->library('facebook');
+        $this->load->library('google');
         $this->load->model('jobseeker_model');
         $this->load->model('employer_model');
         $this->load->library('multiupload');
         $this->load->helper('view_helper');
         $this->load->model('admin/general_model','general_model');
+
+
+        require_once APPPATH.'third_party/google-api-client/Google_Client.php';
+        require_once APPPATH.'third_party/google-api-client/contrib/Google_Oauth2Service.php';
+
+        // Load linkedin config
+        $this->load->config('linkedin');
+        //Include the linkedin api php libraries
+        include_once APPPATH."libraries/linkedin-oauth-client/http.php";
+        include_once APPPATH."libraries/linkedin-oauth-client/oauth_client.php";
     }
 
     public function index(){
@@ -77,6 +90,14 @@ class Jobseeker extends View_Controller {
         $data['nationality'] =$this->general_model->getAll('dropdown','fid = 8','','id,dropvalue');
         $data['main'] = 'jobseeker-signup';
         $data['message'] ='';
+
+        /*facebook login */
+        $data['authURL'] =  $this->facebook->login_url();
+        /*facebook login */
+        /*linked in login*/
+        $data['oauthURL'] = base_url().$this->config->item('linkedin_redirect_url').'?oauth_init=1';
+        /*linked in login*/
+
         $this->load->view('main',$data);
     }
     
@@ -114,7 +135,8 @@ class Jobseeker extends View_Controller {
             $data['nationality'] =$this->general_model->getAll('dropdown','fid = 8','','id,dropvalue');
             $data['main'] = 'jobseeker-signup';
             $this->load->view('main',$data);
-        }else{
+        }
+        else{
             $username = $this->input->post('username');
 		    $email = $this->input->post('email');
             $firstname = $this->input->post('fname');
@@ -1427,6 +1449,199 @@ class Jobseeker extends View_Controller {
 
 
     }
+
+    /*-----------------------------------------------------------------
+            Social Media Login
+    ------------------------------------------------------------------*/
+    public function loginFacebook(){
+        $userData = array();
+        // Check if user is logged in
+        if($this->facebook->is_authenticated()){
+            // Get user facebook profile details
+            $fbUser = $this->facebook->request('get', '/me?fields=id,first_name,last_name,email,link,gender,picture');
+            // Preparing data for database insertion
+            $userData['oauth_provider'] = 'facebook';
+            $userData['oauth_uid']    = !empty($fbUser['id'])?$fbUser['id']:'';;
+            $userData['fname']    = !empty($fbUser['first_name'])?$fbUser['first_name']:'';
+            $userData['lname']    = !empty($fbUser['last_name'])?$fbUser['last_name']:'';
+            $userData['email']        = !empty($fbUser['email'])?$fbUser['email']:'';
+            $userData['gender']        = !empty($fbUser['gender'])?$fbUser['gender']:'';
+            //$userData['picture']    = !empty($fbUser['picture']['data']['url'])?$fbUser['picture']['data']['url']:'';
+            $userData['link']        = !empty($fbUser['link'])?$fbUser['link']:'';
+            $userData['isActivated']        = 1;
+
+            // Insert or update user data
+            $userID = $this->jobseeker_model->checkUser($userData);
+            //$userData['id'] = $userID;
+            // Check user data insert or update status
+            if(!empty($userID)){
+                //$data['userData'] = $userData;
+                $jobseeker_profile= $this->general_model->getById('seeker','id',$userID);
+
+                $this->session->set_userdata('jobseeker_profile', $jobseeker_profile);
+            }else{
+                $data['userData'] = array();
+            }
+
+            // Get logout URL
+            $data['logoutURL'] = $this->facebook->logout_url();
+        }
+        else{
+            // Get login URL
+            $data['authURL'] =  $this->facebook->login_url();
+        }
+        redirect(base_url() . 'Jobseeker/dashboard', 'refresh');
+
+    }
+
+    public function loginLinkedin(){
+        //echo $_GET["oauth_init"];
+        $userData = array();
+        //Get status and user info from session
+        $oauthStatus = $this->session->userdata('oauth_status');
+        $sessUserData = $this->session->userdata('jobseeker_profile');
+        if(isset($oauthStatus) && $oauthStatus == 'verified'){
+            //User info from session
+            $userData = $sessUserData;
+        }
+        elseif((isset($_GET["oauth_init"]) && $_GET["oauth_init"] == 1) || (isset($_GET['oauth_token']) && isset($_GET['oauth_verifier'])))
+        {
+
+            $client = new oauth_client_class;
+            $client->client_id = $this->config->item('linkedin_api_key');
+            $client->client_secret = $this->config->item('linkedin_api_secret');
+            $client->redirect_uri = base_url().$this->config->item('linkedin_redirect_url');
+            $client->scope = $this->config->item('linkedin_scope');
+            $client->debug = false;
+            $client->debug_http = true;
+            $application_line = __LINE__;
+
+            //If authentication returns success
+            if($success = $client->Initialize()){
+                if(($success = $client->Process())){
+                    if(strlen($client->authorization_error)){
+                        $client->error = $client->authorization_error;
+                        $success = false;
+                    }elseif(strlen($client->access_token)){
+                        $success = $client->CallAPI('https://api.linkedin.com/v2/me?projection=(id,firstName,lastName,profilePicture(displayImage~:playableStreams))',
+                            'GET',
+                            array('format'=>'json'),
+                            array('FailOnAccessError'=>true), $userInfo);
+
+
+                    }
+                }
+                $success = $client->Finalize($success);
+            }
+
+            if($client->exit) {echo 'exit';}
+
+            if($success){
+                //Preparing data for database insertion
+                $first_name = !empty($userInfo->firstName)?$userInfo->firstName:'';
+                $last_name = !empty($userInfo->lastName)?$userInfo->lastName:'';
+                $userData = array(
+                    'oauth_provider'=> 'linkedin',
+                    'oauth_uid'     => $userInfo->id,
+                    'fname'     => $first_name,
+                    'lname'     => $last_name,
+                    'email'         => $userInfo->emailAddress,
+                    'locale'         => $userInfo->location->name,
+                    'isActivated'   =>  1
+                );
+
+
+                //Insert or update user data
+                $userID = $this->user->checkUser($userData);
+                $jobseeker_profile= $this->general_model->getById('seeker','id',$userID);
+
+                $this->session->set_userdata('jobseeker_profile', $jobseeker_profile);
+
+                //Store status and user profile info into session
+                $this->session->set_userdata('oauth_status','verified');
+                //$this->session->set_userdata('userData',$userData);
+
+                //Redirect the user back to the same page
+                redirect(base_url() . 'Jobseeker/dashboard', 'refresh');
+
+            }else{
+                echo $data['error_msg'] = $client->error;
+            }
+        }
+        elseif(isset($_GET["oauth_problem"]) && $_GET["oauth_problem"] <> ""){
+            echo $data['error_msg'] = $_GET["oauth_problem"];
+        }else{
+            $data['oauthURL'] = base_url().$this->config->item('linkedin_redirect_url').'?oauth_init=1';
+        }
+
+    }
+
+    public function loginGoogle(){
+        $clientId = '182146452582-0dra8qi9co61ft2ol6qmppd5djbogqnd.apps.googleusercontent.com'; //Google client ID
+        $clientSecret = 'n_DfFYNnTfNHbFnhmjK49iY0'; //Google client secret
+        $redirectURL = base_url() .'Jobseeker/loginGoogle';
+
+        //https://curl.haxx.se/docs/caextract.html
+
+        //Call Google API
+        $gClient = new Google_Client();
+        $gClient->setApplicationName('Login');
+        $gClient->setClientId($clientId);
+        $gClient->setClientSecret($clientSecret);
+        $gClient->setRedirectUri($redirectURL);
+        $google_oauthV2 = new Google_Oauth2Service($gClient);
+
+        if(isset($_GET['code']))
+        {
+            $gClient->authenticate($_GET['code']);
+            $_SESSION['token'] = $gClient->getAccessToken();
+            header('Location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
+        }
+
+        if (isset($_SESSION['token']))
+        {
+            $gClient->setAccessToken($_SESSION['token']);
+        }
+
+        if ($gClient->getAccessToken()) {
+            $userProfile = $google_oauthV2->userinfo->get();
+            $userData['oauth_provider'] = 'google';
+            $userData['oauth_uid']      = $userProfile['id'];
+            $userData['fname']     = $userProfile['given_name'];
+            $userData['lname']      = $userProfile['family_name'];
+            $userData['email']          = $userProfile['email'];
+            $userData['gender']         = !empty($userProfile['gender'])?$userProfile['gender']:'';
+            $userData['locale']         = !empty($userProfile['locale'])?$userProfile['locale']:'';
+            $userData['link']           = !empty($userProfile['link'])?$userProfile['link']:'';
+            //$userData['picture']        = !empty($userProfile['picture'])?$userProfile['picture']:'';
+            $userData['isActivated']        = 1;
+
+            $userID = $this->jobseeker_model->checkUser($userData);
+
+            if(!empty($userID)){
+                //$data['userData'] = $userData;
+                $jobseeker_profile= $this->general_model->getById('seeker','id',$userID);
+
+                $this->session->set_userdata('jobseeker_profile', $jobseeker_profile);
+            }else{
+                $data['userData'] = array();
+            }
+
+            // Get logout URL
+            $data['logoutURL'] = $this->facebook->logout_url();
+        }
+        else
+        {
+            $url = $gClient->createAuthUrl();
+            header("Location: $url");
+            exit;
+        }
+        redirect(base_url() . 'Jobseeker/dashboard', 'refresh');
+    }
+
+    /*-----------------------------------------------------------------
+            Social Media Login
+    ------------------------------------------------------------------*/
 
 }
 

@@ -25,10 +25,10 @@
                     $field_value = $this->dropdown_model->get_all_field($key->id);
                   ?>
                   <tr>
-                    <td><a href="javascript:;" class="toggle_sku"><i rel="allfield" class="fa fa-plus-circle"></i>&nbsp;&nbsp;&nbsp; Field: <?php echo $key->title; ?></a></td>    
+                    <td><a href="javascript:void(0);" class="toggle_sku"><i rel="allfield" class="fa fa-plus-circle"></i>&nbsp;&nbsp;&nbsp; Field: <?php echo $key->title; ?></a></td>    
                   </tr>
                   <?php if (!empty($field_value)) { ?>
-                  <tr style="display: none">
+                  <tr style="display: none" class="fieldvalue">
                     <td colspan="8">
                       <form name="" class="allfield" >
                         <table class="table">
@@ -125,7 +125,7 @@
   $(document).ready(function () {
 
     $('.toggle_sku').click(function () {
-      $(this).parent().parent().next().toggle('slow');
+      $(this).parent().parent().next('.fieldvalue').toggle('slow');
       $(this).find('i').toggleClass("fa-plus-circle fa-minus-circle"); 
     });
 

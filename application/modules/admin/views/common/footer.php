@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright © 2003 - <?php echo date('Y '); ?>GlobalJob Pvt. Ltd.</strong> All rights reserved.
+    <strong>Copyright © 2003 - <?php echo date('Y '); ?>Finance Job Nepal</strong> All rights reserved.
 </footer>
 
 <!-- Bootstrap 3.3.6 -->
