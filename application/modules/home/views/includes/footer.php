@@ -119,9 +119,19 @@
 <script src="<?php echo base_url(); ?>content_home/js/main.js"></script>
 
 <script>
+    function dynamiceditor(){
+
+        tinymce.EditorManager.editors = [];
+
+        tinymce.init({selector:'textarea'});//this will reinitialze tinymce
+
+    }
+
+
     $('document').ready(function () {
+
         tinymce.init({
-            selector: "textarea", theme: "modern", height: 500,
+            selector: "textarea", theme: "modern", height: 300,
             plugins: [
                 "advlist autolink lists link image charmap print preview anchor",
                 "searchreplace visualblocks code fullscreen",
@@ -136,6 +146,8 @@
             external_plugins: {"filemanager": "<?php echo base_url();?>" + "tinymce/file_manager/filemanager/plugin.min.js"}
         });
     });
+
+
 </script>
 
 </body>

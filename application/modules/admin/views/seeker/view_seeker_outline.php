@@ -47,7 +47,7 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                 $funcarea2 = $this->general_model->getById('dropdown','id',$key->funcarea2)->dropvalue;
               ?>
                 <tr>
-                  <td colspan="3" class="green-bold"><h3><?php echo $salutation; ?> <?php echo $key->fname; ?>
+                  <td colspan="3" class="green-bold"><h3><?php echo $key->fname; ?>
                       <?php if(!empty($key->mname)) echo " ".$key->mname; ?>
                       <?php if(!empty($key->lname)) echo " ".$key->lname; ?>
                     </h3></td>
@@ -61,13 +61,13 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                 </tr>
                 <tr>
                   <td class="green-bold">Address</td>
-                  <td><?php echo $key->currentadd; ?></td>
+                  <td><?php echo $key->address_current; ?></td>
                   <td></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td width="20%" class="green-bold">Contact</td>
-                  <td width="30%"><?php echo $key->phonecell.' / '.$key->phoneres; ?></td>
+                  <td width="20%"><?php echo $key->phone_cell.' / '.$key->phone_resisdance; ?></td>
                   <td width="20%" class="green-bold">Email</td>
                   <td width="30%"><?php echo $key->email; ?></td>
                 </tr>
@@ -108,15 +108,16 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                   <td class="green-bold">Company Name :</td>
                   <td><?php echo $sekVal->company;?></td>
                   <td class="green-bold">Location : </td>
-                  <td><?php echo $sekVal->empoyername;?></td>
+                  <td><?php echo $sekVal->location;?></td>
                 </tr>
                   <td class="green-bold">Designation : </td>
-                  <td><?php echo $sekVal->designation;?></td>
+                  <td><?php echo $sekVal->title;?></td>
                   <td class="green-bold">Duration : </td>
-                  <td>From <?php echo date('F', mktime(0, 0, 0, $sekVal->frommonth, 10)).' '.$sekVal->fromyear; ?> to
+                  <td>From
+                  <?php echo  $sekVal->frommonth.' '.$sekVal->fromyear; ?> to
                     <?php
                     if($current_work == 0){
-                        echo date('F', mktime(0, 0, 0, $sekVal->tomonth, 10)).' '.$sekVal->toyear;
+                        echo $sekVal->tomonth.' '.$sekVal->toyear;
                     }else{
                         echo 'Present';
                     }
@@ -127,7 +128,7 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                   <td colspan="4" class="green-bold">Duties and Responsibilities</td>
                 </tr>
                 <tr>
-                  <td colspan="4"><?php echo nl2br(stripslashes($sekVal->duties));?></td>
+                  <td colspan="4"><?php echo nl2br(stripslashes($sekVal->roles_and_responsibilities));?></td>
                 </tr>
                 <?php endforeach; }else{?>
                 <tr>
@@ -147,7 +148,8 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                           <th class="green-bold">Graduation Year</th>
                           <th class="green-bold">College/School</th>
                           <th class="green-bold">Board/University</th>
-                          <th class="green-bold">Percentage</th>
+                          <th class="green-bold">Marks Secured In</th>
+                          <th class="green-bold">Marks Secured</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -157,11 +159,12 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                         ?>
                         <tr>
                           <td><?php echo $degree;?></td>
-                          <td><?php echo $seEdVal->faculty;?></td>
+                          <td><?php echo $seEdVal->education_program;?></td>
                           <td><?php echo $seEdVal->graduationyear;?></td>
                           <td><?php echo $seEdVal->instution;?></td>
                           <td><?php echo $seEdVal->board;?></td>
-                          <td><?php echo $seEdVal->percentage;?></td>
+                          <td><?php echo $seEdVal->marks_secured_in;?></td>
+                          <td><?php echo $seEdVal->marks_secured;?></td>
                         </tr>
                         <?php endforeach; }else{?>
                         <tr>
@@ -215,8 +218,8 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                         <tr>
                           <td><?php echo $seTraVal->institution;?></td>
                           <td><?php echo $seTraVal->course;?></td>
-                          <td><?php echo date('F', mktime(0, 0, 0, $seTraVal->frommonth, 10)).' '.$seTraVal->fromyear; ?></td>
-                          <td><?php echo date('F', mktime(0, 0, 0, $seTraVal->tomonth, 10)).' '.$seTraVal->toyear; ?></td>
+                          <td><?php echo $seTraVal->frommonth.' '.$seTraVal->fromyear; ?></td>
+                          <td><?php echo $seTraVal->tomonth.' '.$seTraVal->toyear; ?></td>
                         </tr>
                         <?php endforeach; }else{?>
                         <tr>
@@ -233,7 +236,7 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                 </tr>
                 <tr>
                   <td class="green-bold">Date of Birth : </td>
-                  <td><?php echo $key->dd.' '.date('F', mktime(0, 0, 0, $key->mm, 10)).' '.$key->yy;?></td>
+                  <td><?php echo $key->dob?></td>
                   <td></td>
                   <td></td>
                 </tr>
@@ -247,26 +250,26 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                 <?php } ?>
                 <tr>
                   <td class="green-bold">Phone (Res) :</td>
-                  <td><?php echo $key->phoneres; ?></td>
+                  <td><?php echo $key->phone_resisdance; ?></td>
                   <td></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td class="green-bold">Cell No. :</td>
-                  <td><?php echo $key->phonecell; ?></td>
+                  <td><?php echo $key->phone_cell; ?></td>
                   <td></td>
                   <td></td>
                 </tr>
                 <tr>
                   <td class="green-bold">Marital Status :</td>
-                  <td><?php echo $key->maritalstatus; ?></td>
+                  <td><?php echo $key->marital_status; ?></td>
                   <td></td>
                   <td></td>
                 </tr>
-                <tr>
+                <!--<tr>
                   <td class="green-bold">Permanent Address :</td>
-                  <td colspan="3"><?php echo $key->permanentadd; ?></td>
-                </tr>
+                  <td colspan="3"><?php /*echo $key->permanentadd; */?></td>
+                </tr>-->
                 <?php if(!empty($seekerReference)){?>
                 <tr>
                   <td colspan="4"><h3 class="green-bold">References</h3></td>
@@ -277,12 +280,9 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                       <thead>
                         <tr>
                           <th class="green-bold">Name</th>
-                          <th class="green-bold">Address</th>
                           <th class="green-bold">Phone</th>
                           <th class="green-bold">Email</th>
-                          <th class="green-bold">Company</th>
                           <th class="green-bold">Designation</th>
-                          <th class="green-bold">Relationship</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -290,13 +290,10 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                         foreach($seekerReference as $refkey => $seRefVal):
                         ?>
                         <tr>
-                          <td><?php echo $seRefVal->fname.' '.$seRefVal->mname.' '.$seRefVal->lname;?></td>
-                          <td><?php echo $seRefVal->block.', '.$seRefVal->street.', '.$seRefVal->city;?></td>
-                          <td><?php echo $seRefVal->office; if(!empty($seRefVal->cell)) echo $seRefVal->cell;?></td>
+                          <td><?php echo $seRefVal->reference_name;?></td>
+                          <td><?php echo $seRefVal->organization_name; if(!empty($seRefVal->mobile_number)) echo $seRefVal->other_number;?></td>
                           <td><?php echo $seRefVal->email;?></td>
-                          <td><?php echo $seRefVal->cname;?></td>
-                          <td><?php echo $seRefVal->designation;?></td>
-                          <td><?php echo $seRefVal->relationship;?></td>
+                          <td><?php echo $seRefVal->position;?></td>
                         </tr>
                         <?php endforeach; }else{?>
                         <tr>
@@ -320,9 +317,9 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                 </tr>            
                 <tr>
                   <td class="green-bold">Membership Date :</td>
-                  <td><?php echo $key->apdate; ?></td>
+                  <td><?php echo $key->date_created; ?></td>
                   <td class="green-bold">Modified Date :</td>
-                  <td><?php if($key->modifieddate>0) echo $key->modifieddate; ?></td>
+                  <td><?php if($key->date_modified>0) echo $key->date_modified; ?></td>
                 </tr>            
                 <tr>
                   <td class="green-bold">Last Access Date :</td>
@@ -332,9 +329,9 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
                 </tr>
               </tbody>
             </table>
-          <div> 
-            <a class="btn btn-success btn-sm below_space" href="<?php echo base_url(); ?>admin/Seeker/moveJobToBasket/<?php echo $key->id; ?>"><i class="fa fa-shopping-cart" data-original-title="View Basket"></i> Move To Basket </a> 
-            <a class="btn btn-success btn-sm below_space" href="<?php echo base_url(); ?>admin/Seeker/seeker_applied_job_list/<?php echo $key->id; ?>" target="_blank"><i class="fa fa-file-text-o" data-original-title="View Basket"></i> Applied Job List </a>
+          <div>
+<!--            <a class="btn btn-success btn-sm below_space" href="--><?php //echo base_url(); ?><!--admin/Seeker/moveJobToBasket/--><?php //echo $key->id; ?><!--"><i class="fa fa-shopping-cart" data-original-title="View Basket"></i> Move To Basket </a> -->
+<!--            <a class="btn btn-success btn-sm below_space" href="--><?php //echo base_url(); ?><!--admin/Seeker/seeker_applied_job_list/--><?php //echo $key->id; ?><!--" target="_blank"><i class="fa fa-file-text-o" data-original-title="View Basket"></i> Applied Job List </a>-->
             <?php if(!empty($key->resume) && file_exists(FCPATH.'uploads/resume/'.$key->resume)){ ?>
             <a class="btn btn-success btn-sm below_space" href="<?php echo base_url().'uploads/resume/'.$key->resume;?>" class="link2" target="_blank"><i class="fa fa-edit" data-original-title="View Employer"></i> Download/Open Resume</a>
             <?php } ?>
@@ -365,8 +362,8 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
             <button type="submit" class="btn btn-danger btn-sm btnApplicants" id="btnReject" name="btnReject">
               <i class="fa fa-ban" aria-hidden="true"></i> Reject
             </button> -->
-            <button type="button" class="btn btn-success below_space btn-sm delete_seeker" link="<?php echo base_url(); ?>admin/Seeker/deleteSeeker/<?php echo $key->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Job Seeker"></i> Delete</button>
-            <?php 
+            <!--<button type="button" class="btn btn-success below_space btn-sm delete_seeker" link="<?php /*echo base_url(); */?>admin/Seeker/deleteSeeker/<?php /*echo $key->id; */?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Job Seeker"></i> Delete</button>-->
+            <?php
             if($key->isActivated =='1')
             { 
               $btn_text = "Change to InActive State"; 
@@ -377,9 +374,9 @@ $seekerReference = $this->general_model->getAll('seeker_reference',array('sid' =
               $btn_text = "Change To Active State"; 
               $btn_class = "btn-danger";
             } 
-            ?> 
+            ?>
                        
-            <a class="btn <?php echo $btn_class;?> below_space btn-sm" href="<?php echo base_url(); ?>admin/Seeker/changeActivation/<?php echo $key->id; ?>/<?php echo $key->isActivated; ?>"><?php echo $btn_text;?></a>
+            <!--<a class="btn <?php /*echo $btn_class;*/?> below_space btn-sm" href="<?php /*echo base_url(); */?>admin/Seeker/changeActivation/<?php /*echo $key->id; */?>/<?php /*echo $key->isActivated; */?>"><?php /*echo $btn_text;*/?></a>-->
           </div>
           </div>
           <!-- table-responsive --> 

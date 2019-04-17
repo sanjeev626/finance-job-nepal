@@ -1,0 +1,62 @@
+UPDATE 	wpoi_options SET option_value = REPLACE( option_value, 'http://localhost/hacchi' ,'http://dac.technocreates.net/hacci' );
+UPDATE 	wpoi_posts SET guid = REPLACE( guid, 'http://localhost/hacchi' ,'http://dac.technocreates.net/hacci'  );
+UPDATE 	wpoi_posts SET post_content = REPLACE( post_content, 'http://localhost/hacchi' ,'http://dac.technocreates.net/hacci'  );
+UPDATE 	wpoi_postmeta SET meta_value = REPLACE( meta_value, 'http://localhost/hacchi' ,'http://dac.technocreates.net/hacci'  );
+
+
+
+
+UPDATE 	posts SET image = REPLACE( image, 'http://localhost/nepalauto/wp-content/' ,'photos/'  );
+
+
+
+UPDATE 	rm_redirection_404 SET referrer = REPLACE( referrer, 'http://localhost/royalmt' ,'http://royalmt.dev'  );
+
+
+
+
+
+UPDATE 	rm_2_posts SET post_content = REPLACE( post_content, 'http://traveltibet.com/blog/wp-content/uploads/sites/7' ,'http://traveltibet.com/blog/wp-content/uploads/sites/2'  );
+
+UPDATE 	default_banner SET image = REPLACE( image, 'http://dac.com.np/xerafy/' ,'http://dac.technocreates.net/xerafyhealth/' );
+
+UPDATE 	tags SET image = REPLACE( image, 'http://dac.com.np/xerafy//' ,'http://dac.technocreates.net/xerafyhealth/' );
+
+UPDATE 	tags SET main_banner = REPLACE( main_banner, 'http://dac.com.np/xerafy//' ,'http://dac.technocreates.net/xerafyhealth/' );
+
+UPDATE 	resources SET file = REPLACE( file, 'http://dac.com.np/xerafy/' ,'http://dac.technocreates.net/xerafyhealth/' );
+
+UPDATE 	resources SET image_cover = REPLACE( image_cover, 'http://dac.com.np/xerafy/' ,'http://dac.technocreates.net/xerafyhealth/' );
+
+UPDATE product_banners SET banner = REPLACE( banner, 'http://dac.com.np/xerafy/' ,'http://dac.technocreates.net/xerafyhealth/' );
+
+UPDATE tbl_cloud_tags SET link_en = REPLACE( link_en, 'http://dac.technocreates.net/xerafyhealth/' ,'http://localhost/xerafy/' );
+
+
+UPDATE tbl_cloud_tags SET link_cn = REPLACE( link_cn, 'http://dac.technocreates.net/xerafyhealth/' ,'http://localhost/xerafy/' );
+
+
+
+// retrieves the attachment ID from the file URL
+function pippin_get_image_id($image_url) {
+	global $wpdb;
+	$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid='%s';", $image_url )); 
+        return $attachment[0]; 
+}
+
+
+// set the image url
+$image_url = 'http://yoursite.com/wp-content/uploads/2011/02/14/image_name.jpg';
+ 
+// store the image ID in a var
+$image_id = pippin_get_image_id($image_url);
+ 
+// retrieve the thumbnail size of our image
+$image_thumb = wp_get_attachment_image_src($image_id, 'thumbnail');
+ 
+// display the image
+echo $image_thumb[0];
+
+
+
+UPDATE 	tbl_businesscards SET size = REPLACE( size, '&quot;' ,'"'  );

@@ -48,11 +48,11 @@ else
       <?php if($user_id<4){?>
       <ul class="sidebar-menu">
         <li class ="<?php if($nav == 'dashboard'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Dashboard"><i class="fa fa-home"></i><span>DASHBOARD</span></a></li>
-        <!-- <li class ="<?php if($nav == 'content'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Content"><i class="fa fa-edit"></i><span>CONTENT</span></a></li> 
-        <li class ="<?php if($nav == 'vacancy'){ echo 'active'; } ?>"><a href="<?php echo $vacancy_link; ?>"><i class="fa fa-bullhorn"></i><span>VACANCY</span></a></li>
+        <!--<li class ="<?php /*if($nav == 'content'){ echo 'active'; } */?>"><a href="<?php /*echo base_url(); */?>admin/Content"><i class="fa fa-edit"></i><span>CONTENT</span></a></li>
+        <li class ="<?php /*if($nav == 'vacancy'){ echo 'active'; } */?>"><a href="<?php /*echo $vacancy_link; */?>"><i class="fa fa-bullhorn"></i><span>VACANCY</span></a></li>-->
         <li class ="<?php if($nav == 'employer'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Employer"><i class="fa fa-user-secret"></i><span>EMPLOYER</span></a></li>
         <?php if($user_id!=3){?>
-        <li class ="<?php if($nav == 'seeker'){ echo 'active'; } ?>"><a href="<?php echo $seeker_link; ?>"><i class="fa fa-user"></i><span>JOB SEEKER</span></a></li>-->
+        <li class ="<?php if($nav == 'seeker'){ echo 'active'; } ?>"><a href="<?php echo $seeker_link; ?>"><i class="fa fa-user"></i><span>JOB SEEKER</span></a></li>
         <?php } ?>
 <!--         <li class ="<?php if($nav == 'seeker'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Seeker/check_login"><i class="fa fa-user"></i><span>JOB SEEKER test</span></a></li>
  -->

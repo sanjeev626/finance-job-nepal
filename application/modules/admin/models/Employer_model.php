@@ -14,8 +14,8 @@ class Employer_model extends CI_Model {
     }
 
     public function get_all_employer($limit,$offset){
-    	$this->db->select('id,orgname,email,isCorporate,fname,mname,lname');
-        $this->db->order_by('orgname','ASC');
+    	$this->db->select('*');
+        $this->db->order_by('id','ASC');
     	$query =  $this->db->get('employer',$limit,$offset);
     	if ($query->num_rows() == 0) {
             return FALSE;

@@ -99,85 +99,49 @@ class Jobseeker_model extends CI_Model {
     }
     
     public function update_jobseeker_info($sid,$picture,$resume,$videoresume,$slc_docs,$docs_11_12,$bachelor_docs,$masters_docs,$other_docs){
-         $yy = $this->input->post('yy');
-        $mm = $this->input->post('mm');
-        $dd = $this->input->post('dd');
-        $dob = $yy."-".$mm."-".$dd;
+//         $yy = $this->input->post('yy');
+//        $mm = $this->input->post('mm');
+//        $dd = $this->input->post('dd');
+//        $dob = $yy."-".$mm."-".$dd;
 
         $modifieddate = date('Y-m-d');
 
         $other_faculty = $this->input->post('other_faculty');
 
         $seeker_data =array(
-            'email' =>$this->input->post('email'),
+            /*'email' =>$this->input->post('email'),
             'email2' =>$this->input->post('email2'),
             'summary' =>$this->input->post('summary'),
-            'salutation' =>$this->input->post('salutation'),
+            'salutation' =>$this->input->post('salutation'),*/
             'fname' =>$this->input->post('fname'),
             'mname' =>$this->input->post('mname'),
             'lname' =>$this->input->post('lname'),
             'gender' =>$this->input->post('gender'),
-            'mm' =>$mm,
-            'dd' =>$dd,
-            'yy' =>$yy,
-            'dob' =>$dob,
-            'nationality' =>$this->input->post('nationality'),
-            'phoneres' =>$this->input->post('phoneres'),
-            'phoneoff' =>$this->input->post('phoneoff'),
-            'phonecell' =>$this->input->post('phonecell'),
-            'phonecell2' =>$this->input->post('phonecell2'),
-            'maritalstatus' =>$this->input->post('maritalstatus'),
-            'currentadd' =>$this->input->post('currentadd'),
-            'currentcon' =>$this->input->post('currentcon'),
-            'permanentadd' =>$this->input->post('permanentadd'),
-            'permanentcon' =>$this->input->post('permanentcon'),
-            'workexp' =>$this->input->post('workexp'),
-            'expyrs' =>$this->input->post('expyrs'),
-            'expmths' =>$this->input->post('expmths'),
+            'phone_cell' =>$this->input->post('phonecell'),
+            'address_current' =>$this->input->post('currentadd'),
+            'faculty' =>$this->input->post('faculty'),
+            'highest_qualification' =>$this->input->post('highest_qualification'),
+            'past_employer' =>$this->input->post('past_employer'),
+            'current_employer' =>$this->input->post('current_employer'),
+            'experience_years' =>$this->input->post('expyrs'),
             'cjobposiiton' =>$this->input->post('cjobposiiton'),
-            'faculty'=>$this->input->post('faculty'),
-            'other_faculty'=>$other_faculty,
-            'keyskills' =>$this->input->post('keyskills'),
-            'preunit' =>$this->input->post('preunit'),
-            'presal' =>$this->input->post('presal'),
-            'expunit' =>$this->input->post('expunit'),
-            'exptype' =>$this->input->post('exptype'),
-            'salrange' =>$this->input->post('salrange'),
-            'expsal' =>$this->input->post('expsal'),
-            'funcarea1' =>$this->input->post('funcarea1'),
-            'funcarea2' =>$this->input->post('funcarea2'),
-            'job_region' =>$this->input->post('job_region'),
-            'joblocation' =>$this->input->post('joblocation'),
-            'video_resume_youtube' =>$this->input->post('video_resume_youtube'),
-            'modifieddate' => $modifieddate
+            'desired_expected_salary' =>$this->input->post('expsal'),
+            'facebook' =>$this->input->post('facebook'),
+            'linkedin' =>$this->input->post('linkedin'),
+            'date_modified' => $modifieddate
             );
         if($picture){
-            $seeker_data['picture'] = $picture;
+            $seeker_data['profile_picture'] = $picture;
         }
 
         if($resume){
             $seeker_data['resume'] = $resume;
         }
 
-        if($videoresume){
-            $seeker_data['video_resume'] = $videoresume;
-        }
-        
-        if($slc_docs){
-            $seeker_data['slc_docs'] = $slc_docs;
-        }
-        if($docs_11_12){
-            $seeker_data['docs_11_12'] = $docs_11_12;
-        }
-        if($bachelor_docs){
-            $seeker_data['bachelor_docs'] = $bachelor_docs;
-        }
-        if($masters_docs){
-            $seeker_data['masters_docs'] = $masters_docs;
-        }
-        if($other_docs){
-            $seeker_data['other_docs'] = $other_docs;
-        }
+//        echo '<pre>';
+//            print_r($seeker_data);
+//        echo '</pre>';
+//        die();
 
         //print_r($seeker_data); exit();
         $this->db->where('id',$sid);

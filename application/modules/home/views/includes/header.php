@@ -90,11 +90,12 @@
                     <div class="header-right-menu header-menu">
                         <nav id="navigation">
                             <ul id="fjn_navigation">
-                            <li><a href="post-job.html" class="post-jobs">Post jobs</a></li>
+
                             <?php
                             $employer_profile = $this->session->userdata('employer_profile');
                             $jobseeker_profile = $this->session->userdata('jobseeker_profile');
                             if(!empty($employer_profile)){ ?>
+                                <li><a href="<?php echo base_url() . 'Employer/postJob' ?>" class="post-jobs">Post jobs</a></li>
                                 <li><a href="<?php echo base_url();?>Employer/dashboard"><i class="fa fa-tachometer"></i>Dashboard</a></li>
                                 <li><a href="<?php echo base_url();?>Employer/logout"><i class="fa fa-power-off"></i>logout</a></li>
                             <?php }

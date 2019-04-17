@@ -1,6 +1,5 @@
 <?php include('includes/head-other.php');?>
-
-<section class="candidate-dashboard-area section_70">
+<section class="candidate-dashboard-area section_50">
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-lg-12">
@@ -35,10 +34,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12 col-lg-3 dashboard-left-border">
-        <?php include('includes/employer-left-menu.php');?>
+      <div class="col-md-12 col-lg-4 dashboard-left-border">
+        <?php include('includes/jobseeker-left-menu-dashboard.php');?>
       </div>
-      <div class="col-md-12 col-lg-9">
+      <div class="col-md-12 col-lg-8">
         <div class="job-grid-right">
           <div class="browse-job-head-option">
             <div class="job-browse-search">
@@ -47,23 +46,9 @@
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
             </div>
-            <div class="job-browse-action"> 
-              <!-- <div class="email-alerts">
-                              <input type="checkbox" class="styled" id="b_1">
-                              <label class="styled" for="b_1">email alerts for this search</label>
-                           </div> -->
-              <div class="dropdown">
-                <button class="btn-dropdown dropdown-toggle" type="button" id="dropdowncur" data-toggle="dropdown" aria-haspopup="true">Sort By</button>
-                <ul class="dropdown-menu" aria-labelledby="dropdowncur">
-                  <li>Newest</li>
-                  <li>Oldest</li>
-                  <li>Random</li>
-                </ul>
-              </div>
-            </div>
           </div>
           <!-- end job head -->
-          <div class="job-sidebar-list-single">
+          <div class="job-sidebar-list-single margin-top-0">
             <div class="sidebar-list-single">
               <h3>Jobs matching your profile.</h3>
               <p>This list is shown based on your Job Preference</p>
@@ -74,13 +59,13 @@
                 <div class="company-list-details">
                   <h3><a href="#">Regional Sales Manager</a></h3>
                   <span>
-                     <a href="#"><i class="fa fa-building"></i> <a href="#"><i class="fa fa-building"></i> Company Name</a></a>
+                     <a href="#"><i class="fa fa-building"></i> Company Name</a>
                   </span><br>
                   <p class="company-state"><i class="fa fa-map-marker"></i> Baluwatar, Kathmandu</p>
                   <p class="open-icon"><i class="fa fa-clock-o"></i>3rd May 2019</p>
                   <p class="varify"><i class="fa fa-check"></i>IT &amp; Telecommunication</p>
                 </div>
-                <div class="company-list-btn"> <a href="#" class="fjn-btn">Apply now</a> </div>
+                <div class="company-list-btn"> <a href="#" class="fjn-link">View Details</a> </div>
               </div>
             </div>
             <!-- end sidebar single list -->
@@ -94,7 +79,7 @@
                   <p class="open-icon"><i class="fa fa-clock-o"></i>3rd May 2019</p>
                   <p class="varify"><i class="fa fa-check"></i>IT &amp; Telecommunication</p>
                 </div>
-                <div class="company-list-btn"> <a href="#" class="fjn-btn">Apply Now</a> </div>
+                <div class="company-list-btn"> <a href="#" class="fjn-link">View Details</a> </div>
               </div>
             </div>
             <!-- end sidebar single list -->
@@ -108,7 +93,7 @@
                   <p class="open-icon"><i class="fa fa-clock-o"></i>3rd May 2019</p>
                   <p class="varify"><i class="fa fa-check"></i>IT &amp; Telecommunication</p>
                 </div>
-                <div class="company-list-btn"> <a href="#" class="fjn-btn">Apply Now</a> </div>
+                <div class="company-list-btn"> <a href="#" class="fjn-link">View Details</a> </div>
               </div>
             </div>
             <!-- end sidebar single list -->
@@ -122,7 +107,7 @@
                   <p class="open-icon"><i class="fa fa-clock-o"></i>3rd May 2019</p>
                   <p class="varify"><i class="fa fa-check"></i>Accounting / Finance</p>
                 </div>
-                <div class="company-list-btn"> <a href="#" class="fjn-btn">Apply Now</a> </div>
+                <div class="company-list-btn"> <a href="#" class="fjn-link">View Details</a> </div>
               </div>
             </div>
             <!-- end sidebar single list -->
@@ -136,7 +121,7 @@
                   <p class="open-icon"><i class="fa fa-clock-o"></i>3rd May 2019</p>
                   <p class="varify"><i class="fa fa-check"></i>Accounting / Finance</p>
                 </div>
-                <div class="company-list-btn"> <a href="#" class="fjn-btn">Apply Now</a> </div>
+                <div class="company-list-btn"> <a href="#" class="fjn-link">View Details</a> </div>
               </div>
             </div>
             <!-- end sidebar single list -->
@@ -150,7 +135,7 @@
                   <p class="open-icon"><i class="fa fa-clock-o"></i>3rd May 2019</p>
                   <p class="varify"><i class="fa fa-check"></i>Accounting / Finance</p>
                 </div>
-                <div class="company-list-btn"> <a href="#" class="fjn-btn">Apply Now</a> </div>
+                <div class="company-list-btn"> <a href="#" class="fjn-link">View Details</a> </div>
               </div>
             </div>
             <!-- end sidebar single list -->
@@ -164,7 +149,7 @@
                   <p class="open-icon"><i class="fa fa-clock-o"></i>3rd May 2019</p>
                   <p class="varify"><i class="fa fa-check"></i>IT &amp; Telecommunication</p>
                 </div>
-                <div class="company-list-btn"> <a href="#" class="fjn-btn">Apply Now</a> </div>
+                <div class="company-list-btn"> <a href="#" class="fjn-link">View Details</a> </div>
               </div>
             </div>
             <!-- end sidebar single list -->
@@ -178,7 +163,7 @@
                   <p class="open-icon"><i class="fa fa-clock-o"></i>3rd May 2019</p>
                   <p class="varify"><i class="fa fa-check"></i>Accounting / Finance</p>
                 </div>
-                <div class="company-list-btn"> <a href="#" class="fjn-btn">Apply Now</a> </div>
+                <div class="company-list-btn"> <a href="#" class="fjn-link">View Details</a> </div>
               </div>
             </div>
             <!-- end sidebar single list -->
@@ -192,7 +177,7 @@
                   <p class="open-icon"><i class="fa fa-clock-o"></i>3rd May 2019</p>
                   <p class="varify"><i class="fa fa-check"></i>Accounting / Finance</p>
                 </div>
-                <div class="company-list-btn"> <a href="#" class="fjn-btn">Apply Now</a> </div>
+                <div class="company-list-btn"> <a href="#" class="fjn-link">View Details</a> </div>
               </div>
             </div>
             <!-- end sidebar single list -->
@@ -206,7 +191,7 @@
                   <p class="open-icon"><i class="fa fa-clock-o"></i>3rd May 2019</p>
                   <p class="varify"><i class="fa fa-check"></i>Accounting / Finance</p>
                 </div>
-                <div class="company-list-btn"> <a href="#" class="fjn-btn">Apply Now</a> </div>
+                <div class="company-list-btn"> <a href="#" class="fjn-link">View Details</a> </div>
               </div>
             </div>
             <!-- end sidebar single list --> 

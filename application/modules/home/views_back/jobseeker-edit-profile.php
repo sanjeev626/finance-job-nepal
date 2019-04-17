@@ -1003,7 +1003,7 @@
         });
 
         $(document).on('click','.remove_edu_row',function(){
-            $(this).parent().parent().remove();
+            $(this).parent('.appendedu').remove();
         });
 
         /*----------------------------------------------------------------

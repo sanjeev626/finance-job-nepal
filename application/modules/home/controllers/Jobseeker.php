@@ -175,12 +175,20 @@ class Jobseeker extends View_Controller {
               /*----------------------------------------------------------------
               Upload JobSeeker Picture  on Server
               -----------------------------------------------------------------*/
-              if (!empty($_FILES['picture']['name'][0])) {
-                  $uploads = $this->multiupload->upload("picture", 'jobseeker');
-                  if ($uploads['status'] === true) {
-                      $picture = $uploads['images'];
-                  }
-              }
+                $a = $_FILES['picture']['name'];
+                if ($a != "") {
+                    //echo "Upload Employer Logo";
+                    $config['upload_path'] = './././uploads/jobseeker/';
+                    $config['log_threshold'] = 1;
+                    $config['allowed_types'] = 'jpg|png|jpeg|gif';
+                    $config['max_size'] = '100000'; // 0 = no file size limit
+                    $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['picture']['name']));
+                    $config['overwrite'] = false;
+                    $this->load->library('upload', $config);
+                    $this->upload->do_upload('picture');
+                    $upload_data = $this->upload->data();
+                    $picture = $upload_data['file_name'];
+                }
               if(!isset($picture))  $picture = '';
 
             /*----------------------------------------------------------------
@@ -633,6 +641,131 @@ class Jobseeker extends View_Controller {
         }
         redirect(base_url() . 'Jobseeker/dashboard');
     }
+    /*-----------------------------------------------------------------------
+            Added by binaya for finance job
+    -----------------------------------------------------------------------*/
+    public function basicInformation(){
+        $this->jobSeekerSessionCheck();
+        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
+        $sid = $jobseeker_profile->id;
+        $data['menu'] = 'basicInformation';
+        $data['sid']= $sid;
+        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['basicInfo'] = $this->general_model->getById('seeker','id',$sid);
+        $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','','id,dropvalue');
+        $data['main'] = 'jobseeker-edit-profile';
+        $this->load->view('main',$data);
+    }
+
+    public function updateInformation($sid){
+        $this->jobSeekerSessionCheck();
+
+        $resume = $_FILES['resume']['name'];
+        if ($resume !== "") {
+            $config1['upload_path'] = './././uploads/resume/';
+            $config1['log_threshold'] = 1;
+            $config1['allowed_types'] = 'doc|docx|pdf|txt|rtf';
+            $config1['max_size'] = '100000'; // 0 = no file size limit
+            $config1['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['resume']['name']));
+            $config1['overwrite'] = false;
+            $this->load->library('upload', $config1);
+            $this->upload->do_upload('resume');
+            $upload_data1 = $this->upload->data();
+            $resume = $upload_data1['file_name'];
+        }
+        if(!isset($resume))  $resume = '';
+
+        $a = $_FILES['picture']['name'];
+        if ($a != "") {
+            //echo "Upload Employer Logo";
+            $config['upload_path'] = './././uploads/jobseeker/';
+            $config['log_threshold'] = 1;
+            $config['allowed_types'] = 'jpg|png|jpeg|gif';
+            $config['max_size'] = '100000'; // 0 = no file size limit
+            $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['picture']['name']));
+            $config['overwrite'] = false;
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('picture');
+            $upload_data = $this->upload->data();
+            $picture = $upload_data['file_name'];
+        }
+
+        if(!isset($picture))  $picture = '';
+
+
+        $video_resume = '';$slc_docs = '';$other_docs = ''; $masters_docs = ''; $bachelor_docs = ''; $docs_11_12 = '';
+
+        $this->jobseeker_model->update_jobseeker_info($sid,$picture,$resume,$video_resume,$slc_docs,$docs_11_12,$bachelor_docs,$masters_docs,$other_docs);
+
+        $this->session->set_flashdata('success', 'Personal Information Data update Successfully.');
+        redirect(base_url() . 'Jobseeker/basicInformation');
+    }
+
+    public function education(){
+        $this->jobSeekerSessionCheck();
+        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
+        $sid = $jobseeker_profile->id;
+        $data['menu'] = 'education';
+        $data['sid']= $sid;
+        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['education'] =$this->general_model->getAll('dropdown','fid = 11','','id,dropvalue');
+        $data['education_detail'] = $this->general_model->getAll('seeker_education',array('sid'=>$sid),'id');
+        $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','','id,dropvalue');
+        $data['main'] = 'jobseeker-education';
+        $this->load->view('main',$data);
+    }
+
+    public function training(){
+        $this->jobSeekerSessionCheck();
+        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
+        $sid = $jobseeker_profile->id;
+        $data['menu'] = 'training';
+        $data['sid']= $sid;
+        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['training_detail'] = $this->general_model->getAll('seeker_training',array('sid'=>$sid),'id');
+        $data['main'] = 'jobseeker-training';
+        $this->load->view('main',$data);
+    }
+
+    public function workExperience(){
+        $this->jobSeekerSessionCheck();
+        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
+        $sid = $jobseeker_profile->id;
+        $data['menu'] = 'workExperience';
+        $data['sid']= $sid;
+        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['experience_detail'] = $this->general_model->getAll('seeker_experience',array('sid'=>$sid),'id');
+        $data['main'] = 'jobseeker-work-experience';
+        $this->load->view('main',$data);
+    }
+
+    public function language(){
+        $this->jobSeekerSessionCheck();
+        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
+        $sid = $jobseeker_profile->id;
+        $data['menu'] = 'language';
+        $data['sid']= $sid;
+        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['language_detail'] = $this->general_model->getAll('seeker_language',array('sid'=>$sid),'id');
+        $data['main'] = 'jobseeker-language';
+        $this->load->view('main',$data);
+    }
+
+    public function reference(){
+        $this->jobSeekerSessionCheck();
+        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
+        $sid = $jobseeker_profile->id;
+        $data['menu'] = 'reference';
+        $data['sid']= $sid;
+        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['reference_detail'] = $this->general_model->getAll('seeker_reference',array('sid'=>$sid),'id');
+        $data['main'] = 'jobseeker-reference';
+        $this->load->view('main',$data);
+    }
+
+    /*-----------------------------------------------------------------------
+            Added by binaya for finance job
+    -----------------------------------------------------------------------*/
 
     public function editProfile(){
         $this->jobSeekerSessionCheck();
@@ -752,7 +885,7 @@ class Jobseeker extends View_Controller {
                 $upload_data1 = $this->upload->data();
                 $bachelor_docs = $upload_data1['file_name'];
             }
-            if(!isset($bachelor_docs))  $bachelor_docs = '';  
+            if(!isset($bachelor_docs))  $bachelor_docs = '';
 
             $masters_docs = $_FILES['masters_docs']['name'];
             if ($masters_docs !== "") { 
@@ -767,7 +900,7 @@ class Jobseeker extends View_Controller {
                 $upload_data1 = $this->upload->data();
                 $masters_docs = $upload_data1['file_name'];
             }
-            if(!isset($masters_docs))  $masters_docs = ''; 
+            if(!isset($masters_docs))  $masters_docs = '';
 
             $other_docs = $_FILES['other_docs']['name'];
             if ($other_docs !== "") { 
@@ -782,7 +915,7 @@ class Jobseeker extends View_Controller {
                 $upload_data1 = $this->upload->data();
                 $other_docs = $upload_data1['file_name'];
             }
-            if(!isset($other_docs))  $other_docs = ''; 
+            if(!isset($other_docs))  $other_docs = '';
             
             /* -------------------------- Upload Documents on Server ends here------------------------*/
 
@@ -845,27 +978,56 @@ class Jobseeker extends View_Controller {
             Insert JobSeeker Information on table `seeker_education`
         -----------------------------------------------------------------*/
          $countedu = $this->input->post('degree');
-            if(count($countedu)>0){
+        $count = $this->input->post('educount');
+        $data = array();
+        for($c=0;$c<=$count;$c++){
+            if(isset($_POST['degree'][$c])){
+                $data2['sid'] = $sid;
+                $data2['degree'] = $_POST['degree'][$c];
+                $data2['education_program'] = $_POST['education_program'][$c];
+                $data2['board'] = $_POST['education_board'][$c];
+                $data2['instution'] = $_POST['name_of_institute'][$c];
+                if(!empty($_POST['currently_studying'][$c]))
+                    $data2['current_studying'] = $_POST['currently_studying'][$c];
+                else
+                    $data2['current_studying'] = 0;
+                $data2['marks_secured_in'] = $_POST['marks_secured_in'][$c];
+                $data2['marks_secured'] = $_POST['marks_secured'][$c];
+                $data2['graduationyear'] =$_POST['graduation_year'][$c];
+                $data2['graduation_month'] =$_POST['graduation_month'][$c];
+                $data[] = $data2;
+                $this->general_model->insert('seeker_education',$data2);
+            }
+        }
+            /*if(count($countedu)>0){
 					$count1 = count($countedu);
 					for($c=0;$c<$count1;$c++){
                         $data2['sid'] = $sid;
                         $data2['degree'] = $_POST['degree'][$c];
-                        $data2['faculty'] = $_POST['faculty'][$c];
-                        $data2['graduationyear'] =$_POST['graduationyear'][$c];
-                        $data2['instution'] = $_POST['instution'][$c];
-                        $data2['board'] = $_POST['board'][$c];
-                        $data2['percentage'] = $_POST['percentage'][$c];
-
+                        $data2['education_program'] = $_POST['education_program'][$c];
+                        $data2['board'] = $_POST['education_board'][$c];
+                        $data2['instution'] = $_POST['name_of_institute'][$c];
+                        if(!empty($_POST['currently_studying'][$c]))
+                        $data2['current_studying'] = $_POST['currently_studying'][$c];
+                        else
+                            $data2['current_studying'] = 0;
+                        $data2['marks_secured_in'] = $_POST['marks_secured_in'][$c];
+                        $data2['marks_secured'] = $_POST['marks_secured'][$c];
+                        $data2['graduationyear'] =$_POST['graduation_year'][$c];
+                        $data2['graduation_month'] =$_POST['graduation_month'][$c];
+                        $data[] = $data2;
                         $this->general_model->insert('seeker_education',$data2);
 					}
-				}
+				}*/
+
+        //echo '<pre>'; print_r($data);echo '</pre>';die();
         $this->session->set_flashdata('success',"Education Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/editProfile#education', 'refresh');
+        redirect(base_url() . 'Jobseeker/education', 'refresh');
     }
 
     public function updateExperience($sid){
         $this->jobSeekerSessionCheck();
-//echo '<pre>'; print_r($_POST); die;
+
         /*----------------------------------------------------------------
              Delete All data in table `seeker_reference` with parameter Sid
         -----------------------------------------------------------------*/
@@ -875,26 +1037,31 @@ class Jobseeker extends View_Controller {
             Insert JobSeeker Information on table `seeker_reference`
         -----------------------------------------------------------------*/
          $countExperience = $this->input->post('company');  //echo'<pre>'; print_r($_POST); die;
-            if(count($countExperience)>0){
-					$count1 = count($countExperience);
-					for($c=0;$c<$count1;$c++){
-
-                        $data2['sid'] = $sid;
-                        $data2['company'] = $_POST['company'][$c];
-                        $data2['empoyername'] = $_POST['empoyername'][$c];
-                        $data2['designation'] =$_POST['designation'][$c];
-                        $data2['frommonth'] = $_POST['frommonth'][$c];
-                        $data2['fromyear'] = $_POST['fromyear'][$c];
-                        $data2['tomonth'] = $_POST['tomonth'][$c];
-                        $data2['toyear'] = $_POST['toyear'][$c];
-                        $data2['currently_working'] =$_POST['currently_working'][$c];
-                        $data2['duties'] = $_POST['duties'][$c];
-
-                        $this->general_model->insert('seeker_experience',$data2);
-					}
-				}
+         $count = $this->input->post('expcount');
+            $data =array();
+            for($c=0;$c<=$count;$c++){
+                if(isset($_POST['company'][$c])){
+                    $data2['sid'] = $sid;
+                    $data2['company'] = $_POST['company'][$c];
+                    $data2['location'] = $_POST['location'][$c];
+                    $data2['title'] =$_POST['title'][$c];
+                    $data2['position'] =$_POST['position'][$c];
+                    $data2['frommonth'] = $_POST['frommonth'][$c];
+                    $data2['fromyear'] = $_POST['fromyear'][$c];
+                    $data2['tomonth'] = $_POST['tomonth'][$c];
+                    $data2['toyear'] = $_POST['toyear'][$c];
+                    if(!empty($_POST['currently_working'][$c]))
+                        $data2['currently_working'] = $_POST['currently_working'][$c];
+                    else
+                        $data2['currently_working'] = 0;
+                    $data2['roles_and_responsibilities'] = $_POST['duties'][$c];
+                    $data[] = $data2;
+                    $this->general_model->insert('seeker_experience',$data2);
+                }
+            }
+        //echo '<pre>'; print_r($data);echo '</pre>';die();
         $this->session->set_flashdata('success',"Work Experience Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/editProfile#workexperience', 'refresh');
+        redirect(base_url() . 'Jobseeker/workExperience', 'refresh');
     }
 
     public function updateTraining($sid){
@@ -909,6 +1076,7 @@ class Jobseeker extends View_Controller {
             Insert JobSeeker Information on table `seeker_education`
         -----------------------------------------------------------------*/
          $counttraining = $this->input->post('institution');
+          $data = array();
             if(count($counttraining)>0){
 					$count1 = count($counttraining);
 					for($c=0;$c<$count1;$c++){
@@ -919,12 +1087,13 @@ class Jobseeker extends View_Controller {
                         $data2['fromyear'] = $_POST['fromyear'][$c];
                         $data2['tomonth'] = $_POST['tomonth'][$c];
                         $data2['toyear'] = $_POST['toyear'][$c];
-
+                        //$data[] = $data2;
                         $this->general_model->insert('seeker_training',$data2);
 					}
 				}
+            //echo '<pre>';print_r($data); echo '</pre>';die();
         $this->session->set_flashdata('success',"Training Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/editProfile#training', 'refresh');
+        redirect(base_url() . 'Jobseeker/training', 'refresh');
     }
 
     public function updateLanguage($sid){
@@ -938,21 +1107,24 @@ class Jobseeker extends View_Controller {
         /*----------------------------------------------------------------
             Insert JobSeeker Information on table `seeker_education`
         -----------------------------------------------------------------*/
-         $countlanguage = $this->input->post('lang');
+         $countlanguage = $this->input->post('language');
+        $data = array();
             if(count($countlanguage)>0){
 					$count1 = count($countlanguage);
 					for($c=0;$c<$count1;$c++){
                         $data2['sid'] = $sid;
-                        $data2['lang'] = $_POST['lang'][$c];
+                        $data2['lang'] = $_POST['language'][$c];
                         $data2['reading'] = $_POST['reading'][$c];
                         $data2['writing'] =$_POST['writing'][$c];
                         $data2['speaking'] = $_POST['speaking'][$c];
-
+                        $data2['listening'] = $_POST['listening'][$c];
+                        //$data[] = $data2;
                         $this->general_model->insert('seeker_language',$data2);
 					}
 				}
+//        echo '<pre>';print_r($data);echo '</pre>'; die();
         $this->session->set_flashdata('success',"Language Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/editProfile#language', 'refresh');
+        redirect(base_url() . 'Jobseeker/language', 'refresh');
     }
 
      public function updateReference($sid){
@@ -966,34 +1138,25 @@ class Jobseeker extends View_Controller {
         /*----------------------------------------------------------------
             Insert JobSeeker Information on table `seeker_reference`
         -----------------------------------------------------------------*/
-         $countReference = $this->input->post('fname');
+         $data = array();
+         $countReference = $this->input->post('reference_name');
             if(count($countReference)>0){
 					$count1 = count($countReference);
 					for($c=0;$c<$count1;$c++){
                         $data2['sid'] = $sid;
-                        $data2['salutation'] = $_POST['salutation'][$c];
-                        $data2['fname'] = $_POST['fname'][$c];
-                        $data2['mname'] =$_POST['mname'][$c];
-                        $data2['lname'] = $_POST['lname'][$c];
-                        $data2['block'] = $_POST['block'][$c];
-                        $data2['street'] = $_POST['street'][$c];
-                        $data2['city'] = $_POST['city'][$c];
-                        $data2['country'] = $_POST['country'][$c];
-                        $data2['home'] = $_POST['home'][$c];
-                        $data2['office'] = $_POST['office'][$c];
-                        $data2['fax'] = $_POST['fax'][$c];
-                        $data2['cell'] = $_POST['cell'][$c];
+                        $data2['reference_name'] = $_POST['reference_name'][$c];
+                        $data2['position'] = $_POST['position'][$c];
+                        $data2['organization_name'] = $_POST['organization_name'][$c];
                         $data2['email'] = $_POST['email'][$c];
-                        $data2['cname'] = $_POST['cname'][$c];
-                        $data2['clocation'] = $_POST['clocation'][$c];
-                        $data2['designation'] = $_POST['designation'][$c];
-                        $data2['relationship'] = $_POST['relationship'][$c];
-
+                        $data2['mobile_number'] = $_POST['mobile_number'][$c];
+                        $data2['other_number'] = $_POST['other_number'][$c];
+                        //$data[] =$data2;
                         $this->general_model->insert('seeker_reference',$data2);
 					}
 				}
+//                 echo '<pre>';print_r($data);echo '</pre>'; die();
         $this->session->set_flashdata('success',"Reference Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/editProfile#reference', 'refresh');
+        redirect(base_url() . 'Jobseeker/reference', 'refresh');
     }
 
     public function changeJobSeekerPassword(){
@@ -1064,386 +1227,407 @@ class Jobseeker extends View_Controller {
     }
 
     public function appendEducation(){
+        $count = $_POST['count']+1;
         $education = $this->general_model->getAll('dropdown','fid = 11','','id,dropvalue');
         $education_html = '';
-        $education_html .= '<tr>';
-        $education_html .= '<td>';
-        $education_html .= '<select class="form-control" name="degree[]" >';
-            foreach ($education as $key => $value) {
-                $education_html .= '<option value='.$value->id.'>'.$value->dropvalue.'</option>"';
-            }
-        $education_html .= '</select>';
-        $education_html .= '</td>';
-        $education_html .= '<td>';
-        $education_html .= '<input type="text" class="form-control" name="faculty[]" value="">';
-        $education_html .= '</td>';
-        $education_html .= '<td>';
-        $education_html .= '<select id="currency" class="form-control" name="graduationyear[]">';
-        $education_html .= '<option value="0">Year</option>';
-        $cyear = date('Y');
-        $pyear = $cyear-50;
-        for($y=$pyear;$y<$cyear;$y++){
-           $education_html .= '<option value='.$y.'>'.$y.'</option>';
+        $education_html .= '<div class="appendedu">';
+        /*------------------------------------------------------*/
+        $education_html .= '<div class="single-resume-feild feild-flex-2">'; // degree and program
+        $education_html .= '<div class="single-input">'; // degree
+        $education_html .= '<select name="degree['.$count.']" id="degree">';
+        $education_html .= '<option value="">--Select Degree--</option>';
+        foreach ($education as $key => $value) {
+            $education_html .= '<option value='.$value->id.'>'.$value->dropvalue.'</option>"';
         }
-         $education_html .= '</select>';
-         $education_html .= '</td>';
-         $education_html .= '<td>';
-         $education_html .= '<input type="text" class="form-control" name="instution[]" value="">';
-         $education_html .= '</td>';
-         $education_html .= '<td>';
-         $education_html .= '<input type="text" class="form-control" name="board[]" value="">';
-         $education_html .= '</td>';
-         $education_html .= '<td>';
-         $education_html .= '<input type="text" class="form-control" name="percentage[]" value="">';
-         $education_html .= '</td>';
-         $education_html .= '<td><a href="javascript:void(0)" class="btn btn-success remove_edu_row">Remove</a></td>';
-         $education_html .= '</tr>';
+        $education_html .= '</select>';
+        $education_html .= '</div>';//degree
+        $education_html .= '<div class="single-input">'; // program
+        $education_html .= '<input type="text" required="" name="education_program['.$count.']" value="" class="form-control" placeholder="Education Program">';
+        $education_html .= '</div>';//program
+        $education_html .= '</div>';//degree and program
+        /*------------------------------------------------------*/
+        $education_html .= '<div class="single-resume-feild feild-flex-2">'; //education board and name of institute
+        $education_html .= '<div class="single-input">';//education board
+        $education_html .= '<select name="education_board['.$count.']" id="education_board">
+                                <option value="">Select Education Board</option>
+                                <option value="HSEB">HSEB</option>
+                                <option value="Kathmandu University">Kathmandu University</option>
+                                <option value="Tribhuvan University">Tribhuvan University</option>
+                                <option value="Pokhara University">Pokhara University</option>
+                                <option value="Purbanchal University">Purbanchal University</option>
+                            </select>';
+        $education_html .= '</div>'; //education board
+        $education_html .= '<div class="single-input">
+                                <input type="text" value="" name="name_of_institute['.$count.']"
+                                       id="name_of_institute" placeholder="Name of Institute">
+                            </div>'; //name of institiute
+        $education_html .= '</div>'; //education board and name of institute
+        /*------------------------------------------------------*/
+        $education_html .='<div class="single-job-sidebar sidebar-type">
+                            <div class="job-sidebar-box checkbox section_0">
+                                <input class="" type="checkbox" id="currently_studying" name="currently_studying['.$count.']" value="1"/>
+                                <label for="currently_studying" class="currently_studying"><span></span>Currently
+                                    studying here?</label>
+                            </div>
+                        </div>'; //currently studying
+        /*------------------------------------------------------*/
+        $education_html .= '<div class="graduation">'; //graduation
+
+        $education_html .= '<div class="single-resume-feild feild-flex-2">'; //degree and program
+        $education_html .= '<div class="single-input">
+                                <select id="marks_secured_in" name="marks_secured_in['.$count.']">
+                                    <option value="">Marks secured in</option>
+                                    <option value="Percentage">Percentage</option>
+                                    <option value="CGPA">CGPA</option>
+                                </select>
+                            </div>
+                            <div class="single-input">
+                                <input type="text" value="" id="marks_secured" name="marks_secured['.$count.']"
+                                       placeholder="Marks Secured">
+                            </div>';
+        $education_html .= '</div>';//degree and program
+
+        $education_html .= '<div class="single-resume-feild feild-flex-2">';//graduation year and month
+        $education_html .= '<div class="single-input">'; //graduation year
+        $education_html .= '<select id="graduation_year" name="graduation_year['.$count.']">
+                                    <option value="">Select Graduation Year</option>';
+        $cyear = date('Y');
+        $pyear = $cyear - 50;
+        for ($y = $pyear; $y <= $cyear; $y++) {
+            $education_html .= '<option value="'.$y.'">'.$y.'</option>';
+        }
+        $education_html .= '</select>';
+        $education_html .= '</div>'; //graduation year
+        $education_html .= '<div class="single-input">'; //graduation month
+        $education_html .= '<select id="graduation_month" name="graduation_month['.$count.']">
+                                <option value="">Select Graduation Month</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>';
+        $education_html .= '</div>';//graduation month
+        $education_html .= '</div>'; //graduation year and month
+
+        $education_html .= '</div>'; //graduation
+        /*------------------------------------------------------*/
+        $education_html .='<div class="single-resume-feild">
+                                    <div class="single-input text-center">
+                                        <a href="javascript:void(0)" class="removebutton" id="remove_edu"><i class="fa fa-minus"                                                                                                     aria-hidden="true"></i>
+                                            Remove Education
+                                        </a>
+                                    </div>
+                                </div>';
+        $education_html .= '</div>'; //appendedu
 
         echo $education_html;
     }
 
     public function appendTraining(){
         $training_html = '';
-        $training_html .= '<tr>';
-        $training_html .= '<td>';
-        $training_html .= '<input type="text" class="form-control" name="institution[]" value="">';
-        $training_html .= '</td>';
-        $training_html .= '<td>';
-        $training_html .= '<input type="text" class="form-control" name="course[]" value="">';
-        $training_html .= '</td>';
-        $training_html .= '<td>';
-        $training_html .= '<select id="currency" class="form-control" name="frommonth[]">';
-        $training_html .= '<option value="0">Month</option>';
-                for($m=0;$m<=12;$m++){
-                   $training_html .= '<option value='.$m.'>'.$m.'</option>';
-                }
-         $training_html .= '</select><br>';
-        $training_html .= '<select id="currency" class="form-control" name="fromyear[]">';
-        $training_html .= '<option value="0">Year</option>';
-                    $cyear = date('Y');
-                    $pyear = $cyear-20;
-                for($y=$pyear;$y<$cyear;$y++){
-                   $training_html .= '<option value='.$y.'>'.$y.'</option>';
-                }
-         $training_html .= '</select>';
-         $training_html .= '</td>';
-         $training_html .= '<td>';
-         $training_html .= '<select id="currency" class="form-control" name="tomonth[]">';
-        $training_html .= '<option value="0">Month</option>';
-                    for($m=0;$m<=12;$m++){
-                   $training_html .= '<option value='.$m.'>'.$m.'</option>';
-                }
-         $training_html .= '</select><br>';
-        $training_html .= '<select id="currency" class="form-control" name="toyear[]">';
-        $training_html .= '<option value="0">Year</option>';
-                    $cyear = date('Y');
-                    $pyear = $cyear-20;
-                for($y=$pyear;$y<$cyear;$y++){
-                   $training_html .= '<option value='.$y.'>'.$y.'</option>';
-                }
-         $training_html .= '</select>';
-         $training_html .= '</td>';
-         $training_html .= '<td><a href="javascript:void(0)" class="btn btn-success remove_training_row">Remove</a></td>';
-         $training_html .= '</tr>';
+        $training_html .= '<div class="appendtraining">'; //appendtraining
+        /*------------------------------------------------------*/
+        $training_html .= '<div class="single-resume-feild feild-flex-2">';
+        $training_html .= '<div class="single-input">'; //Training/Course
+        $training_html .= '<input type="text" required="" name="course[]" value="" class="form-control" placeholder="Training/Course">';
+        $training_html .= '</div>';//Training/Course
+        $training_html .= '<div class="single-input">';//Company / Institute Name
+        $training_html .= '<input type="text" required="" name="institution[]" value="" class="form-control" placeholder="Company/Institute Name">';
+        $training_html .= '</div>';//Company / Institute Name
+        $training_html .= '</div>';
+        /*------------------------------------------------------*/
+        $training_html .= '<div class="single-resume-feild feild-flex-2">';
+        $training_html .= '<div class="single-input">'; //From month
+        $training_html .= '<select name="frommonth[]" id="frommonth">
+                                <option>From Month</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>';
+        $training_html .= '</div>';//From month
+        $training_html .= '<div class="single-input">';//From Year
+        $training_html .= '<select name="fromyear[]" id="fromyear">
+                                <option>From Year</option>';
+        $cyear = date('Y');
+        $pyear = $cyear-50;
+        for($y=$pyear;$y<=$cyear;$y++){
+            $training_html .= '<option value="'.$y.'">'.$y.'</option>';;
+        }
+        $training_html .= '</select>';
+        $training_html .= '</div>';//From year
+        $training_html .= '</div>';
+        /*------------------------------------------------------*/
+        $training_html .= '<div class="single-resume-feild feild-flex-2">';
+        $training_html .= '<div class="single-input">'; //To month
+        $training_html .= '<select name="tomonth[]" id="tomonth">
+                                <option>To Month</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>';
+        $training_html .= '</div>';//To month
+        $training_html .= '<div class="single-input">';//To Year
+        $training_html .= '<select name="toyear[]" id="toyear">
+                                <option>To Year</option>';
+        $cyear = date('Y');
+        $pyear = $cyear-50;
+        for($y=$pyear;$y<=$cyear;$y++){
+            $training_html .= '<option value="'.$y.'">'.$y.'</option>';;
+        }
+        $training_html .= '</select>';
+        $training_html .= '</div>';//to year
+        $training_html .= '</div>';
+        /*------------------------------------------------------*/
+        $training_html .='<div class="single-resume-feild">
+                                    <div class="single-input text-center">
+                                        <a href="javascript:void(0)" class="removebutton" id="remove_training"><i class="fa fa-minus"                                                                                                aria-hidden="true"></i>
+                                            Remove Training
+                                        </a>
+                                    </div>
+                                </div>';
+        $training_html .= '</div>'; //appendtraining
 
         echo $training_html;
     }
 
     public function appendLanguage(){
         $language_html = '';
-        $language_html .= '<tr>';
-        $language_html .= '<td>';
-        $language_html .= '<input type="text" class="form-control" name="lang[]" value="">';
-        $language_html .= '</td>';
-        $language_html .= '<td>';
-        $language_html .= '<select id="currency" class="form-control" name="reading[]">';
-        $language_html .= '<option value="Yes">Yes</option>';
-        $language_html .= '<option value="No">No</option>';
-        $language_html .= '</select>';
-        $language_html .= '</td>';
-        $language_html .= '<td>';
-        $language_html .= '<select id="currency" class="form-control" name="writing[]">';
-        $language_html .= '<option value="Yes">Yes</option>';
-        $language_html .= '<option value="No">No</option>';
-        $language_html .= '</select>';
-        $language_html .= '</td>';
-        $language_html .= '<td>';
-        $language_html .= '<select id="currency" class="form-control" name="speaking[]">';
-        $language_html .= '<option value="Yes">Yes</option>';
-        $language_html .= '<option value="No">No</option>';
-        $language_html .= '</select>';
-        $language_html .= '</td>';
-        $language_html .= '<td><a href="javascript:void(0)" class="btn btn-success remove_language_row">Remove</a></td>';
-        $language_html .= '</tr>';
+        $language_html .= '<div class="appendlanguage">'; //appendlanguage
+
+        /*------------------------------------------------------*/
+        $language_html .= '<div class="single-resume-feild feild-flex-2">
+                                <div class="single-input">
+                                    <input type="text" required="" name="language[]" value="" class="form-control" placeholder="Language">
+                                </div>
+                                <div class="single-input">
+                                    <select name="reading[]" id="reading">
+                                        <option value="">Reading</option>
+                                        <option value="Excellent">Excellent</option>
+                                        <option value="Good">Good</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Bad">Bad</option>
+                                    </select>
+                                </div>
+                                <div class="single-input">
+                                    <select name="writing[]" id="writing">
+                                        <option value="">Writing</option>
+                                        <option value="Excellent">Excellent</option>
+                                        <option value="Good">Good</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Bad">Bad</option>
+                                    </select>
+                                </div>
+                                <div class="single-input">
+                                    <select name="speaking[]" id="speaking">
+                                        <option value="">Speaking</option>
+                                        <option value="Excellent">Excellent</option>
+                                        <option value="Good">Good</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Bad">Bad</option>
+                                    </select>
+                                </div>
+                                <div class="single-input">
+                                    <select name="listening[]" id="listening">
+                                        <option value="">Listening</option>
+                                        <option value="Excellent">Excellent</option>
+                                        <option value="Good">Good</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Bad">Bad</option>
+                                    </select>
+                                </div>
+                            </div>';
+        /*------------------------------------------------------*/
+        $language_html .='<div class="single-resume-feild">
+                                    <div class="single-input text-center">
+                                        <a href="javascript:void(0)" class="removebutton" id="remove_language"><i class="fa fa-minus"                                                                                                     aria-hidden="true"></i>
+                                            Remove Education
+                                        </a>
+                                    </div>
+                                </div>';
+
+        $language_html .= '</div>'; // appendlanguage
 
         echo $language_html;
     }
 
     public function appendReference(){
-
-        $salutation =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
-        $country = $this->general_model->getAll('country2code','','country_name','country_code,country_name');
-
         $reference_html = '';
-        $reference_html .='<table class="table table-responsive">';
-        $reference_html .='<tr>';
-        $reference_html .='<th>Name<span class="asterisk">*</span></th>';
-        $reference_html .='<td>';
-        $reference_html .='<div class="row">';
-        $reference_html .='<div class="col-sm-3">';
-        $reference_html .='<select id="salutation" class="form-control" name="salutation[]">';
-          foreach ($salutation as $key => $value) {
-                $reference_html .='<option value='.$value->id.'>'.$value->dropvalue.'</option>';
-          }
-        $reference_html .='</select>';
+        $reference_html .='<div class="appendreference">';
+        /*------------------------------------------------------*/
+        $reference_html .= '<div class="single-resume-feild feild-flex-2">
+                                            <div class="single-input">
+                                                <input type="text" required="" name="reference_name[]" value="" class="form-control" placeholder="Reference\'s Name">
+                                            </div>
+                                            <div class="single-input">
+                                                <input type="text" required="" name="position[]" value="" class="form-control" placeholder="Position">
+                                            </div>
+                                        </div>
+                                        <div class="single-resume-feild feild-flex-2">
+                                            <div class="single-input">
+                                                <input type="text" required="" name="organization_name[]" value="" class="form-control" placeholder="Organization name">
+                                            </div>
+                                            <div class="single-input">
+                                                <input type="text" required="" name="email[]" value="" class="form-control" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="single-resume-feild feild-flex-2">
+                                            <div class="single-input">
+                                                <input type="number" required="" name="mobile_number[]" value="" class="form-control" placeholder="Mobile Number">
+                                            </div>
+                                            <div class="single-input">
+                                                <input type="number"  name="other_number[]" value="" class="form-control" placeholder="Other Number">
+                                            </div>
+                                        </div>';
+        /*------------------------------------------------------*/
+        $reference_html .='<div class="single-resume-feild">
+                                    <div class="single-input text-center">
+                                        <a href="javascript:void(0)" class="removebutton" id="remove_reference"><i class="fa fa-minus"                                                                                                     aria-hidden="true"></i>
+                                            Remove Reference
+                                        </a>
+                                    </div>
+                                </div>';
         $reference_html .='</div>';
-        $reference_html .='<div class="col-md-3">';
-        $reference_html .='<input type="text" id="fname" value="" required name="fname[]" placeholder="Full Name" class="form-control" autofocus>';
-        $reference_html .='</div>';
-        $reference_html .='<div class="col-md-3">';
-        $reference_html .='<input type="text" id="mname" value="" name="mname[]" placeholder="Middle Name" class="form-control" autofocus>';
-        $reference_html .='</div>';
-        $reference_html .='<div class="col-md-3">';
-        $reference_html .='<input type="text" id="lname" required value="" name="lname[]" placeholder="Last Name" class="form-control" autofocus>';
-        $reference_html .=' </div>';
-        $reference_html .='</div>';
-        $reference_html .='</td>';
-        $reference_html .='</tr>';
-        $reference_html .='<tr>';
-        $reference_html .='<th>Address <span class="asterisk">*</span></th>';
-        $reference_html .='<td>';
-        $reference_html .='<div class="row">';
-        $reference_html .='<div class="col-md-3">';
-        $reference_html .='<input type="text" id="block" value="" name="block[]" placeholder="Block" class="form-control" autofocus>';
-        $reference_html .='</div>';
-        $reference_html .='<div class="col-md-3">';
-        $reference_html .='<input type="text" id="street" value="" name="street[]" placeholder="Street Name" class="form-control" autofocus>';
-        $reference_html .='</div>';
-        $reference_html .='<div class="col-md-3">';
-        $reference_html .='<input type="text" id="city" required value="" name="city[]" placeholder="City" class="form-control" autofocus>';
-        $reference_html .='</div>';
-        $reference_html .='<div class="col-sm-3">';
-        $reference_html .='<select id="country" class="form-control" name="country[]">';
-        $reference_html .='<option value="0">-- Select Country --</option>';
-            foreach ($country as $key => $value) {
-              $reference_html .='<option value='.$value->country_code.'>'.$value->country_name.'</option>';
-            }
-        $reference_html .='</select>';
-        $reference_html .='</div>';
-        $reference_html .='</div>';
-        $reference_html .='</td>';
-        $reference_html .='</tr>';
-        $reference_html .='<tr>';
-        $reference_html .='<th>Home Phone</th>';
-        $reference_html .='<td>';
-        $reference_html .='<div class="row">';
-        $reference_html .='<div class="col-md-9">';
-        $reference_html .='<input type="text" id="home" value="" name="home[]" placeholder="Home Phone" class="form-control" autofocus>';
-        $reference_html .='</div>';
-        $reference_html .='</div>';
-        $reference_html .='</td>';
-        $reference_html .='</tr>';
-        $reference_html .='<tr>';
-        $reference_html .='<th>Office Phone</th>';
-        $reference_html .='<td>';
-        $reference_html .='<div class="row">';
-        $reference_html .='<div class="col-md-9">';
-        $reference_html .='<input type="text" id="office" value="" name="office[]" placeholder="Office Phone" class="form-control" autofocus>';
-        $reference_html .='</div>';
-        $reference_html .='</div>';
-        $reference_html .='</td>';
-       $reference_html .='</tr>';
-       $reference_html .='<tr>';
-       $reference_html .='<th>Cell No.</th>';
-       $reference_html .='<td>';
-       $reference_html .='<div class="row">';
-       $reference_html .='<div class="col-md-9">';
-       $reference_html .=' <input type="text" id="cell" value="" name="cell[]" placeholder="Cell No" class="form-control" autofocus>';
-       $reference_html .='</div>';
-       $reference_html .='</div>';
-       $reference_html .='</td>';
-       $reference_html .='</tr>';
-       $reference_html .='<tr>';
-       $reference_html .='<th>Fax</th>';
-       $reference_html .='<td>';
-       $reference_html .=' <div class="row">';
-       $reference_html .='<div class="col-md-9">';
-       $reference_html .='<input type="text" id="fax" value="" name="fax[]" placeholder="Fax" class="form-control" autofocus>';
-       $reference_html .='</div>';
-       $reference_html .='</div>';
-       $reference_html .='</td>';
-       $reference_html .='</tr>';
-       $reference_html .='<tr>';
-       $reference_html .='<th>Email<span class="asterisk">*</span></th>';
-       $reference_html .='<td>';
-       $reference_html .='<div class="row">';
-       $reference_html .='<div class="col-md-9">';
-       $reference_html .='<input type="email" id="email" value="" required name="email[]" placeholder="Email" class="form-control" autofocus>';
-       $reference_html .='</div>';
-       $reference_html .='</div>';
-       $reference_html .='</td>';
-       $reference_html .='</tr>';
-       $reference_html .='<tr>';
-       $reference_html .='<th>Company Name<span class="asterisk">*</span></th>';
-       $reference_html .='<td>';
-       $reference_html .='<div class="row">';
-       $reference_html .='<div class="col-md-9">';
-       $reference_html .='<input type="text" id="cname" value="" required name="cname[]" placeholder="Company Name" class="form-control" autofocus>';
-       $reference_html .='</div>';
-       $reference_html .='</div>';
-       $reference_html .='</td>';
-       $reference_html .='</tr>';
-       $reference_html .='<tr>';
-       $reference_html .='<th>Company Location<span class="asterisk">*</span></th>';
-       $reference_html .='<td>';
-       $reference_html .='<div class="row">';
-       $reference_html .='<div class="col-md-9">';
-       $reference_html .='<input type="text" id="clocation" value="" required name="clocation[]" placeholder="Location" class="form-control" autofocus>';
-       $reference_html .='</div>';
-       $reference_html .='</div>';
-       $reference_html .='</td>';
-       $reference_html .='</tr>';
-       $reference_html .='<tr>';
-       $reference_html .='<th>Designation<span class="asterisk">*</span></th>';
-       $reference_html .='<td>';
-       $reference_html .='<div class="row">';
-       $reference_html .='<div class="col-md-9">';
-       $reference_html .='<input type="text" id="designation" value="" required name="designation[]" placeholder="Designation" class="form-control" autofocus>';
-       $reference_html .='</div>';
-       $reference_html .='</div>';
-       $reference_html .='</td>';
-       $reference_html .='</tr>';
-       $reference_html .='<tr>';
-       $reference_html .='<th>Relationship<span class="asterisk">*</span></th>';
-       $reference_html .='<td>';
-       $reference_html .='<div class="row">';
-       $reference_html .='<div class="col-md-9">';
-       $reference_html .='<input type="text" id="relationship" value="" required name="relationship[]" placeholder="Relationship" class="form-control" autofocus>';
-       $reference_html .='</div>';
-       $reference_html .=' </div>';
-       $reference_html .='</td>';
-       $reference_html .='</tr>';
-       $reference_html .='<tr>';
-       $reference_html .='<td colspan="2"><a href="javascript:void(0)" class="btn btn-success remove_reference_row">Remove</a></td>';
-       $reference_html .='</tr>';
-       $reference_html .='</table>';
-
         echo $reference_html;
     }
 
     public function appendExperience(){
+        $count = $_POST['count']+1;
         $experience_html ='';
+        $experience_html .='<div class="appendexperience">'; //appendexperience
+        /*------------------------------------------------------*/
+        $experience_html .= '<div class="single-resume-feild feild-flex-2">
+                                <div class="single-input">
+                                    <input type="text" required="" name="company['.$count.']" value="" class="form-control" placeholder="Organization name">
+                                </div>
+                                <div class="single-input">
+                                    <input type="text" name="location['.$count.']" value="" class="form-control" placeholder="Job location">
+                                </div>
+                            </div>';
+        /*------------------------------------------------------*/
+        $experience_html .= '<div class="single-resume-feild feild-flex-2">
+                                        <div class="single-input">
+                                            <input type="text"  name="title['.$count.']" value="" class="form-control" placeholder="Job Title">
+                                        </div>
+                                        <div class="single-input">
+                                            <select name="position['.$count.']" id="position">
+                                                <option>Job level</option>
+                                                <option>Top Level</option>
+                                                <option>Senior Level</option>
+                                                <option>Mid Level</option>
+                                                <option>Entry Level</option>
+                                            </select>
+                                        </div>
+                                    </div>';
+        /*------------------------------------------------------*/
+        $experience_html .= '<div class="single-job-sidebar sidebar-type">
+                                        <div class="job-sidebar-box checkbox section_0">
+                                            <input value="1" class="" type="checkbox" id="currently_working" name="currently_working['.$count.']" />
+                                            <label for="currently_working" class="currently_working"><span></span>Currently working here?</label>
+                                        </div>
+                                    </div>';
+        /*------------------------------------------------------*/
+        $experience_html .= '<div class="single-resume-feild feild-flex-2">';
+        $experience_html .= '<div class="single-input">';//from month
+        $experience_html .= '<select name="frommonth['.$count.']" id="frommonth">
+                                    <option>Start Month</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>';
+        $experience_html .= '</div>';//from month
+        $experience_html .= '<div class="single-input">';//from year
+        $experience_html .= '<select name="fromyear['.$count.']" id="fromyear">
+                                <option>Start Year</option>';
+        $cyear = date('Y');
+        $pyear = $cyear - 50;
+        for ($y = $pyear; $y <= $cyear; $y++) {
+            $experience_html .='<option value="'.$y.'">'.$y.'</option>';
+        }
+        $experience_html .= '</select>';
+        $experience_html .= '</div>';//from year
+        $experience_html .= '</div>';
+        /*------------------------------------------------------*/
 
-        $experience_html .= '<table class="table table-responsive ">';
-        $experience_html .= '<tr>';
-        $experience_html .= '<th>Company Name<span class="asterisk">*</span></th>';
-        $experience_html .= '<td>';
-        $experience_html .= '<div class="row">';
-        $experience_html .= '<div class="col-md-6">';
-        $experience_html .= '<input type="text" id="company" required value="" name="company[]" placeholder="Company Name" class="form-control" autofocus>';
-        $experience_html .= '</div>';
-        $experience_html .= '</div>';
-        $experience_html .= '</td>';
-        $experience_html .= '</tr>';
-        $experience_html .= '<tr>';
-        $experience_html .= '<th>Location<span class="asterisk">*</span></th>';
-        $experience_html .= '<td>';
-        $experience_html .= '<div class="row">';
-        $experience_html .= '<div class="col-md-6">';
-        $experience_html .= '<input type="text" id="empoyername" required value="" name="empoyername[]" placeholder="Location" class="form-control" autofocus>';
-        $experience_html .= '</div>';
-        $experience_html .= '</div>';
-        $experience_html .= '</td>';
-        $experience_html .= '</tr>';
-        $experience_html .= '<tr>';
-        $experience_html .= '<th>Designation<span class="asterisk">*</span></th>';
-        $experience_html .= '<td>';
-        $experience_html .= '<div class="row">';
-        $experience_html .= '<div class="col-md-6">';
-        $experience_html .= '<input type="text" id="designation" required value="" name="designation[]" placeholder="Designation" class="form-control" autofocus>';
-        $experience_html .= '</div>';
-        $experience_html .= '</div>';
-        $experience_html .= '</td>';
-        $experience_html .= '</tr>';
-        $experience_html .= '<tr>';
-        $experience_html .= '<th>From<span class="asterisk">*</span></th>';
-        $experience_html .= '<td>';
-        $experience_html .= '<div class="row">';
-        $experience_html .= '<div class="col-md-3">';
-        $experience_html .= '<select id="currency" class="form-control" name="frommonth[]">';
-        $experience_html .= '<option value="0">Month</option>';
-            for($m=0;$m<=12;$m++){
-               $experience_html .= '<option value='.$m.'>'.$m.'</option>';
-             }
+        $experience_html .= '<div class="single-resume-feild feild-flex-2">';
+        $experience_html .= '<div class="single-input">'; //to month
+        $experience_html .= '<select name="tomonth['.$count.']" id="tomonth">
+                                    <option>Start Month</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>';
+        $experience_html .= '</div>';//to month
+        $experience_html .= '<div class="single-input">';//to year
+        $experience_html .= '<select name="toyear['.$count.']" id="toyear">
+                                <option>Start Year</option>';
+        $cyear = date('Y');
+        $pyear = $cyear - 50;
+        for ($y = $pyear; $y <= $cyear; $y++) {
+            $experience_html .='<option value="'.$y.'">'.$y.'</option>';
+        }
         $experience_html .= '</select>';
+        $experience_html .= '</div>';//to year
         $experience_html .= '</div>';
-        $experience_html .= '<div class="col-md-3">';
-        $experience_html .= '<select id="currency" class="form-control" name="fromyear[]">';
-        $experience_html .= '<option value="0">Year</option>';
-            $cyear = date('Y');
-            $pyear = $cyear-50;
-            for($y=$pyear;$y<$cyear;$y++){
-               $experience_html .= '<option value='.$y.'>'.$y.'</option>';
-            }
-        $experience_html .= '</select>';
-        $experience_html .= '</div>';
-        $experience_html .= '</div>';
-        $experience_html .= '</td>';
-        $experience_html .= '</tr>';
-        $experience_html .= '<tr>';
-        $experience_html .= '<th>To</th>';
-        $experience_html .= '<td>';
-        $experience_html .= '<div class="row">';
-        $experience_html .= '<div class="col-md-3">';
-        $experience_html .= '<select id="currency" class="form-control" name="tomonth[]">';
-        $experience_html .= '<option value="0">Month</option>';
-            for($m=0;$m<=12;$m++){
-               $experience_html .= '<option value='.$m.'>'.$m.'</option>';
-            }
-        $experience_html .= '</select>';
-        $experience_html .= '</div>';
-        $experience_html .= '<div class="col-md-3">';
-        $experience_html .= '<select id="currency" class="form-control" name="toyear[]">';
-        $experience_html .= '<option value="0">Year</option>';
-            $cyear = date('Y');
-            $pyear = $cyear-50;
-            for($y=$pyear;$y<$cyear;$y++){
-               $experience_html .= '<option value='.$y.'>'.$y.'</option>';
-             }
-        $experience_html .= '</select>';
-        $experience_html .= '</div>';
-        $experience_html .= '</div>';
-        $experience_html .= '</td>';
-        $experience_html .= '</tr>';
-        $experience_html .= '<tr>';
-        $experience_html .= '<th>Currently Working : </th>';
-        $experience_html .= '<td>';
-        $experience_html .= '<div class="row">';
-        $experience_html .= '<div class="col-sm-2">';
-        $experience_html .= '<label>';
-        $experience_html .= '<input type="checkbox" class="currently_working" value="1" name="currently_working[]">';
-        $experience_html .= '</label>';
-            $experience_html .= '<div class="show_currently_work">';
-                $experience_html .= '<input type="hidden" value="0"  name="currently_working[]">';
-            $experience_html .= '</div>';
-        $experience_html .= '</div>';
-        $experience_html .= '</div>';
-        $experience_html .= '</td>';
-        $experience_html .= '</tr>';
-        $experience_html .= '<tr>';
-        $experience_html .= '<th>My Duties and Responsibilities <span class="asterisk">*</span></th>';
-        $experience_html .= '<td>';
-        $experience_html .= '<div class="row">';
-        $experience_html .= '<div class="col-md-12">';
-        $experience_html .= '<textarea class="form-control" name="duties[]" rows="10"></textarea>';
-        $experience_html .= '</div>';
-        $experience_html .= '</div>';
-        $experience_html .= '</td>';
-        $experience_html .= '</tr>';
-        $experience_html .= '<tr>';
-        $experience_html .= '<td colspan="2"><a href="javascript:void(0)" class="btn btn-success remove_experience_row">Remove</a></td>';
-        $experience_html .= '</tr>';
-        $experience_html .= '</table>';
+        /*------------------------------------------------------*/
+        $experience_html .= '<div class="single-resume-feild">
+                                <div class="single-input">
+                                    <textarea class="duties" id="duties" name="duties['.$count.']"  placeholder="Duties &amp; Responsibilities Here..."></textarea>
+                                </div>
+                            </div>';
+        /*------------------------------------------------------*/
+        $experience_html .='<div class="single-resume-feild">
+                                    <div class="single-input text-center">
+                                        <a href="javascript:void(0)" class="removebutton" id="remove_experience"><i class="fa fa-minus"                                                                                                     aria-hidden="true"></i>
+                                            Remove Experience
+                                        </a>
+                                    </div>
+                                </div>';
+        $experience_html .='</div>'; //appendexperience
+
 
         echo $experience_html;
 
