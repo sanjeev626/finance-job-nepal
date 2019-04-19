@@ -66,14 +66,14 @@
         <div class="row">
 
           <!-- /.col -->
-          <div class="col-xs-4">
+          <div class="col-xs-4 col-xs-4 col-xs-push-4">
             <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
       <br>
-      <div class="alert alert-info alert-dismissible">
+      <div class="alert alert-info alert-dismissible" style="background-color: #016ac0 !important;">
         Notice: This site is meant to be accessed and used by authorized users only. If you have reached this page by other referral sites or search engines but are not the authorized user, please leave immediately. Thank you.
       </div>
 

@@ -23,7 +23,7 @@ echo "here";exit;
 	// redirect if needed, otherwise display the user list
 	function index()
 	{
-//echo "here we are";exit;		
+//echo "here we are";exit;
                 if (!$this->ion_auth->logged_in())
 		{  
 			// redirect them to the login page
@@ -36,7 +36,9 @@ echo "here";exit;
 			return show_error('You must be an administrator to view this page.');
 		}
 		else
-		{ 
+		{
+			redirect('admin/Dashboard','refresh');
+
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 

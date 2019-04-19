@@ -114,29 +114,36 @@ class Employer_model extends CI_Model {
     }
 
     public function update_employer($eid,$logo){
+        $orgname = $this->input->post('orgname');
+        $folder_name = url_title($orgname, '-', true);
+        $orgcode = substr($folder_name, 0, 30);
         $data = array(
             'orgname' => $this->input->post('orgname'),
-            'email' => $this->input->post('email'),
+            'organization_name' => $this->input->post('orgname'),
+            'organization_code' =>$orgcode.'-'.$eid,
+            //'email' => $this->input->post('email'),
+            'organization_description' => $this->input->post('orgdesc'),
+            'organization_phone' => $this->input->post('phone'),
+            'organization_address' => $this->input->post('address'),
+            /*
             'email2' => $this->input->post('email2'),
-            'orgdesc' => $this->input->post('orgdesc'),
             'natureoforg' => $this->input->post('natureoforg'),
             'orgtype' => $this->input->post('orgtype'),
             'ownership' => $this->input->post('ownership'),
             'salutation' => $this->input->post('salutation'),
             'fname' => $this->input->post('fname'),
             'mname' => $this->input->post('mname'),
-            'lname' => $this->input->post('lname'),
-            'designation' => $this->input->post('designation'),
-            'address' => $this->input->post('address'),
-            'phone' => $this->input->post('phone'),
-            'fax' => $this->input->post('fax'),
-            'pobox' => $this->input->post('pobox'),
-            'website' => $this->input->post('website'),
-            'contactperson' => $this->input->post('contactperson'),
-            'consalutation' => $this->input->post('consalutation'),
-            'confname' => $this->input->post('confname'),
-            'conmname' => $this->input->post('conmname'),
-            'conlname' => $this->input->post('conlname'),
+            'lname' => $this->input->post('lname'),*/
+            'contact_name' => $this->input->post('contactperson'),
+            'contact_designation' => $this->input->post('designation'),
+            'contact_email' => $this->input->post('contact_email'),
+            'contact_mobile' => $this->input->post('contact_mobile'),
+            'organization_fax' => $this->input->post('fax'),
+            'organization_pobox' => $this->input->post('pobox'),
+            'organization_website' => $this->input->post('website'),
+            'organization_facebook' => $this->input->post('facebook'),
+            'organization_linkedin' => $this->input->post('linkedin'),
+
         );
 
         if(!empty($logo)){

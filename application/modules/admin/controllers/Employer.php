@@ -350,12 +350,12 @@ class Employer extends MY_Controller {
         if (!is_numeric($e_id))
             redirect(base_url() . 'admin/Employer');
 
-        $this->form_validation->set_rules('orgname', 'orgname', 'required');
-        $this->form_validation->set_rules('email', 'email', 'required');
-        $this->form_validation->set_rules('orgdesc', 'orgdesc', 'required');
-        $this->form_validation->set_rules('designation', 'designation', 'required');
-        $this->form_validation->set_rules('address', 'address', 'required');
-        $this->form_validation->set_rules('contactperson', 'contactperson', 'required');
+        $this->form_validation->set_rules('orgname', 'Organization Name', 'required');
+        //$this->form_validation->set_rules('email', 'email', 'required');
+        $this->form_validation->set_rules('orgdesc', 'Organization Description', 'required');
+        $this->form_validation->set_rules('designation', 'Designation', 'required');
+        $this->form_validation->set_rules('address', 'Organization Address', 'required');
+        $this->form_validation->set_rules('contactperson', 'Contact Person', 'required');
 
         if (FALSE == $this->form_validation->run()) {
             $data['title'] = '.:: EDIT EMPLOYER ::.';
