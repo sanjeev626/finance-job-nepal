@@ -1,6 +1,7 @@
 <style>
     .appendedu{border-top: 1px dashed #ccc;padding-top: 10px}
     .removebutton{color:#ff0000}
+    .hide{display:none}
 </style>
 <!-- Breadcromb Area Start -->
 <section class="fjn-breadcromb-area">
@@ -74,14 +75,14 @@
 
                                             <div class="single-job-sidebar sidebar-type">
                                                 <div class="job-sidebar-box checkbox section_0">
-                                                    <input class="" type="checkbox" id="currently_studying"
+                                                    <input class="" type="checkbox" id="currently_studying_<?php echo $keys?>" onchange="currentlystudy('<?php echo $keys?>')"
                                                            name="currently_studying[<?php echo $keys;?>]" value="1" <?php echo ($val->current_studying==1)?'checked':'';?>/>
                                                     <label for="currently_studying" class="currently_studying"><span></span>Currently
                                                         studying here?</label>
                                                 </div>
                                             </div>
 
-                                            <div class="graduation">
+                                            <div class="graduation <?php echo ($val->current_studying==1)?'hide':'';?>" id="graduation_<?php echo $keys?>">
                                                 <div class="single-resume-feild feild-flex-2">
                                                     <div class="single-input">
                                                         <select id="marks_secured_in" name="marks_secured_in[<?php echo $keys;?>]">
@@ -127,20 +128,35 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="currentgrad" style="display: none;">
+                                            <div class="currentgrad <?php echo ($val->current_studying!=1)?'hide':'';?>" id="currentgrad_<?php echo $keys?>" style="">
                                                 <div class="single-resume-feild feild-flex-2 started" >
                                                     <div class="single-input">
-                                                        <select id="gender">
+                                                        <select id="started_year" name="started_year[]">
                                                             <option value="">Select Started Year</option>
-                                                            <option value="2019">2019</option>
-                                                            <option value="2018">2018</option>
+                                                            <?php
+                                                            $cyear = date('Y');
+                                                            $pyear = $cyear - 5;
+                                                            for ($y = $pyear; $y <= $cyear; $y++) {
+                                                                ?>
+                                                                <option value="<?php echo $y; ?>" <?php if($val->started_year == $y){echo "selected='selected'";}?>><?php echo $y; ?></option>
+                                                            <?php } ?>
                                                         </select>
                                                     </div>
                                                     <div class="single-input">
-                                                        <select id="gender">
+                                                        <select id="started_month" name="started_month[]">
                                                             <option value="">Select Started Month</option>
-                                                            <option value="January">January</option>
-                                                            <option value="February">February</option>
+                                                            <option value="January" <?php if($val->started_month == 'January'){echo "selected='selected'";}?>>January</option>
+                                                            <option value="February" <?php if($val->started_month == 'February'){echo "selected='selected'";}?>>February</option>
+                                                            <option value="March" <?php if($val->started_month == 'March'){echo "selected='selected'";}?>>March</option>
+                                                            <option value="April" <?php if($val->started_month == 'April'){echo "selected='selected'";}?>>April</option>
+                                                            <option value="May" <?php if($val->started_month == 'May'){echo "selected='selected'";}?>>May</option>
+                                                            <option value="June" <?php if($val->started_month == 'June'){echo "selected='selected'";}?>>June</option>
+                                                            <option value="July" <?php if($val->started_month == 'July'){echo "selected='selected'";}?>>July</option>
+                                                            <option value="August" <?php if($val->started_month == 'August'){echo "selected='selected'";}?>>August</option>
+                                                            <option value="September" <?php if($val->started_month == 'September'){echo "selected='selected'";}?>>September</option>
+                                                            <option value="October" <?php if($val->started_month == 'October'){echo "selected='selected'";}?>>October</option>
+                                                            <option value="November" <?php if($val->started_month == 'November'){echo "selected='selected'";}?>>November</option>
+                                                            <option value="December" <?php if($val->started_month == 'December'){echo "selected='selected'";}?>>December</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -195,13 +211,13 @@
                                          </div>
                                          <div class="single-job-sidebar sidebar-type">
                                              <div class="job-sidebar-box checkbox section_0">
-                                                 <input class="" type="checkbox" id="currently_studying"
+                                                 <input class="" type="checkbox" id="currently_studying_0" onchange="currentlystudy('0')"
                                                         name="currently_studying[0]" value="1"/>
                                                  <label for="currently_studying" class="currently_studying"><span></span>Currently
                                                      studying here?</label>
                                              </div>
                                          </div>
-                                         <div class="graduation">
+                                         <div class="graduation" id ="graduation_0">
                                              <div class="single-resume-feild feild-flex-2">
                                                  <div class="single-input">
                                                      <select id="marks_secured_in" name="marks_secured_in[0]">
@@ -247,20 +263,35 @@
                                                  </div>
                                              </div>
                                          </div>
-                                         <div class="currentgrad" style="display: none;">
+                                         <div class="currentgrad hide" id="currentgrad_0" style="">
                                              <div class="single-resume-feild feild-flex-2 started" >
                                                  <div class="single-input">
-                                                     <select id="gender">
+                                                     <select id="started_year" name="started_year[]">
                                                          <option value="">Select Started Year</option>
-                                                         <option value="2019">2019</option>
-                                                         <option value="2018">2018</option>
+                                                         <?php
+                                                         $cyear = date('Y');
+                                                         $pyear = $cyear - 5;
+                                                         for ($y = $pyear; $y <= $cyear; $y++) {
+                                                             ?>
+                                                             <option value="<?php echo $y; ?>"><?php echo $y; ?></option>
+                                                         <?php } ?>
                                                      </select>
                                                  </div>
                                                  <div class="single-input">
-                                                     <select id="gender">
+                                                     <select id="started_month" name="started_month[]">
                                                          <option value="">Select Started Month</option>
                                                          <option value="January">January</option>
                                                          <option value="February">February</option>
+                                                         <option value="March">March</option>
+                                                         <option value="April">April</option>
+                                                         <option value="May">May</option>
+                                                         <option value="June">June</option>
+                                                         <option value="July">July</option>
+                                                         <option value="August">August</option>
+                                                         <option value="September">September</option>
+                                                         <option value="October">October</option>
+                                                         <option value="November">November</option>
+                                                         <option value="December">December</option>
                                                      </select>
                                                  </div>
                                              </div>
@@ -322,4 +353,15 @@
             $(this).parent().parent().parent().remove();
         });
     });
+
+    function currentlystudy(key){
+        if ($('#currently_studying_'+key).is(':checked')){
+            $('#graduation_'+key).addClass('hide');
+            $('#currentgrad_'+key).removeClass('hide');
+        }
+        else{
+            $('#graduation_'+key).removeClass('hide');
+            $('#currentgrad_'+key).addClass('hide');
+        }
+    }
 </script>

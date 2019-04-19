@@ -987,14 +987,20 @@ class Jobseeker extends View_Controller {
                 $data2['education_program'] = $_POST['education_program'][$c];
                 $data2['board'] = $_POST['education_board'][$c];
                 $data2['instution'] = $_POST['name_of_institute'][$c];
-                if(!empty($_POST['currently_studying'][$c]))
+                if(!empty($_POST['currently_studying'][$c])){
                     $data2['current_studying'] = $_POST['currently_studying'][$c];
-                else
+                    $data2['started_year'] = $_POST['started_year'][$c];
+                    $data2['started_month'] = $_POST['started_month'][$c];
+                }
+                else{
                     $data2['current_studying'] = 0;
-                $data2['marks_secured_in'] = $_POST['marks_secured_in'][$c];
-                $data2['marks_secured'] = $_POST['marks_secured'][$c];
-                $data2['graduationyear'] =$_POST['graduation_year'][$c];
-                $data2['graduation_month'] =$_POST['graduation_month'][$c];
+                    $data2['marks_secured_in'] = $_POST['marks_secured_in'][$c];
+                    $data2['marks_secured'] = $_POST['marks_secured'][$c];
+                    $data2['graduationyear'] =$_POST['graduation_year'][$c];
+                    $data2['graduation_month'] =$_POST['graduation_month'][$c];
+                }
+
+
                 $data[] = $data2;
                 $this->general_model->insert('seeker_education',$data2);
             }
@@ -1265,13 +1271,13 @@ class Jobseeker extends View_Controller {
         /*------------------------------------------------------*/
         $education_html .='<div class="single-job-sidebar sidebar-type">
                             <div class="job-sidebar-box checkbox section_0">
-                                <input class="" type="checkbox" id="currently_studying" name="currently_studying['.$count.']" value="1"/>
+                                <input class="" type="checkbox" id="currently_studying_'.$count.'" onchange="currentlystudy('.$count.')" name="currently_studying['.$count.']" value="1"/>
                                 <label for="currently_studying" class="currently_studying"><span></span>Currently
                                     studying here?</label>
                             </div>
                         </div>'; //currently studying
         /*------------------------------------------------------*/
-        $education_html .= '<div class="graduation">'; //graduation
+        $education_html .= '<div class="graduation" id="graduation_'.$count.'">'; //graduation
 
         $education_html .= '<div class="single-resume-feild feild-flex-2">'; //degree and program
         $education_html .= '<div class="single-input">
@@ -1318,6 +1324,37 @@ class Jobseeker extends View_Controller {
         $education_html .= '</div>'; //graduation year and month
 
         $education_html .= '</div>'; //graduation
+        $education_html .= '<div class="currentgrad hide" id="currentgrad_'.$count.'" style="">
+                                 <div class="single-resume-feild feild-flex-2 started" >
+                                     <div class="single-input">
+                                         <select id="started_year" name="started_year[]">
+                                             <option value="">Select Started Year</option>';
+        $cyear = date('Y');
+        $pyear = $cyear - 5;
+        for ($y = $pyear; $y <= $cyear; $y++) {
+            $education_html .= '<option value="'.$y.'">'.$y.'</option>';
+        }
+        $education_html .=               '</select>
+                                     </div>
+                                     <div class="single-input">
+                                         <select id="started_month" name="started_month[]">
+                                             <option value="">Select Started Month</option>
+                                             <option value="January">January</option>
+                                            <option value="February">February</option>
+                                            <option value="March">March</option>
+                                            <option value="April">April</option>
+                                            <option value="May">May</option>
+                                            <option value="June">June</option>
+                                            <option value="July">July</option>
+                                            <option value="August">August</option>
+                                            <option value="September">September</option>
+                                            <option value="October">October</option>
+                                            <option value="November">November</option>
+                                            <option value="December">December</option>
+                                         </select>
+                                     </div>
+                                 </div>
+                             </div>';
         /*------------------------------------------------------*/
         $education_html .='<div class="single-resume-feild">
                                     <div class="single-input text-center">
@@ -1547,7 +1584,7 @@ class Jobseeker extends View_Controller {
         /*------------------------------------------------------*/
         $experience_html .= '<div class="single-job-sidebar sidebar-type">
                                         <div class="job-sidebar-box checkbox section_0">
-                                            <input value="1" class="" type="checkbox" id="currently_working" name="currently_working['.$count.']" />
+                                            <input value="1" class="" type="checkbox" id="currently_working_'.$count.'" onchange="currentlyworking('.$count.')" name="currently_working['.$count.']" />
                                             <label for="currently_working" class="currently_working"><span></span>Currently working here?</label>
                                         </div>
                                     </div>';
@@ -1583,10 +1620,10 @@ class Jobseeker extends View_Controller {
         $experience_html .= '</div>';
         /*------------------------------------------------------*/
 
-        $experience_html .= '<div class="single-resume-feild feild-flex-2">';
+        $experience_html .= '<div class="single-resume-feild feild-flex-2" id="endmonthyear_'.$count.'">';
         $experience_html .= '<div class="single-input">'; //to month
         $experience_html .= '<select name="tomonth['.$count.']" id="tomonth">
-                                    <option>Start Month</option>
+                                    <option>End Month</option>
                                     <option value="January">January</option>
                                     <option value="February">February</option>
                                     <option value="March">March</option>
@@ -1603,7 +1640,7 @@ class Jobseeker extends View_Controller {
         $experience_html .= '</div>';//to month
         $experience_html .= '<div class="single-input">';//to year
         $experience_html .= '<select name="toyear['.$count.']" id="toyear">
-                                <option>Start Year</option>';
+                                <option>End Year</option>';
         $cyear = date('Y');
         $pyear = $cyear - 50;
         for ($y = $pyear; $y <= $cyear; $y++) {

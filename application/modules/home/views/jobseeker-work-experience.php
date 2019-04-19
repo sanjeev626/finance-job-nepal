@@ -1,6 +1,7 @@
 <style>
     .appendexperience{border-top: 1px dashed #ccc;padding-top: 10px}
     .removebutton{color:#ff0000}
+    .hide{display:none}
 </style>
 <!-- Breadcromb Area Start -->
 <section class="fjn-breadcromb-area">
@@ -61,7 +62,7 @@
                                             </div>
                                             <div class="single-job-sidebar sidebar-type">
                                                 <div class="job-sidebar-box checkbox section_0">
-                                                    <input value="1" class="" type="checkbox" id="currently_working" name="currently_working[<?php echo $key?>]" <?php if($val->currently_working =='1') echo 'checked'?>  />
+                                                    <input value="1" class="" type="checkbox" id="currently_working_<?php echo $key?>" onchange="currentlyworking(<?php echo $key?>)" name="currently_working[<?php echo $key?>]" <?php if($val->currently_working =='1') echo 'checked'?>  />
                                                     <label for="currently_working" class="currently_working"><span></span>Currently working here?</label>
                                                 </div>
                                             </div>
@@ -96,7 +97,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="single-resume-feild feild-flex-2">
+                                            <div class="single-resume-feild feild-flex-2 <?php if($val->currently_working =='1') echo 'hide'?>" id="endmonthyear_<?php echo $key?>">
                                                 <div class="single-input">
                                                     <select name="tomonth[<?php echo $key?>]" id="tomonth">
                                                         <option>End Month</option>
@@ -127,6 +128,7 @@
                                                     </select>
                                                 </div>
                                             </div>
+
                                             <div class="single-resume-feild">
                                                 <div class="single-input">
                                                     <textarea class="duties" id="duties" name="duties[<?php echo $key?>]" id="duties_and_responsibilities" placeholder="Duties &amp; Responsibilities Here..."><?php echo $val->roles_and_responsibilities;?></textarea>
@@ -172,7 +174,7 @@
                                         </div>
                                         <div class="single-job-sidebar sidebar-type">
                                             <div class="job-sidebar-box checkbox section_0">
-                                                <input value="1" class="" type="checkbox" id="currently_working" name="currently_working[0]" />
+                                                <input value="1" class="" type="checkbox" id="currently_working_0" onchange="currentlyworking(0)" name="currently_working[0]" />
                                                 <label for="currently_working" class="currently_working"><span></span>Currently working here?</label>
                                             </div>
                                         </div>
@@ -207,7 +209,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="single-resume-feild feild-flex-2">
+                                        <div class="single-resume-feild feild-flex-2" id="endmonthyear_0">
                                             <div class="single-input">
                                                 <select name="tomonth[0]" id="tomonth">
                                                     <option>End Month</option>
@@ -300,4 +302,15 @@
             $(this).parent().parent().parent().remove();
         });
     });
+
+    function currentlyworking(key){
+        if ($('#currently_working_'+key).is(':checked')){
+            $('#endmonthyear_'+key).addClass('hide');
+
+        }
+        else{
+            $('#endmonthyear_'+key).removeClass('hide');
+
+        }
+    }
 </script>
