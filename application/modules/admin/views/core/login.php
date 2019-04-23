@@ -3,7 +3,7 @@
    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>.:: Finance Job Nepal :: CMS Login ::.</title>
+    <title>.:: Finance Job Nepal :: Administrative Log In ::.</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -45,7 +45,7 @@
         <?php echo form_open("admin/auth/login");?>
 
         <?php if($message){ ?>
-        <div class="alert alert-danger alert-dismissible">
+        <div class="alert alert-success alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           <?php echo $message;?>
         </div> 
@@ -66,8 +66,12 @@
         <div class="row">
 
           <!-- /.col -->
-          <div class="col-xs-4 col-xs-4 col-xs-push-4">
+          <div class="col-xs-4 col-xs-4">
             <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          </div>
+
+            <div class="col-xs-4 col-xs-4 ">
+                <a href="<?php echo base_url();?>core/forgot_password" class="btn btn-primary btn-block btn-flat">Forgot Password</a>
           </div>
           <!-- /.col -->
         </div>

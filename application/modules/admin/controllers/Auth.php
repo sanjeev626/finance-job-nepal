@@ -331,7 +331,7 @@ echo "here";exit;
 			if ($forgotten)
 			{
 				// if there were no errors
-				$this->session->set_flashdata('success', $this->ion_auth->messages());
+				$this->session->set_flashdata('message', $this->ion_auth->messages());
 				redirect("core/login", 'refresh'); //we should display a confirmation page here instead of the login page
 			}
 			else
@@ -371,12 +371,16 @@ echo "here";exit;
 					'name' => 'new',
 					'id'   => 'new',
 					'type' => 'password',
+					'class' => 'form-control',
+					'placeholder'=> 'New Password',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
 				);
 				$this->data['new_password_confirm'] = array(
 					'name'    => 'new_confirm',
 					'id'      => 'new_confirm',
 					'type'    => 'password',
+					'class' => 'form-control',
+					'placeholder'=> 'New Password Confirm',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
 				);
 				$this->data['user_id'] = array(

@@ -3,7 +3,7 @@
    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>.:: Global Job :: CMS Login ::.</title>
+    <title>.:: Global Job :: Reset Login ::.</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -40,9 +40,9 @@
         to gain access to the administration console.</p>
 
         <div style="text-align: center;font-size: 18px;padding-bottom: 9px;color: #0db142;font-weight: bold;">
-          Adminstrator Login
+            <h1><?php echo lang('reset_password_heading');?></h1>
         </div>
-        <?php echo form_open("admin/auth/login");?>
+        <?php echo form_open('core/reset_password/' . $code);?>
 
         <?php if($message){ ?>
         <div class="alert alert-danger alert-dismissible">
@@ -52,22 +52,23 @@
         <?php } ?> 
 
         <div class="form-group has-feedback">
-          <?php $identity['class'] = "form-control";
-          $identity['placeholder'] = "Email/Username";
-          echo form_input($identity);?>
-          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <?php //echo sprintf(lang('reset_password_new_password_label'), $min_password_length);?>
+          <?php
+          echo form_input($new_password);?>
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <?php $password['class'] = "form-control";
-          $password['placeholder'] = "Password";
-          echo form_input($password);?>
+          <?php
+          echo form_input($new_password_confirm);?>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
+            <?php echo form_input($user_id);?>
+            <?php echo form_hidden($csrf); ?>
 
           <!-- /.col -->
           <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Change Password</button>
           </div>
           <!-- /.col -->
         </div>

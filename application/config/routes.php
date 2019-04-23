@@ -58,7 +58,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'admin/auth';
 $route['core'] = 'admin/auth';
 $route['core/login'] ='admin/auth/login';
-
+$route['core/forgot_password'] ='admin/auth/forgot_password';
+$route['core/reset_password/(:any)'] = 'admin/auth/reset_password/$1';
 $route['admin/login'] ='admin/auth/login';
 $route['logout'] = 'admin/auth/logout';
 
