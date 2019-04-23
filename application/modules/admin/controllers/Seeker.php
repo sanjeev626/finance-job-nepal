@@ -47,7 +47,7 @@ class Seeker extends MY_Controller {
         $config['total_rows'] = $this->db->count_all('seeker');
         $data['seeker'] = $this->seeker_model->get_all_seeker_limited($config['per_page'], $page);
         $this->pagination->initialize($config);
-        $data['title'] = '.:: JOB SEEKER ::.';
+        $data['title'] = '.:: JOB SEEKER LIST::.';
         $data['page_header'] = 'Job Seeker';
         $data['page_header_icone'] = 'fa-user';
         $data['nav'] = 'seeker';
@@ -59,7 +59,7 @@ class Seeker extends MY_Controller {
         $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','','id,dropvalue');
         $data['applied_organisation'] =$this->general_model->getAll('employer','','','id,orgname');
 
-        $data['main'] = 'seeker/seeker_manager_view';
+        $data['main'] = 'seeker/seeker_list';
 
         $this->load->view('admin/home', $data);
     }
@@ -345,7 +345,7 @@ class Seeker extends MY_Controller {
         $this->general_model->delete('checkvalue','sid='.$jobid);
         
         //Delete from seeker_basket
-        $this->general_model->delete('seeker_basket','sid='.$jobid);
+        //$this->general_model->delete('seeker_basket','sid='.$jobid);
         
         //Delete from seeker_education
         $this->general_model->delete('seeker_education','sid='.$jobid);

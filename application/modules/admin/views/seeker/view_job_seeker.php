@@ -52,15 +52,17 @@
               </thead>
               <tbody>
   <?php
-    $saturation = $this->general_model->getById('dropdown','id',$job_seeker_info->salutation)->dropvalue;
+    //$saturation = $this->general_model->getById('dropdown','id',$job_seeker_info->salutation)->dropvalue;
+    $saturation = '';
     $nationality = $this->general_model->getById('dropdown','id',$job_seeker_info->nationality);
     if($nationality){
       $nationality = $nationality->dropvalue;
     }
-    $expected_salary = $this->general_model->getById('dropdown','id',$job_seeker_info->expsal);
-    if($expected_salary){
-      $expected_salary = $expected_salary->dropvalue;
-    }
+    $expected_salary = '';
+  $expected_salary = $this->general_model->getById('dropdown','id',$job_seeker_info->	desired_expected_salary);
+  if($expected_salary){
+    $expected_salary = $expected_salary->dropvalue;
+  }
      $job_type1 = '';
      $job_type2 = '';
      $job_type3 = '';
@@ -70,15 +72,17 @@
 
     $jobType = $job_type1.''.$job_type2.''.$job_type3;
 
-    $funcarea1 = $this->general_model->getById('dropdown','id',$job_seeker_info->funcarea1);
+    $funcarea1 = '';
+    /*$funcarea1 = $this->general_model->getById('dropdown','id',$job_seeker_info->funcarea1);
     if($funcarea1){
       $funcarea1 = $funcarea1->dropvalue;
-    }
+    }*/
 
-    $funcarea2 = $this->general_model->getById('dropdown','id',$job_seeker_info->funcarea2);
+    $funcarea2 = '';
+    /*$funcarea2 = $this->general_model->getById('dropdown','id',$job_seeker_info->funcarea2);
     if($funcarea2){
       $funcarea2 = $funcarea2->dropvalue;
-    }
+    }*/
 
   ?>
                   <tr>
@@ -96,12 +100,7 @@
                   	<td></td>
                   </tr>
 
-                  <tr>
-                  	<td class="green-bold">Secondary Email</td>
-                  	<td><?php echo $job_seeker_info->email2; ?></td>
-                  	<td></td>
-                  	<td></td>
-                  </tr>
+
 
                   <tr>
                   <td colspan="4"><h3 class="green-bold">Personal Details </h3></td>
@@ -109,66 +108,61 @@
 
                   <tr>
                   	<td class="green-bold">Date of Birth : </td>
-                  	<td><?php echo $job_seeker_info->dd .'-'. $job_seeker_info->mm .'-' . $job_seeker_info->yy; ?></td>
+                  	<td><?php echo $job_seeker_info->dob;?></td>
                   	<td></td>
                   	<td></td>
                   </tr>
 
-                  <tr>
+                  <!--<tr>
                   	<td class="green-bold">Nationality : </td>
-                  	<td><?php echo $nationality; ?></td>
+                  	<td><?php /*echo $nationality; */?></td>
                   	<td></td>
                   	<td></td>
                   </tr>
 
                   <tr>
                   	<td class="green-bold">Phone (Res) :</td>
-                  	<td><?php echo $job_seeker_info->phoneres; ?></td>
+                  	<td><?php //echo $job_seeker_info->phone_resisdance; ?></td>
                   	<td></td>
                   	<td></td>
                   </tr>
 
                   <tr>
-                  	<td class="green-bold">Phone (off) :</td>
-                  	<td><?php echo $job_seeker_info->phoneoff; ?></td>
+                  	<td class="green-bold">Phone (Mobile) :</td>
+                  	<td><?php //echo $job_seeker_info->phone_cell; ?></td>
                   	<td></td>
                   	<td></td>
-                  </tr>
+                  </tr>-->
 
                   <tr>
                   	<td class="green-bold">Cell No. :</td>
-                  	<td><?php echo $job_seeker_info->phonecell; ?></td>
+                  	<td><?php echo $job_seeker_info->phone_cell; ?></td>
                   	<td></td>
                   	<td></td>
                   </tr>
 
-                  <tr>
-                  	<td class="green-bold">Cell No. 2 :</td>
-                  	<td><?php echo $job_seeker_info->phonecell2; ?></td>
-                  	<td></td>
-                  	<td></td>
-                  </tr>
+
 
                   <tr>
                   	<td class="green-bold">Marital Status :</td>
-                  	<td><?php echo $job_seeker_info->maritalstatus; ?></td>
+                  	<td><?php echo $job_seeker_info->marital_status; ?></td>
                   	<td></td>
                   	<td></td>
                   </tr>
 
                   <tr>
                   	<td class="green-bold">Current Address :</td>
-                  	<td><?php echo $job_seeker_info->currentadd; ?></td>
+                  	<td><?php echo $job_seeker_info->address_current; ?></td>
                   	<td></td>
                   	<td></td>
                   </tr>
 
-                  <tr>
+                  <!--<tr>
                     <td class="green-bold">Permanent Address :</td>
-                    <td><?php echo $job_seeker_info->permanentadd; ?></td>
+                    <td><?php /*echo $job_seeker_info->permanentadd; */?></td>
                     <td></td>
                     <td></td>
-                  </tr>
+                  </tr>-->
 
                   <tr>
                   <td colspan="4"><h3 class="green-bold">Experience Details </h3></td>
@@ -176,35 +170,35 @@
 
                   <tr>
                   	<td class="green-bold">Have work experience :</td>
-                  	<td><?php echo $job_seeker_info->workexp.', '.$job_seeker_info->expyrs.' years '.$job_seeker_info->expmths.' Months'; ?></td>
+                  	<td><?php echo $job_seeker_info->have_work_experience.', '.$job_seeker_info->experience_years.' years '.$job_seeker_info->experience_months.' Months'; ?></td>
                   	<td></td>
                   	<td></td>
                   </tr>
 
-                  <tr>
+                  <!--<tr>
                   	<td class="green-bold">Present Salary :</td>
-                  	<td><?php echo $job_seeker_info->preunit.' '.$job_seeker_info->presal; ?>per month (Gross)</td>
+                  	<td><?php /*echo $job_seeker_info->preunit.' '.$job_seeker_info->presal; */?>per month (Gross)</td>
                   	<td></td>
                   	<td></td>
-                  </tr>
+                  </tr>-->
 
                   <tr>
                   	<td class="green-bold">Expected Salary :</td>
-                  	<td><?php echo $job_seeker_info->expunit.' '.$expected_salary; ?>per month (Gross)</td>
+                  	<td><?php echo $expected_salary; ?>per month (Gross)</td>
                   	<td></td>
                   	<td></td>
                   </tr>
 
                   <tr>
                   	<td class="green-bold">Looking for :</td>
-                  	<td><?php echo $job_seeker_info->joblevel; ?></td>
+                  	<td><?php echo $job_seeker_info->desired_role; ?></td>
                   	<td></td>
                   	<td></td>
                   </tr>
 
                   <tr>
                   	<td class="green-bold">Job Type :</td>
-                  	<td><?php echo $jobType; ?></td>
+                  	<td><?php echo $job_seeker_info->desired_job_type; ?></td>
                   	<td></td>
                   	<td></td>
                   </tr>
@@ -227,7 +221,7 @@
                   	<td></td>
                   </tr>
 
-                  <tr>
+                  <!--<tr>
                   <td colspan="4"><h3 class="green-bold">Preferred Job Category</td>
                   </tr>
                   <tr>
@@ -235,12 +229,12 @@
                   </tr>
                   <tr>
                     <td class="green-bold">Funtional Area :</td>
-                    <td><?php echo $funcarea2; ?></td>
+                    <td><?php /*echo $funcarea2; */?></td>
                     <td></td>
                     <td></td>
                     <tr>
                     <td class="green-bold">Nature of Organization :</td>
-                    <td><?php echo $job_seeker_info->natureoforg1; ?></td>
+                    <td><?php /*echo $job_seeker_info->natureoforg1; */?></td>
                     <td></td>
                     <td></td>
                   </tr>
@@ -249,16 +243,16 @@
                   </tr>
                   <tr>
                     <td class="green-bold">Funtional Area : :</td>
-                    <td><?php echo $funcarea2; ?></td>
+                    <td><?php /*echo $funcarea2; */?></td>
                     <td></td>
                     <td></td>
                     </tr>
                     <tr>
                     <td class="green-bold">Nature of Organization :</td>
-                    <td><?php echo $job_seeker_info->natureoforg2; ?></td>
+                    <td><?php /*echo $job_seeker_info->natureoforg2; */?></td>
                     <td></td>
                     <td></td>
-                  </tr>
+                  </tr>-->
 
                   
                 </tbody>

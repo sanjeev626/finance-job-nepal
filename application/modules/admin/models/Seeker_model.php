@@ -79,7 +79,7 @@ class Seeker_model extends CI_Model {
 
     public function delete_job_seeker($jobid){
 
-        $this->db->select('resume,picture');
+        $this->db->select('resume,profile_picture');
         $this->db->where('id',$jobid);
         $query = $this->db->get('seeker');
         if ($query->num_rows() == 0) {
@@ -91,7 +91,7 @@ class Seeker_model extends CI_Model {
             $unlink_resume = base_url().'uploads/resume/'.$resume;
             @unlink($unlink_resume);
 
-            $picture = $result->picture;
+            $picture = $result->profile_picture;
             $unlink_picture = base_url().'uploads/jobseeker/'.$picture;
             @unlink($unlink_picture);
 
