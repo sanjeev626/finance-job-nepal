@@ -7,16 +7,79 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <!--<div class="panel-footer">
-                        <a class="btn btn-success below_space"
+                    <div class="panel-footer">
+                        <!--<a class="btn btn-success below_space"
                            href="<?php /*echo base_url(); */?>admin/Employer/viewEmployerBasket"><i
-                                class="fa fa-shopping-cart" data-original-title="View Basket"></i> View Basket </a>
-                        <button type="button" class="btn btn-success below_space" data-toggle="modal"
-                                data-target="#myModal"><i class="fa fa-search tooltips"
-                                                          data-original-title="Edit Client"></i> Search Employer
-                        </button>
+                                class="fa fa-shopping-cart" data-original-title="View Basket"></i> View Basket </a>-->
+                        <form action="" class="form-horizontal form-bordered">
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <input type="text" name="fname" placeholder="First Name" class="form-control below_space" >
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" name="mname" placeholder="Middle Name" class="form-control below_space" >
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" name="lname" placeholder="Last Name" class="form-control below_space" >
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" name="dobfrom" placeholder="Date Of Birth(From)" class="form-control below_space" >
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" name="dobto" placeholder="Date Of Birth(To)" class="form-control below_space" >
+                                </div>
 
-                    </div>-->
+                                <div class="col-md-2">
+                                    <input type="text" name="fname" placeholder="Address" class="form-control below_space" >
+                                </div>
+
+                                <div class="col-md-2">
+                                    <input type="text" name="mname" placeholder="Contact Number" class="form-control below_space " >
+                                </div>
+
+                                <div class="col-md-2">
+                                    <select name="gender" id="" class="form-control below_space">
+                                        <option value="">--Gender--</option>
+                                        <option value="">Male</option>
+                                        <option value="">Female</option>
+                                        <option value="">other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" name="dobfrom" placeholder="key Skills" class="form-control below_space" >
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" name="dobto" placeholder="Latest Education" class="form-control below_space" >
+                                </div>
+
+                                <div class="col-md-2">
+                                    <input type="text" name="dobfrom" placeholder="Years of Experience" class="form-control below_space" >
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" name="dobto" placeholder="Expected Salary" class="form-control below_space" >
+                                </div>
+
+                                <div class="col-md-2">
+                                    <input type="text" name="dobfrom" placeholder="Applied Organization Name" class="form-control below_space" >
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" name="dobto" placeholder="Registered Date(From)" class="form-control below_space" >
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" name="dobto" placeholder="Registered Date(To)" class="form-control below_space" >
+                                </div>
+
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="">
+                                        <button class="btn btn-success btn-flat" type="submit"> Search Job Seeker</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-hover" id="table1" cellspacing="0" width="100%">
                             <thead>

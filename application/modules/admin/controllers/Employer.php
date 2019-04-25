@@ -436,8 +436,17 @@ class Employer extends MY_Controller {
         $data['nav'] = 'employer';
         $data['panel_title'] = 'Search Result Employer ';
         $data['main'] = 'employer/search_result_employer';
-        $data['organisation_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
 
+         $data['orgname'] = $this->input->post('orgname');
+         $data['email'] = $this->input->post('email');
+         $data['website'] = $this->input->post('website');
+         $data['orgtype'] = $this->input->post('orgtype');
+         $data['phone'] = $this->input->post('phone');
+         $data['contact_name'] = $this->input->post('contact_name');
+         $data['address'] = $this->input->post('address');
+
+
+         $data['organisation_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
         $this->load->view('home', $data);
 
     }

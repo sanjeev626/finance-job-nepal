@@ -156,7 +156,7 @@ class Employer_model extends CI_Model {
 
     public function search_employer_by_param($limit='',$offset=''){
 
-        if(!empty($this->input->post('empId')))
+        /*if(!empty($this->input->post('empId')))
         {
             $_SESSION['empId'] = $this->input->post('empId');
             $empId = $_SESSION['empId'];
@@ -178,9 +178,9 @@ class Employer_model extends CI_Model {
         }
         else{
             $empId2 = '';
-        }
+        }*/
 
-        if(!empty($this->input->post('orgname')))
+        /*if(!empty($this->input->post('orgname')))
         {
             $_SESSION['orgname'] = $this->input->post('orgname');
             $orgname = $_SESSION['orgname'];
@@ -192,18 +192,6 @@ class Employer_model extends CI_Model {
             $orgname = '';
         }
 
-
-        if(!empty($this->input->post('address')))
-        {
-            $_SESSION['address'] = $this->input->post('address');
-            $address = $_SESSION['address'];
-        }
-        else if(!empty($_SESSION['address'])){
-            $address = $_SESSION['address'];
-        }
-        else{
-            $address = '';
-        }
 
         if(!empty($this->input->post('email')))
         {
@@ -289,7 +277,19 @@ class Employer_model extends CI_Model {
             $address = '';
         }
 
-        if(!empty($this->input->post('joindate')))
+        if(!empty($this->input->post('contact_name')))
+        {
+            $_SESSION['contact_name'] = $this->input->post('contact_name');
+            $contact_name = $_SESSION['contact_name'];
+        }
+        else if(!empty($_SESSION['contact_name'])){
+            $contact_name = $_SESSION['contact_name'];
+        }
+        else{
+            $contact_name = '';
+        }*/
+
+        /*if(!empty($this->input->post('joindate')))
         {
             $_SESSION['joindate'] = $this->input->post('joindate');
             $jdate = $_SESSION['joindate'];
@@ -311,41 +311,41 @@ class Employer_model extends CI_Model {
         }
         else{
             $mdate = '';
-        }
+        }*/
 
 
         /*$empId = $this->input->post('empId');
-        $empId2 = $this->input->post('empId2');
+        $empId2 = $this->input->post('empId2');*/
         $orgname = $this->input->post('orgname');
-        $address = $this->input->post('address');
         $email = $this->input->post('email');
         $website = $this->input->post('website');
         $orgtype = $this->input->post('orgtype');
         $phone = $this->input->post('phone');
+        $contact_name = $this->input->post('contact_name');
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-        $address = $this->input->post('address');*/
+        $address = $this->input->post('address');
 
         //$jdate = $this->input->post('joindate');
-        if($jdate){
+        /*if($jdate){
             $jsplit1 = explode('-',$jdate);
             $joindate_from = $jsplit1[0].'-'.$jsplit1[1].'-'.$jsplit1[2];
             $joindate_to = $jsplit1[3].'-'.$jsplit1[4].'-'.$jsplit1[5];
             $joindate_from = trim($joindate_from);
             $joindate_to = trim($joindate_to);
-        }
+        }*/
 
         //$mdate = $this->input->post('modifieddate');
-        if($mdate){
+        /*if($mdate){
             $mplit1 = explode('-',$mdate);
             $modifieddate1 = $mplit1[0].'-'.$mplit1[1].'-'.$mplit1[2];
             $modifieddate2 = $mplit1[3].'-'.$mplit1[4].'-'.$mplit1[5];
             $modifieddate1 = trim($modifieddate1);
             $modifieddate2 = trim($modifieddate2);
-        }
+        }*/
         
         //print_r($joindate_from.'---'.$joindate_to.'====='.$modifieddate1.'-=-=-=-=-='.$modifieddate2);
-        $this->db->select('id,orgname,email,isCorporate,fname,mname,lname');
+        $this->db->select('*');
 
         if(isset($empId) && !empty($empId) && isset($empId2) && !empty($empId2)){
             $this->db->where("id BETWEEN $empId AND $empId2");
@@ -360,36 +360,39 @@ class Employer_model extends CI_Model {
             $this->db->like('orgname',$orgname);
         }
         if(isset($address) && !empty($address)){
-            $this->db->where('address',$address);
+            //$this->db->where('organization_address',$address);
+            $this->db->or_like('organization_address',$address);
         }
         if(isset($email) && !empty($email)){
-            $this->db->like('email',$email);
-            $this->db->or_like('email2',$email);
+            $this->db->or_like('email',$email);
         }
         if(isset($website) && !empty($website)){
-            $this->db->like('website',$website);
+            $this->db->or_like('website',$website);
         }
         if(isset($orgtype) && !empty($orgtype)){
-            $this->db->where('orgtype',$orgtype);
+            $this->db->or_like('organization_type',$orgtype);
         }
         if(isset($phone) && !empty($phone)){
-            $this->db->like('phone',$phone);
+            $this->db->or_like('phone',$phone);
+        }
+        if(isset($contact_name) && !empty($contact_name)){
+            $this->db->or_like('contact_name',$contact_name);
         }
         if(isset($username) && !empty($username)){
-            $this->db->like('username',$username);
+            $this->db->or_like('username',$username);
         }
         if(isset($password) && !empty($password)){
-            $this->db->where('password',md5($password));
+            $this->db->or_like('password',md5($password));
         }
         if(isset($joindate_from) && !empty($joindate_from) && isset($joindate_to) && !empty($joindate_to)){
             //$this->db->where("joindate BETWEEN $joindate_from AND `$joindate_to`");
-            $this->db->where('joindate >=',$joindate_from);
-            $this->db->where('joindate <=',$joindate_to);
+            $this->db->or_like('joindate >=',$joindate_from);
+            $this->db->or_like('joindate <=',$joindate_to);
         }
         if(isset($modifieddate1) && !empty($modifieddate1) && isset($modifieddate2) && !empty($modifieddate2)){
             //$this->db->where("modifieddate BETWEEN $modifieddate1 AND `$modifieddate2`");
-            $this->db->where('modifieddate >=',$modifieddate1);
-            $this->db->where('modifieddate <=',$modifieddate2);
+            $this->db->or_like('modifieddate >=',$modifieddate1);
+            $this->db->or_like('modifieddate <=',$modifieddate2);
         }
 
         $query = $this->db->get('employer',$limit,$offset);

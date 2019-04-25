@@ -7,16 +7,17 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <!--<div class="panel-footer">
-                        <a class="btn btn-success below_space"
+                    <div class="panel-footer">
+                        <!--<a class="btn btn-success below_space"
                            href="<?php /*echo base_url(); */?>admin/Employer/viewEmployerBasket"><i
                                 class="fa fa-shopping-cart" data-original-title="View Basket"></i> View Basket </a>
                         <button type="button" class="btn btn-success below_space" data-toggle="modal"
                                 data-target="#myModal"><i class="fa fa-search tooltips"
                                                           data-original-title="Edit Client"></i> Search Employer
-                        </button>
+                        </button>-->
+                    <?php include('employer-searchform.php')?>
 
-                    </div>-->
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-hover" id="table1" cellspacing="0" width="100%">
                             <thead>

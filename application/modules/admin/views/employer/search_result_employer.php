@@ -9,9 +9,15 @@
       <div class="row">
         <div class="col-md-12">
             <div class="panel-footer">
-            <a class="btn btn-success below_space" href="<?php echo base_url(); ?>admin/Employer/viewEmployerBasket"><i class="fa fa-shopping-cart" data-original-title="View Basket"></i> View Basket </a>
-            <button type="button" class="btn btn-success below_space" data-toggle="modal" data-target="#myModal"><i class="fa fa-search tooltips" data-original-title="Edit Client"></i> Search Employer</button>
-        </div>
+                <!--<a class="btn btn-success below_space"
+                   href="<?php /*echo base_url(); */?>admin/Employer/viewEmployerBasket"><i class="fa fa-shopping-cart"
+                                                                                        data-original-title="View Basket"></i>
+                    View Basket </a>
+                <button type="button" class="btn btn-success below_space" data-toggle="modal" data-target="#myModal"><i
+                        class="fa fa-search tooltips" data-original-title="Edit Client"></i> Search Employer
+                </button>-->
+                <?php include('employer-searchform.php')?>
+            </div>
         <span class="text-center"><h3 class="green-bold"><?php echo $total_employer; ?> Employer Found !!!</h3></span>
         
 
@@ -20,11 +26,11 @@
               <thead>
                 <tr>
                   <th width="1%">SN.</th>
-                  <th width="2%">Employer Name </th> 
-                  <th width="5%">Organisation </th>
-                  <th width="2%">Email </th>
-                  <th width="2%">Is Corporate </th>
-                  <th width="25%" class="table-action text-center">Action</th>
+                  <th width="25%">Contact Name </th>
+                  <th width="25%">Organisation </th>
+                  <th width="25%">Email </th>
+
+                  <th width="24%" class="table-action text-center">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -39,10 +45,10 @@
                     ?>
                   <tr>
                     <td><?php echo $i; ?></td>
-                    <td><?php echo $key->fname.''.$key->lname; ?></td>
+                    <td><?php echo $key->contact_name; ?></td>
                     <td><?php echo $key->orgname; ?></td>
                     <td><?php echo $key->email; ?></td>
-                    <td><?php echo $key->isCorporate; ?></td>
+
                     
                     <td class="table-action text-center">
                       <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/Employer/view/<?php echo $key->id; ?>"><i class="fa fa-eye tooltips" data-original-title="Edit Employer"></i> View</a>

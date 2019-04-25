@@ -32,7 +32,7 @@
                                 <div class="single-login-field single-input">
                                     <select name="orgtype" id="orgtype">
                                         <option value="">Select Organization Industry Type</option>
-                                        <?php foreach ($nature_of_organisation as $key => $value) {?>
+                                        <?php foreach ($org_type as $key => $value) {?>
                                             <option <?php echo set_select('orgtype', $value->id); ?> value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
                                         <?php  } ?>
                                     </select>
