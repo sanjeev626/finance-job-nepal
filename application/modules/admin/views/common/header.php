@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="<?php echo base_url();?>content_admin/assets/custom.css">
 <!--   <link rel="stylesheet" href="<?=base_url();?>admin_css/dist/css/style.default.css">
  -->  
-    <script src="<?php echo base_url();?>content_home/js/jquery-3.0.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
  <!-- <link rel="shortcut icon" href="<?php echo base_url();?>content_admin/images/fav-icon.png"> -->
 <!--validation -->
         <script src="<?php echo base_url(); ?>content_admin/jquery-form-validation.js"></script>

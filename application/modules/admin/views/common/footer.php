@@ -27,8 +27,22 @@
         //-----------Datepicker------------------------------
         $('#datepicker').datetimepicker({
 
-            format: 'YYYY-MM-DD'
+            format: 'YYYY-MM-DD',
         });
+        $('#dobfrom').datetimepicker({
+            format: 'YYYY-MM-DD',
+        });
+        $('#dobto').datetimepicker({
+            format: 'YYYY-MM-DD',
+        });
+        $('#registeredfrom').datetimepicker({
+            format: 'YYYY-MM-DD',
+        });
+        $('#registeredto').datetimepicker({
+            format: 'YYYY-MM-DD',
+        });
+
+
 
         //Date range picker
         $('#reservation1').daterangepicker({

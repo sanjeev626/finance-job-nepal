@@ -158,255 +158,35 @@ class Seeker_model extends CI_Model {
 
     public function search_seeker_by_param($limit='',$offset=''){
       //print_r($_POST);
-      if(isset($_POST['sid']))
-      {
-          $_SESSION['sid'] = $this->input->post('sid');
-          $sid = $_SESSION['sid'];
-      }
-      else if(!empty($_SESSION['sid']))
-          $sid = $_SESSION['sid'];
 
-      if(isset($_POST['sid2']))
-      {
-          $_SESSION['sid2'] = $this->input->post('sid2');
-          $sid2 = $_SESSION['sid2'];
-      }
-      else if(!empty($_SESSION['sid2']))
-          $sid2 = $_SESSION['sid2'];
-       
-      if(isset($_POST['salutation']))
-      {
-          $_SESSION['salutation'] = $this->input->post('salutation');
-          $salutation = $_SESSION['salutation'];
-      }
-      else if(!empty($_SESSION['salutation']))
-          $salutation = $_SESSION['salutation'];
-       
-      if(isset($_POST['fname']))
-      {
-          $_SESSION['fname'] = $this->input->post('fname');
-          $fname = $this->input->post('fname');
-      }
-      else if(!empty($_SESSION['fname'])){
-          $fname = $_SESSION['fname'];
-      }
-      else{
-          $fname = '';
-      }
-
-      if(isset($_POST['lname']))
-      {
-          $_SESSION['lname'] = $this->input->post('lname');
-          $lname = $_SESSION['lname'];
-      }
-      else if(!empty($_SESSION['lname']))
-          $lname = $_SESSION['lname'];
-       
-      if(isset($_POST['dob']))
-      {
-          $_SESSION['dob'] = $this->input->post('dob');
-          $dob = $_SESSION['dob'];
-          //1990-01-01 - 2017-01-01
-          $d = explode(' - ',$dob);
-          $dob1 = $d['0'];
-          $_SESSION['dob1'] = $dob1;
-          $dob2 = $d['1'];
-          $_SESSION['dob2'] = $dob2;
-      }
-      else if(!empty($_SESSION['dob']))
-      {
-          $dob = $_SESSION['dob'];
-          $d = explode(' - ',$dob);
-          $dob1 = $d['0'];
-          $_SESSION['dob1'] = $dob1;
-          $dob2 = $d['1'];
-          $_SESSION['dob2'] = $dob2;
-      }
-       
-      if(isset($_POST['address']))
-      {
-          $_SESSION['address'] = $this->input->post('address');
-          $address = $_SESSION['address'];
-      }
-      else if(!empty($_SESSION['address']))
-          $address = $_SESSION['address'];
-       
-      if(isset($_POST['city']))
-      {
-          $_SESSION['city'] = $this->input->post('city');
-          $city = $_SESSION['city'];
-      }
-      else if(!empty($_SESSION['city']))
-          $city = $_SESSION['city'];
-       
-      if(isset($_POST['phone']))
-      {
-          $_SESSION['phone'] = $this->input->post('phone');
-          $phone = $_SESSION['phone'];
-      }
-      else if(!empty($_SESSION['phone']))
-          $phone = $_SESSION['phone'];
-       
-      if(isset($_POST['email']))
-      {
-          $_SESSION['email2'] = $this->input->post('email');
-          $email2 = $_SESSION['email2'];
-      }
-      else if(!empty($_SESSION['email2']))
-          $email2 = $_SESSION['email2'];
-       
-      if(isset($_POST['funcarea']))
-      {
-          $_SESSION['funcarea'] = $this->input->post('funcarea');
-          $funcarea = $_SESSION['funcarea'];
-      }
-      else if(!empty($_SESSION['funcarea']))
-          $funcarea = $_SESSION['funcarea'];
-       
-      if(isset($_POST['jid']))
-      {
-          $_SESSION['jid'] = $this->input->post('jid');
-          $jid = $_SESSION['jid'];
-      }
-      else if(!empty($_SESSION['jid']))
-          $jid = $_SESSION['jid'];
-       
-      if(isset($_POST['appliedposition']))
-      {
-          $_SESSION['appliedposition'] = $this->input->post('appliedposition');
-          $appliedposition = $_SESSION['appliedposition'];
-      }
-      else if(!empty($_SESSION['appliedposition']))
-          $appliedposition = $_SESSION['appliedposition'];
-       
-      if(isset($_POST['appdate']))
-      {
-          $_SESSION['appdate'] = $this->input->post('appdate');
-          $appdate = $_SESSION['appdate'];
-      }
-      else if(!empty($_SESSION['appdate']))
-          $appdate = $_SESSION['appdate'];
-       
-      if(isset($_POST['qualification']))
-      {
-          $_SESSION['qualification'] = $this->input->post('qualification');
-          $qualification = $_SESSION['qualification'];
-      }
-      else if(!empty($_SESSION['qualification']))
-          $qualification = $_SESSION['qualification'];
-       
-      if(isset($_POST['keyskills']))
-      {
-          $_SESSION['keyskills'] = $this->input->post('keyskills');
-          $keyskills = $_SESSION['keyskills'];
-      }
-      else if(!empty($_SESSION['keyskills']))
-          $keyskills = $_SESSION['keyskills'];
-       
-      if(isset($_POST['cjobposition']))
-      {
-          $_SESSION['cjobposition'] = $this->input->post('cjobposition');
-          $cjobposition = $_SESSION['cjobposition'];
-      }
-      else if(!empty($_SESSION['cjobposition']))
-          $cjobposition = $_SESSION['cjobposition'];
-       
-      if(isset($_POST['jobtitle']))
-      {
-          $_SESSION['jobtitle'] = $this->input->post('jobtitle');
-          $jobtitle = $_SESSION['jobtitle'];
-      }
-      else if(!empty($_SESSION['jobtitle']))
-          $jobtitle = $_SESSION['jobtitle'];
-       
-      if(isset($_POST['joblocation']))
-      {
-        $_SESSION['joblocation'] = $this->input->post('joblocation');
-        $joblocation = $_SESSION['joblocation'];
-      }
-      else if(!empty($_SESSION['joblocation']))
-        $joblocation = $_SESSION['joblocation'];
-       
-      if(isset($_POST['expyrs']))
-      {
-        $_SESSION['expyrs'] = $this->input->post('expyrs');
-        $expyrs = $_SESSION['expyrs'];
-      }
-      else if(!empty($_SESSION['expyrs']))
-        $expyrs = $_SESSION['expyrs'];
-       
-      if(isset($_POST['expyrs2']))
-      {
-        $_SESSION['expyrs2'] = $this->input->post('expyrs2');
-        $expyrs2 = $_SESSION['expyrs2'];
-      }
-      else if(!empty($_SESSION['expyrs2']))
-        $expyrs2 = $_SESSION['expyrs2'];
-       
-      if(isset($_POST['expsal']))
-      {
-        $_SESSION['expsal'] = $this->input->post('expsal');
-        $expsal = $_SESSION['expsal'];
-      }
-      else if(!empty($_SESSION['expsal']))
-        $expsal = $_SESSION['expsal'];
-       
-      if(isset($_POST['apporg']))
-      {
-        $_SESSION['apporg'] = $this->input->post('apporg');
-        $apporg = $_SESSION['apporg'];
-      }
-      else if(!empty($_SESSION['apporg']))
-        $apporg = $_SESSION['apporg'];
-       
-      if(isset($_POST['registerdate']))
-      {
-          $_SESSION['registerdate'] = $this->input->post('registerdate');
-          $registerdate = $_SESSION['registerdate'];
-      }
-      elseif(!empty( $_SESSION['registerdate'])){
-          $registerdate = $_SESSION['registerdate'];
-      }
-      else{
-        $registerdate = '';
-      }
-      if(isset($_POST['modifieddate']))
-      {
-          $_SESSION['modifieddate'] = $this->input->post('modifieddate');
-          $modifieddate = $_SESSION['modifieddate'];
-      }
-      elseif(!empty( $_SESSION['modifieddate'])){
-          $modifieddate = $_SESSION['modifieddate'];
-      }
-      else{
-          $modifieddate = '';
-      }
-
-      /* $sid = $this->input->post('sid');
-      $sid2 = $this->input->post('sid2');
-      $salutation = $this->input->post('salutation');
       $fname = $this->input->post('fname');
+      $mname = $this->input->post('mname');
       $lname = $this->input->post('lname');
-      $dob = $this->input->post('dob');
+      $dobfrom = $this->input->post('dobfrom');
+      $dobto = $this->input->post('dobto');
       $address = $this->input->post('address');
-      $city = $this->input->post('city');
       $phone = $this->input->post('phone');
       $email = $this->input->post('email');
-      $funcarea = $this->input->post('funcarea');
+      $gender = $this->input->post('gender');
+      $keyskills = $this->input->post('keyskills');
+      $qualification = $this->input->post('qualification');
+      $expyrs = $this->input->post('experience_years');
+      $expsal = $this->input->post('expsal');
+      $apporg = $this->input->post('apporg');
       $jid = $this->input->post('jid');
-      $appliedposition = $this->input->post('appliedposition');
+      $registeredfrom = $this->input->post('registeredfrom');
+      $registeredto = $this->input->post('registeredto');
+
+      /*$appliedposition = $this->input->post('appliedposition');
       $appdate = $this->input->post('appdate');
       $qualification = $this->input->post('qualification');
       $keyskills = $this->input->post('keyskills');
       $cjobposition = $this->input->post('cjobposition');
-      $jobtitle = $this->input->post('jobtitle');
       $joblocation = $this->input->post('joblocation');
-      $expyrs = $this->input->post('expyrs');
       $expyrs2 = $this->input->post('expyrs2');
       $expsal = $this->input->post('expsal');
-      $apporg = $this->input->post('apporg');
       $registerdate = $this->input->post('registerdate');
-      $modifieddate = $this->input->post('modifieddate');*/
+      $modifieddate = $this->input->post('modifieddate');
 
       if(isset($registerdate) && !empty($registerdate)){
           $jsplit1 = explode('-',$registerdate);
@@ -419,13 +199,14 @@ class Seeker_model extends CI_Model {
           $modifieddate1 = $mplit1[0].'-'.$mplit1[1].'-'.$mplit1[2];
           $modifieddate2 = $mplit1[3].'-'.$mplit1[4].'-'.$mplit1[5];
       }
+      */
             
       $sql = "SELECT * FROM seeker skr";
       
-      if((isset($apporg) && !empty($apporg)) || (isset($appliedposition) && !empty($appliedposition)) || (isset($jid) && !empty($jid)) || (isset($appdate) && !empty($appdate)))
+      /*if((isset($apporg) && !empty($apporg)) || (isset($appliedposition) && !empty($appliedposition)) || (isset($jid) && !empty($jid)) || (isset($appdate) && !empty($appdate)))
       {
         $sql .=" INNER JOIN application app ON skr.id=app.sid";
-      }
+      }*/
       
       if(isset($apporg) && !empty($apporg))
       {
@@ -433,7 +214,7 @@ class Seeker_model extends CI_Model {
         $sql .=" AND app.eid=".$eid;
       }  
       
-      if(isset($appliedposition) && !empty($appliedposition))
+      /*if(isset($appliedposition) && !empty($appliedposition))
       {  
         $jid = $appliedposition;
         $sql .=" AND app.jid=".$jid;
@@ -442,11 +223,11 @@ class Seeker_model extends CI_Model {
       {  
         $jid = $jid;
         $sql .=" AND app.jid=".$jid;
-      }    
+      } */
       
       if(isset($qualification) && !empty($qualification))
       {
-        $sql .= " INNER JOIN seeker_education skrEdu ON skr.id=skrEdu.sid AND (skrEdu.faculty LIKE '%".$qualification."%')";
+        $sql .= " INNER JOIN seeker_education skrEdu ON skr.id=skrEdu.sid AND (skrEdu.education_program LIKE '%".$qualification."%')";
       }  
       
       if(empty($apporg) && empty($qualification))
@@ -455,76 +236,70 @@ class Seeker_model extends CI_Model {
       }
       if(isset($appdate) && !empty($appdate))
       {
-        $sql .=" AND app.appdate='".$appdate."'";
-      }  
+        $sql .=" OR app.appdate='".$appdate."'";
+      }
       if(isset($sid) && !empty($sid) && isset($sid2) && !empty($sid2))
       {
-        $sql .= " AND skr.id BETWEEN '".$sid."' AND  '".$sid2."'";
+        $sql .= " OR skr.id BETWEEN '".$sid."' AND  '".$sid2."'";
       }
       if(isset($sid) && !empty($sid) && empty($sid2))
       {
-        $sql .= " AND skr.id ='".$sid."'";
+        $sql .= " OR skr.id ='".$sid."'";
       }
-      if(isset($salutation) && $salutation>0 && !empty($salutation))
-      {
-        $sql .= " AND skr.salutation='".$salutation."'";
-      }
+
       if(isset($fname) && !empty($fname))
       {
-        $sql .= " AND skr.fname LIKE '".$fname."%'";
+        $sql .= " OR skr.fname LIKE '%".$fname."%'";
       }
       if(isset($lname) && !empty($lname))
       {
-        $sql .= " AND skr.lname LIKE '".$lname."%'";
+        $sql .= " OR skr.lname LIKE '%".$lname."%'";
       }
-      if(isset($dob1) && !empty($dob1) && isset($dob2) && !empty($dob2))
+      if(isset($dobfrom) && !empty($dobfrom) && isset($dobto) && !empty($dobto))
       {
-        $sql .= " AND skr.dob BETWEEN '".$dob1."' AND  '".$dob2."'";
+        $sql .= " OR (skr.dob BETWEEN '".$dobfrom."' AND  '".$dobto."')";
       }
       if(isset($address) && !empty($address))
       {
-        $sql .= " AND (skr.currentadd LIKE '%".$address."%' OR skr.permanentadd LIKE '%".$address."%')";
+        $sql .= " OR (skr.address_current LIKE '%".$address."%' )";
       }
-      if(isset($city) && !empty($city))
-      {
-        $sql .= " AND (skr.currentadd LIKE '%".$city."%' OR skr.permanentadd LIKE '%".$city."%')";
-      }
+
       if(isset($phone) && !empty($phone))
       {
-        $sql .= " AND (skr.phoneres='".$phone."' OR skr.phoneoff='".$phone."' OR skr.phonecell='".$phone."')";
+        $sql .= " OR (skr.phoneres='".$phone."' OR skr.phoneoff='".$phone."' OR skr.phonecell='".$phone."')";
       }
-      if(isset($email2) && !empty($email2))
+      if(isset($email) && !empty($email))
       {
-        $sql .= " AND (skr.email LIKE '%".$email2."%' OR skr.email2 LIKE '%".$email2."%')";
+        $sql .= " OR (skr.email LIKE '%".$email."%' )";
       }  
       if(isset($funcarea) && !empty($funcarea))
       {
-        $sql .= " AND (skr.funcarea1='".$funcarea."' OR skr.funcarea2='".$funcarea."')";
+        $sql .= " OR (skr.desired_functional_area='".$funcarea."' )";
       }
       if(isset($cjobposition) && !empty($cjobposition))
       {
-        $sql .= " AND (skr.cjobposiiton LIKE '%".$cjobposition."%')";
+        $sql .= " OR (skr.desired_role LIKE '%".$cjobposition."%')";
       } 
       if(isset($joblocation) && !empty($joblocation))
       {
-        $sql .= " AND (skr.joblocation='".$joblocation."' OR skr.joblocation2='".$joblocation."' OR skr.joblocation3='".$joblocation."')";
+        $sql .= " OR (skr.desired_job_location='".$joblocation."' OR skr.joblocation2='".$joblocation."' OR skr.joblocation3='".$joblocation."')";
       } 
-      if(!empty($expyrs) && !empty($expyrs2))
+      if(!empty($expyrs) )
       {
-        $sql .= " AND (skr.expyrs BETWEEN ".$expyrs." AND ".$expyrs2.")";
+        $sql .= " OR (skr.expyrs >= ".$expyrs." )";
       }
       if(isset($expsal) && $expsal !="0")
       {
-        $sql .= " AND skr.expsal = ".$expsal;
+        $sql .= " OR skr.desired_expected_salary = ".$expsal;
       }
-      if(isset($from) && !empty($from) && isset($to) && !empty($to))
+      /*if(isset($from) && !empty($from) && isset($to) && !empty($to))
       {
         $sql .= " AND skr.apdate BETWEEN '".$from."' AND '".$to."'";
-      }
-      if(isset($modifieddate1) && !empty($modifieddate1) && isset($modifieddate2) && !empty($modifieddate2) && $modifieddate1 > '1980-1-1')
+      }*/
+      /*if(isset($modifieddate1) && !empty($modifieddate1) && isset($modifieddate2) && !empty($modifieddate2) && $modifieddate1 > '1980-1-1')
       {
         $sql .= " AND skr.modifieddate BETWEEN '".$modifieddate1."' AND '".$modifieddate2."'";
-      }
+      }*/
       if(isset($keyskills) && !empty($keyskills))
       {
         $aa = explode(",",$keyskills);
@@ -546,7 +321,8 @@ class Seeker_model extends CI_Model {
         $sql .=" limit ".$offset.', '.$limit;
       }
       //echo $sql;
-      $query = $this->db->query($sql); 
+      $query = $this->db->query($sql);
+        //echo $this->db->last_query(); die();
       if ($query->num_rows() == 0) {
               return FALSE;
           } else {

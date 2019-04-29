@@ -11,74 +11,13 @@
                         <!--<a class="btn btn-success below_space"
                            href="<?php /*echo base_url(); */?>admin/Employer/viewEmployerBasket"><i
                                 class="fa fa-shopping-cart" data-original-title="View Basket"></i> View Basket </a>-->
-                        <form action="" class="form-horizontal form-bordered">
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                    <input type="text" name="fname" placeholder="First Name" class="form-control below_space" >
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="text" name="mname" placeholder="Middle Name" class="form-control below_space" >
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="text" name="lname" placeholder="Last Name" class="form-control below_space" >
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="text" name="dobfrom" placeholder="Date Of Birth(From)" class="form-control below_space" >
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="text" name="dobto" placeholder="Date Of Birth(To)" class="form-control below_space" >
-                                </div>
+                        <!--<button type="button" class="btn btn-success below_space" data-toggle="modal"
+                                data-target="#myModalSearch"><i class="fa fa-search tooltips"
+                                                                data-original-title="Search Job Client"></i> Search Job
+                            Seeker
+                        </button>-->
 
-                                <div class="col-md-2">
-                                    <input type="text" name="fname" placeholder="Address" class="form-control below_space" >
-                                </div>
-
-                                <div class="col-md-2">
-                                    <input type="text" name="mname" placeholder="Contact Number" class="form-control below_space " >
-                                </div>
-
-                                <div class="col-md-2">
-                                    <select name="gender" id="" class="form-control below_space">
-                                        <option value="">--Gender--</option>
-                                        <option value="">Male</option>
-                                        <option value="">Female</option>
-                                        <option value="">other</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="text" name="dobfrom" placeholder="key Skills" class="form-control below_space" >
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="text" name="dobto" placeholder="Latest Education" class="form-control below_space" >
-                                </div>
-
-                                <div class="col-md-2">
-                                    <input type="text" name="dobfrom" placeholder="Years of Experience" class="form-control below_space" >
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="text" name="dobto" placeholder="Expected Salary" class="form-control below_space" >
-                                </div>
-
-                                <div class="col-md-2">
-                                    <input type="text" name="dobfrom" placeholder="Applied Organization Name" class="form-control below_space" >
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="text" name="dobto" placeholder="Registered Date(From)" class="form-control below_space" >
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="text" name="dobto" placeholder="Registered Date(To)" class="form-control below_space" >
-                                </div>
-
-                            </div>
-                            <div class="panel-footer">
-                                <div class="row">
-                                    <div class="">
-                                        <button class="btn btn-success btn-flat" type="submit"> Search Job Seeker</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-
+                        <?php include('seeker-searchform.php')?>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover" id="table1" cellspacing="0" width="100%">
@@ -162,186 +101,340 @@
 </section>
 
 
+
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h2 class="modal-title">Search Employer</h2>
-                <input type="hidden" value="" class="news_id" name="">
-            </div>
-            <div class="modal-body">
-
-
-                <div class="panel-body panel-body-nopadding">
-                    <?php
-                    $action = base_url() . 'admin/Employer/searchEmployer';
-
-                    $attributes = array('class' => 'form-horizontal form-bordered', 'id' => 'form1');
-                    echo form_open_multipart($action, $attributes);
-                    ?>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Employer ID:</label>
-
-                        <div class="col-sm-4">
-                            <div class="input-group below_space">
-                                <div class="input-group-addon">From</div>
-                                <input type="text" name="empId" class="form-control" id="empId" placeholder="123">
-                            </div>
-                        </div>
-
-                        <div class="col-sm-4">
-                            <div class="input-group below_space">
-                                <div class="input-group-addon">To</div>
-                                <input type="text" name="empId2" class="form-control" id="exampleInputAmount"
-                                       placeholder="456">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Company Name :</label>
-
-                        <div class="col-sm-7">
-                            <input type="text" name="orgname" id='orgname' class="form-control" value=''/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Address :</label>
-
-                        <div class="col-sm-7">
-                            <input type="text" name="address" id='address' class="form-control" value=''/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Email :</label>
-
-                        <div class="col-sm-7">
-                            <input type="text" name="email" id='email' class="form-control" value=''/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">URL :</label>
-
-                        <div class="col-sm-7">
-                            <input type="text" name="website" id='website' class="form-control" value=''/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Organization Type :</label>
-
-                        <div class="col-sm-7">
-                            <select class="form-control chosen-select" name='orgtype'
-                                    data-placeholder="Choose a Organisation Type">
-                                <option value="0">-- Select Organization Type --</option>
-                                <?php foreach ($organisation_type as $key => $value) { ?>
-                                    <option value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- <div class="form-group">
-                      <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="info-box">
-                          <span class="info-box-icon bg-green"><i class="fa fa-file-text-o"></i></span>
-                          <div class="info-box-content">
-                            <span class="info-box-text"><h3>Account Contact Information</h3></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Contact No. :</label>
-
-                        <div class="col-sm-7">
-                            <input type="text" name="phone" id='phone' class="form-control" value=''/>
-                        </div>
-                    </div>
-
-                    <!-- <div class="form-group">
-                      <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="info-box">
-                          <span class="info-box-icon bg-green"><i class="fa fa-file-text-o"></i></span>
-                          <div class="info-box-content">
-                            <span class="info-box-text"><h3>Login Information</h3></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Registered Date:</label>
-
-                        <div class="col-sm-7">
-                            <div class="input-group date">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </div>
-                                <input type="text" name="joindate" class="form-control pull-right" id="reservation1">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- <div class="form-group">
-                      <label class="col-sm-3 control-label">Modified Date:</label>
-                      <div class="col-sm-7">
-                       <div class="input-group date">
-                          <div class="input-group-addon">
-                              <i class="fa fa-calendar"></i>
-                            </div>
-                            <input type="text" name="modifieddate" class="form-control pull-right" id="reservation2">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Username:</label>
-                        <div class="col-sm-7">
-                            <input type="text" name="username" id='username' class="form-control" value='' />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Password :</label>
-                        <div class="col-sm-7">
-                            <input type="text" name="password" id='password' class="form-control" value='' />
-                        </div>
-                    </div> -->
-
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-sm-6 col-sm-offset-5">
-                                <button class="btn btn-success btn-flat" type="submit">
-                                    Search Employer
-                                </button>
-                                &nbsp;
-                            </div>
-                        </div>
-                    </div>
-                    <!-- panel-footer -->
-                    <?php echo form_close(); ?>
-                </div>
-                <!-- panel-body -->
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-</div>
-
+<!--<div id="myModalSearch" class="modal fade" role="dialog">-->
+<!--    <div class="modal-dialog modal-lg">-->
+<!---->
+<!--        <!-- Modal content-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--                <h2 class="modal-title">Search Job Seeker</h2>-->
+<!--                <input type="hidden" value="" class="news_id" name="">-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!---->
+<!---->
+<!--                <div class="panel-body panel-body-nopadding">-->
+<!--                    --><?php
+//                    $action = base_url() . 'admin/Seeker/searchSeeker';
+//
+//                    $attributes = array('class' => 'form-horizontal form-bordered', 'id' => 'form1');
+//                    echo form_open_multipart($action, $attributes);
+//                    ?>
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Employer Ref No:</label>-->
+<!---->
+<!--                        <div class="col-sm-3">-->
+<!--                            <div class="input-group below_space">-->
+<!--                                <div class="input-group-addon">From</div>-->
+<!--                                <input type="text" name="sid" class="form-control" id="sid" placeholder="123">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!---->
+<!--                        <div class="col-sm-3">-->
+<!--                            <div class="input-group below_space">-->
+<!--                                <div class="input-group-addon">To</div>-->
+<!--                                <input type="text" name="sid2" class="form-control" id="sid2" placeholder="456">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">His/Her Title :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <select class="form-control chosen-select" name='salutation'-->
+<!--                                    data-placeholder="Choose a Title">-->
+<!--                                <option value="0">All</option>-->
+<!--                                --><?php //foreach ($salutation as $key => $value) { ?>
+<!--                                    <option value='--><?php //echo $value->id; ?><!--'>--><?php //echo $value->dropvalue; ?><!--</option>-->
+<!--                                --><?php //} ?>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">First Name :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <input type="text" name="fname" id='fname' class="form-control" value=''/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Last Name :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <input type="text" name="lname" id='lname' class="form-control" value=''/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Date of Birth:</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <div class="input-group date">-->
+<!--                                <div class="input-group-addon">-->
+<!--                                    <i class="fa fa-calendar"></i>-->
+<!--                                </div>-->
+<!--                                <input type="text" name="dob" class="form-control pull-right" id="dob">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Address :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <input type="text" name="address" id='address' class="form-control" value=''/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">City :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <input type="text" name="city" id='city' class="form-control" value=''/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Phone :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <input type="text" name="phone" id='phone' class="form-control" value=''/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Email :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <input type="text" name="email" id='email' class="form-control" value=''/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Functional Area :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <select class="form-control chosen-select" name='funcarea'-->
+<!--                                    data-placeholder="Choose a Functional Area">-->
+<!--                                <option value="0">-- Select Organization Type --</option>-->
+<!--                                --><?php //foreach ($functional_area as $key => $value) { ?>
+<!--                                    <option value='--><?php //echo $value->id; ?><!--'>--><?php //echo $value->dropvalue; ?><!--</option>-->
+<!--                                --><?php //} ?>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Job Title :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <select class="form-control chosen-select" name='jid' data-placeholder="Choose a Job Title">-->
+<!--                                <option value="0">-- Select Job Title --</option>-->
+<!--                                --><?php //foreach ($job_title as $key => $value) {
+//                                    $empId = $value->eid;
+//                                    $org_name = $this->general_model->getById('employer', 'id', $empId, 'orgname');
+//                                    if ($value->displayname) {
+//                                        $jobTitleOrg = substr($value->displayname, 0, 35);
+//                                    } else {
+//                                        $jobTitleOrg = $org_name->orgname;
+//                                    }
+//                                    ?>
+<!--                                    <option-->
+<!--                                        value='--><?php //echo $value->id; ?><!--'>--><?php //echo substr($value->jobtitle, 0, 20); ?>
+<!--                                        -- --><?php //echo $jobTitleOrg; ?><!--</option>-->
+<!--                                --><?php //} ?>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Applied Position :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <select class="form-control chosen-select" name='appliedposition'-->
+<!--                                    data-placeholder="Choose a Applied Position">-->
+<!--                                <option value="0">-- Select Position --</option>-->
+<!--                                --><?php //foreach ($job_title as $key => $value) {
+//                                    $empId = $value->eid;
+//                                    $org_name = $this->general_model->getById('employer', 'id', $empId, 'orgname');
+//                                    if ($value->displayname) {
+//                                        $jobTitleOrg = substr($value->displayname, 0, 35);
+//                                    } else {
+//                                        $jobTitleOrg = $org_name->orgname;
+//                                    }
+//                                    ?>
+<!--                                    <option-->
+<!--                                        value='--><?php //echo $value->id; ?><!--'>--><?php //echo substr($value->jobtitle, 0, 20); ?>
+<!--                                        -- --><?php //echo $jobTitleOrg; ?><!--</option>-->
+<!--                                --><?php //} ?>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Applied Date:</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <div class="input-group date">-->
+<!--                                <div class="input-group-addon">-->
+<!--                                    <i class="fa fa-calendar"></i>-->
+<!--                                </div>-->
+<!--                                <input type="text" name="appdate" class="form-control pull-right" id="datepicker">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Registered Date:</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <div class="input-group date">-->
+<!--                                <div class="input-group-addon">-->
+<!--                                    <i class="fa fa-calendar"></i>-->
+<!--                                </div>-->
+<!--                                <input type="text" name="registerdate" class="form-control pull-right"-->
+<!--                                       id="seeker_date1">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Modified Date:</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <div class="input-group date">-->
+<!--                                <div class="input-group-addon">-->
+<!--                                    <i class="fa fa-calendar"></i>-->
+<!--                                </div>-->
+<!--                                <input type="text" name="modifieddate" class="form-control pull-right"-->
+<!--                                       id="seeker_date2">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Education/Qualification :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <input type="text" name="qualification" id='qualification' class="form-control" value=''/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Keyskills :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <input type="text" name="keyskills" id='keyskills' class="form-control" value=''/>-->
+<!--                            <span class="green">Note : Separate Keyskills by Comma (,)</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Current Job Position :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <input type="text" name="cjobposition" id='cjobposition' class="form-control" value=''/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Preferred Job Title :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <input type="text" name="jobtitle" id='jobtitle' class="form-control" value=''/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Preferred Location :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <select class="form-control chosen-select" name='joblocation'-->
+<!--                                    data-placeholder="Choose a Location">-->
+<!--                                <option value="0">-- Select Location --</option>-->
+<!--                                --><?php //foreach ($location as $key => $value) { ?>
+<!--                                    <option value='--><?php //echo $value->id; ?><!--'>--><?php //echo $value->dropvalue; ?><!--</option>-->
+<!--                                --><?php //} ?>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Years of Experience :</label>-->
+<!---->
+<!--                        <div class="col-sm-2">-->
+<!--                            <div class="input-group below_space">-->
+<!--                                <div class="input-group-addon">From</div>-->
+<!--                                <input type="text" name="expyrs" class="form-control" id="expyrs" placeholder="2010">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!---->
+<!--                        <div class="col-sm-2">-->
+<!--                            <div class="input-group below_space">-->
+<!--                                <div class="input-group-addon">To</div>-->
+<!--                                <input type="text" name="expyrs2" class="form-control" id="expyrs2"-->
+<!--                                       placeholder="--><?php //echo date('Y'); ?><!--">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Expected Salary :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <select class="form-control chosen-select" name='expsal'-->
+<!--                                    data-placeholder="Choose a Excepted Salary">-->
+<!--                                <option value="0">-- Select Expected Salary --</option>-->
+<!--                                --><?php //foreach ($salary_range as $key => $value) { ?>
+<!--                                    <option value='--><?php //echo $value->id; ?><!--'>--><?php //echo $value->dropvalue; ?><!--</option>-->
+<!--                                --><?php //} ?>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="form-group">-->
+<!--                        <label class="col-sm-3 control-label">Applied Organization Name :</label>-->
+<!---->
+<!--                        <div class="col-sm-7">-->
+<!--                            <select class="form-control chosen-select" name='apporg'-->
+<!--                                    data-placeholder="Choose a Organisation Name">-->
+<!--                                <option value="0">-- Select Organization --</option>-->
+<!--                                --><?php //foreach ($applied_organisation as $key => $value) { ?>
+<!--                                    <option value='--><?php //echo $value->id; ?><!--'>--><?php //echo $value->orgname; ?><!--</option>-->
+<!--                                --><?php //} ?>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="panel-footer">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-sm-6 col-sm-offset-5">-->
+<!--                                <button class="btn btn-success btn-flat" type="submit">-->
+<!--                                    Search Seeker-->
+<!--                                </button>-->
+<!--                                &nbsp;-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <!-- panel-footer -->
+<!--                    --><?php //echo form_close(); ?>
+<!--                </div>-->
+<!--                <!-- panel-body -->
+<!---->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!-- Delete Modal -->
 <div id="myModalDelete" class="modal fade" role="dialog">

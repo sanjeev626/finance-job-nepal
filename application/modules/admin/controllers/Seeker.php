@@ -491,6 +491,24 @@ class Seeker extends MY_Controller {
          $data['applied_organisation'] =$this->general_model->getAll('employer','','orgname','id,orgname');
         $data['main'] = 'seeker/search_result_job_seeker';
 
+         $data['fname'] = $this->input->post('fname');
+         $data['mname'] = $this->input->post('mname');
+         $data['lname'] = $this->input->post('lname');
+         $data['dobfrom'] = $this->input->post('dobfrom');
+         $data['dobto'] = $this->input->post('dobto');
+         $data['address'] = $this->input->post('address');
+         $data['phone'] = $this->input->post('phone');
+         $data['email'] = $this->input->post('email');
+         $data['gender'] = $this->input->post('gender');
+         $data['keyskills'] = $this->input->post('keyskills');
+         $data['qualification'] = $this->input->post('qualification');
+         $data['expyrs'] = $this->input->post('experience_years');
+         $data['expsal'] = $this->input->post('expsal');
+         $data['apporg'] = $this->input->post('apporg');
+         $data['jid'] = $this->input->post('jid');
+         $data['registeredfrom'] = $this->input->post('registeredfrom');
+         $data['registeredto'] = $this->input->post('registeredto');
+
         $this->load->view('home', $data);
 
     }
