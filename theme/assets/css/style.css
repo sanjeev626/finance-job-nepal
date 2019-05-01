@@ -3910,7 +3910,7 @@ html .ui-button.ui-state-disabled:active {
 	text-transform: capitalize;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600;
-	margin: 0 0 30px;
+	margin: 0 0 10px;
 	color: #333
 }
 
@@ -3964,12 +3964,12 @@ td span {
 
 .table th,
 .table td {
-	padding: 25px 10px
+	padding: 5px 10px
 }
 
 .single-manage-jobs td,
 .single-manage-jobs td a {
-	color: #627199
+	color: #000000
 }
 
 .action-edit {
@@ -5528,4 +5528,18 @@ ul.company-desc-list li i {
 }
 .margin-top-0{
 	margin-top: 0px;
+}
+
+.margin_top_15 {
+	margin-top: 15px
+}
+.padding_15 {
+	padding: 0 15px;
+}
+.any-title {
+	font-size: 16px;
+	text-transform: capitalize;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	display: inline-block;
 }
