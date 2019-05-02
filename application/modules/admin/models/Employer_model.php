@@ -24,6 +24,31 @@ class Employer_model extends CI_Model {
         }
     }
 
+    public function get_recent_post_employer($limit,$offset){
+        $this->db->select('e.*,e.id as emp_id');
+        $this->db->from('employer as e');
+        $this->db->join('jobs as j','j.eid = e.id');
+        $this->db->group_by('j.eid');
+        $this->db->order_by('j.date_added','DESC');
+        $query = $this->db->get('employer',$limit,$offset);
+        if ($query->num_rows() == 0) {
+            return FALSE;
+        } else {
+            return $query->result();
+        }
+    }
+
+    public function get_count_recent_post_employer(){
+        $this->db->select('e.*,e.id as emp_id');
+        $this->db->from('employer as e');
+        $this->db->join('jobs as j','j.eid = e.id');
+        $this->db->group_by('j.eid');
+        $this->db->order_by('j.date_added','DESC');
+         $query = $this->db->get('employer');
+        return $query->num_rows();
+
+    }
+
     public function get_basket_employer(){ 
         $this->db->select('e.*,e.id as emp_id');
         $this->db->from('employer as e');

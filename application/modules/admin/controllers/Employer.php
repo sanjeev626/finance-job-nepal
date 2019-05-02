@@ -14,13 +14,14 @@ class Employer extends MY_Controller {
         $this->load->model('employer_model');
         $this->load->model('general_model');
         $this->load->model('vacancy_model');
+        $this->load->model('dropdown_model');
     }
 
     public function index(){
 
         $config['base_url'] = base_url() . 'admin/Employer';
         $config['uri_segment'] = 3;
-        $config['per_page'] = 100;
+        $config['per_page'] = 20;
 
         /* Bootstrap Pagination  */
 
@@ -44,8 +45,9 @@ class Employer extends MY_Controller {
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
         
-        $config['total_rows'] = $this->db->count_all('employer');
-        $data['employer'] = $this->employer_model->get_all_employer($config['per_page'], $page);
+        //$config['total_rows'] = $this->db->count_all('employer');
+        $config['total_rows'] = $this->employer_model->get_count_recent_post_employer();
+        $data['employer'] = $this->employer_model->get_recent_post_employer($config['per_page'], $page);
         
 
         $this->pagination->initialize($config);

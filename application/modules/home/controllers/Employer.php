@@ -275,8 +275,12 @@ class Employer extends View_Controller {
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
+        $todaydate=date('Y-m-d');
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);  
         $data['post_job'] = $this->general_model->getAll('jobs',array('eid'=>$eid));
+        $data['activejobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'post_status'=>'public','applybefore >='=>$todaydate));
+        $data['inactivejobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'post_status'=>'private','applybefore >='=>$todaydate));
+        $data['expiredjobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'applybefore <='=>$todaydate));
         $data['menu'] = 'dashboard';
         $data['sidebar'] = 'employer';
         $data['select'] = '';

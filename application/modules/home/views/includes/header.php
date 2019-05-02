@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>content_home/css/perfect-scrollbar.min.css">
     <!--Site Main Style css-->
     <link rel="stylesheet" href="<?php echo base_url();?>content_home/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>content_home/css/custom.css">
     <!--Responsive css-->
     <link rel="stylesheet" href="<?php echo base_url();?>content_home/css/responsive.css">
 

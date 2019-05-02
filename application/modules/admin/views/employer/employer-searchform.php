@@ -5,7 +5,7 @@ $attributes = array('class' => 'form-horizontal form-bordered searchform', 'id' 
 echo form_open_multipart($action, $attributes);
 ?>
 <div class="form-group">
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="row">
             <label class="col-sm-12 control-label pull-left">Company Name:</label>
             <div class="col-sm-12">
@@ -14,7 +14,7 @@ echo form_open_multipart($action, $attributes);
         </div>
 
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="row">
             <label class="col-sm-12 control-label pull-left">Contact Person:</label>
             <div class="col-sm-12">
@@ -23,7 +23,7 @@ echo form_open_multipart($action, $attributes);
         </div>
 
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="row">
             <label class="col-sm-12 control-label pull-left">Address:</label>
             <div class="col-sm-12">
@@ -32,7 +32,7 @@ echo form_open_multipart($action, $attributes);
         </div>
 
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="row">
             <label class="col-sm-12 control-label pull-left">Email:</label>
             <div class="col-sm-12">
@@ -41,7 +41,7 @@ echo form_open_multipart($action, $attributes);
         </div>
 
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="row">
             <label class="col-sm-12 control-label pull-left">Organisation Type:</label>
             <div class="col-sm-12">
@@ -57,7 +57,7 @@ echo form_open_multipart($action, $attributes);
 
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="row">
             <label class="col-sm-12 control-label pull-left">Contact Number:</label>
             <div class="col-sm-12">
@@ -66,7 +66,7 @@ echo form_open_multipart($action, $attributes);
         </div>
 
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="row">
             <label class="col-sm-12 control-label pull-left">Website:</label>
             <div class="col-sm-12">

@@ -22,10 +22,10 @@
                 </thead>
                 <tbody>
                   <?php
-                  if ($this->uri->segment(3) == NULL) {
+                  if ($this->uri->segment(4) == NULL) {
                     $i = 1;
                   } else {
-                    $i = $this->uri->segment(3) + 1;
+                    $i = $this->uri->segment(4) + 1;
                   }
                   if (!empty($employer_job_info)) {  
                   foreach ($employer_job_info as $key => $val):
@@ -40,7 +40,16 @@
                     <td><?php echo $val->jobtitle; ?></td>
                     <td><?php echo $organiation; ?></td>
                     <td <?php if($applybefore < $cdate){ ?> style="color:#FF0000;"<?php } ?>><?php echo $applybefore; ?></td>
-                    <td><?php echo $val->joblevel; ?></td>
+                    <td>
+                      <?php 
+                      $val->joblevel;
+                        $dropdowns = $this->dropdown_model->get_dropdown_by_id($val->joblevel);
+                        if(!empty($dropdowns))
+                          echo  $dropdowns->dropvalue;
+                        else
+                          echo 'N/A';
+                      ?>                  
+                      </td>
                     <td class="text-center"><?php echo $val->requiredno; ?></td>
                     <td class="table-action text-center">
 

@@ -205,11 +205,16 @@ if (!empty($jobpost_detail)) {
 
 <script>
     $( function() {
+
         $( "#applybefore" ).datepicker();
+        $( "#applybefore" ).datepicker("option","changeMonth","true");
+        $( "#applybefore" ).datepicker("option","changeYear","true");
         $( "#applybefore" ).datepicker( "option", "showAnim", 'clip' );
         $( "#applybefore" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
         $( "#applybefore" ).datepicker("setDate", "<?php echo $applybefore;?>");
         $( "#post_date" ).datepicker();
+        $( "#post_date" ).datepicker("option","changeMonth","true");
+        $( "#post_date" ).datepicker("option","changeYear","true");
         $( "#post_date" ).datepicker( "option", "showAnim", 'clip' );
         $( "#post_date" ).datepicker( "option", "dateFormat", 'yy-mm-dd' );
         $( "#post_date" ).datepicker("setDate", "<?php echo $post_date;?>");

@@ -103,7 +103,7 @@ p {
 
 .single-footer-widget p{
 	color: #777;
-	margin: 0;
+	margin: 0;	
 }
 
 .fjn-link {
@@ -226,7 +226,7 @@ h6 {
 }
 h5{
 	font-size: 20px;
-	color: #000000;
+	color: #000000;	
 }
 
 a {
@@ -292,6 +292,10 @@ li {
 
 .section_15 {
 	padding: 15px 0
+}
+
+.section_0 {
+	padding: 0 !important;
 }
 
 .pad-right {
@@ -1783,7 +1787,7 @@ ul.footer-social li a>i {
 
 .single-footer-widget>h3 {
 	color: #b3b3b3;
-;
+	;
 	display: inline-block;
 	font-family: "Montserrat", sans-serif;
 	font-size: 20px;
@@ -4186,7 +4190,7 @@ td span {
 	position: absolute;
 	top: 15px;
 	right: 0;
-;
+	;
 	visibility: hidden;
 	opacity: 0;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -5513,29 +5517,15 @@ ul.company-desc-list li i {
 }
 
 .cv-box{
-	padding: 10px;
-	border: #0FAD43 1px solid;
+   padding: 10px;
+   border: #0FAD43 1px solid;
 }
 .cv-box a{
-	color: #0FAD43;
+   color: #0FAD43;
 }
 .cv-box a:hover{
-	color: #007bff;
+   color: #007bff;
 }
 .margin-top-0{
 	margin-top: 0px;
-}
-
-.margin_top_15 {
-	margin-top: 15px
-}
-.padding_15 {
-	padding: 0 15px;
-}
-.any-title {
-	font-size: 16px;
-	text-transform: capitalize;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 600;
-	display: inline-block;
 }
