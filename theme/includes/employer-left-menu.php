@@ -13,3 +13,13 @@
       <li><a href="#"><i class="fa fa-power-off"></i>LogOut</a></li>
    </ul>
 </div>
+
+<div class="dashboard-left margin_top_15">   
+   <div class="padding_15">
+      <p class="any-title">Client Relation Executive</p>
+      <p><strong>Person Name</strong></p>
+      <p><i>Position</i></p>
+      <p><i class="fa fa-phone"></i> 9841000000</p>
+      <p><i class="fa fa-envelope-o"></i> hello@financejobnepal.com</p>
+   </div>
+</div>
