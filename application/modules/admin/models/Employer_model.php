@@ -138,7 +138,7 @@ class Employer_model extends CI_Model {
         }
     }
 
-    public function update_employer($eid,$logo){
+    public function update_employer($eid,$logo,$banner){
         $orgname = $this->input->post('orgname');
         $folder_name = url_title($orgname, '-', true);
         $orgcode = substr($folder_name, 0, 30);
@@ -150,19 +150,17 @@ class Employer_model extends CI_Model {
             'organization_description' => $this->input->post('orgdesc'),
             'organization_phone' => $this->input->post('phone'),
             'organization_address' => $this->input->post('address'),
-            /*
-            'email2' => $this->input->post('email2'),
-            'natureoforg' => $this->input->post('natureoforg'),
-            'orgtype' => $this->input->post('orgtype'),
-            'ownership' => $this->input->post('ownership'),
-            'salutation' => $this->input->post('salutation'),
-            'fname' => $this->input->post('fname'),
-            'mname' => $this->input->post('mname'),
-            'lname' => $this->input->post('lname'),*/
+            
             'contact_name' => $this->input->post('contactperson'),
             'contact_designation' => $this->input->post('designation'),
             'contact_email' => $this->input->post('contact_email'),
             'contact_mobile' => $this->input->post('contact_mobile'),
+
+            'alternate_contact_name' => $this->input->post('alternate_contact_name'),
+            'alternate_contact_designatioin' => $this->input->post('alternate_contact_designatioin'),
+            'alternate_contact_email' => $this->input->post('alternate_contact_email'),
+            'alternate_contact_mobile' => $this->input->post('alternate_contact_mobile'),
+
             'organization_fax' => $this->input->post('fax'),
             'organization_pobox' => $this->input->post('pobox'),
             'organization_website' => $this->input->post('website'),
@@ -172,8 +170,13 @@ class Employer_model extends CI_Model {
         );
 
         if(!empty($logo)){
-            $data['logo'] = $logo;
+            $data['organization_logo'] = $logo;
         }
+        if(!empty($banner)){
+            $data[' organization_banner'] = $banner;
+        }
+
+        
 
         $this->db->where('id',$eid);
         $this->db->update('employer',$data);
@@ -392,13 +395,13 @@ class Employer_model extends CI_Model {
             $this->db->or_like('email',$email);
         }
         if(isset($website) && !empty($website)){
-            $this->db->or_like('website',$website);
+            $this->db->or_like('organization_website',$website);
         }
         if(isset($orgtype) && !empty($orgtype)){
-            $this->db->or_like('organization_type',$orgtype);
+            $this->db->where('organization_type',$orgtype);
         }
         if(isset($phone) && !empty($phone)){
-            $this->db->or_like('phone',$phone);
+            $this->db->or_like('organization_phone',$phone);
         }
         if(isset($contact_name) && !empty($contact_name)){
             $this->db->or_like('contact_name',$contact_name);

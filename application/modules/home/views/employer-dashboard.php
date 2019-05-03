@@ -23,7 +23,7 @@
             <?php $this->load->view('includes/employer-dashboard-sidebar');?>
 
             <div class="col-md-12 col-lg-9">
-                
+
                 <div class="dashboard-right">
                     <div class="manage-jobs">
                         <div class="manage-jobs-heading">

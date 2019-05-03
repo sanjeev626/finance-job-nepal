@@ -390,9 +390,24 @@ class Employer extends MY_Controller {
                 $complogo = $upload_data['file_name'];
             }
            
-            if(!isset($complogo))  $complogo = '';  
+            if(!isset($complogo))  $complogo = ''; 
 
-            $this->employer_model->update_employer($e_id,$complogo);
+            $b = $_FILES['banner']['name'];
+            if ($b != "") {
+                $config['upload_path'] = './././uploads/employer/';
+                $config['log_threshold'] = 1;
+                $config['allowed_types'] = 'jpg|png|jpeg|gif';
+                $config['max_size'] = '100000'; // 0 = no file size limit
+                $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['banner']['name']));
+                $config['overwrite'] = false;
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('banner');
+                $upload_data = $this->upload->data();
+                $banner = $upload_data['file_name'];
+            }
+            if(!isset($banner))  $banner = ''; 
+
+            $this->employer_model->update_employer($e_id,$complogo,$banner);
             $this->session->set_flashdata('success', 'Employer Update Successfully...');
             redirect(base_url() . 'admin/Employer', 'refresh');
         }
