@@ -390,6 +390,80 @@ class Jobseeker extends View_Controller {
            }
         }
     }
+
+    public function jobseekercv(){
+        $first_name = $this->input->post('first_name');
+        $last_name = $this->input->post('last_name');
+        $email = $this->input->post('email');
+        $contact_number = $this->input->post('contact_number');
+        //$cv_file = $this->input->post('cv_file');
+
+
+            //echo "Upload Employer Logo";
+            $config['upload_path'] = './././uploads/jobseeker/';
+            $config['log_threshold'] = 1;
+            $config['allowed_types'] = 'doc|docx|pdf';
+            $config['max_size'] = '100000'; // 0 = no file size limit
+            $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['attachment']['name']));
+            $config['overwrite'] = false;
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('attachment');
+            $upload_data = $this->upload->data();
+            $cv_file = $upload_data['file_name'];
+
+
+        $attachment = $upload_data['full_path'];
+        $fromName = $first_name.' '.$last_name;
+        //$toemail = 'info@financejobnepal.com';
+        $toemail = 'binaya619@gmail.com';
+        // subject
+        $subject = 'CV Received';
+
+        // message
+        $mess = '
+                <html>
+                <head>
+                  <title>CV received </title>
+                </head>
+                <body>
+                    <table>
+                        <tr>
+                            <td>Full Name</td><td>'.$fromName.'</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td><td>'.$email.'</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Number</td><td>'.$contact_number.'</td>
+                        </tr>
+                    </table>
+                </body>
+                </html>
+                ';
+
+        // To send HTML mail, the Content-type header must be set
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+        // Additional headers
+        $headers .= 'To:Finance Job Nepal <'.$toemail.'>' . "\r\n";
+        //$admin_email  = 'info@financejobnepal.com';
+        $headers .= 'From: '.$fromName.' <'.$email.'>' . "\r\n";
+        //$headers .= 'From: '.$admin_email;
+
+        // Send Mail
+        if(@mail($toemail, $subject, $mess, $headers,$attachment)){
+            $this->session->set_flashdata('success',"Cv Received. We will get back to you soon .");
+            redirect(base_url() . 'Jobseeker/signup', 'refresh');
+        }else{
+            $this->session->set_flashdata('error',"Something went wrong.");
+            redirect(base_url() . 'Jobseeker/signup', 'refresh');
+        }
+
+
+
+
+    }
     
     public function loginCheck(){
 

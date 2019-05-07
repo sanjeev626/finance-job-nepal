@@ -486,7 +486,7 @@ class Employer_model extends CI_Model {
             'noexperience' => $this->input->post('noexperience'),
             //'education' => $this->input->post('education'),
             'joblevel' => $this->input->post('joblevel'),
-            'jobtype' => $this->input->post('jobtype1'),
+            'jobtype' => $this->input->post('jobtype'),
             /*'jobtype2' => $jobtype2,
             'jobtype3' => $jobtype3,
             'jobtype4' => $jobtype4,

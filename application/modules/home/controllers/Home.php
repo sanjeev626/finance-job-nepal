@@ -52,7 +52,7 @@ class Home extends View_Controller {
         //$data['candidate_services']= $this->general_model->getAll('jobseek_banner',array('publish'=>1));
        // $data['employer_services']=  $this->general_model->getAll('globaljob_service','','','id,urlcode,title');
        // $data['clients']=  $this->general_model->getAll('clients','','','id,clientname,image');
-
+        $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','',8);
         $data['main'] = 'home';
         $this->load->view('main',$data);
     }

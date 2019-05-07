@@ -60,96 +60,21 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder account_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-briefcase"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Accounting & Finance</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/account_cat.jpg" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder design_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-pencil-square-o"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Design, Art & Multimedia</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/design_art.jpg" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder restaurant_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-cutlery"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Restaurant / Food Service</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/restaurent.jpg" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder tech_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-code"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Programming & Tech</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/programing_cat.jpeg" alt="category" />
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder data_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-bar-chart"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Data Science & Analitycs</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/data_cat.png" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder writing_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-pencil"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Writing / Translations</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/writing_cat.jpg" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder edu_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-graduation-cap"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Education / Training</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/edu_cat.jpg" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder sale_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-bullhorn"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>sales / marketing</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/sale_cat.png" alt="category" />
-                </a>
-            </div>
+            <?php
+            foreach($job_category as $jc){?>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="#" class="single-category-holder account_cat">
+                        <div class="category-holder-icon">
+                            <i class="fa fa-briefcase"></i>
+                        </div>
+                        <div class="category-holder-text">
+                            <h3><?php echo $jc->dropvalue;?></h3>
+                        </div>
+                        <!--<img src="<?php /*echo base_url();*/?>content_home/img/account_cat.jpg" alt="category" />-->
+                    </a>
+                </div>
+            <?php  }
+            ?>
         </div>
         <div class="row">
             <div class="col-md-12">
