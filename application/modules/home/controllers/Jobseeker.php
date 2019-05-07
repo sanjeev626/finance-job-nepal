@@ -392,6 +392,9 @@ class Jobseeker extends View_Controller {
     }
 
     public function jobseekercv(){
+
+        $this->load->library('email');
+
         $first_name = $this->input->post('first_name');
         $last_name = $this->input->post('last_name');
         $email = $this->input->post('email');
@@ -412,7 +415,7 @@ class Jobseeker extends View_Controller {
             $cv_file = $upload_data['file_name'];
 
 
-        $attachment = $upload_data['full_path'];
+        //$attachment = $upload_data['full_path'];
         $fromName = $first_name.' '.$last_name;
         //$toemail = 'info@financejobnepal.com';
         $toemail = 'binaya619@gmail.com';
@@ -442,27 +445,25 @@ class Jobseeker extends View_Controller {
                 ';
 
         // To send HTML mail, the Content-type header must be set
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-        // Additional headers
-        $headers .= 'To:Finance Job Nepal <'.$toemail.'>' . "\r\n";
-        //$admin_email  = 'info@financejobnepal.com';
-        $headers .= 'From: '.$fromName.' <'.$email.'>' . "\r\n";
-        //$headers .= 'From: '.$admin_email;
 
-        // Send Mail
-        if(@mail($toemail, $subject, $mess, $headers,$attachment)){
+        $this->email->attach($upload_data['full_path']);
+        $this->email->set_newline("\r\n");
+        $this->email->set_crlf("\r\n");
+        $this->email->set_mailtype("html");
+        $this->email->from($email,$fromName); // change it to yours
+        $this->email->to($toemail); // change it to yours
+        $this->email->subject($subject);
+        $this->email->message($mess);
+        if ($this->email->send()) {
             $this->session->set_flashdata('success',"Cv Received. We will get back to you soon .");
             redirect(base_url() . 'Jobseeker/signup', 'refresh');
-        }else{
+        } else {
             $this->session->set_flashdata('error',"Something went wrong.");
             redirect(base_url() . 'Jobseeker/signup', 'refresh');
         }
 
-
-
-
+        // Send Mail
     }
     
     public function loginCheck(){
