@@ -61,16 +61,29 @@
 
                     $organiation = $this->vacancy_model->get_organisation_by_eid($val->eid);
                     if(empty($organiation)) $organiation = $val->displayname;
-                    $applybefore = $val->apdd."-".$val->apmm."-".$val->apyy;
+                    $addeddate = $val->date_added;
+                    $applybefore = $val->applybefore;
                     $cdate = date('d-m-Y');
+
+
                   ?>
                   <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $val->jobtitle; ?></td>
                     <td><?php echo $organiation; ?></td>
-                    <td><?php echo $val->date_added; ?></td>
-                    <td <?php if($applybefore < $cdate){ ?> style="color:#FF0000;"<?php } ?>><?php echo $applybefore; ?></td>
-                    <td><?php echo $val->joblevel; ?></td>
+                    <td><?php echo date("d-m-Y", strtotime($addeddate)); ?></td>
+                    <td <?php if($applybefore < $cdate){ ?> style="color:#FF0000;"<?php } ?>> <?php echo date("d-m-Y", strtotime($applybefore)); ?></td>
+                    <td>
+                      <?php
+                      $val->joblevel;
+                        $dropdowns = $this->dropdown_model->get_dropdown_by_id($val->joblevel);
+                        if(!empty($dropdowns))
+                          echo  $dropdowns->dropvalue;
+                        else
+                          echo 'N/A';
+
+                      ?>
+                    </td>
                     <td class="text-center"><?php echo $val->requiredno; ?></td>
                     <td class="table-action text-center">
 

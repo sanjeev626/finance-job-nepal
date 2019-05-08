@@ -28,7 +28,7 @@ class Dropdown_model extends CI_Model {
     public function get_all_field($id){
         $this->db->select();
         $this->db->where('fid',$id);
-        $this->db->order_by("dropvalue", "asc");
+        $this->db->order_by("id", "asc");
         $query = $this->db->get($this->table_dropdown);  
         if ($query->num_rows() == 0) {
             return FALSE;

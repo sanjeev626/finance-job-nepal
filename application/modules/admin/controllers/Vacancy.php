@@ -13,6 +13,7 @@ class Vacancy extends MY_Controller {
         parent::__construct();
         $this->load->model('vacancy_model');
         $this->load->model('general_model');
+        $this->load->model('dropdown_model');
     }
 
     public function index(){
@@ -48,10 +49,11 @@ class Vacancy extends MY_Controller {
         $data['panel_title'] = 'Add Vacancy ';
         $data['jobcategory'] = $this->vacancy_model->get_all_jobcategory(); 
         $data['employer'] =$this->general_model->getAll('employer','','orgname');
-        $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','dropvalue','id,dropvalue'); 
+        $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','id','id,dropvalue');
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue'); 
-        $data['job_location'] =$this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');         
-        $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','ordering','id,dropvalue');
+        $data['job_location'] =$this->general_model->getAll('dropdown','fid = 2','id','id,dropvalue');
+        $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','id','id,dropvalue');
+        $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','id','id,dropvalue');
         $data['main'] = 'vacancy/add-edit-vacancy';
 
         $this->load->view('home', $data);
@@ -71,9 +73,11 @@ class Vacancy extends MY_Controller {
             $data['panel_title'] = 'Add Vacancy ';
             $data['jobcategory'] = $this->vacancy_model->get_all_jobcategory(); 
             $data['employer'] =$this->general_model->getAll('employer','','orgname');
-            $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','dropvalue','id,dropvalue'); 
-            $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue'); 
-            $data['job_location'] =$this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue'); 
+            $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','id','id,dropvalue');
+            $data['education'] =$this->general_model->getAll('dropdown','fid = 3','id','id,dropvalue');
+            $data['job_location'] =$this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');
+            $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','id','id,dropvalue');
+            $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','id','id,dropvalue');
             $data['main'] = 'vacancy/add-edit-vacancy';
             $this->load->view('home', $data);
         } else {
@@ -118,10 +122,11 @@ class Vacancy extends MY_Controller {
         $data['job_detail'] = $this->vacancy_model->get_job_by_id($id);
         $data['jobcategory'] = $this->vacancy_model->get_all_jobcategory(); 
         $data['employer'] =$this->general_model->getAll('employer','','orgname');
-        $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','dropvalue','id,dropvalue'); 
+        $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','id','id,dropvalue');
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue'); 
         $data['job_location'] =$this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');        
-        $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','ordering','id,dropvalue');
+        $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','id','id,dropvalue');
+        $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','id','id,dropvalue');
         $data['main'] = 'vacancy/add-edit-vacancy';
 
         $this->load->view('home', $data);

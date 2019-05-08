@@ -120,7 +120,7 @@ if (!empty($jobpost_detail)) {
                                             <label for="Location">Preferred Education:</label>
 
                                                 <select class="form-control" name="required_education" id="required_education">
-                                                    <option value="301">Select One</option>
+                                                    <option value="">Select One</option>
                                                     <option value="Not Required" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'Not Required'){ echo "selected='selected'"; } ?>>Not Required</option>
                                                     <option value="intermediate" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'intermediate'){ echo "selected='selected'"; } ?>>Intermediate</option>
                                                     <option value="bachelor" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'bachelor'){ echo "selected='selected'"; } ?>>Bachelor</option>

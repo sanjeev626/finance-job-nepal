@@ -362,12 +362,12 @@ class Employer extends View_Controller {
         $data['menu'] = 'postJob';
         $data['sidebar'] = 'employer';
         $data['select'] = 'postjob';
-        $data['jobcategory'] = $this->general_model->getAll('dropdown','fid = 9','dropvalue','id,dropvalue');
+        $data['jobcategory'] = $this->general_model->getAll('dropdown','fid = 9','id','id,dropvalue');
         $data['joblocation'] = $this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');
-        $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','dropvalue','id,dropvalue');
+        $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','id','id,dropvalue');
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
-        $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','dropvalue','id,dropvalue');
-        $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','dropvalue','id,dropvalue');
+        $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','id','id,dropvalue');
+        $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','id','id,dropvalue');
         $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
         $data['main'] = 'add-edit-postjob';
         $this->load->view('main',$data);

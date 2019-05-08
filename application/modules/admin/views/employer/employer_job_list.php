@@ -32,7 +32,7 @@
 
                     $organiation = $this->vacancy_model->get_organisation_by_eid($val->eid);
                     if(empty($organiation)) $organiation = $val->displayname;
-                    $applybefore = $val->apdd."-".$val->apmm."-".$val->apyy;
+                    $applybefore = $val->applybefore;
                     $cdate = date('d-m-Y');
                   ?>
                   <tr>
