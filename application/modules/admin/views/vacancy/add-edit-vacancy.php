@@ -48,27 +48,23 @@ if (!empty($job_detail)) {
               <div class="radio">
 
                   <?php
-                  $isNewspaperJob_arr='';
-                  if(!empty($job_detail))
-                  {
-                      $isNewspaperJob_arr = explode(',',$job_detail->isNewspaperJob);
-                  }
+                  $isNewspaperJob_arr =  unserialize($job_detail->isNewspaperJob);
                   ?>
 
 
                 <label>
-                  <input type="checkbox" name="isNewspaperJob[]" id="RJob" value="RJob" <?php if(!empty($job_detail) && in_array('RJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; }elseif(empty($job_detail->isNewspaperJob)){echo "checked = 'checked'";} ?>>
+                  <input type="checkbox" name="isNewspaperJob[]" id="RJob" value="RJob" <?php if(!empty($job_detail->isNewspaperJob) && in_array('RJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; }elseif(empty($job_detail->isNewspaperJob)){echo "checked = 'checked'";} ?>>
                   Default
                 </label>
                 &nbsp;
 
                 <label>
-                  <input type="checkbox" name="isNewspaperJob[]" id="FJNJob" value="FJNJob" <?php if(!empty($job_detail) && in_array('FJNJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; } ?>>
+                  <input type="checkbox" name="isNewspaperJob[]" id="FJNJob" value="FJNJob" <?php if(!empty($job_detail->isNewspaperJob) && in_array('FJNJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; } ?>>
                   FJN JOb
                 </label>
                 &nbsp;
                 <label>
-                  <input type="checkbox" name="isNewspaperJob[]" id="NJob" value="NJob" <?php if(!empty($job_detail) && in_array('NJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; } ?>>
+                  <input type="checkbox" name="isNewspaperJob[]" id="NJob" value="NJob" <?php if(!empty($job_detail->isNewspaperJob) && in_array('NJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; } ?>>
                   Newspaper Job 
                 </label>
                   <!--<label>

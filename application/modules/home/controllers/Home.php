@@ -33,25 +33,22 @@ class Home extends View_Controller {
 
         $data['menu'] = 'home';
         $data['page_title'] = '.:: Finance Job Nepal ..';
-        $data['premium_job'] = $this->home_model->get_job_by_type('PJob',5);
+        //$data['premium_job'] = $this->home_model->get_job_by_type('PJob',5);
         $data['no_of_corporate_job'] = 16;
-        $data['corporate_job'] = $this->home_model->get_job_by_type('CJob',$no_of_corporate_jobs);
+        //$data['corporate_job'] = $this->home_model->get_job_by_type('CJob',$no_of_corporate_jobs);
         $data['tno_corporate_job'] = $this->home_model->count_job_by_type('isNewspaperJob','CJob');
         //$countRecord = $this->general_model->countTotal('employer',array('email' => $email));
         $data['hot_job'] = $this->home_model->get_hot_job($no_of_hot_job);
         //echo $this->db->last_query();exit();
-        $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',9);
-        $data['keyposition_job'] = $this->home_model->get_job_by_type('IJob',9);
-        $data['recent_job'] = $this->home_model->get_job_by_type('RJob',9);
-        $data['featured_job'] = $this->home_model->get_job_by_type('FJob',9);   
+        $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',8);
+
+        $data['fjn_job'] = $this->home_model->get_job_by_type('FJNJob',8);
+        $data['recent_job'] = $this->home_model->get_job_by_type('RJob',8);
+
         $data['location'] = $this->general_model->getAll('dropdown','fid = 2','dropvalue ASC','id,dropvalue','',200);
         $data['type'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue','',6);        
         $data['job_display_in'] = $this->general_model->getAll('dropdown','fid = 16','ordering','id,dropvalue');
-        //$data['sliders'] = $this->general_model->getAll('slider',array('status' => 'Enabled','type' => 'slider'),'ordering');
-        //$data['middle_banner'] = $this->general_model->getAll('slider',array('status' => 'Enabled','type' => 'middle_portion'),'','','',2);
-        //$data['candidate_services']= $this->general_model->getAll('jobseek_banner',array('publish'=>1));
-       // $data['employer_services']=  $this->general_model->getAll('globaljob_service','','','id,urlcode,title');
-       // $data['clients']=  $this->general_model->getAll('clients','','','id,clientname,image');
+
         $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','',8);
         $data['main'] = 'home';
         $this->load->view('main',$data);
@@ -82,7 +79,7 @@ class Home extends View_Controller {
             $jobid = $this->uri->segment(3);
         }
 
-        $data['menu'] = 'home';
+        $data['menu'] = 'job';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         $data['job_detail'] = $jobInfo = $this->general_model->getAll('jobs',array('id'=>$jobid));
         //print_r($jobInfo[0]);
@@ -105,7 +102,7 @@ class Home extends View_Controller {
         //og tags here 
         //print_r($jobInfo);   
         if(!empty($employer_info))
-            $ogurl = base_url().'job/'.$employer_info->orgcode.'/'.$jobInfo['0']->slug.'/'.$jobInfo['0']->id;
+            $ogurl = base_url().'job/'.$employer_info->organization_code.'/'.$jobInfo['0']->slug.'/'.$jobInfo['0']->id;
         else
             $ogurl = base_url().'job/'.$jobInfo['0']->slug.'/'.$jobInfo['0']->id;
 
@@ -129,10 +126,11 @@ class Home extends View_Controller {
         $data['ogimage'] = $ogimage;
 
         //print_r($employer_info);
-        $banner_image = $employer_info->banner_image;
+        //$banner_image = $employer_info->organization_banner;
+        $data['banner_image'] = $employer_info->organization_banner;
         //$banner_image = "";
         //echo "banner_image = ".$banner_image;
-        if(!empty($job_display_in)){
+        /*if(!empty($job_display_in)){
             $this->load->view('job-detail-normal',$data);
         }       
         else if((isset($banner_image)) && ($banner_image != NULL)){
@@ -140,8 +138,11 @@ class Home extends View_Controller {
         } 
         else{
             $this->load->view('job-detail',$data);
-        }
+        }*/
         //$this->load->view('job-detail',$data);
+
+        $data['main'] = 'job-detail';
+        $this->load->view('main',$data);
     }
 
     public function premium_jobs(){

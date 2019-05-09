@@ -79,11 +79,11 @@ class Vacancy_model extends CI_Model {
             }
         }*/
 
-        $isNewspaperJob = '';
+        $isNewspaperJob = array();
         if(isset($_POST['isNewspaperJob']) && count($_POST['isNewspaperJob'])>0)
         {
             for($i=0;$i<count($_POST['isNewspaperJob']);$i++){
-                $isNewspaperJob .= $_POST['isNewspaperJob'][$i].',';
+                $isNewspaperJob[] = $_POST['isNewspaperJob'][$i].',';
             }
         }
         
@@ -98,10 +98,10 @@ class Vacancy_model extends CI_Model {
         if(isset($_POST['jobtype']) && count($_POST['jobtype'])>0)
         {
             for($i=0;$i<count($_POST['jobtype']);$i++){
-                $jobtype .= $_POST['jobtype'][$i].',';
+                $jobtype .= $_POST['jobtype'][$i];
             }
         }
-        
+        $jobtype = substr($jobtype, 0, -1);
         /*$jobtype1 = ($this->input->post('jobtype1')) ? $this->input->post('jobtype1') : '';
         $jobtype2 = ($this->input->post('jobtype2')) ? $this->input->post('jobtype2') : '';
         $jobtype3 = ($this->input->post('jobtype3')) ? $this->input->post('jobtype3') : '';
@@ -110,7 +110,7 @@ class Vacancy_model extends CI_Model {
 
         $data = array(
             //'job_display_in' => $job_display_in,
-            'isNewspaperJob' => $isNewspaperJob,
+            'isNewspaperJob' => serialize($isNewspaperJob),
             //'postedin' => $this->input->post('postedin'),
             'eid' => $eid,
             'orgemail' => $this->input->post('orgemail'),
@@ -205,11 +205,11 @@ class Vacancy_model extends CI_Model {
             }
         }*/
 
-        $isNewspaperJob = '';
+        $isNewspaperJob = array();
         if(isset($_POST['isNewspaperJob']) && count($_POST['isNewspaperJob'])>0)
         {
             for($i=0;$i<count($_POST['isNewspaperJob']);$i++){
-                $isNewspaperJob .= $_POST['isNewspaperJob'][$i].',';
+                $isNewspaperJob[] = $_POST['isNewspaperJob'][$i];
             }
         }
         
@@ -228,6 +228,7 @@ class Vacancy_model extends CI_Model {
                 $jobtype .= $_POST['jobtype'][$i].',';
             }
         }
+        $jobtype = substr($jobtype, 0, -1);
         /*$jobtype1 = ($this->input->post('jobtype1')) ? $this->input->post('jobtype1') : '';
         $jobtype2 = ($this->input->post('jobtype2')) ? $this->input->post('jobtype2') : '';
         $jobtype3 = ($this->input->post('jobtype3')) ? $this->input->post('jobtype3') : '';
@@ -235,7 +236,7 @@ class Vacancy_model extends CI_Model {
 
         $data = array(
             //'job_display_in' => $job_display_in,
-            'isNewspaperJob' => $isNewspaperJob,
+            'isNewspaperJob' => serialize($isNewspaperJob),
             //'postedin' => $this->input->post('postedin'),
             'eid' => $eid,
             'orgemail' => $this->input->post('orgemail'),
@@ -291,7 +292,10 @@ class Vacancy_model extends CI_Model {
         if(!empty($complogo)){
             $data['complogo'] = $complogo;
         }
-
+        /*echo '<pre>';
+        print_r($data);
+        echo '</pre>';
+        die();*/
     	$this->db->where('id',$id);
     	$this->db->update($this->table_jobs,$data);
         //echo $this->db->last_query();
