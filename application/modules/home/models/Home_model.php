@@ -682,6 +682,24 @@ class Home_model extends CI_Model {
         }
     }
 
+    public function get_similar_jobs($title,$id,$applydate){
+
+        $splittitle = explode (" ", $title);
+        $sql = "SELECT * FROM jobs WHERE id !='$id' AND applybefore >= '$applydate'";
+        $sql.=" AND (";
+        foreach($splittitle as $key=>$st){
+            $sql.=($key>0?' OR ':'')." jobtitle LIKE '%".$st."%'";
+
+        }
+        $sql .= ') ORDER BY `post_date` DESC LIMIT 6';
+        $query = $this->db->query($sql);
+        if ($query->num_rows() == 0) {
+            return FALSE;
+        } else {
+            return $query->result();
+        }
+    }
+
 }
 
 /* End of file Home_model.php

@@ -101,66 +101,13 @@ if(!empty($banner_image)){
                             Apply Now
                         </a>
                     </div>
-                    <div class="single-candidate-widget">
-                        <h3>Similar Jobs</h3>
-                        <?php for($i=0;$i<3;$i++){?>
-                            <div class="sidebar-list-single">
-                                <div class="top-company-list">
-                                    <div class="company-list-logo">
-                                        <a href="#">
-                                            <img src="assets/img/company-logo-1.png" alt="company list 1">
-                                        </a>
-                                    </div>
-                                    <div class="company-list-details">
-                                        <h3><a href="#">Regional Sales Manager</a></h3>
-                                        <p class="company-state"><i class="fa fa-map-marker"></i> Baluwatar, Kathmandu, Nepal</p>
-                                        <p class="company-state" title="Posted On"><i class="fa fa-calendar"></i> 2019-03-14</p>
-                                        <p class="open-icon"  title="Apply Before"><i class="fa fa-calendar"></i>2019-04-13</p>
-                                        <p class="varify"><i class="fa fa-check"></i>Part Time</p>
-                                    </div>
-                                    <div class="company-list-btn">
-                                        <a href="#" class="fjn-btn">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </div>
+                    <?php include('includes/detail-page-similar-job.php')?>
+
                 </div>
             </div>
             <div class="col-md-4 col-lg-3">
-                <div class="single-candidate-bottom-right">
-                    <!-- <div class="single-candidate-widget-2">
-                       <a href="#" class="fjn-btn-2">
-                       <i class="fa fa-paper-plane-o"></i>
-                       Apply Now
-                       </a>
-                    </div> -->
-                    <div class="single-candidate-widget-2">
-                        <div class="job-overview single-candidate-widget margin_bottom_15">
-                            <h3>About company</h3>
-                            <div class="justify_both">
-                                <?php echo $employer_info->organization_description?>
-                            </div>
-                        </div>
-                        <div class="job-overview margin_top_15">
-                            <h3 class="font_size_20">Other Vacancies</h3>
-                        </div>
-                        <?php for($i=0;$i<5;$i++){?>
-                            <div class="sigle-top-job margin_top_15">
-                                <div class="top-job-company-image">
-                                    <h3><a href="#">C Developer (Senior) C .Net</a></h3>
-                                </div>
-                                <div class="top-job-company-desc">
-                                    <p class="company-state"><i class="fa fa-calendar"></i> <strong>Apply Before :</strong> July 29, 2017</p>
-                                    <p class="company-state"><i class="fa fa-money"></i> <strong>Salary :</strong> 50000 - 60000</p>
-                                    <div class="top-job-company-btn margin_top_5">
-                                        <a href="#" class="fjn-btn-2">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </div>
-                </div>
+                <?php include('includes/detail-page-other-vacancies.php')?>
+
             </div>
         </div>
     </div>

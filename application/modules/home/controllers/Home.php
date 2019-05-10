@@ -95,10 +95,14 @@ class Home extends View_Controller {
         $data['employer_info'] = $employer_info = $this->general_model->getById('employer','id',$employerId); 
         $applydate = date('Y-m-d');
         if($employerId>0)
-        $data['related_job'] = $this->general_model->getAll('jobs',array('eid'=>$employerId,'id !=' => $jobid,'applybefore >='=>$applydate),'','id,jobtitle,slug');
+        $data['related_job'] = $this->general_model->getAll('jobs',array('eid'=>$employerId,'id !=' => $jobid,'applybefore >='=>$applydate),'','*');
         else
             $data['related_job'] = '';
-        //print_r($employer_info);
+
+        //$data['similar_job'] = $this->general_model->getAll('jobs',array('jobtitle','like',$jobInfo['0']->jobtitle,'id !=' => $jobid,'applybefore >='=>$applydate),'','*');
+        $data['similar_job'] = $this->home_model->get_similar_jobs($jobInfo['0']->jobtitle,$jobid,$applydate);
+
+        
         //og tags here 
         //print_r($jobInfo);   
         if(!empty($employer_info))
@@ -120,12 +124,12 @@ class Home extends View_Controller {
         //$ogimage = base_url() .  "uploads/employer/".$jobInfo->logo;        
         $ogimage = "";
         $data['ogurl'] = $ogurl;
-        $data['ogwebsite'] = 'http://globaljob.com.np';
+        $data['ogwebsite'] = 'http://financejob.com';
         $data['ogtitle'] = $ogtitle;
         $data['ogdescription'] = $ogdescription;
         $data['ogimage'] = $ogimage;
 
-        //print_r($employer_info);
+        
         //$banner_image = $employer_info->organization_banner;
         $data['banner_image'] = $employer_info->organization_banner;
         //$banner_image = "";
