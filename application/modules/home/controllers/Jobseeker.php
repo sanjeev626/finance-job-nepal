@@ -414,6 +414,31 @@ class Jobseeker extends View_Controller {
             $upload_data = $this->upload->data();
             $cv_file = $upload_data['file_name'];
 
+        $checkuser = $this->general_model->countTotal('seeker','email ="'.$email.'"');
+        if($checkuser >0){
+            $cv_data = array(
+                'resume' =>$cv_file,
+                'user_type' => 'cv_only',
+                'date_modified' => date("Y-m-d H:i:s"),
+            );
+            $this->general_model->update('seeker',$cv_data, array('email' => $email));
+        }
+        else{
+            $cv_data = array(
+                'username' =>$email,
+                'password' =>md5($first_name.$last_name),
+                'email' =>$email,
+                'resume' =>$cv_file,
+                'fname' =>$first_name,
+                'lname' =>$last_name,
+                'user_type' => 'cv_only',
+                'date_modified' => date("Y-m-d H:i:s"),
+            );
+
+            $this->general_model->insert('seeker',$cv_data);
+        }
+
+
 
         //$attachment = $upload_data['full_path'];
         $fromName = $first_name.' '.$last_name;
@@ -1765,6 +1790,7 @@ class Jobseeker extends View_Controller {
             //$userData['picture']    = !empty($fbUser['picture']['data']['url'])?$fbUser['picture']['data']['url']:'';
             $userData['link']        = !empty($fbUser['link'])?$fbUser['link']:'';
             $userData['isActivated']        = 1;
+            $userData['user_type'] = 'registered';
 
             // Insert or update user data
             $userID = $this->jobseeker_model->checkUser($userData);
@@ -1911,7 +1937,7 @@ class Jobseeker extends View_Controller {
             $userData['link']           = !empty($userProfile['link'])?$userProfile['link']:'';
             //$userData['picture']        = !empty($userProfile['picture'])?$userProfile['picture']:'';
             $userData['isActivated']        = 1;
-
+            $userData['user_type'] = 'registered';
             $userID = $this->jobseeker_model->checkUser($userData);
 
             if(!empty($userID)){

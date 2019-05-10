@@ -88,7 +88,8 @@ class Jobseeker_model extends CI_Model {
             'activation_code' =>$this->input->post('activation_code'),
             'facebook' =>$this->input->post('facebook'),
             'linkedin' =>$this->input->post('linkedin'),
-            'date_created' => $joindate
+            'date_created' => $joindate,
+            'user_type' => 'registered'
         );
         /*echo '<pre>';
         print_r($seeker_data);
