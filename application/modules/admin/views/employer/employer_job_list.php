@@ -53,9 +53,9 @@
                     <td class="text-center"><?php echo $val->requiredno; ?></td>
                     <td class="table-action text-center">
 
-                      <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/Vacancy/edit/<?php echo $val->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Job"></i> Edit</a>
+                      <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/vacancy/edit/<?php echo $val->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Job"></i> Edit</a>
                       |
-                      <a class="btn btn-success btn-sm" id="delete_<?php echo $val->id; ?>" href="javascript:void(0);" onclick="showPopupBox('delete_<?php echo $val->id; ?>', 'Are you sure to delete a Job ?', '<?php echo base_url(); ?>admin/Vacancy/deleteVacancy/<?php echo $val->id; ?>');" class="delete-row"><i class="fa fa-trash tooltips" data-original-title="Edit Job"></i> Delete</a>
+                      <a class="btn btn-success btn-sm" id="delete_<?php echo $val->id; ?>" href="javascript:void(0);" onclick="showPopupBox('delete_<?php echo $val->id; ?>', 'Are you sure to delete a Job ?', '<?php echo base_url(); ?>admin/vacancy/deletevacancy/<?php echo $val->id; ?>');" class="delete-row"><i class="fa fa-trash tooltips" data-original-title="Edit Job"></i> Delete</a>
 
                     </td>
                   </tr>

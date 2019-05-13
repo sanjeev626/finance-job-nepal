@@ -52,17 +52,17 @@ class Dropdown extends MY_Controller {
         } else {
             $this->dropdown_model->insert_dropdown();
             $this->session->set_flashdata('success', 'Dropdown Field Added Successfully...');
-            redirect(base_url() . 'admin/Dropdown', 'refresh');
+            redirect(base_url() . 'admin/dropdown', 'refresh');
         }
     }
 
     public function edit($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
         $data['title'] = '.:: EDIT DROPDOWN FIELD ::.';
         $data['page_header'] = 'Dropdown';
@@ -79,10 +79,10 @@ class Dropdown extends MY_Controller {
     public function editDropdown($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
          $this->form_validation->set_rules('dropvalue', 'dropvalue', 'required');
         if (FALSE == $this->form_validation->run()) {
@@ -97,20 +97,20 @@ class Dropdown extends MY_Controller {
         } else {
             $this->dropdown_model->update_dropdown($id);
             $this->session->set_flashdata('success', 'Dropdown Field Update Successfully...');
-            redirect(base_url() . 'admin/Dropdown', 'refresh');
+            redirect(base_url() . 'admin/dropdown', 'refresh');
         }
     }
 
     public function deleteDropdown($id){
         if (!isset($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
         $this->dropdown_model->delete_dropdown($id);
         $this->session->set_flashdata('success', 'Dropdown Field Deleted Successfully...');
-        redirect(base_url() . 'admin/Dropdown', 'refresh');
+        redirect(base_url() . 'admin/dropdown', 'refresh');
     }
 
 }

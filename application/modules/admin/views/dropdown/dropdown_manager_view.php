@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="panel-footer">
-            <a class="btn btn-success" href="<?php echo base_url(); ?>admin/Dropdown/add">+ Add Dropdown Value </a>
+            <a class="btn btn-success" href="<?php echo base_url(); ?>admin/dropdown/add">+ Add Dropdown Value </a>
           </div>
           <div class="table-responsive">
             <table class="table table-striped mb30" id="table1" cellspacing="0" width="100%">
@@ -48,9 +48,9 @@
                                 <td><?php echo $j ?></td>
                                 <td><?php echo $val->dropvalue; ?></td>
                                 <td class="table-action">
-                                  <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/Dropdown/edit/<?php echo $val->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Dropdown value"></i> Edit</a>
+                                  <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/dropdown/edit/<?php echo $val->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Dropdown value"></i> Edit</a>
                                   |
-                                  <button type="button" class="btn btn-success btn-sm delete_dropdown" link="<?php echo base_url(); ?>admin/Dropdown/deleteDropdown/<?php echo $val->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Dropdown value"></i> Delete</button>
+                                  <button type="button" class="btn btn-success btn-sm delete_dropdown" link="<?php echo base_url(); ?>admin/dropdown/deletedropdown/<?php echo $val->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Dropdown value"></i> Delete</button>
                                 </td>
                               </tr>
                               <?php $j++;

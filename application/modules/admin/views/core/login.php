@@ -45,7 +45,7 @@
         <?php echo form_open("admin/auth/login");?>
 
         <?php if($message){ ?>
-        <div class="alert alert-success alert-dismissible">
+        <div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           <?php echo $message;?>
         </div> 

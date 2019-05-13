@@ -1,8 +1,8 @@
 <?php
 if (!empty($dropdown_detail)) {
-    $action = base_url() . 'admin/Dropdown/editDropdown/' . $dropdown_detail->id;
+    $action = base_url() . 'admin/dropdown/editdropdown/' . $dropdown_detail->id;
 } else {
-    $action = base_url() . 'admin/Dropdown/addDropdown';
+    $action = base_url() . 'admin/dropdown/adddropdown';
 }
 ?> 
 

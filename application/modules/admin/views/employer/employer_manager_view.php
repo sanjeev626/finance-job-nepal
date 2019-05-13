@@ -50,19 +50,19 @@
 
                                         <td class="table-action text-center">
                                             <a class="btn btn-success btn-sm"
-                                               href="<?php echo base_url(); ?>admin/Employer/view/<?php echo $key->id; ?>"><i
+                                               href="<?php echo base_url(); ?>admin/employer/view/<?php echo $key->id; ?>"><i
                                                     class="fa fa-eye tooltips" data-original-title="Edit Employer"></i>
                                                 View</a>
                                             |
                                             <a class="btn btn-success btn-sm"
-                                               href="<?php echo base_url(); ?>admin/Employer/employerJobList/<?php echo $key->id; ?>"><i
+                                               href="<?php echo base_url(); ?>admin/employer/joblist/<?php echo $key->id; ?>"><i
                                                     class="fa fa-file-text-o tooltips"
                                                     data-original-title="Job List"></i> Job List</a>
                                             |
                                             <!-- <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/Employer/employerVideocv/<?php echo $key->id; ?>"><i class="fa fa-video-camera tooltips" data-original-title="Job List"></i> Video CV</a>
                       |-->
                                             <button type="button" class="btn btn-success btn-sm delete_employer"
-                                                    link="<?php echo base_url(); ?>admin/Employer/deleteEmployer/<?php echo $key->id; ?>"
+                                                    link="<?php echo base_url(); ?>admin/employer/delete/<?php echo $key->id; ?>"
                                                     data-toggle="modal" data-target="#myModalDelete"><i
                                                     class="fa fa-trash tooltips"
                                                     data-original-title="Delete Employer"></i> Delete

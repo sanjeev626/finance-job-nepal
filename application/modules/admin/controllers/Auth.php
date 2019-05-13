@@ -37,7 +37,7 @@ echo "here";exit;
 		}
 		else
 		{
-			redirect('admin/Dashboard','refresh');
+			redirect('admin/dashboard','refresh');
 
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');

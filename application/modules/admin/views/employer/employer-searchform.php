@@ -1,5 +1,5 @@
 <?php
-$action = base_url() . 'admin/Employer/searchEmployer';
+$action = base_url() . 'admin/employer/search';
 
 $attributes = array('class' => 'form-horizontal form-bordered searchform', 'id' => 'form1');
 echo form_open_multipart($action, $attributes);

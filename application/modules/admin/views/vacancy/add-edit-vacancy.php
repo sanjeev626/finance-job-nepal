@@ -1,10 +1,10 @@
 <?php
 if (!empty($job_detail)) {
-    $action = base_url() . 'admin/Vacancy/editVacancy/' . $job_detail->id;
+    $action = base_url() . 'admin/vacancy/editvacancy/' . $job_detail->id;
     $post_date = $job_detail->post_date;
     $applybefore = $job_detail->applybefore;
 } else {
-    $action = base_url() . 'admin/Vacancy/addVacancy';
+    $action = base_url() . 'admin/vacancy/addvacancy';
     $post_date = date('Y-m-d');
     $applybefore = date('Y-m-d', strtotime("+30 days"));
 }
@@ -48,23 +48,26 @@ if (!empty($job_detail)) {
               <div class="radio">
 
                   <?php
-                  $isNewspaperJob_arr =  unserialize($job_detail->isNewspaperJob);
+                  if(!empty($job_detail))
+                    $isNewspaperJob_arr =  unserialize($job_detail->isNewspaperJob);
+                  else
+                    $isNewspaperJob_arr = array();
                   ?>
 
 
                 <label>
-                  <input type="checkbox" name="isNewspaperJob[]" id="RJob" value="RJob" <?php if(!empty($job_detail->isNewspaperJob) && in_array('RJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; }elseif(empty($job_detail->isNewspaperJob)){echo "checked = 'checked'";} ?>>
+                  <input type="checkbox" name="isNewspaperJob[]" id="RJob" value="RJob" <?php if(!empty($job_detail) &&(!empty($job_detail->isNewspaperJob)) && in_array('RJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; }elseif(empty($job_detail)){echo "checked = 'checked'";} ?>>
                   Default
                 </label>
                 &nbsp;
 
                 <label>
-                  <input type="checkbox" name="isNewspaperJob[]" id="FJNJob" value="FJNJob" <?php if(!empty($job_detail->isNewspaperJob) && in_array('FJNJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; } ?>>
+                  <input type="checkbox" name="isNewspaperJob[]" id="FJNJob" value="FJNJob" <?php if(!empty($job_detail) &&(!empty($job_detail->isNewspaperJob)) && in_array('FJNJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; } ?>>
                   FJN JOb
                 </label>
                 &nbsp;
                 <label>
-                  <input type="checkbox" name="isNewspaperJob[]" id="NJob" value="NJob" <?php if(!empty($job_detail->isNewspaperJob) && in_array('NJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; } ?>>
+                  <input type="checkbox" name="isNewspaperJob[]" id="NJob" value="NJob" <?php if(!empty($job_detail) &&(!empty($job_detail->isNewspaperJob)) && in_array('NJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; } ?>>
                   Newspaper Job 
                 </label>
                   <!--<label>

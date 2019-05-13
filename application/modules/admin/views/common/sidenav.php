@@ -47,17 +47,17 @@ else
       </div>
       <?php if($user_id<4){?>
       <ul class="sidebar-menu">
-        <li class ="<?php if($nav == 'dashboard'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Dashboard"><i class="fa fa-home"></i><span>DASHBOARD</span></a></li>
+        <li class ="<?php if($nav == 'dashboard'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/dashboard"><i class="fa fa-home"></i><span>DASHBOARD</span></a></li>
         <!--<li class ="<?php /*if($nav == 'content'){ echo 'active'; } */?>"><a href="<?php /*echo base_url(); */?>admin/Content"><i class="fa fa-edit"></i><span>CONTENT</span></a></li>-->
         <li class ="<?php if($nav == 'vacancy'){ echo 'active'; } ?>"><a href="<?php echo $vacancy_link; ?>"><i class="fa fa-bullhorn"></i><span>VACANCY</span></a></li>
-        <li class ="<?php if($nav == 'employer'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Employer"><i class="fa fa-user-secret"></i><span>EMPLOYER</span></a></li>
+        <li class ="<?php if($nav == 'employer'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/employer"><i class="fa fa-user-secret"></i><span>EMPLOYER</span></a></li>
         <?php if($user_id!=3){?>
         <li class ="<?php if($nav == 'seeker'){ echo 'active'; } ?>"><a href="<?php echo $seeker_link; ?>"><i class="fa fa-user"></i><span>JOB SEEKER</span></a></li>
         <?php } ?>
 <!--         <li class ="<?php if($nav == 'seeker'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Seeker/check_login"><i class="fa fa-user"></i><span>JOB SEEKER test</span></a></li>
  -->
         <!-- <li class ="<?php if($nav == 'advertisement'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Advertisement"><i class="fa fa-hand-o-right"></i><span>RIGHT PORTION</span></a></li> -->
-        <li class ="<?php if($nav == 'dropdown'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Dropdown"><i class="fa fa-caret-square-o-down"></i><span>DROP DOWN</span></a></li>
+        <li class ="<?php if($nav == 'dropdown'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/dropdown"><i class="fa fa-caret-square-o-down"></i><span>DROP DOWN</span></a></li>
         <!-- <li class ="<?php if($nav == 'newsletter'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Newsletter"><i class="fa fa-envelope-o"></i><span>NEWSLETTER</span></a></li> -->
         <!--<li class ="<?php if($nav == 'banner'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Banner"><i class="fa fa-image"></i><span>BANNER</span></a></li>-->
         <!-- <li class ="<?php if($nav == 'banner'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Slider/listslider/slider"><i class="fa fa-image"></i><span>BANNER</span></a></li>

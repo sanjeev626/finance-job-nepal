@@ -1,5 +1,5 @@
 <?php
-$action = base_url() . 'admin/Employer/editEmployer/' . $employer_detail->id;
+$action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
 ?>
 
 <div class="box box-info">

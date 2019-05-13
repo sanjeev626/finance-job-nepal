@@ -13,7 +13,7 @@
             
             <!--<a class="btn btn-success btn-sm below_space" href="<?php /*echo base_url(); */?>admin/Employer/moveToBasket/<?php /*echo $employer_info->id; */?>"><i class="fa fa-shopping-cart" data-original-title="View Basket"></i> Move To Basket </a>
             <a class="btn btn-success btn-sm below_space" href="<?php /*echo base_url(); */?>admin/Employer/employerJobList/<?php /*echo $employer_info->id; */?>"><i class="fa fa-file-text-o" data-original-title="View Basket"></i> Job List </a>-->
-            <a class="btn btn-success btn-sm below_space" href="<?php echo base_url(); ?>admin/Employer/edit/<?php echo $employer_info->id; ?>"><i class="fa fa-edit" data-original-title="View Employer"></i> Edit</a>
+            <a class="btn btn-success btn-sm below_space" href="<?php echo base_url(); ?>admin/employer/edit/<?php echo $employer_info->id; ?>"><i class="fa fa-edit" data-original-title="View Employer"></i> Edit</a>
             <!--<button type="button" class="btn btn-success btn-sm below_space delete_employer" link="<?php /*echo base_url(); */?>admin/Employer/deleteEmployer/<?php /*echo $employer_info->id; */?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Employer"></i> Delete</button>-->
         </div>
           <div class="table-responsive">

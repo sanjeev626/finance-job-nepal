@@ -2,29 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="541cec99-7595-46a6-93cc-4c8278930a92" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/controllers/Employer.php" afterPath="$PROJECT_DIR$/application/modules/home/controllers/Employer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" afterPath="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/add-edit-postjob.php" afterPath="$PROJECT_DIR$/application/modules/home/views/add-edit-postjob.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/includes/employer-dashboard-sidebar.php" afterPath="$PROJECT_DIR$/application/modules/home/views/includes/employer-dashboard-sidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/employer-edit-password.php" afterPath="$PROJECT_DIR$/application/modules/home/views/employer-edit-password.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/employer-edit-profile.php" afterPath="$PROJECT_DIR$/application/modules/home/views/employer-edit-profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/employer-job-list.php" afterPath="$PROJECT_DIR$/application/modules/home/views/employer-job-list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/employer-login.php" afterPath="$PROJECT_DIR$/application/modules/home/views/employer-login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/employer-signup.php" afterPath="$PROJECT_DIR$/application/modules/home/views/employer-signup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/facebook.php" afterPath="$PROJECT_DIR$/application/config/facebook.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/google.php" afterPath="$PROJECT_DIR$/application/config/google.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/includes/header.php" afterPath="$PROJECT_DIR$/application/modules/home/views/includes/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-dashboard-sidebar.php" afterPath="$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-dashboard-sidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-edit-profile.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-edit-profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-education.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-education.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-language.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-language.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-left-menu-dashboard.php" afterPath="$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-left-menu-dashboard.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-login.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-reference.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-reference.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-signup.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-signup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-training.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-training.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-work-experience.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-work-experience.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/controllers/Auth.php" afterPath="$PROJECT_DIR$/application/modules/admin/controllers/Auth.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/controllers/Dropdown.php" afterPath="$PROJECT_DIR$/application/modules/admin/controllers/Dropdown.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/controllers/Employer.php" afterPath="$PROJECT_DIR$/application/modules/admin/controllers/Employer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/controllers/Seeker.php" afterPath="$PROJECT_DIR$/application/modules/admin/controllers/Seeker.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/dropdown/add-edit-dropdown.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/dropdown/add-edit-dropdown.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/vacancy/add-edit-vacancy.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/vacancy/add-edit-vacancy.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/dropdown/dropdown_manager_view.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/dropdown/dropdown_manager_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/employer/edit-employer.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/employer/edit-employer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/employer/employer-searchform.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/employer/employer-searchform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/employer/employer_job_list.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/employer/employer_job_list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/employer/employer_manager_view.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/employer/employer_manager_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/common/header.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/common/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/core/login.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/core/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/seeker/search_result_job_seeker.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/seeker/search_result_job_seeker.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/seeker/seeker-searchform.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/seeker/seeker-searchform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/seeker/seeker_list.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/seeker/seeker_list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/common/sidenav.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/common/sidenav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/vacancy/vacancy_manager_view.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/vacancy/vacancy_manager_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/employer/view_employer.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/employer/view_employer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/seeker/view_job_seeker.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/seeker/view_job_seeker.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="finance-job-nepal.iws" />
@@ -47,127 +44,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Jobseeker.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php">
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/modules/admin/views/common/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.612904">
-              <caret line="1911" column="49" selection-start-line="1911" selection-start-column="49" selection-end-line="1911" selection-end-column="49" />
-              <folding>
-                <element signature="e#11696#12504#0#PHP" expanded="false" />
-                <element signature="e#12537#13366#0#PHP" expanded="false" />
-                <element signature="e#13402#14224#0#PHP" expanded="false" />
-                <element signature="e#14259#15067#0#PHP" expanded="false" />
-                <element signature="e#27511#28752#0#PHP" expanded="false" />
-                <element signature="e#31189#31870#0#PHP" expanded="false" />
-                <element signature="e#31876#33401#0#PHP" expanded="false" />
-                <element signature="e#33610#34468#0#PHP" expanded="false" />
-                <element signature="e#34474#34972#0#PHP" expanded="false" />
-                <element signature="e#34982#36662#0#PHP" expanded="false" />
-                <element signature="e#36867#37488#0#PHP" expanded="false" />
-                <element signature="e#39510#40243#0#PHP" expanded="false" />
-                <element signature="e#40249#40777#0#PHP" expanded="false" />
-                <element signature="e#41874#42407#0#PHP" expanded="false" />
-                <element signature="e#45021#45695#0#PHP" expanded="false" />
-                <element signature="e#45759#45973#0#PHP" expanded="false" />
-                <element signature="e#45988#46255#0#PHP" expanded="false" />
-                <element signature="e#46542#46827#0#PHP" expanded="false" />
-                <element signature="e#47060#47763#0#PHP" expanded="false" />
-                <element signature="e#47887#48598#0#PHP" expanded="false" />
-                <element signature="e#48730#49453#0#PHP" expanded="false" />
-                <element signature="e#49589#50308#0#PHP" expanded="false" />
-                <element signature="e#50438#51149#0#PHP" expanded="false" />
-                <element signature="e#52974#53315#0#PHP" expanded="false" />
-                <element signature="e#55468#56620#0#PHP" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Employer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Employer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.8">
-              <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7585551">
+              <caret line="39" column="124" selection-start-line="39" selection-start-column="124" selection-end-line="39" selection-end-column="124" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail-page-other-vacancies.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/detail-page-other-vacancies.php">
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.967741">
-              <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="google.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/google.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.483871">
-              <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jobseeker-dashboard-sidebar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-dashboard-sidebar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.806452">
-              <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jobseeker-left-menu-dashboard.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-left-menu-dashboard.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.159132">
-              <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="facebook.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/facebook.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.032258">
-              <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.903226">
-              <caret line="73" column="19" selection-start-line="73" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employer-edit-password.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-edit-password.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.967742">
-              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employer-dashboard-sidebar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/employer-dashboard-sidebar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.612904">
-              <caret line="24" column="71" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="71" />
+            <state vertical-scroll-proportion="-8.5161295">
+              <caret line="12" column="126" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="126" />
               <folding />
             </state>
           </provider>
@@ -188,26 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/modules/admin/views/common/header.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/views/common/footer.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/controllers/Seeker.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/views/seeker/seeker-searchform.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/views/seeker/seeker_list.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/views/seeker/search_result_job_seeker.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/models/Seeker_model.php" />
-        <option value="$PROJECT_DIR$/content_home/css/custom.css" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/includes/footer.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/employer-dashboard.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/models/Employer_model.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/models/Dropdown_model.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/views/employer/employer_job_list.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/controllers/Vacancy.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/views/vacancy/vacancy_manager_view.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/home.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/views/vacancy/add-edit-vacancy.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/includes/home-job-section.php" />
-        <option value="$PROJECT_DIR$/content_home/css/style.css" />
         <option value="$PROJECT_DIR$/application/modules/admin/models/Vacancy_model.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/job-detail.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/includes/detail-page-other-vacancies.php" />
@@ -239,6 +110,26 @@
         <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-dashboard-sidebar.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-left-menu-dashboard.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/core/login.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/controllers/Auth.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/common/sidenav.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/vacancy/vacancy_manager_view.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/employer/employer-searchform.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/employer/employer_manager_view.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/employer/employer_job_list.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/vacancy/add-edit-vacancy.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/employer/view_employer.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/employer/edit-employer.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/controllers/Employer.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/seeker/seeker-searchform.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/seeker/seeker_list.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/seeker/search_result_job_seeker.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/seeker/view_job_seeker.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/controllers/Seeker.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/dropdown/add-edit-dropdown.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/dropdown/dropdown_manager_view.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/controllers/Dropdown.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/common/header.php" />
       </list>
     </option>
   </component>
@@ -446,11 +337,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -468,7 +359,161 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vacancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance-job-nepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financejobnepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="seeker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance-job-nepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financejobnepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="employer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance-job-nepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financejobnepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dropdown" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance-job-nepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financejobnepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance-job-nepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financejobnepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -556,7 +601,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23373677" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22239032" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -625,164 +670,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/Vacancy_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="146" column="23" selection-start-line="146" selection-start-column="13" selection-end-line="146" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="110" column="44" selection-start-line="110" selection-start-column="44" selection-end-line="110" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/models/Employer_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9274809">
-          <caret line="433" column="13" selection-start-line="433" selection-start-column="11" selection-end-line="433" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/home-job-section.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-44.096775">
-          <caret line="188" column="26" selection-start-line="188" selection-start-column="26" selection-end-line="188" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/detail-page-similar-job.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.318264">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/models/Home_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.681736">
-          <caret line="700" column="5" selection-start-line="684" selection-start-column="4" selection-end-line="700" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/job-detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.596745">
-          <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="71" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5316456">
-          <caret line="102" column="110" selection-start-line="101" selection-start-column="8" selection-end-line="102" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/Seeker_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.927667">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.27305606">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40648854">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Banner.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.055343512">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Article.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28053436">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Employer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.013358778">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Dropdown.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3225191">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/helpers/url_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3148855">
-          <caret line="531" column="13" selection-start-line="531" selection-start-column="13" selection-end-line="531" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Vacancy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.59160304">
-          <caret line="87" column="65" selection-start-line="87" selection-start-column="48" selection-end-line="87" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/General_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/models/Jobseeker_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Seeker.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9">
-          <caret line="485" column="52" selection-start-line="485" selection-start-column="37" selection-end-line="485" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2258065">
-          <caret line="119" column="78" selection-start-line="119" selection-start-column="78" selection-end-line="119" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.677419">
-          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.5479205">
@@ -904,14 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.774194">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/views/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -960,30 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-edit-password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.967742">
-          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Employer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8">
-          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/detail-page-other-vacancies.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.967741">
-          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.903226">
@@ -992,9 +847,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/facebook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.032258">
+          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-dashboard-sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.806452">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-left-menu-dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.159132">
+          <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/google.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36347198">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/detail-page-other-vacancies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.511754">
+          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Employer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20610687">
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-edit-password.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.278481">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.612904">
+        <state vertical-scroll-proportion="0.7631103">
           <caret line="1911" column="49" selection-start-line="1911" selection-start-column="49" selection-end-line="1911" selection-end-column="49" />
           <folding>
             <element signature="e#11696#12504#0#PHP" expanded="false" />
@@ -1026,34 +937,188 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/facebook.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/core/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.032258">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.716094">
+          <caret line="58" column="14" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/google.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/employer-login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.483871">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.318264">
+          <caret line="15" column="58" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-dashboard-sidebar.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Auth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.806452">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+        <state vertical-scroll-proportion="-4.733333">
+          <caret line="251" column="14" selection-start-line="251" selection-start-column="14" selection-end-line="251" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-left-menu-dashboard.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/common/sidenav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5161295">
+          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Vacancy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.904159">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/vacancy/vacancy_manager_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6333334">
+          <caret line="82" column="37" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/employer/employer_manager_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.387097">
+          <caret line="57" column="100" selection-start-line="57" selection-start-column="100" selection-end-line="57" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/employer/employer_job_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.967742">
+          <caret line="57" column="256" selection-start-line="57" selection-start-column="256" selection-end-line="57" selection-end-column="256" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/employer/employer-searchform.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.7096774">
+          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/vacancy/add-edit-vacancy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.745027">
+          <caret line="69" column="156" selection-start-line="69" selection-start-column="156" selection-end-line="69" selection-end-column="156" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/employer/view_employer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.645162">
+          <caret line="15" column="96" selection-start-line="15" selection-start-column="96" selection-end-line="15" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/employer/edit-employer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.7096774">
+          <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Employer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32824427">
+          <caret line="605" column="55" selection-start-line="605" selection-start-column="55" selection-end-line="605" selection-end-column="55" />
+          <folding>
+            <marker date="1557733724318" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/seeker/seeker-searchform.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.548387">
+          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/seeker/search_result_job_seeker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.774194">
+          <caret line="72" column="102" selection-start-line="72" selection-start-column="102" selection-end-line="72" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/seeker/seeker_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.354838">
+          <caret line="69" column="102" selection-start-line="69" selection-start-column="89" selection-end-line="69" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Seeker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.4">
+          <caret line="521" column="47" selection-start-line="521" selection-start-column="47" selection-end-line="521" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Dropdown.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.522604">
+          <caret line="76" column="5" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/dropdown/add-edit-dropdown.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.159132">
-          <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
+          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/dropdown/dropdown_manager_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.596745">
+          <caret line="52" column="156" selection-start-line="52" selection-start-column="156" selection-end-line="52" selection-end-column="156" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/seeker/view_job_seeker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.79389316">
+          <caret line="287" column="70" selection-start-line="287" selection-start-column="50" selection-end-line="287" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5161295">
+          <caret line="12" column="126" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="126" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/common/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7585551">
+          <caret line="39" column="124" selection-start-line="39" selection-start-column="124" selection-end-line="39" selection-end-column="124" />
           <folding />
         </state>
       </provider>
