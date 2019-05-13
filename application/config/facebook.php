@@ -20,8 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['facebook_app_id']                = '596884967493924'; //596884967493924
 $config['facebook_app_secret']            = '9dfdbf753cf2d48742c3f977cbe34d93'; //9dfdbf753cf2d48742c3f977cbe34d93
-$config['facebook_login_redirect_url']    = 'Jobseeker/loginFacebook';
-$config['facebook_logout_redirect_url']   = 'Jobseeker/logout';
+$config['facebook_login_redirect_url']    = 'jobseeker/loginfacebook';
+$config['facebook_logout_redirect_url']   = 'jobseeker/logout';
 $config['facebook_login_type']            = 'web';
 $config['facebook_permissions']           = array('email');
 $config['facebook_graph_version']         = 'v3.2';

@@ -23,7 +23,7 @@
                 <div class="dashboard-right">
                     <div class="candidate-profile">
                         <?php
-                        $action =base_url().'Employer/updateEmployerProfile';
+                        $action =base_url().'employer/updateprofile';
                         $attributes = array('class' => 'form-horizontal user-logIn','name'=>'employersignup',);
                         echo form_open_multipart($action, $attributes);
                         ?>

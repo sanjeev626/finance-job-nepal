@@ -30,7 +30,7 @@ class Employer extends View_Controller {
         ---------------------------------------------------------*/
         $jobseeker_profile = $this->session->userdata('jobseeker_profile');
         if(!empty($jobseeker_profile)){
-            redirect(base_url() . 'Jobseeker/dashboard');
+            redirect(base_url() . 'jobseeker/dashboard');
         }
         /*---------------------------------------------------------*/
 
@@ -39,7 +39,7 @@ class Employer extends View_Controller {
         ---------------------------------------------------------*/
         $employer_profile = $this->session->userdata('employer_profile');
         if(!empty($employer_profile)){
-            redirect(base_url() . 'Employer/dashboard');
+            redirect(base_url() . 'employer/dashboard');
         }
 
         /*---------------------------------------------------------
@@ -71,7 +71,7 @@ class Employer extends View_Controller {
         $this->load->view('main',$data);
     }
     
-    public function employerRegistration(){
+    public function registration(){
     
         $this->form_validation->set_rules('orgname', 'Organisation Name', 'required');
 
@@ -92,8 +92,7 @@ class Employer extends View_Controller {
             $data['main'] = 'employer-signup';
             $this->load->view('main',$data);
             
-        }else{ 
-            
+        }else{
             $picture = resize_image_upload('logo','employer');            
             if ($picture['status'] === true) {
                 $complogo = $picture['images'];  
@@ -106,18 +105,18 @@ class Employer extends View_Controller {
             
             $employerInsert = $this->employer_model->insert_employer_info($complogo);    
             $this->session->set_flashdata('message', 'Employer Successfully Register. ');
-            redirect(base_url() . 'Employer/signup', 'refresh');
+            redirect(base_url() . 'employer/signup', 'refresh');
         }
     }
     
-    public function loginCheck(){
+    public function logincheck(){
         
         $this->form_validation->set_rules('username', 'username', 'required');
         $this->form_validation->set_rules('password', 'password', 'required|md5');
         
         if (FALSE == $this->form_validation->run()) {
             $this->session->set_flashdata('error', 'Username and Password are required fields');
-            redirect(base_url() . 'Employer/login');
+            redirect(base_url() . 'employer/login');
         }
             
         $employer_profile = $this->employer_model->login($this->input->post('username'), $this->input->post('password'));
@@ -126,10 +125,10 @@ class Employer extends View_Controller {
                 $employerId = $employer_profile->id;
                 $this->employer_model->last_access($employerId);
                 $this->session->set_userdata('employer_profile', $employer_profile);
-                redirect(base_url() . 'Employer/dashboard', 'refresh');
+                redirect(base_url() . 'employer/dashboard', 'refresh');
         } else {
             $this->session->set_flashdata('error', 'Invalid Username or Password');
-            redirect(base_url() . 'Employer/login');
+            redirect(base_url() . 'employer/login');
         }
     }
 
@@ -173,11 +172,11 @@ class Employer extends View_Controller {
                 }else{
                     $this->session->set_flashdata('error', 'Failed to send Password reset link. Please try again!');
                 }
-            redirect(base_url() . 'Employer/login');
+            redirect(base_url() . 'employer/login');
 
         }else{
             $this->session->set_flashdata('error', 'The email address provided doesnot exists in our record');
-            redirect(base_url() . 'Employer/login');
+            redirect(base_url() . 'employer/login');
         }
     }
 
@@ -191,7 +190,7 @@ class Employer extends View_Controller {
                  $this->load->view('employer-changepassword',$data);
         }else{
             $this->session->set_flashdata('error', 'The token provided doesnt exists in our record');
-            redirect(base_url() . 'Employer/login');
+            redirect(base_url() . 'employer/login');
         }
     }
 
@@ -209,7 +208,7 @@ class Employer extends View_Controller {
             $data['message'] .= 'Confirm Password must match with Password';
 
             $this->session->set_flashdata('error', 'Password and Confirm Password are required and should match. Minimum length password must be 8');
-            redirect(base_url() . 'Employer/changePassword/?token='.$token);
+            redirect(base_url() . 'employer/changepassword/?token='.$token);
         }else{
 
             $seeker_info = $this->general_model->getById('employer','token',$token);
@@ -221,7 +220,7 @@ class Employer extends View_Controller {
             );
             $this->general_model->update('employer',$data, array('id' => $sid));
             $this->session->set_flashdata('success', 'Password Update Successfully !!!');
-            redirect(base_url() . 'Employer/login');
+            redirect(base_url() . 'employer/login');
         }
     }
     
@@ -249,7 +248,7 @@ class Employer extends View_Controller {
         $data['page_keywords'] = $jobs.' posted by '.$employer_info->orgname.' on Finance Job Nepal :: A complete HR Solution';
         $data['page_description'] = $ogdescription = $jobs.' posted by '.$employer_info->orgname.' on Finance Job Nepal :: A complete HR Solution';
         
-        $ogurl = base_url().'Employer/jobList/'.$employer_info->orgcode.'/'.$employer_info->id;
+        $ogurl = base_url().'employer/jobList/'.$employer_info->orgcode.'/'.$employer_info->id;
 
         if(!empty($employer_info->logo))       
             $ogimage = base_url() . 'uploads/employer/' . $employer_info->logo;
@@ -302,7 +301,7 @@ class Employer extends View_Controller {
         $this->load->view('dashboard',$data);
     }
 
-    public function employerJobList(){
+    public function employerjoblist(){
         $this->employerSessionCheck();
 
 
@@ -312,7 +311,7 @@ class Employer extends View_Controller {
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
 
-        $config['base_url'] = base_url() . 'Employer/employerJobList';
+        $config['base_url'] = base_url() . 'employer/employerjoblist';
         $config['uri_segment'] = 3;
         $config['per_page'] = 10;
 
@@ -373,7 +372,7 @@ class Employer extends View_Controller {
         $this->load->view('main',$data);
     }
 
-    public function addPostJob(){
+    public function addjob(){
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
@@ -399,10 +398,10 @@ class Employer extends View_Controller {
 
         $this->employer_model->insertPostJob($complogo,$eid);
         $this->session->set_flashdata('success', 'Job Post Added Successfully !!!');
-        redirect(base_url() . 'Employer/postJob');
+        redirect(base_url() . 'employer/postjob');
     }
 
-    public function editPostJob($jid){
+    public function editjob($jid){
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
@@ -427,7 +426,7 @@ class Employer extends View_Controller {
 
         $this->employer_model->updatePostJob($complogo,$eid,$jid);
         $this->session->set_flashdata('success', 'Job detail updated Successfully !!!');
-        redirect(base_url() . 'Employer/update/'.$jid);
+        redirect(base_url() . 'employer/update/'.$jid);
     }
 
     public function update($id){
@@ -450,14 +449,14 @@ class Employer extends View_Controller {
         $this->load->view('main',$data);
     }
 
-    public function deleteJob($jid){
+    public function deletejob($jid){
         $this->employerSessionCheck();
         $this->general_model->delete('jobs',array('id'=>$jid));
         $this->session->set_flashdata('success', 'Job Deleted From the List.');
-        redirect(base_url() . 'Employer/employerJobList');
+        redirect(base_url() . 'employer/employerjoblist');
     }
 
-    public function showApplicants($jid){
+    public function showapplicants($jid){
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
@@ -490,7 +489,7 @@ class Employer extends View_Controller {
         $config['per_page'] = 25;
 
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-        $config['base_url'] = base_url() . 'Employer/showApplicants/'.$jid.'/';
+        $config['base_url'] = base_url() . 'employer/showapplicants/'.$jid.'/';
 
         $data['applicants'] = $this->employer_model->get_applicants_by_jid($jid,'',$config['per_page'], $page);
         $config['total_rows'] = $data['total'] =$this->employer_model->get_applicants_by_jid($jid,'','','','total');
@@ -504,7 +503,7 @@ class Employer extends View_Controller {
             $application_id = $this->input->post('application_id');
             $remarks = $this->input->post('remarks');
             $this->employer_model->updateStatus('shortlisted',$application_id, $remarks);
-            redirect(base_url() . 'Employer/showApplicants/'.$jid.'#'.$application_id, 'refresh');
+            redirect(base_url() . 'employer/showapplicants/'.$jid.'#'.$application_id, 'refresh');
         }
 
         if(isset($_POST['btnReject']))
@@ -512,7 +511,7 @@ class Employer extends View_Controller {
             $application_id = $this->input->post('application_id');
             $remarks = $this->input->post('remarks');
             $this->employer_model->updateStatus('rejected',$application_id, $remarks);
-            redirect(base_url() . 'Employer/showApplicants/'.$jid.'#'.$application_id, 'refresh');
+            redirect(base_url() . 'employer/showapplicants/'.$jid.'#'.$application_id, 'refresh');
         }
     }
 
@@ -550,7 +549,7 @@ class Employer extends View_Controller {
         $config['per_page'] = 25;
 
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-        $config['base_url'] = base_url() . 'Employer/showApplicants/'.$jid.'/';
+        $config['base_url'] = base_url() . 'employer/showapplicants/'.$jid.'/';
 
         $data['applicants'] = $this->employer_model->get_applicants_by_jid($jid,'rejected',$config['per_page'], $page);
         $config['total_rows'] = $data['total'] =$this->employer_model->get_applicants_by_jid($jid,'rejected','','','total');
@@ -564,7 +563,7 @@ class Employer extends View_Controller {
             $application_id = $this->input->post('application_id');
             $remarks = $this->input->post('remarks');
             $this->employer_model->updateStatus('shortlisted',$application_id, $remarks);
-            redirect(base_url() . 'Employer/showApplicants/'.$jid.'#'.$application_id, 'refresh');
+            redirect(base_url() . 'employer/showapplicants/'.$jid.'#'.$application_id, 'refresh');
         }
 
         if(isset($_POST['btnReject']))
@@ -572,11 +571,11 @@ class Employer extends View_Controller {
             $application_id = $this->input->post('application_id');
             $remarks = $this->input->post('remarks');
             $this->employer_model->updateStatus('rejected',$application_id, $remarks);
-            redirect(base_url() . 'Employer/showApplicants/'.$jid.'#'.$application_id, 'refresh');
+            redirect(base_url() . 'employer/showapplicants/'.$jid.'#'.$application_id, 'refresh');
         }
     }
 
-    public function showShortlistedApplicants($jid){
+    public function showshortlistedapplicants($jid){
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
@@ -610,7 +609,7 @@ class Employer extends View_Controller {
         $config['per_page'] = 25;
 
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-        $config['base_url'] = base_url() . 'Employer/showApplicants/'.$jid.'/';
+        $config['base_url'] = base_url() . 'employer/showapplicants/'.$jid.'/';
 
         $data['applicants'] = $this->employer_model->get_applicants_by_jid($jid,'shortlisted',$config['per_page'], $page);
         $config['total_rows'] = $data['total'] =$this->employer_model->get_applicants_by_jid($jid,'shortlisted','','','total');
@@ -624,7 +623,7 @@ class Employer extends View_Controller {
             $application_id = $this->input->post('application_id');
             $remarks = $this->input->post('remarks');
             $this->employer_model->updateStatus('shortlisted',$application_id, $remarks);
-            redirect(base_url() . 'Employer/showApplicants/'.$jid.'#'.$application_id, 'refresh');
+            redirect(base_url() . 'employer/showapplicants/'.$jid.'#'.$application_id, 'refresh');
         }
 
         if(isset($_POST['btnReject']))
@@ -632,11 +631,11 @@ class Employer extends View_Controller {
             $application_id = $this->input->post('application_id');
             $remarks = $this->input->post('remarks');
             $this->employer_model->updateStatus('rejected',$application_id, $remarks);
-            redirect(base_url() . 'Employer/showApplicants/'.$jid.'#'.$application_id, 'refresh');
+            redirect(base_url() . 'employer/showapplicants/'.$jid.'#'.$application_id, 'refresh');
         }
     }
 
-    public function showApplicantsShortlisted(){
+    public function showapplicantsshortlisted(){
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
@@ -668,7 +667,7 @@ class Employer extends View_Controller {
         $config['per_page'] = 25;
 
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-        $config['base_url'] = base_url() . 'Employer/showApplicantsShortlisted/';
+        $config['base_url'] = base_url() . 'employer/showapplicantsshortlisted/';
 
         $data['applicants'] = $this->employer_model->get_applicants_by_eid($eid,'shortlisted',$config['per_page'], $page);
         $config['total_rows'] = $data['total'] =$this->employer_model->get_applicants_by_eid($eid,'shortlisted','','','total');
@@ -683,7 +682,7 @@ class Employer extends View_Controller {
             $application_id = $this->input->post('application_id');
             $remarks = $this->input->post('remarks');
             $this->employer_model->updateStatus('shortlisted',$application_id, $remarks);
-            redirect(base_url() . 'Employer/showApplicantsShortlisted/'.$jid.'#'.$application_id, 'refresh');
+            redirect(base_url() . 'employer/showapplicantsshortlisted/'.$jid.'#'.$application_id, 'refresh');
         }
 
         if(isset($_POST['btnReject']))
@@ -691,11 +690,11 @@ class Employer extends View_Controller {
             $application_id = $this->input->post('application_id');
             $remarks = $this->input->post('remarks');
             $this->employer_model->updateStatus('rejected',$application_id, $remarks);
-            redirect(base_url() . 'Employer/showApplicantsShortlisted/'.$jid.'#'.$application_id, 'refresh');
+            redirect(base_url() . 'employer/showapplicantsshortlisted/'.$jid.'#'.$application_id, 'refresh');
         }
     }
 
-    public function showApplicantsRejected(){
+    public function showapplicantsrejected(){
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
@@ -727,7 +726,7 @@ class Employer extends View_Controller {
         $config['per_page'] = 25;
 
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-        $config['base_url'] = base_url() . 'Employer/showApplicantsRejected/';
+        $config['base_url'] = base_url() . 'employer/showapplicantsrejected/';
 
         $data['applicants'] = $this->employer_model->get_applicants_by_eid($eid,'rejected',$config['per_page'], $page);
         $config['total_rows'] = $data['total'] =$this->employer_model->get_applicants_by_eid($eid,'rejected','','','total');
@@ -742,7 +741,7 @@ class Employer extends View_Controller {
             $application_id = $this->input->post('application_id');
             $remarks = $this->input->post('remarks');
             $this->employer_model->updateStatus('shortlisted',$application_id, $remarks);
-            redirect(base_url() . 'Employer/showApplicantsRejected/'.$jid.'#'.$application_id, 'refresh');
+            redirect(base_url() . 'employer/showapplicantsrejected/'.$jid.'#'.$application_id, 'refresh');
         }
 
         if(isset($_POST['btnReject']))
@@ -750,11 +749,11 @@ class Employer extends View_Controller {
             $application_id = $this->input->post('application_id');
             $remarks = $this->input->post('remarks');
             $this->employer_model->updateStatus('rejected',$application_id, $remarks);
-            redirect(base_url() . 'Employer/showApplicantsRejected/'.$jid.'#'.$application_id, 'refresh');
+            redirect(base_url() . 'employer/showapplicantsrejected/'.$jid.'#'.$application_id, 'refresh');
         }
     }
 
-    public function showApplicantsUpdate(){
+    public function showapplicantsupdate(){
         $jid = $this->uri->segment(3);
         for($i=0;$i<count($_POST['application_id']);$i++) 
         {
@@ -764,11 +763,11 @@ class Employer extends View_Controller {
             //echo $this->db->last_query();
         }
         $this->session->set_flashdata('success', 'Applicant Status Updated Successfully !!!');
-        redirect(base_url() . 'Employer/showApplicants/'.$jid);
+        redirect(base_url() . 'employer/showapplicants/'.$jid);
     }
 
 
-    public function editEmployerProfile(){
+    public function editprofile(){
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
@@ -799,7 +798,8 @@ class Employer extends View_Controller {
         $this->load->view('dashboard',$data);
     }
 
-    public function updateEmployerProfile(){
+    public function updateprofile(){
+
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
@@ -850,21 +850,21 @@ class Employer extends View_Controller {
 
         $this->employer_model->updateEmployerProfile($complogo,$banner,$eid);
         $this->session->set_flashdata('success', 'Profile Update Successfully !!!');
-        redirect(base_url() . 'Employer/editEmployerProfile');
+        redirect(base_url() . 'employer/editprofile');
     }
 
-    public function editPassword(){
+    public function editpassword(){
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
 
-        $data['menu'] = 'editPassword';
+        $data['menu'] = 'editpassword';
         $data['page_title'] = 'Edit Password - Finance Job Nepal :: Complete HR Solution';
         $data['main'] = 'employer-edit-password';
         $this->load->view('main',$data);
     }
 
-    public function changeEmployerPassword(){
+    public function changeemployerpassword(){
         $this->employerSessionCheck();
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
@@ -884,10 +884,10 @@ class Employer extends View_Controller {
                 $this->general_model->update('employer',$data, array('id' => $eid));
                 $this->session->set_flashdata('success', 'Password Changed Update Successfully !!!');
                 $this->session->unset_userdata('employer_profile');
-                redirect(base_url() . 'Employer/login');
+                redirect(base_url() . 'employer/login');
             }else{
                 $this->session->set_flashdata('error', 'Old Password not found in our Database.Please Try Again');
-                redirect(base_url() . 'Employer/dashboard');
+                redirect(base_url() . 'employer/dashboard');
             }
         }
     }
@@ -901,7 +901,7 @@ class Employer extends View_Controller {
         $data['page_title'] = 'Change Password - Finance Job Nepal :: A complete HR Solution';
         $this->employer_model->change_pasword($eid);
         $this->session->set_flashdata('success', 'Your Password has been changed. Please login and proceed');
-        redirect(base_url() . 'Employer/login', 'refresh');
+        redirect(base_url() . 'employer/login', 'refresh');
     }
     
 
@@ -921,7 +921,7 @@ class Employer extends View_Controller {
             $this->session->unset_userdata('employer_profile');
             //$this->session->sess_destroy();
             $this->session->set_flashdata('error', 'You are not Loggen. Please login and proceed.');
-            redirect(base_url() . 'Employer/login');
+            redirect(base_url() . 'employer/login');
         }
     }
 }

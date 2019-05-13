@@ -56,8 +56,8 @@
                                             <td ><span class="<?php echo ($val->post_status=='public'?'pending':'expired')?>"><?php echo ucfirst($val->post_status);?></span></td>
                                             <td class="action">
 
-                                                <a href="<?php echo base_url(); ?>Employer/update/<?php echo $val->id; ?>" class="action-edit"><i class="fa fa-pencil-square-o"></i></a>
-                                                <a href="<?php echo base_url(); ?>Employer/deleteJob/<?php echo $val->id; ?>" class="action-delete delete_emp_job" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash-o"></i></a>
+                                                <a href="<?php echo base_url(); ?>employer/update/<?php echo $val->id; ?>" class="action-edit"><i class="fa fa-pencil-square-o"></i></a>
+                                                <a href="<?php echo base_url(); ?>employer/deletejob/<?php echo $val->id; ?>" class="action-delete delete_emp_job" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash-o"></i></a>
                                         </tr>
                                         <?php
                                     endforeach;

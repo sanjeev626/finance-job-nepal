@@ -96,28 +96,28 @@
                             $employer_profile = $this->session->userdata('employer_profile');
                             $jobseeker_profile = $this->session->userdata('jobseeker_profile');
                             if(!empty($employer_profile)){ ?>
-                                <li><a href="<?php echo base_url() . 'Employer/postJob' ?>" class="post-jobs">Post jobs</a></li>
-                                <li><a href="<?php echo base_url();?>Employer/dashboard"><i class="fa fa-tachometer"></i>Dashboard</a></li>
-                                <li><a href="<?php echo base_url();?>Employer/logout"><i class="fa fa-power-off"></i>logout</a></li>
+                                <li><a href="<?php echo base_url() . 'employer/postJob' ?>" class="post-jobs">Post jobs</a></li>
+                                <li><a href="<?php echo base_url();?>employer/dashboard"><i class="fa fa-tachometer"></i>Dashboard</a></li>
+                                <li><a href="<?php echo base_url();?>employer/logout"><i class="fa fa-power-off"></i>logout</a></li>
                             <?php }
                             elseif(!empty($jobseeker_profile)){?>
-                                <li><a href="<?php echo base_url();?>Jobseeker/dashboard"><i class="fa fa-tachometer"></i>Dashboard</a></li>
-                                <li><a href="<?php echo base_url();?>Jobseeker/logout"><i class="fa fa-power-off"></i>logout</a></li>
+                                <li><a href="<?php echo base_url();?>jobseeker/dashboard"><i class="fa fa-tachometer"></i>Dashboard</a></li>
+                                <li><a href="<?php echo base_url();?>jobseeker/logout"><i class="fa fa-power-off"></i>logout</a></li>
                             <?php }
                             else{?>
 
                                 <li class="has-children">
                                     <a href="#"><i class="fa fa-user"></i>sign up</a>
                                     <ul>
-                                        <li><a href="<?php echo base_url();?>Employer/signup">Employer Signup</a></li>
-                                        <li><a href="<?php echo base_url();?>Jobseeker/signup">Job Seeker Signup</a></li>
+                                        <li><a href="<?php echo base_url();?>employer/signup">Employer Signup</a></li>
+                                        <li><a href="<?php echo base_url();?>jobseeker/signup">Job Seeker Signup</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-children">
                                     <a href="#"><i class="fa fa-lock"></i>login</a>
                                     <ul>
-                                        <li><a href="<?php echo base_url();?>Employer/login">Employer Login</a></li>
-                                        <li><a href="<?php echo base_url();?>Jobseeker/login">Job Seeker Login</a></li>
+                                        <li><a href="<?php echo base_url();?>employer/login">Employer Login</a></li>
+                                        <li><a href="<?php echo base_url();?>jobseeker/login">Job Seeker Login</a></li>
 
                                     </ul>
                                 </li>

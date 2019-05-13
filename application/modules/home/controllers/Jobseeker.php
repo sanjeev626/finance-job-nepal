@@ -43,7 +43,7 @@ class Jobseeker extends View_Controller {
         ---------------------------------------------------------*/
         $employer_profile = $this->session->userdata('employer_profile');
         if(!empty($employer_profile)){
-            redirect(base_url() . 'Employer/dashboard');
+            redirect(base_url() . 'employer/dashboard');
         }
         /*---------------------------------------------------------*/
 
@@ -52,7 +52,7 @@ class Jobseeker extends View_Controller {
         ---------------------------------------------------------*/
         $jobseeker_profile = $this->session->userdata('jobseeker_profile');
         if(!empty($jobseeker_profile)){
-            redirect(base_url() . 'Jobseeker/dashboard');
+            redirect(base_url() . 'jobseeker/dashboard');
         }
         /*---------------------------------------------------------
         Check Employer Session, if Set then unset Session of Employer
@@ -357,10 +357,10 @@ class Jobseeker extends View_Controller {
                 // Send Mail 
                 if(@mail($to, $subject, $mess, $headers)){            		
                 	$this->session->set_flashdata('success',"The username ".$username." has been created Successfully.<br>Please click on the activation link sent to your email address to activate your account.");
-                    redirect(base_url() . 'Jobseeker/signup', 'refresh');
+                    redirect(base_url() . 'jobseeker/signup', 'refresh');
                 }else{
                     $this->session->set_flashdata('error',"Mail Couldn't be Send. There must be something wrong with mail.");
-                    redirect(base_url() . 'Jobseeker/signup', 'refresh');
+                    redirect(base_url() . 'jobseeker/signup', 'refresh');
                 }
           }else{
               
@@ -798,7 +798,7 @@ class Jobseeker extends View_Controller {
         $this->jobseeker_model->update_jobseeker_info($sid,$picture,$resume,$video_resume,$slc_docs,$docs_11_12,$bachelor_docs,$masters_docs,$other_docs);
 
         $this->session->set_flashdata('success', 'Personal Information Data update Successfully.');
-        redirect(base_url() . 'Jobseeker/basicInformation');
+        redirect(base_url() . 'jobseeker/basicInformation');
     }
 
     public function education(){
@@ -1062,7 +1062,7 @@ class Jobseeker extends View_Controller {
 					}
 				}
         $this->session->set_flashdata('success',"Personal Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/editProfile', 'refresh');
+        redirect(base_url() . 'jobseeker/editProfile', 'refresh');
 
     }
 
@@ -1128,7 +1128,7 @@ class Jobseeker extends View_Controller {
 
         //echo '<pre>'; print_r($data);echo '</pre>';die();
         $this->session->set_flashdata('success',"Education Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/education', 'refresh');
+        redirect(base_url() . 'jobseeker/education', 'refresh');
     }
 
     public function updateExperience($sid){
@@ -1167,7 +1167,7 @@ class Jobseeker extends View_Controller {
             }
         //echo '<pre>'; print_r($data);echo '</pre>';die();
         $this->session->set_flashdata('success',"Work Experience Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/workExperience', 'refresh');
+        redirect(base_url() . 'jobseeker/workExperience', 'refresh');
     }
 
     public function updateTraining($sid){
@@ -1199,7 +1199,7 @@ class Jobseeker extends View_Controller {
 				}
             //echo '<pre>';print_r($data); echo '</pre>';die();
         $this->session->set_flashdata('success',"Training Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/training', 'refresh');
+        redirect(base_url() . 'jobseeker/training', 'refresh');
     }
 
     public function updateLanguage($sid){
@@ -1230,7 +1230,7 @@ class Jobseeker extends View_Controller {
 				}
 //        echo '<pre>';print_r($data);echo '</pre>'; die();
         $this->session->set_flashdata('success',"Language Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/language', 'refresh');
+        redirect(base_url() . 'jobseeker/language', 'refresh');
     }
 
      public function updateReference($sid){
@@ -1262,7 +1262,7 @@ class Jobseeker extends View_Controller {
 				}
 //                 echo '<pre>';print_r($data);echo '</pre>'; die();
         $this->session->set_flashdata('success',"Reference Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/reference', 'refresh');
+        redirect(base_url() . 'jobseeker/reference', 'refresh');
     }
 
     public function changeJobSeekerPassword(){
@@ -1280,10 +1280,10 @@ class Jobseeker extends View_Controller {
             $this->general_model->update('seeker',$data, array('id' => $sid));
             $this->session->set_flashdata('success', 'Password Changed Update Successfully !!!');
             $this->session->unset_userdata('jobseeker_profile');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }else{
             $this->session->set_flashdata('error', 'Old Password not found in our Database.Please Try Again');
-            redirect(base_url() . 'Jobseeker/dashboard');
+            redirect(base_url() . 'jobseeker/dashboard');
         }
     }
 
@@ -1310,7 +1310,7 @@ class Jobseeker extends View_Controller {
 
         $this->general_model->delete('application',array('id'=>$appid));
         $this->session->set_flashdata('success', 'Applied Job Removed From the List.');
-        redirect(base_url() . 'Jobseeker/dashboard');
+        redirect(base_url() . 'jobseeker/dashboard');
     }
 
      public function logout(){
@@ -1328,7 +1328,7 @@ class Jobseeker extends View_Controller {
             $this->session->unset_userdata('jobseeker_profile');
             //$this->session->sess_destroy();
             $this->session->set_flashdata('error', 'You are not Loggen. Please login and proceed.');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }
     }
 
@@ -1812,7 +1812,7 @@ class Jobseeker extends View_Controller {
             // Get login URL
             $data['authURL'] =  $this->facebook->login_url();
         }
-        redirect(base_url() . 'Jobseeker/dashboard', 'refresh');
+        redirect(base_url() . 'jobseeker/dashboard', 'refresh');
 
     }
 
@@ -1884,7 +1884,7 @@ class Jobseeker extends View_Controller {
                 //$this->session->set_userdata('userData',$userData);
 
                 //Redirect the user back to the same page
-                redirect(base_url() . 'Jobseeker/dashboard', 'refresh');
+                redirect(base_url() . 'jobseeker/dashboard', 'refresh');
 
             }else{
                 echo $data['error_msg'] = $client->error;
@@ -1901,7 +1901,7 @@ class Jobseeker extends View_Controller {
     public function loginGoogle(){
         $clientId = '182146452582-0dra8qi9co61ft2ol6qmppd5djbogqnd.apps.googleusercontent.com'; //Google client ID
         $clientSecret = 'n_DfFYNnTfNHbFnhmjK49iY0'; //Google client secret
-        $redirectURL = base_url() .'Jobseeker/loginGoogle';
+        $redirectURL = base_url() .'jobseeker/logingoogle';
 
         //https://curl.haxx.se/docs/caextract.html
 
@@ -1958,7 +1958,7 @@ class Jobseeker extends View_Controller {
             header("Location: $url");
             exit;
         }
-        redirect(base_url() . 'Jobseeker/dashboard', 'refresh');
+        redirect(base_url() . 'jobseeker/dashboard', 'refresh');
     }
 
     /*-----------------------------------------------------------------

@@ -30,7 +30,7 @@
                 <div class="dashboard-right">
                     <div class="candidate-single-profile-info earnings-page-box manage-jobs">
                         <?php
-                        $action =base_url().'Jobseeker/jobseekerRegistration';
+                        $action =base_url().'jobseeker/jobseekerRegistration';
                         $attributes = array('id' => 'jobseekersignup_demo','name'=>'jobseekersignup',);
                         echo form_open_multipart($action, $attributes);
                         ?>
@@ -253,7 +253,7 @@
                                 <button type="submit" name="submit">Signup</button>
                                 <a href="<?php echo $authURL; ?>">Signup via Facebook |</a>
                                 <!--<a href="<?php /*echo $oauthURL;*/?>">Signup via Linked In |</a>-->
-                                <a href="<?php echo base_url().'Jobseeker/loginGoogle';?>">Signup via gmail |</a>
+                                <a href="<?php echo base_url().'jobseeker/logingoogle';?>">Signup via gmail |</a>
                             </div>
 
 

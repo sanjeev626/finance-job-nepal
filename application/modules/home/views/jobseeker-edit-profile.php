@@ -16,7 +16,7 @@
                 <div class="dashboard-right">
                     <div class="candidate-single-profile-info earnings-page-box manage-jobs">
                         <?php
-                        $action =base_url().'Jobseeker/updateInformation/'.$basicInfo->id;
+                        $action =base_url().'jobseeker/updateInformation/'.$basicInfo->id;
                         $attributes = array('class' => 'form-horizontal user-logIn','name'=>'updateInformation',);
                         echo form_open_multipart($action, $attributes);
                         ?>

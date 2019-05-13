@@ -86,23 +86,23 @@ $route['services/(:any)'] = 'home/services/$1';
 $route['content/(:any)'] = 'home/content/$1';
 $route['article/(:any)'] = 'home/article/$1';
 
-$route['Search'] = 'home/Search';
-$route['Search/(:any)'] = 'home/Search/$1';
+$route['search'] = 'home/Search';
+$route['search/(:any)'] = 'home/Search/$1';
 
 $route['(:any)'] = 'home/$1';
-$route['Employer/(:any)'] = 'home/Employer/$1';
-$route['Employer/(:any)/([0-9]+)'] = 'home/Employer/$1/$2';
-$route['Employer/showApplicants/([0-9]+)/([0-9]+)'] = 'home/Employer/showApplicants/$1';
-$route['Jobseeker/(:any)'] = 'home/Jobseeker/$1';
-$route['Jobseeker/(:any)/([0-9]+)'] = 'home/Jobseeker/$1/$2';
+$route['employer/(:any)'] = 'home/Employer/$1';
+$route['employer/(:any)/([0-9]+)'] = 'home/Employer/$1/$2';
+$route['employer/showapplicants/([0-9]+)/([0-9]+)'] = 'home/Employer/showApplicants/$1';
+$route['jobseeker/(:any)'] = 'home/Jobseeker/$1';
+$route['jobseeker/(:any)/([0-9]+)'] = 'home/Jobseeker/$1/$2';
 
-$route['Employer/jobList/(:any)/([0-9]+)'] = 'home/Employer/jobList/$1/$2';
+$route['employer/jobList/(:any)/([0-9]+)'] = 'home/Employer/jobList/$1/$2';
 $route['category/(:any)/(:any)/([0-9]+)'] = 'home/category/$1/$2';
-$route['Search/jobSearch/([0-9]+)'] = 'home/Search/jobSearch';
-$route['Search/job/([0-9]+)'] = 'home/Search/job';
-$route['Search/searchResult/([0-9]+)'] = 'home/Search/searchResult';
-$route['viewJobsType/(:any)'] = 'home/Search/searchByJobType/$1';
-$route['viewJobsType/(:any)/([0-9]+)'] = 'home/Search/searchByJobType/$1';
+$route['search/jobSearch/([0-9]+)'] = 'home/Search/jobSearch';
+$route['search/job/([0-9]+)'] = 'home/Search/job';
+$route['search/searchResult/([0-9]+)'] = 'home/Search/searchResult';
+$route['viewjobstype/(:any)'] = 'home/Search/searchByJobType/$1';
+$route['viewjobstype/(:any)/([0-9]+)'] = 'home/Search/searchByJobType/$1';
 $route['viewjobs/(:any)/([0-9]+)'] = 'home/Search/getBydisplayIn/$1';
 $route['viewjobs/(:any)/([0-9]+)/([0-9]+)'] = 'home/Search/getBydisplayIn/$1/$2';
 /*$route['premium_jobs'] = 'home/premium_jobs';

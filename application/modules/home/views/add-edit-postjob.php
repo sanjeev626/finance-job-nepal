@@ -1,10 +1,10 @@
 <?php
 if (!empty($jobpost_detail)) {
-    $action = base_url() . 'Employer/editPostJob/' . $jobpost_detail->id;
+    $action = base_url() . 'employer/editjob/' . $jobpost_detail->id;
     $post_date = $jobpost_detail->post_date;
     $applybefore = $jobpost_detail->applybefore;
 } else {
-    $action = base_url() . 'Employer/addPostJob';
+    $action = base_url() . 'employer/addjob';
     $post_date = date('Y-m-d');
     $applybefore = date('Y-m-d', strtotime("+30 days"));
 }
