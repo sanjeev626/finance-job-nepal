@@ -62,25 +62,22 @@
                         <h5>Recently Applied Jobs</h5>
                     </div>
                 </div>
+                <?php
+                    print_r($appliedjobs);
+                ?>
                 <div class="row">
-                    <div class="col-md-2 col-lg-2">
-                        <p>1</p>
-                    </div>
-                    <div class="col-md-10 col-lg-10">
-                        <a href="">Vacancy 1</a>
-                    </div>
-                    <div class="col-md-2 col-lg-2">
-                        <p>2</p>
-                    </div>
-                    <div class="col-md-10 col-lg-10">
-                        <a href="">Vacancy 2</a>
-                    </div>
-                    <div class="col-md-2 col-lg-2">
-                        <p>3</p>
-                    </div>
-                    <div class="col-md-10 col-lg-10">
-                        <a href="">Vacancy 3</a>
-                    </div>
+                    <?php
+                        foreach($appliedjobs as $key => $val):
+                            $key += 1;
+                    ?>
+                            <div class="col-md-2 col-lg-2">
+                                <p><?php echo $key?></p>
+                            </div>
+                            <div class="col-md-10 col-lg-10">
+                                <a href="<?php echo base_url() . 'job/' . $val->slug.'/' . $val->id;?>"><?php echo $val->jobtitle;?> </a>
+                            </div>
+                    <?php  endforeach;?>
+
                 </div>
             </div>
         </div>

@@ -393,7 +393,7 @@ class Home extends View_Controller {
     /*---------------------------------------------------------
         Check Befor Apply Whether User is Login or Not
     ---------------------------------------------------------*/
-    public function applyJob($jobid){
+    public function applyjob($jobid){
 
        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
 
@@ -413,7 +413,6 @@ class Home extends View_Controller {
 
             $seekerInfo = $this->general_model->getById('seeker','id',$sid);
 
-
             $seeker_faculty = $seekerInfo->faculty;
             $seeker_dob = $seekerInfo->dob;
             $seeker_age = $this->_ageCalculator($seeker_dob);
@@ -426,9 +425,9 @@ class Home extends View_Controller {
              $seeker_gender = $seekerInfo->gender;
              $preferredgender = $empinfo->preferredgender;
 
-            if($preferredgender != $seeker_gender && $preferredgender !='Both'){
+            if($preferredgender != $seeker_gender && $preferredgender !='Male/Female'){
                 $this->session->set_flashdata('error', 'Preferred Gender does not match. Please Apply for Correct Criteria');
-                redirect(base_url() . 'Jobseeker/dashboard');
+                redirect(base_url() . 'jobseeker/dashboard');
             }
             /*------------------------------------------------------------
                           Preferred gender wise check
@@ -445,7 +444,7 @@ class Home extends View_Controller {
                    // continue;
                 }else{
                     $this->session->set_flashdata('error', 'Job Condition does not match with your Age. Please Apply for Correct Criteria');
-                    redirect(base_url() . 'Jobseeker/dashboard');
+                    redirect(base_url() . 'jobseeker/dashboard');
                 }
             }
             if($job_faculty=='')
@@ -455,7 +454,7 @@ class Home extends View_Controller {
                 if($job_faculty == $seeker_faculty){
                 }else{
                     $this->session->set_flashdata('error', 'Job Condition does not match with your Faculty. Please Apply for Correct Criteria');
-                    redirect(base_url() . 'Jobseeker/dashboard');
+                    redirect(base_url() . 'jobseeker/dashboard');
                 }
             }
 
@@ -475,10 +474,10 @@ class Home extends View_Controller {
                   $required_education = $empinfo->required_education;
                   if(!empty($required_education))
                   {
-                    $edu_arr = array('none'=>'0','intermediate'=>'1','bachelor'=>'2','master'=>'3');
+                    $edu_arr = array('none'=>'Not Required','intermediate'=>'intermediate','bachelor'=>'bachelor','master'=>'master','other'=>'other');
                     //echo $required_education.'=='.$seekerInfo->faculty;
                     $req_edu_no = $edu_arr[$required_education];
-                    $sek_edu_no = $edu_arr[$seekerInfo->faculty];
+                    $sek_edu_no = $edu_arr[$seekerInfo->highest_qualification];
                     //echo "<br>".$req_edu_no.'=='.$sek_edu_no;
                     if($req_edu_no!=0 && $req_edu_no > $sek_edu_no)
                     {
@@ -573,7 +572,7 @@ class Home extends View_Controller {
                     if(!empty($jobInfo->orgemail)) $to .= $jobInfo->orgemail;
 
                     // subject
-                    $subject = 'globaljob.com.np :: Job Application for the post of '.$jobtitle." ::";
+                    $subject = 'financejobnepal.com :: Job Application for the post of '.$jobtitle." ::";
 
                     $content1 = $this->_jobSeekerDetail($sid);
 
@@ -601,11 +600,11 @@ class Home extends View_Controller {
 
                         Best regards,<br><br>
 
-                        <strong>Global Job Pvt. Ltd.</strong><br>
+                        <strong>Finance Job Nepal Pvt. Ltd.</strong><br>
                         P.O.Box 8975 EPC 5273<br>
-                        4th Floor, Kathmandu Plaza-Y Block, Kamaladi, Kathmandu, Nepal<br>
-                        Tel: 977-01- 4168657, 4168658,4168517<br>
-                        Website: www.globaljob.com.np<br>
+                        4th Floor, Everest Bank Building, Bagdole, Lalitpur, Nepal<br>
+                        Tel: 977 1 6226783<br>
+                        Website: www.financejobnepal.com<br>
                         <img src='".base_url()."content_home/images/logo.png' alt='Global Job Pvt. Ltd.'>&nbsp;&nbsp;<img src='".base_url()."content_home/images/imi.jpg' alt='IMI Nepal'>&nbsp;&nbsp;<img src='".base_url()."content_home/images/president.jpg' alt='President Educational Consultancy'>";
                     $headers  = 'MIME-Version: 1.0' . "\r\n";
                     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -629,7 +628,7 @@ class Home extends View_Controller {
                     );
                     $this->general_model->insert('application',$data);
                     $this->session->set_flashdata('success', 'Your application has been sent for this job.');
-                    redirect(base_url() . 'Jobseeker/dashboard');
+                    redirect(base_url() . 'jobseeker/dashboard');
 
                 }else{
                     $this->session->set_flashdata('error', $error_message);
@@ -638,14 +637,14 @@ class Home extends View_Controller {
 
             }else{
                 $this->session->set_flashdata('success', 'You have already applied for this job.');
-                redirect(base_url() . 'Jobseeker/dashboard');
+                redirect(base_url() . 'jobseeker/dashboard');
             }
 
             echo 'You are logged now';
             //echo "<br><br>".$error_message;
         }else{
             $this->session->set_flashdata('error', 'You must be a registered member to apply for this job.');
-            redirect(base_url() . 'Jobseeker/login/?jobid='.$jobid);
+            redirect(base_url() . 'jobseeker/login/?jobid='.$jobid);
         }
 
         if(isset($error_message))

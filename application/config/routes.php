@@ -74,7 +74,7 @@ $route['admin/Seeker/searchSeeker/([0-9]+)'] = 'admin/Seeker/searchSeeker';
 // Frontend Section
 $route['job/(:any)/([0-9]+)'] = 'home/job/$1/$2';
 $route['job/(:any)/(:any)/([0-9]+)'] = 'home/job/$1/$2/$3';
-$route['applyJob/([0-9]+)'] = 'home/applyJob/$1';
+$route['applyjob/([0-9]+)'] = 'home/applyJob/$1';
 $route['category/(:any)/(:any)'] = 'home/category/$1/$2';
 
 $route['service'] = 'home/service';

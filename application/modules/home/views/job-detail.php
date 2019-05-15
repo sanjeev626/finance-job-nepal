@@ -18,6 +18,16 @@ if(!empty($banner_image)){
                 <div class="single-candidate-bottom-left sidebar-list-single">
                     <div class="single-candidate-widget job-section">
                         <h3><?php echo $jobDetail->jobtitle?></h3>
+                        <?php if($this->session->flashdata('error')){ ?>
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+                                <?php echo $this->session->flashdata('error');?> </div>
+                        <?php }
+                        if($this->session->flashdata('success')){ ?>
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+                                <?php echo $this->session->flashdata('success');?> </div>
+                        <?php } ?>
                         <div class="col-md-12 col-lg-6 job_overview">
                             <p class="job_overview"><i class="fa fa-calendar"></i> <strong>Apply Before :</strong> <?php echo date("M d, Y", strtotime($jobDetail->applybefore))?></p>
                         </div>
@@ -96,7 +106,7 @@ if(!empty($banner_image)){
                         </ul>
                     </div>
                     <div class="single-candidate-widget-2">
-                        <a href="#" class="fjn-btn-2">
+                        <a href="<?php echo base_url();?>applyjob/<?php echo $jobDetail->id; ?>" class="fjn-btn-2">
                             <i class="fa fa-paper-plane-o"></i>
                             Apply Now
                         </a>
