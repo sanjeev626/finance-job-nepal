@@ -21,11 +21,12 @@
                 </thead>
                 <tbody>
                   <?php
-                  if ($this->uri->segment(3) == NULL) {
+                  /*if ($this->uri->segment(3) == NULL) {
                     $i = 1;
                   } else {
                     $i = $this->uri->segment(3) + 1;
-                  }
+                  }*/
+                  $i=1;
                   if (!empty($applied_job_info)) {  
                   foreach ($applied_job_info as $key => $val):
 

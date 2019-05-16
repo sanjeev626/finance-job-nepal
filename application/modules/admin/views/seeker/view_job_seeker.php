@@ -12,7 +12,7 @@
             <div class="panel-footer">
             
             <a class="btn btn-success btn-sm below_space" href="<?php echo base_url(); ?>admin/seeker/movejobtobasket/<?php echo $job_seeker_info->id; ?>"><i class="fa fa-shopping-cart" data-original-title="View Basket"></i> Move To Basket </a>
-            <a class="btn btn-success btn-sm below_space" href="<?php echo base_url(); ?>admin/employer/joblist/<?php echo $job_seeker_info->id; ?>"><i class="fa fa-file-text-o" data-original-title="View Basket"></i> Applied Job List </a>
+            <a class="btn btn-success btn-sm below_space" href="<?php echo base_url(); ?>admin/seeker/seekerJobList/<?php echo $job_seeker_info->id; ?>"><i class="fa fa-file-text-o" data-original-title="View Basket"></i> Applied Job List </a>
             <?php if(!empty($job_seeker_info->resume) && file_exists(FCPATH.'uploads/resume/'.$job_seeker_info->resume)){ ?>
               <a class="btn btn-success btn-sm below_space" href="<?php echo base_url().'uploads/resume/'.$job_seeker_info->resume;?>" class="link2" target="_blank"><i class="fa fa-edit" data-original-title="View Employer"></i> Download/Open Resume</a>
             <?php } ?>
