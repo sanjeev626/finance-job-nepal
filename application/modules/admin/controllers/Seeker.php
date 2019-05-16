@@ -14,6 +14,7 @@ class Seeker extends MY_Controller {
         $this->load->model('seeker_model');
         $this->load->model('general_model');
         $this->load->model('vacancy_model');
+        $this->load->model('dropdown_model');
     }
  
     public function index(){

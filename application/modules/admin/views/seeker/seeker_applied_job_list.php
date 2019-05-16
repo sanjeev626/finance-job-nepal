@@ -40,7 +40,13 @@
                     <td><?php echo $val->jobtitle; ?></td>
                     <td><?php echo $organiation; ?></td>
                     <td><?php echo $val->appdate; ?></td>
-                    <td><?php echo $val->joblevel; ?></td>
+                    <td><?php //echo $val->joblevel;
+                      $dropdowns = $this->dropdown_model->get_dropdown_by_id($val->joblevel);
+                      if(!empty($dropdowns))
+                        echo  $dropdowns->dropvalue;
+                      else
+                        echo 'N/A';
+                      ?></td>
                     <td class="text-center"><?php echo $val->requiredno; ?></td>
                   </tr>
                   <?php
