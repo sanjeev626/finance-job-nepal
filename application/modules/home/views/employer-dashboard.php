@@ -51,12 +51,17 @@
                                             </td>
                                             <td class="table-date"><?php echo date('d M Y', strtotime($aj->post_date)); ?></td>
                                             <td class="table-date"><?php echo date('d M Y', strtotime($aj->applybefore)); ?></td>
-                                            <td class="table-date text-center"><a href="list-candidates.php">10</a></td>
+                                            <td class="table-date text-center">
+                                                <a href="<?php echo base_url().'employer/showapplicants/'.$aj->id;?>">
+                                                    <?php echo $this->general_model->countTotal('application','jid = '.$aj->id)?> /
+                                                    <?php echo $this->general_model->getfieldById('jobs','requiredno',$aj->id)?>
+                                                </a>
+                                            </td>
                                             <td><span class="pending"><?php echo $aj->post_status ?></span></td>
                                             <td class="action">
-                                                <a href="<?php echo base_url(); ?>Employer/update/<?php echo $aj->id; ?>"
+                                                <a href="<?php echo base_url(); ?>employer/update/<?php echo $aj->id; ?>"
                                                    class="action-edit"><i class="fa fa-pencil-square-o"></i></a>
-                                                <a href="<?php echo base_url(); ?>Employer/deleteJob/<?php echo $aj->id; ?>"
+                                                <a href="<?php echo base_url(); ?>employer/deleteJob/<?php echo $aj->id; ?>"
                                                    class="action-delete"><i class="fa fa-trash-o"></i></a>
                                             </td>
                                         </tr>
@@ -110,12 +115,17 @@
                                             </td>
                                             <td class="table-date"><?php echo date('d M Y', strtotime($ij->post_date)); ?></td>
                                             <td class="table-date"><?php echo date('d M Y', strtotime($ij->applybefore)); ?></td>
-                                            <td class="table-date text-center"><a href="list-candidates.php">10</a></td>
+                                            <td class="table-date text-center">
+                                                <a href="<?php echo base_url().'employer/showapplicants/'.$ij->id;?>">
+                                                    <?php echo $this->general_model->countTotal('application','jid = '.$ij->id)?> /
+                                                    <?php echo $this->general_model->getfieldById('jobs','requiredno',$ij->id)?>
+                                                </a>
+                                            </td>
                                             <td><span class="expired"><?php echo $ij->post_status ?></span></td>
                                             <td class="action">
-                                                <a href="<?php echo base_url(); ?>Employer/update/<?php echo $ij->id; ?>"
+                                                <a href="<?php echo base_url(); ?>employer/update/<?php echo $ij->id; ?>"
                                                    class="action-edit"><i class="fa fa-pencil-square-o"></i></a>
-                                                <a href="<?php echo base_url(); ?>Employer/deleteJob/<?php echo $ij->id; ?>"
+                                                <a href="<?php echo base_url(); ?>employer/deleteJob/<?php echo $ij->id; ?>"
                                                    class="action-delete"><i class="fa fa-trash-o"></i></a>
                                             </td>
                                         </tr>
@@ -168,12 +178,17 @@
                                             </td>
                                             <td class="table-date"><?php echo date('d M Y', strtotime($ej->post_date)); ?></td>
                                             <td class="table-date"><?php echo date('d M Y', strtotime($ej->applybefore)); ?></td>
-                                            <td class="table-date text-center"><a href="list-candidates.php">10</a></td>
+                                            <td class="table-date text-center">
+                                                <a href="<?php echo base_url().'employer/showapplicants/'.$ej->id;?>">
+                                                    <?php echo $this->general_model->countTotal('application','jid = '.$ej->id)?> /
+                                                    <?php echo $this->general_model->getfieldById('jobs','requiredno',$ej->id)?>
+                                                </a>
+                                            </td>
                                             <td><span class="expired">Expired</span></td>
                                             <td class="action">
-                                                <a href="<?php echo base_url(); ?>Employer/update/<?php echo $ej->id; ?>"
+                                                <a href="<?php echo base_url(); ?>employer/update/<?php echo $ej->id; ?>"
                                                    class="action-edit"><i class="fa fa-pencil-square-o"></i></a>
-                                                <a href="<?php echo base_url(); ?>Employer/deleteJob/<?php echo $ej->id; ?>"
+                                                <a href="<?php echo base_url(); ?>employer/deleteJob/<?php echo $ej->id; ?>"
                                                    class="action-delete"><i class="fa fa-trash-o"></i></a>
                                             </td>
                                         </tr>

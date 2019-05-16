@@ -748,7 +748,7 @@ class Employer_model extends CI_Model {
 
     function updateStatus($status,$application_id, $remarks)
     {
-        $dataStatus='';
+        $dataStatus=array();
         $dataStatus['status'] = $status;
         $dataStatus['remarks'] = $remarks;
         $this->db->where('id',$application_id);

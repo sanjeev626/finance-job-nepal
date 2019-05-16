@@ -496,7 +496,7 @@ class Employer extends View_Controller {
 
         $this->pagination->initialize($config);
         $data['main'] = 'employer-job-applicants';
-        $this->load->view('dashboard',$data);
+        $this->load->view('main',$data);
 
         if(isset($_POST['btnShortlist']))
         {
@@ -795,7 +795,7 @@ class Employer extends View_Controller {
         $data['select'] = '';
         $data['page_title'] = 'Job Seeker Details - Finance Job Nepal :: A complete HR Solution';
         $data['main'] = 'view-seeker-details';
-        $this->load->view('dashboard',$data);
+        $this->load->view('main',$data);
     }
 
     public function updateprofile(){
