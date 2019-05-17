@@ -75,7 +75,8 @@ $route['admin/Seeker/searchSeeker/([0-9]+)'] = 'admin/Seeker/searchSeeker';
 $route['job/(:any)/([0-9]+)'] = 'home/job/$1/$2';
 $route['job/(:any)/(:any)/([0-9]+)'] = 'home/job/$1/$2/$3';
 $route['applyjob/([0-9]+)'] = 'home/applyJob/$1';
-$route['category/(:any)/(:any)'] = 'home/category/$1/$2';
+//$route['category/(:any)/(:any)'] = 'home/category/$1/$2';
+$route['category/(:any)'] = 'home/category/$1';
 
 $route['service'] = 'home/service';
 $route['service/(:any)'] = 'home/service/$1';

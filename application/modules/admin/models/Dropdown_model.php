@@ -38,10 +38,13 @@ class Dropdown_model extends CI_Model {
     }
 
     public function insert_dropdown(){
+        $slug = $this->cleanurl($this->input->post('dropvalue'));
         $data = array(
             'fid' => $this->input->post('fid'),
-            'dropvalue' => $this->input->post('dropvalue')
+            'dropvalue' => $this->input->post('dropvalue'),
+            'slug'  => $slug
             );
+
         $this->db->insert($this->table_dropdown,$data);
     }
 
@@ -57,9 +60,11 @@ class Dropdown_model extends CI_Model {
     }
 
     public function update_dropdown($id){
+        $slug = $this->cleanurl($this->input->post('dropvalue'));
     	$data = array(
     		'fid' => $this->input->post('fid'),
-            'dropvalue' => $this->input->post('dropvalue')
+            'dropvalue' => $this->input->post('dropvalue'),
+            'slug'  => $slug
     		);
     	$this->db->where('id',$id);
     	$this->db->update($this->table_dropdown,$data);
@@ -68,6 +73,14 @@ class Dropdown_model extends CI_Model {
     public function delete_dropdown($id){
         $this->db->where('id',$id);
         $this->db->delete($this->table_dropdown);
+    }
+
+    public function cleanurl($string) {
+        $string = strtolower(trim($string));
+        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+        $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+
+        return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one
     }
 
 }

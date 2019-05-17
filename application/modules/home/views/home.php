@@ -63,7 +63,7 @@
             <?php
             foreach($job_category as $jc){?>
                 <div class="col-lg-3 col-md-6 col-sm-6">
-                    <a href="#" class="single-category-holder account_cat">
+                    <a href="<?php echo base_url().'category/'.$jc->slug;?>" class="single-category-holder account_cat">
                         <div class="category-holder-icon">
                             <i class="fa fa-briefcase"></i>
                         </div>

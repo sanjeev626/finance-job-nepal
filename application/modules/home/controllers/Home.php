@@ -654,7 +654,7 @@ class Home extends View_Controller {
     /*-------------------------------------------------------------
         Job Category Information with paramater Type and job Id
     -------------------------------------------------------------*/
-    public function category($type,$catid){
+    public function category_back($type,$catid){
         $data['job_list'] = '';
          /* Bootstrap Pagination  */
 
@@ -715,6 +715,16 @@ class Home extends View_Controller {
         $data['total_job'] = $data['total'];
 
         $data['main'] = 'job-list';
+        $this->load->view('main',$data);
+    }
+
+
+    public function category($slug){
+        //echo $slug;
+        $data['menu'] = $slug;
+        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['title'] ='Job List';
+        $data['main'] = 'job-by-category';
         $this->load->view('main',$data);
     }
     
