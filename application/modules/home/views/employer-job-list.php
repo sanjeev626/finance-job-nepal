@@ -52,7 +52,12 @@
 
                                             <td class="table-date"><?php echo date('d M Y',strtotime($postdate)); ?></td>
                                             <td class="table-date"><?php echo date('d M Y',strtotime($applydate)); ?></td>
-                                            <td class="table-date text-center"><?php echo $val->requiredno;?></td>
+                                            <td class="table-date text-center">
+                                                <a href="<?php echo base_url().'employer/showapplicants/'.$val->id;?>">
+                                                    <?php echo $this->general_model->countTotal('application','jid = '.$val->id)?> /
+                                                    <?php echo $val->requiredno;?>
+                                                </a>
+                                            </td>
                                             <td ><span class="<?php echo ($val->post_status=='public'?'pending':'expired')?>"><?php echo ucfirst($val->post_status);?></span></td>
                                             <td class="action">
 
