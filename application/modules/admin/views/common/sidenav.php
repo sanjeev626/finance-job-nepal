@@ -3,7 +3,7 @@ $nav_arr = array('dashboard');
 $user_id = $this->session->userdata('user_id');
 //echo $user_id;
 if($user_id=='2')
-  $nav_arr = array('user','dashboard','content','vacancy','employer','seeker','dropdown','newsletter','banner','client','testimonial','employer_service','jobseek_right','article');
+  $nav_arr = array('user','dashboard','content','vacancy','employer','seeker','dropdown','newsletter','banner','client','testimonial','employer_service','jobseek_right','article','blog','category');
 if($user_id=='3')
   $nav_arr = array('user','dashboard','content','vacancy','employer','dropdown','newsletter','banner','client','testimonial','employer_service','jobseek_right','article');
 if($user_id=='4')
@@ -67,6 +67,9 @@ else
         <li class ="<?php if($nav == 'employer_service'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/EmployerService"><i class="fa fa-wrench"></i><span>EMPLOYER SERVICE</span></a></li>
         <li class ="<?php if($nav == 'jobseek_right'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/JobSeekBanner"><i class="fa fa-file-image-o"></i><span>JOBSEEKER-RIGHT BANNER</span></a></li>
         <li class ="<?php if($nav == 'article'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Article"><i class="fa fa-newspaper-o"></i> <span>ARTICLE</span></a></li> -->
+
+          <li class ="<?php if($nav == 'category'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/blog/category"><i class="fa fa-newspaper-o"></i> <span>BLOG CATEGORY</span></a></li>
+          <li class ="<?php if($nav == 'blog'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/blog"><i class="fa fa-newspaper-o"></i> <span>BLOG</span></a></li>
       </ul>
       <?php
       }

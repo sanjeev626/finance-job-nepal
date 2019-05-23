@@ -70,6 +70,14 @@ $route['admin/Employer/searchEmployer/([0-9]+)'] = 'admin/Employer/searchEmploye
 $route['admin/Seeker/([0-9]+)'] = 'admin/Seeker';
 $route['admin/Seeker/searchSeeker/([0-9]+)'] = 'admin/Seeker/searchSeeker';
 
+$route['admin/blog/add'] = 'admin/Blog/blogadd';
+$route['admin/blog/edit/([0-9]+)'] = 'admin/Blog/blogedit/$1';
+$route['admin/blog/save'] = 'admin/Blog/saveblog';
+$route['admin/blog/update/([0-9]+)'] = 'admin/Blog/updateblog/$1';
+$route['admin/blog/category/add'] = 'admin/Blog/categoryadd';
+$route['admin/blog/category/edit/([0-9]+)'] = 'admin/Blog/categoryedit/$1';
+$route['admin/blog/category/save'] = 'admin/Blog/saveCategory';
+$route['admin/blog/category/update/([0-9]+)'] = 'admin/Blog/updateCategory/$1';
 
 // Frontend Section
 $route['job/(:any)/([0-9]+)'] = 'home/job/$1/$2';
