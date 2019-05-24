@@ -50,6 +50,8 @@ class Home extends View_Controller {
         $data['job_display_in'] = $this->general_model->getAll('dropdown','fid = 16','ordering','id,dropvalue');
 
         $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','',8);
+
+        $data['home_blog'] =  $this->general_model->getAll('blog','stat = "Y"','id ASC','*','',3);
         $data['main'] = 'home';
         $this->load->view('main',$data);
     }

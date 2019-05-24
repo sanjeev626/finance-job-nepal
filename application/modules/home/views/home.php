@@ -185,57 +185,5 @@
 
 
 <!-- Blog Area Start -->
-<section class="fjn-blog-area section_70">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="site-heading">
-                    <h2>Recent From <span>Blog</span></h2>
-                    <p>It's easy. Simply post a job you need completed and receive competitive bids from freelancers within minutes</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-12">
-                <a href="#">
-                    <div class="single-blog">
-                        <div class="blog-image">
-                            <img src="<?php echo base_url();?>content_home/img/blog-1.jpeg" alt="blog image" />
-                            <p><span> 21</span> July</p>
-                        </div>
-                        <div class="blog-text">
-                            <h3>If you're having trouble coming up with</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <a href="#">
-                    <div class="single-blog">
-                        <div class="blog-image">
-                            <img src="<?php echo base_url();?>content_home/img/blog-2.jpeg" alt="blog image" />
-                            <p><span> 21</span> July</p>
-                        </div>
-                        <div class="blog-text">
-                            <h3>details about Apple’s new iPad Pro models</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <a href="#">
-                    <div class="single-blog">
-                        <div class="blog-image">
-                            <img src="<?php echo base_url();?>content_home/img/blog-3.jpeg" alt="blog image" />
-                            <p><span> 21</span> July</p>
-                        </div>
-                        <div class="blog-text">
-                            <h3>what are those Steps to be a Successful developer</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+<?php include('includes/home-blog-section.php');?>
 <!-- Blog Area End -->

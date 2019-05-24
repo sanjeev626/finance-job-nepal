@@ -33,13 +33,20 @@
                     $organiation = $this->vacancy_model->get_organisation_by_eid($val->eid);
                     if(empty($organiation)) $organiation = $val->displayname;
                     $applybefore = $val->applybefore;
-                    $cdate = date('d-m-Y');
+                    $cdate = date('Y-m-d');
                   ?>
                   <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $val->jobtitle; ?></td>
                     <td><?php echo $organiation; ?></td>
-                    <td <?php if($applybefore < $cdate){ ?> style="color:#FF0000;"<?php } ?>><?php echo $applybefore; ?></td>
+                    <td
+                        <?php
+                          if($applybefore < $cdate){
+                            ?> style="color:#FF0000;"<?php
+                          }else{?> style="color:#00a65a;"<?php } ?>
+                        >
+                      <?php echo $applybefore; ?>
+                    </td>
                     <td>
                       <?php 
                       $val->joblevel;
