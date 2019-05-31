@@ -336,8 +336,9 @@ class Employer extends MY_Controller {
         $data['panel_title'] = 'Edit Employer ';
         $data['employer_detail'] = $this->general_model->getById('employer','id',$id);
         $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue'); 
-        $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue'); 
-        $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
+        $data['org_size'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
+        //$data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue');
+        //$data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
         $data['nature_of_organization'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');
         $data['main'] = 'employer/edit-employer';
 
@@ -409,7 +410,7 @@ class Employer extends MY_Controller {
 
             $this->employer_model->update_employer($e_id,$complogo,$banner);
             $this->session->set_flashdata('success', 'Employer Update Successfully...');
-            redirect(base_url() . 'admin/employer', 'refresh');
+            redirect(base_url() . 'admin/employer/edit/'.$e_id, 'refresh');
         }
     }
 

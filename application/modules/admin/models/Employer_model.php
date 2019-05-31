@@ -150,7 +150,9 @@ class Employer_model extends CI_Model {
             'organization_description' => $this->input->post('orgdesc'),
             'organization_phone' => $this->input->post('phone'),
             'organization_address' => $this->input->post('address'),
-            
+            'organization_type' => $this->input->post('organization_type'),
+            'organization_size' => $this->input->post('organization_size'),
+
             'contact_name' => $this->input->post('contactperson'),
             'contact_designation' => $this->input->post('designation'),
             'contact_email' => $this->input->post('contact_email'),

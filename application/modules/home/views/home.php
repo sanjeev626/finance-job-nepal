@@ -70,7 +70,15 @@
                         <div class="category-holder-text">
                             <h3><?php echo $jc->dropvalue;?></h3>
                         </div>
-                        <!--<img src="<?php /*echo base_url();*/?>content_home/img/account_cat.jpg" alt="category" />-->
+                        <?php
+                            if(!empty($jc->image)){
+                                $image = base_url().'uploads/category/'.$jc->image;
+                            }
+                        else{
+                            $image = base_url().'content_home/img/account_cat.jpg';
+                        }
+                        ?>
+                        <img src="<?php echo $image;?>" alt="<?php echo $jc->dropvalue;?>" />
                     </a>
                 </div>
             <?php  }

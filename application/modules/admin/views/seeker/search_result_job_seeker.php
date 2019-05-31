@@ -27,7 +27,7 @@ $dropdown_length = 60;
                             <thead>
                             <tr>
                                 <th width="1%">SN.</th>
-                                <th width="20%">Employer Name</th>
+                                <th width="20%">Jobseeker Name</th>
                                 <th width="20%">Address</th>
                                 <th width="20%">Mobile</th>
                                 <th width="20%">Activation Status</th>
@@ -51,7 +51,7 @@ $dropdown_length = 60;
                                         <td><?php echo $key->fname.' '.$key->mname.' '.$key->lname ; ?></td>
                                         <td><?php echo $key->address_current; ?></td>
                                         <td><?php echo $key->phone_cell; ?></td>
-                                        <td><?php echo $key->isActivated =='1'?'Active':'Un Active'; ?></td>
+                                        <td><?php echo $key->isActivated =='1'?'Active':'InActive'; ?></td>
                                         <td><?php echo $key->email; ?></td>
                                         <!--<td><?php /*echo $key->isCorporate; */
                                         ?></td>-->

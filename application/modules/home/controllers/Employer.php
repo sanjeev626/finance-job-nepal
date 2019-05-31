@@ -777,9 +777,10 @@ class Employer extends View_Controller {
         $data['select'] = 'editprofile';
         $data['page_title'] = 'Profile Edit - Finance Job Nepal :: Complete HR Solution';
         $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
-        $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue');
-        $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
-        $data['nature_of_organisation'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');
+        $data['org_size'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
+        //$data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue');
+        //$data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
+        //$data['nature_of_organisation'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');
         $data['main'] = 'employer-edit-profile';
         $this->load->view('main',$data);
     }

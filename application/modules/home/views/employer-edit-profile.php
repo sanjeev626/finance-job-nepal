@@ -34,14 +34,14 @@
                         <?php } ?>
                         <div class="candidate-single-profile-info">
 
-                            <div class="single-resume-feild resume-avatar">
+                            <!-- <div class="single-resume-feild resume-avatar">
                                 <div class="resume-image">
                                     <?php
                                         if (!empty($employerInfo->organization_logo)){
-                                            $imgurl = base_url().'uploads/employer/'.$employerInfo->organization_logo;
+                                            //$imgurl = base_url().'uploads/employer/'.$employerInfo->organization_logo;
                                         }
                                         else{
-                                            $imgurl = base_url().'content_home/img/company_logo.png';
+                                           // $imgurl = base_url().'content_home/img/company_logo.png';
                                         }
 
                                     ?>
@@ -56,7 +56,25 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div> -->
+
+                            <div class="single-resume-feild resume-avatar">
+                                <div class="single-resume-feild ">
+                                    <div class="single-input">
+                                        <label for="name">Organization Logo:</label>
+                                        <input type="file" id="banner" value="" name="logo" placeholder="Organization logo" class="form-control" autofocus>
+                                        <?php
+                                        if (!empty($employerInfo->organization_logo)){
+                                            $logoimgurl = base_url().'uploads/employer/'.$employerInfo->organization_logo;
+                                        ?>
+                                        <div class="">
+                                            <img src="<?php echo $logoimgurl;?>" alt="<?php if (!empty($employerInfo)) echo $employerInfo->organization_logo; ?>" width="300px">
+                                        </div>
+                                        <?php }?>
+                                    </div>
+                                </div>
                             </div>
+
 
                             <div class="single-resume-feild resume-avatar">
                                 <div class="single-resume-feild ">
@@ -89,23 +107,30 @@
                                 </div>
                                 <div class="single-resume-feild feild-flex-2">
                                     <div class="single-input">
-                                        <label for="c_cat">Organization_type:</label>
+                                        <label for="c_cat">Organization Type:</label>
                                         <select class="form-control" name="natureoforg" >
-                                            <?php foreach ($nature_of_organisation as $key => $value) {?>
+                                            <option value="">--Select Ogranization Type--</option>
+                                            <?php foreach ($org_type as $key => $value) {?>
                                                 <option <?php if(!empty($employerInfo) && $employerInfo->organization_type == $value->id){ echo "selected='selected'"; } ?> <?php echo set_select('natureoforg', $value->id); ?> value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
                                             <?php  } ?>
                                         </select>
                                     </div>
                                     <div class="single-input">
-                                        <label for="Start">Organization_size:</label>
-                                        <select class="form-control" name="no_of_employees" >
-                                            <option value="0-10"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '0-10'){ echo "selected='selected'"; } ?>>0-10</option>
-                                            <option value="11-50"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '11-50'){ echo "selected='selected'"; } ?>>11-50</option>
-                                            <option value="51-100"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '51-100'){ echo "selected='selected'"; } ?>>51-100</option>
-                                            <option value="101-250"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '101-250'){ echo "selected='selected'"; } ?>>101-250</option>
-                                            <option value="251-1000"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '251-1000'){ echo "selected='selected'"; } ?>>251-1000</option>
-                                            <option value="1000+"  <?php if(!empty($employerInfo) && $employerInfo->organization_size == '1000+'){ echo "selected='selected'"; } ?>>1000 or more</option>
+                                        <label for="Start">Organization size:</label>
+                                        <select class="form-control" name="no_of_employees">
+                                            <option value="">--Select Ogranization Size--</option>
+                                            <?php
+
+                                            foreach ($org_size as $os) {
+                                                if($os->id == $employerInfo->organization_size)
+                                                    $selected = 'selected';
+                                                else
+                                                    $selected = '';
+                                                echo '<option value="'.$os->id.'" '.$selected.' >'.$os->dropvalue.'</option>';
+                                            }
+                                            ?>
                                         </select>
+
                                     </div>
                                 </div>
                                 <div class="single-resume-feild feild-flex-2">

@@ -37,13 +37,16 @@ class Dropdown_model extends CI_Model {
         }
     }
 
-    public function insert_dropdown(){
+    public function insert_dropdown($image){
         $slug = $this->cleanurl($this->input->post('dropvalue'));
         $data = array(
             'fid' => $this->input->post('fid'),
             'dropvalue' => $this->input->post('dropvalue'),
-            'slug'  => $slug
+            'slug'  => $slug,
             );
+        if($image){
+            $data['image'] = $image;
+        }
 
         $this->db->insert($this->table_dropdown,$data);
     }
@@ -59,13 +62,16 @@ class Dropdown_model extends CI_Model {
     	}
     }
 
-    public function update_dropdown($id){
+    public function update_dropdown($id,$image){
         $slug = $this->cleanurl($this->input->post('dropvalue'));
     	$data = array(
     		'fid' => $this->input->post('fid'),
             'dropvalue' => $this->input->post('dropvalue'),
             'slug'  => $slug
     		);
+        if($image){
+            $data['image'] = $image;
+        }
     	$this->db->where('id',$id);
     	$this->db->update($this->table_dropdown,$data);
     }
