@@ -1627,12 +1627,18 @@ class Home extends View_Controller {
 
     public function content(){        
         $urlcode = $this->uri->segment(2);
-        $data['menu'] = 'home';
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['menu'] = 'content';
+        
         //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
 
         $data['title'] = $this->general_model->getById('content','slug',$urlcode)->title;
-        $data['content'] = $this->general_model->getById('content','slug',$urlcode)->contents;
+        $data['content'] = $this->general_model->getById('content','slug',$urlcode);
+        $meta_title = $this->general_model->getById('content','slug',$urlcode)->meta_title;
+        $data['meta_description'] = $this->general_model->getById('content','slug',$urlcode)->meta_description;
+        $data['meta_keyword'] = $this->general_model->getById('content','slug',$urlcode)->meta_keyword;
+        $data['page_title'] = '.:: ' .$meta_title. ' | Global Job :: Complete HR Solution..';
+
+
         $data['main'] = 'detail-page';
         $this->load->view('main',$data);
     }

@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="panel-footer">
-            <a class="btn btn-success" href="<?php echo base_url(); ?>admin/Service/add">+ Add Service </a>
+            <a class="btn btn-success" href="<?php echo base_url(); ?>admin/service/add">+ Add Service </a>
         </div>
           <div class="table-responsive">
             <table class="table table-striped mb30" id="table1" cellspacing="0" width="100%">

@@ -36,7 +36,7 @@
                     <td class="table-action">
                       <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/EmployerService/edit/<?php echo $key->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Jobseeker Right Banner"></i> Edit</a>
                       |
-                      <button type="button" class="btn btn-success btn-sm delete_employerservice" link="<?php echo base_url(); ?>admin/EmployerService/deleteEmployerService/<?php echo $key->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Jobseeker Right Banner"></i> Delete</button>
+                      <button type="button" class="btn btn-danger btn-sm delete_employerservice" link="<?php echo base_url(); ?>admin/EmployerService/deleteEmployerService/<?php echo $key->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Jobseeker Right Banner"></i> Delete</button>
                     </td>
                   </tr>
                   <?php

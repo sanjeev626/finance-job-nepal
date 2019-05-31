@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Finance Job Nepal | Job Portal">
-    <meta name="keyword" content="Job, freelancer, employee, marketplace">
+    <meta name="description" content="<?php if(isset($meta_description))echo $meta_description; else echo 'Finance Job Nepal | Job Portal';?>">
+    <meta name="keyword" content="<?php if(isset($meta_keyword))echo $meta_keyword; else echo 'Job, freelancer, employee, marketplace';?>">
     <meta name="author" content="Themescare">
     <!-- Title -->
     <title><?php if(isset($ogtitle) && !empty($ogtitle)) echo $ogtitle; else echo $page_title; ?></title>

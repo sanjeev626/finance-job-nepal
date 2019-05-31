@@ -72,6 +72,14 @@ class Blog_model extends CI_Model
             return $query->row();
         }
     }
+
+    public function delete($id){
+        $this->db->where('id',$id);
+        $this->db->delete($this->table_blog);
+    }
+
+
+
     //    blog category section
     public function get_all_publish_category(){
         $this->db->select('*');
@@ -126,6 +134,11 @@ class Blog_model extends CI_Model
         );
         $this->db->where('id',$id);
         $this->db->update($this->table_category,$data);
+    }
+
+    public function delete_category($id){
+        $this->db->where('id',$id);
+        $this->db->delete($this->table_category);
     }
 
     //    blog category section

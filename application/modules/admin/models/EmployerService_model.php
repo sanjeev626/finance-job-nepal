@@ -9,8 +9,8 @@
  */
 class employerService_model extends CI_Model {
 
-    private $table_globaljob_service = 'globaljob_service';
-
+    //private $table_globaljob_service = 'globaljob_service';
+    private $table_globaljob_service = 'service';
     public function __construct() {
         parent::__construct();
         $this->load->model('general_model');

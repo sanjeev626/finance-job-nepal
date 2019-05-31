@@ -47,6 +47,8 @@
 
                                             <td class="table-action">
                                                 <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/blog/category/edit/<?php echo $key->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Article"></i> Edit</a>
+                                                |
+                                                <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>admin/blog/deletecategory/<?php echo $key->id; ?>"><i class="fa fa-trash tooltips" data-original-title="Edit Content"></i> Delete</a>
 
                                             </td>
                                         </tr>

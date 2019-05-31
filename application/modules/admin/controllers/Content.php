@@ -42,18 +42,35 @@ class Content extends CI_Controller {
 
     public function addContent(){
 
-        $this->content_model->add_content();
+        $a = $_FILES['contentImage']['name'];
+
+        if ($a !== "") {
+            $config['upload_path'] = './././uploads/content/';
+            $config['log_threshold'] = 1;
+            $config['allowed_types'] = 'jpg|png|jpeg|gif';
+            $config['max_size'] = '100000'; // 0 = no file size limit
+            $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['contentImage']['name']));
+            $config['overwrite'] = false;
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('contentImage');
+            $upload_data = $this->upload->data();
+            $image = $upload_data['file_name'];
+        }
+
+        if(!isset($image))  $image = '';
+
+        $this->content_model->add_content($image);
         $this->session->set_flashdata('success', 'Content Added Successfully...');
-        redirect(base_url() . 'admin/Content', 'refresh');
+        redirect(base_url() . 'admin/content', 'refresh');
     }
 
     public function edit($id){
             
         if (!isset($id))
-            redirect(base_url() . 'admin/Content');
+            redirect(base_url() . 'admin/content');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Content');
+            redirect(base_url() . 'admin/content');
 
         $data['title'] = '.:: EDIT CONTENT ::.';
         $data['page_header'] = 'Content Manager';
@@ -69,15 +86,40 @@ class Content extends CI_Controller {
     public function editContent($id){
 
         if (!isset($id))
-        redirect(base_url() . 'admin/Content');
+        redirect(base_url() . 'admin/content');
 
         if (!is_numeric($id))
-        redirect(base_url() . 'admin/Content');
+        redirect(base_url() . 'admin/content');
 
-        $this->content_model->update_content($id);
+        $a = $_FILES['contentImage']['name'];
+
+        if ($a !== "") {
+            $config['upload_path'] = './././uploads/content/';
+            $config['log_threshold'] = 1;
+            $config['allowed_types'] = 'jpg|png|jpeg|gif';
+            $config['max_size'] = '100000'; // 0 = no file size limit
+            $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['contentImage']['name']));
+            $config['overwrite'] = false;
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('contentImage');
+            $upload_data = $this->upload->data();
+            $image = $upload_data['file_name'];
+        }
+
+        if(!isset($image))  $image = '';
+
+        $this->content_model->update_content($id,$image);
         $this->session->set_flashdata('success', 'Content Updated Successfully...');
-        redirect(base_url() . 'admin/Content', 'refresh');
+        redirect(base_url() . 'admin/content/edit/'.$id, 'refresh');
     }
+
+    public function delete($id){
+        $this->content_model->delete($id);
+        $this->session->set_flashdata('success', 'Content Field Deleted Successfully...');
+        redirect(base_url() . 'admin/content', 'refresh');
+    }
+
+
 
 }
 

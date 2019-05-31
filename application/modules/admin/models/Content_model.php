@@ -38,7 +38,7 @@ class Content_model extends CI_Model {
     	}
     }
 
-    public function add_content(){
+    public function add_content($image){
         $up_date = date('Y-m-d h:i:s');
         $title = $this->input->post('title');
         $data = array(
@@ -46,22 +46,43 @@ class Content_model extends CI_Model {
             'title' => $this->input->post('title'),
             'contents' => $this->input->post('contents'),
             'cr_date' =>$up_date,
-            'up_date' =>$up_date
+            'up_date' =>$up_date,
+            'stat'      =>$this->input->post('status'),
+            'meta_title'      =>$this->input->post('meta_title'),
+            'meta_keyword'      =>$this->input->post('meta_keyword'),
+            'meta_description'      =>$this->input->post('meta_desc'),
+            
             );
+        if($image){
+            $data['image'] = $image;
+        }
         $this->db->insert($this->table_content,$data);
     }
 
-    public function update_content($id){
+    public function update_content($id,$image){
     	$up_date = date('Y-m-d h:i:s');
         $title = $this->input->post('title');
     	$data = array(
             'slug' => $this->general_model->get_urlcode($title),
             'title' => $this->input->post('title'),
     		'contents' => $this->input->post('contents'),
-    		'up_date' =>$up_date
+    		'up_date' =>$up_date,
+            'stat'      =>$this->input->post('status'),
+            'meta_title'      =>$this->input->post('meta_title'),
+            'meta_keyword'      =>$this->input->post('meta_keyword'),
+            'meta_description'      =>$this->input->post('meta_desc'),
+            
     		);
+        if($image){
+            $data['image'] = $image;
+        }
     	$this->db->where('id',$id);
     	$this->db->update($this->table_content,$data);
+    }
+
+    public function delete($id){
+        $this->db->where('id',$id);
+        $this->db->delete($this->table_content);
     }
 
 }

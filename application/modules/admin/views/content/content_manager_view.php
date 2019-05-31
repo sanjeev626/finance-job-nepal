@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="panel-footer">
-            <a class="btn btn-success" href="<?php echo base_url(); ?>admin/Content/add">+ Add Content </a>
+            <a class="btn btn-success" href="<?php echo base_url(); ?>admin/content/add">+ Add Content </a>
         </div>
         <div class="col-md-12">
 
@@ -42,7 +42,9 @@
                     <td><?php echo $key->up_date; ?></td>
                     
                     <td class="table-action">
-                      <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/Content/edit/<?php echo $key->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Content"></i> Edit</a>
+                      <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/content/edit/<?php echo $key->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Content"></i> Edit</a>
+                      |
+                      <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>admin/content/delete/<?php echo $key->id; ?>"><i class="fa fa-trash tooltips" data-original-title="Edit Content"></i> Delete</a>
                       
                     </td>
                   </tr>

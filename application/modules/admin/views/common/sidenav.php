@@ -64,9 +64,13 @@ else
         <li class ="<?php if($nav == 'client'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Client"><i class="fa fa-user-secret"></i><span>CLIENTS</span></a></li> -->
         <!-- <li class ="<?php if($nav == 'service'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Service"><i class="fa fa-cogs"></i><span>SERVICES</span></a></li>    -->
         <!-- <li class ="<?php if($nav == 'testimonial'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Testimonial"><i class="fa fa-comments-o"></i><span>TESTIMONIAL</span></a></li>
+<li class ="<?php if($nav == 'jobseek_right'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/JobSeekBanner"><i class="fa fa-file-image-o"></i><span>JOBSEEKER-RIGHT BANNER</span></a></li>
+         -->
         <li class ="<?php if($nav == 'employer_service'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/EmployerService"><i class="fa fa-wrench"></i><span>EMPLOYER SERVICE</span></a></li>
-        <li class ="<?php if($nav == 'jobseek_right'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/JobSeekBanner"><i class="fa fa-file-image-o"></i><span>JOBSEEKER-RIGHT BANNER</span></a></li>
-        <li class ="<?php if($nav == 'article'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Article"><i class="fa fa-newspaper-o"></i> <span>ARTICLE</span></a></li> -->
+        
+        <li class ="<?php if($nav == 'article'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Article"><i class="fa fa-newspaper-o"></i> <span>ARTICLE</span></a></li>
+
+        <li class ="<?php if($nav == 'content'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/content"><i class="fa fa-newspaper-o"></i> <span>CONTENT</span></a></li>
 
           <li class ="<?php if($nav == 'category'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/blog/category"><i class="fa fa-newspaper-o"></i> <span>BLOG CATEGORY</span></a></li>
           <li class ="<?php if($nav == 'blog'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/blog"><i class="fa fa-newspaper-o"></i> <span>BLOG</span></a></li>

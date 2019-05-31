@@ -19,9 +19,9 @@
                                     <th width="5%">SN.</th>
                                     <th width="20%">Title </th>
                                     <th width="20%">Category </th>
-                                    <th width="20%">Status </th>
-                                    <th width="20%">Created Date</th>
-                                    <th width="20%">Updated Date</th>
+                                    <th width="15%">Status </th>
+                                    <th width="15%">Created Date</th>
+                                    <th width="15%">Updated Date</th>
                                     <th width="10%" class="table-action">Action</th>
                                 </tr>
                                 </thead>
@@ -62,6 +62,8 @@
 
                                             <td class="table-action">
                                                 <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/blog/edit/<?php echo $key->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Article"></i> Edit</a>
+                                                |
+                                                <a class="btn btn-danger btn-sm" href="<?php echo base_url(); ?>admin/blog/delete/<?php echo $key->id; ?>"><i class="fa fa-trash tooltips" data-original-title="Edit Content"></i> Delete</a>
 
                                             </td>
                                         </tr>

@@ -33,7 +33,7 @@ if (!empty($employerservice_detail)) {
                 <input type="file" name="servicelogo" id='servicelogo' class="form-control" value='<?php if (!empty($employerservice_detail)) echo $employerservice_detail->logo; ?>' />
                     <span class="green">(Image resolution must be 714 X 518 for better view)</span>
 
-                <?php if (!empty($employerservice_detail) && isset($employerservice_detail->logo)) { ?>
+                <?php if (!empty($employerservice_detail->logo)) { ?>
                     <input type="hidden" value="<?php echo $employerservice_detail->logo; ?>" name="old_servicelogo">
                     <div style="padding-top:10px;"><img height="30%" width="30%" src="<?php echo base_url() . 'uploads/service/' . $employerservice_detail->logo; ?>"></div>
                 <?php } ?>

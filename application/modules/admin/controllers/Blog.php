@@ -176,4 +176,16 @@ class Blog extends CI_Controller
         redirect(base_url() . 'admin/blog/category', 'refresh');
     }
 
+    public function delete($id){
+        $this->blog_model->delete($id);
+        $this->session->set_flashdata('success', 'Blog  Deleted Successfully...');
+        redirect(base_url() . 'admin/blog', 'refresh');
+    }
+
+    public function deletecategory($id){
+        $this->blog_model->delete_category($id);
+        $this->session->set_flashdata('success', 'Blog Category Deleted Successfully...');
+        redirect(base_url() . 'admin/blog/category', 'refresh');
+    }
+
 }
