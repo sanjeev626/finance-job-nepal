@@ -744,7 +744,7 @@ class Home extends View_Controller {
 
     public function upload_your_video_cv(){
         $content_id = "11";
-        $data['menu'] = 'home';
+        $data['menu'] = 'upload_your_video_cv';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -754,7 +754,7 @@ class Home extends View_Controller {
 
     public function express_your_perception(){
         $content_id = "12";
-        $data['menu'] = 'home';
+        $data['menu'] = 'express_your_perception';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -764,7 +764,7 @@ class Home extends View_Controller {
 
     public function give_your_feedbacks(){
         $content_id = "13";
-        $data['menu'] = 'home';
+        $data['menu'] = 'give_your_feedbacks';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -788,7 +788,7 @@ class Home extends View_Controller {
 
     public function subscribe_for_video_cv(){
         $content_id = "14";
-        $data['menu'] = 'home';
+        $data['menu'] = 'subscribe_for_video_cv';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -798,7 +798,7 @@ class Home extends View_Controller {
 
     public function express_employers_perception(){
         $content_id = "15";
-        $data['menu'] = 'home';
+        $data['menu'] = 'express_employers_perception';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -808,7 +808,7 @@ class Home extends View_Controller {
 
     public function give_your_feedback(){
         $content_id = "13";
-        $data['menu'] = 'home';
+        $data['menu'] = 'give_your_feedback';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -820,7 +820,7 @@ class Home extends View_Controller {
                     Feeback  Page
     ---------------------------------------------------------*/
     public function feedback(){
-        $data['menu'] = 'home';
+        $data['menu'] = 'feedback';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         $data['title'] ='Feedback';
         $data['main'] = 'feedback-view';
@@ -897,7 +897,7 @@ class Home extends View_Controller {
                     Term And Condition  Page
     ---------------------------------------------------------*/
     public function termandcondition(){
-        $data['menu'] = 'home';
+        $data['menu'] = 'termandcondition';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
        
         $data['main'] = 'term-condition';
@@ -908,7 +908,7 @@ class Home extends View_Controller {
                     Privacy and Policy  Page
     ---------------------------------------------------------*/
     public function privacypolicy(){
-        $data['menu'] = 'home';
+        $data['menu'] = 'privacypolicy';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
        
         $data['main'] = 'privacy-policy';
@@ -1597,7 +1597,7 @@ class Home extends View_Controller {
     }
     
     public function clients(){
-        $data['menu'] = 'home';
+        $data['menu'] = 'clients';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         //$data['client_list'] = $this->general_model->getAll('clients','','','id,clientname,image');
         
@@ -1605,7 +1605,7 @@ class Home extends View_Controller {
     }
     
     public function testimonial_list(){
-        $data['menu'] = 'home';
+        $data['menu'] = 'testimonial_list';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         $data['testimonial_list'] = $this->home_model->get_all_testimonial();
         
@@ -1615,7 +1615,7 @@ class Home extends View_Controller {
     public function services(){
         
         $urlcode = $this->uri->segment(2);
-        $data['menu'] = 'home';
+        $data['menu'] = 'services';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
         //echo 'urlcode = '.$urlcode;
@@ -1645,7 +1645,7 @@ class Home extends View_Controller {
 
     public function article(){        
         $urlcode = $this->uri->segment(2);
-        $data['menu'] = 'home';
+        $data['menu'] = 'article';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
 
