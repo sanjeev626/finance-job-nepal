@@ -41,9 +41,14 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="single-blog-page-item">
-                    <div class="single-blog-item-img">
-                        <img src="<?php echo base_url().'uploads/content/'.$content->image?>" alt="blog">
-                    </div>
+                    <?php
+                        if(!empty($content->image)){?>
+                            <div class="single-blog-item-img">
+                                <img src="<?php echo base_url().'uploads/content/'.$content->image?>" alt="blog">
+                            </div>
+                    <?php  }
+                    ?>
+
                     <div class="single-blog-item-date">
                         <?php
                         $day = date("d",strtotime($content->cr_date));

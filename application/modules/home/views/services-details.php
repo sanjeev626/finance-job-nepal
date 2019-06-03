@@ -41,9 +41,14 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="single-blog-page-item">
-                    <div class="single-blog-item-img">
-                        <img src="<?php echo base_url().'uploads/service/'.$content->logo?>" alt="blog">
-                    </div>
+                    <?php
+                    if(!empty($content->logo)){?>
+                        <div class="single-blog-item-img">
+                            <img src="<?php echo base_url().'uploads/service/'.$content->logo?>" alt="blog">
+                        </div>
+                    <?php }
+                    ?>
+
 
                     <div class="blog-title">
                         <h3><?php echo $content->title?></h3>
