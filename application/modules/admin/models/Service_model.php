@@ -13,6 +13,7 @@ class Service_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('general_model');
     }
 
     public function get_all_service(){
@@ -25,11 +26,17 @@ class Service_model extends CI_Model {
         }
     }
 
-    public function insert_service(){
+    public function insert_service($image){
+        $title = $this->input->post('title');
         $data = array(
-            'servicename' => $this->input->post('servicename'),
+            'urlcode' => $this->general_model->get_urlcode($title),
+            'title' => $this->input->post('title'),
+            'short_description' => $this->input->post('short_description'),
             'content' => $this->input->post('content')
             );
+        if($image){
+            $data['logo'] = $image;
+        }
         $this->db->insert($this->table_service,$data);
     }
 
@@ -44,11 +51,17 @@ class Service_model extends CI_Model {
     	}
     }
 
-    public function update_service($id){
+    public function update_service($id,$image){
+        $title = $this->input->post('title');
     	$data = array(
-    		'servicename' => $this->input->post('servicename'),
+            'urlcode' => $this->general_model->get_urlcode($title),
+            'title' => $this->input->post('title'),
+            'short_description' => $this->input->post('short_description'),
             'content' => $this->input->post('content')
     		);
+        if($image){
+            $data['logo'] = $image;
+        }
     	$this->db->where('id',$id);
     	$this->db->update($this->table_service,$data);
     }

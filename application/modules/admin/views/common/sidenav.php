@@ -3,7 +3,7 @@ $nav_arr = array('dashboard');
 $user_id = $this->session->userdata('user_id');
 //echo $user_id;
 if($user_id=='2')
-  $nav_arr = array('user','dashboard','content','vacancy','employer','seeker','dropdown','newsletter','banner','client','testimonial','employer_service','jobseek_right','article','blog','category');
+  $nav_arr = array('user','dashboard','content','vacancy','employer','seeker','dropdown','newsletter','banner','client','testimonial','employer_service','service','jobseek_right','article','blog','category');
 if($user_id=='3')
   $nav_arr = array('user','dashboard','content','vacancy','employer','dropdown','newsletter','banner','client','testimonial','employer_service','jobseek_right','article');
 if($user_id=='4')
@@ -66,10 +66,11 @@ else
         <!-- <li class ="<?php if($nav == 'testimonial'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Testimonial"><i class="fa fa-comments-o"></i><span>TESTIMONIAL</span></a></li>
 <li class ="<?php if($nav == 'jobseek_right'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/JobSeekBanner"><i class="fa fa-file-image-o"></i><span>JOBSEEKER-RIGHT BANNER</span></a></li>
          -->
-        <li class ="<?php if($nav == 'employer_service'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/EmployerService"><i class="fa fa-wrench"></i><span>EMPLOYER SERVICE</span></a></li>
-        
-        <li class ="<?php if($nav == 'article'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Article"><i class="fa fa-newspaper-o"></i> <span>ARTICLE</span></a></li>
+        <!--<li class ="<?php /*if($nav == 'employer_service'){ echo 'active'; } */?>"><a href="<?php /*echo base_url(); */?>admin/EmployerService"><i class="fa fa-wrench"></i><span>EMPLOYER SERVICE</span></a></li>-->
+        <li class ="<?php if($nav == 'service'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/service"><i class="fa fa-wrench"></i><span>SERVICE</span></a></li>
 
+        <!--<li class ="<?php /*if($nav == 'article'){ echo 'active'; } */?>"><a href="<?php /*echo base_url(); */?>admin/Article"><i class="fa fa-newspaper-o"></i> <span>ARTICLE</span></a></li>
+-->
         <li class ="<?php if($nav == 'content'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/content"><i class="fa fa-newspaper-o"></i> <span>CONTENT</span></a></li>
 
           <li class ="<?php if($nav == 'category'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/blog/category"><i class="fa fa-newspaper-o"></i> <span>BLOG CATEGORY</span></a></li>

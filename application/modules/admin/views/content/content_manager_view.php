@@ -37,7 +37,11 @@
                   <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $key->title; ?></td>
-                    <td><?php echo base_url().'content/'.$key->slug; ?></td>
+                    <td>
+                      <a href="<?php echo base_url().'content/'.$key->slug; ?>" target="_blank">
+                        <?php echo base_url().'content/'.$key->slug; ?>
+                      </a>
+                    </td>
                     <td><?php echo $key->cr_date; ?></td>
                     <td><?php echo $key->up_date; ?></td>
                     

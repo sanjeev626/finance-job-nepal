@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-3 col-md-6">
           <div class="single-footer-widget">
-            <div class="footer-logo"> <a href="index.html"> <img src="assets/img/logo.png" alt="jobguru logo" /> </a> </div>
+            <div class="footer-logo"> <a href="<?php echo base_url();?>"> <img src="<?php echo base_url(); ?>content_home/img/logo.png" alt="jobguru logo" /> </a> </div>
             <p>Our unique, ethically led approach to Accounts &amp; Finance recruitment, meets the Industry expectations &amp; requirement for a truly sustainable recruitment solution.</p>
           </div>
         </div>
@@ -13,8 +13,8 @@
           <div class="single-footer-widget">
             <h3>Job Seeker</h3>
             <ul>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>Create Account</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>Direct CV Upload</a></li>
+              <li><a href="<?php echo base_url().'jobseeker/signup'?>"><i class="fa fa-angle-double-right "></i>Create Account</a></li>
+              <li><a href="<?php echo base_url().'jobseeker/signup#uploadcv'?>"><i class="fa fa-angle-double-right "></i>Direct CV Upload</a></li>
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Online CV</a></li>
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Search Job</a></li>
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Terms &amp; Conditions</a></li>
@@ -25,8 +25,14 @@
           <div class="single-footer-widget">
             <h3>Employer</h3>
             <ul>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>Create Account</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>Post Job</a></li>
+                <?php
+                if(!empty($employer_profile)){ ?>
+                    <li><a href="<?php echo base_url() . 'employer/postJob' ?>"><i class="fa fa-angle-double-right "></i>Post Job</a></li>
+                <?php }else{?>
+                    <li><a href="<?php echo base_url();?>employer/signup"><i class="fa fa-angle-double-right "></i>Create Account</a></li>
+                <?php }
+                ?>
+
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Terms &amp; Conditions</a></li>
             </ul>
           </div>
@@ -35,11 +41,11 @@
           <div class="single-footer-widget">
             <h3>Services we offer</h3>
             <ul>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>Recruitment</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>Staff Outsourcing</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>HR Audit &amp; Consulting</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>Payroll Management</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>Corporate Training</a></li>
+              <li><a href="<?php echo base_url().'services/recruitment'?>"><i class="fa fa-angle-double-right "></i>Recruitment</a></li>
+              <li><a href="<?php echo base_url().'services/staff-outsourcing'?>"><i class="fa fa-angle-double-right "></i>Staff Outsourcing</a></li>
+              <li><a href="<?php echo base_url().'services/hr-audit-consulting'?>"><i class="fa fa-angle-double-right "></i>HR Audit &amp; Consulting</a></li>
+              <li><a href="<?php echo base_url().'services/payroll-management'?>"><i class="fa fa-angle-double-right "></i>Payroll Management</a></li>
+              <li><a href="<?php echo base_url().'services/corporate-training'?>"><i class="fa fa-angle-double-right "></i>Corporate Training</a></li>
             </ul>
           </div>
         </div>
@@ -108,7 +114,6 @@
 
     }
 
-
     $('document').ready(function () {
 
         tinymce.init({
@@ -126,8 +131,17 @@
             filemanager_title: "Responsive Filemanager",
             external_plugins: {"filemanager": "<?php echo base_url();?>" + "tinymce/file_manager/filemanager/plugin.min.js"}
         });
-    });
 
+        if(window.location.hash) {
+            var hash = window.location.hash.substring(1);
+            if(hash == 'uploadcv'){
+                $('#cvModal').modal();
+            }
+
+        } else {
+
+        }
+    });
 
 </script>
 

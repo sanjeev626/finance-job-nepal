@@ -1619,9 +1619,9 @@ class Home extends View_Controller {
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
         //echo 'urlcode = '.$urlcode;
-        $data['title'] = $this->general_model->getById('globaljob_service','urlcode',$urlcode)->title;
-        $data['content'] = $this->general_model->getById('globaljob_service','urlcode',$urlcode)->content;
-        $data['main'] = 'employer-services-details';
+        //$data['title'] = $this->general_model->getById('service','urlcode',$urlcode)->title;
+        $data['content'] = $this->general_model->getById('service','urlcode',$urlcode);
+        $data['main'] = 'services-details';
         $this->load->view('main',$data);
     }
 

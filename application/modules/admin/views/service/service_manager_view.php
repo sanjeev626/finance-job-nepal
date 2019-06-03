@@ -16,6 +16,7 @@
                 <tr>
                   <th width="5%">SN.</th>
                   <th width="20%">Title </th>
+                  <th width="20%">URL </th>
                   <th width="10%" class="table-action">Action</th>
                 </tr>
               </thead>
@@ -31,12 +32,17 @@
                     ?>
                   <tr>
                     <td><?php echo $i; ?></td>
-                    <td><?php echo $key->servicename; ?></td>
-                    
+                    <td><?php echo $key->title; ?></td>
+                    <td>
+                      <a href="<?php echo base_url() . 'services/' . $key->urlcode; ?>" target="_blank">
+                        <?php echo base_url().'services/'.$key->urlcode; ?>
+                      </a>
+
+                    </td>
                     <td class="table-action">
                       <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/Service/edit/<?php echo $key->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Service"></i> Edit</a>
                       |
-                      <button type="button" class="btn btn-success btn-sm delete_service" link="<?php echo base_url(); ?>admin/Service/deleteService/<?php echo $key->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Service"></i> Delete</button>
+                      <button type="button" class="btn btn-danger btn-sm delete_service" link="<?php echo base_url(); ?>admin/Service/deleteService/<?php echo $key->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Service"></i> Delete</button>
                     </td>
                   </tr>
                   <?php
