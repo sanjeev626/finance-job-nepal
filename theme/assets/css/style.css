@@ -2670,7 +2670,7 @@ input.styled:checked~label.styled:before {
 
 .job-sidebar-box {
 	background: #fff none repeat scroll 0 0;
-	padding: 20px;
+	padding: 10px;
 	border-radius: 5px
 }
 
@@ -4413,7 +4413,7 @@ td span {
 }
 
 .single-candidate-widget {
-	margin-bottom: 50px
+	margin-bottom: 30px
 }
 
 .single-candidate-widget:last-child {
@@ -5529,7 +5529,15 @@ ul.company-desc-list li i {
 .margin-top-0{
 	margin-top: 0px;
 }
-
+.margin_bottom_5 {
+	margin-bottom: 5px
+}
+.margin_top_5 {
+	margin-top: 5px
+}
+.margin_bottom_15 {
+	margin-bottom: 15px
+}
 .margin_top_15 {
 	margin-top: 15px
 }
@@ -5542,4 +5550,53 @@ ul.company-desc-list li i {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600;
 	display: inline-block;
+}
+
+.main-title {
+    font-size: 16px;
+    text-transform: capitalize;
+	font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #202020;
+}
+.search-title {
+    font-size: 14px;
+    text-transform: capitalize;
+	font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #202020;
+}
+
+.job_overview{
+	float:left !important;
+	padding-left: 0px !important;
+}
+.job-section{
+	display: inline-block;
+}
+
+.font_size_20{
+	font-size: 20px;
+    text-transform: capitalize;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #333;
+}
+.top-job-company-image{
+	padding: 10px;
+}
+.top-job-company-image h3 {
+    font-size: 14px;
+    margin: 0px;
+}
+
+.top-job-company-desc {
+	text-align: left;
+	padding:10px;
+}
+.single-candidate-widget-2 p {
+    margin-bottom: 0px;
+}
+.justify_both{
+	text-align: justify;
 }
