@@ -41,19 +41,19 @@ if (!empty($service_detail)) {
             </div>
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
             <label class="col-sm-3 control-label">Short Description :</label>
             <div class="col-sm-9">
 
                 <textarea required rows="5" name="short_description" class="form-control simple" id="description" ><?php
-                    if (!empty($service_detail)) {
+/*                    if (!empty($service_detail)) {
                         echo $service_detail->short_description;
                     }
-                    ?>
+                    */?>
                 </textarea>
 
             </div>
-        </div>
+        </div>-->
 
         <div class="form-group">
             <label class="col-sm-3 control-label">Content :</label>

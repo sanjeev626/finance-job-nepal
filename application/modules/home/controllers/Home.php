@@ -922,17 +922,19 @@ class Home extends View_Controller {
         $data['menu'] = 'contactus';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         $data['title'] ='Contact Us';
-        $data['content'] = $this->general_model->getById('content','id','3')->contents;
-       // $data['main'] = 'contact_us';
-        $this->load->view('contact_us',$data);
+//        $data['content'] = $this->general_model->getById('content','id','3')->contents;
+        $data['main'] = 'contact/contact_us';
+
+        $this->load->view('main',$data);
     }
     
     /*---------------------------------------------------------
                         Submitting Contact Us
     ---------------------------------------------------------*/
-    public function submitContact(){
-        $to = "info@searchglobaljobs.com";
-        $toname = "Global Job-Complete HR Solution";
+    public function submitcontact(){
+        //$to = "info@financejobnepal.com";
+        $to = "binaya619@gmail.com";
+        $toname = "Finance Job Nepal HR Solution";
         $from = $this->input->post('email');
         $fromname = $this->input->post('name');
 
@@ -977,12 +979,12 @@ class Home extends View_Controller {
         if(@mail($to, $subject, $message, $headers))
         {
             $this->session->set_flashdata('success', 'Your information has been sent to '.$toname);
-            redirect(base_url());
+            redirect(base_url() . 'contactus', 'refresh');
         }
         else
         {
             $this->session->set_flashdata('error', 'ERROR! failed to send Your information.');
-            redirect(base_url());
+            redirect(base_url() . 'contactus', 'refresh');
         }
     }
    /*---------------------------------------------------------
@@ -1621,7 +1623,7 @@ class Home extends View_Controller {
         //echo 'urlcode = '.$urlcode;
         //$data['title'] = $this->general_model->getById('service','urlcode',$urlcode)->title;
         $data['content'] = $this->general_model->getById('service','urlcode',$urlcode);
-        $data['main'] = 'services-details';
+        $data['main'] = 'service/services-details';
         $this->load->view('main',$data);
     }
 
@@ -1639,7 +1641,7 @@ class Home extends View_Controller {
         $data['page_title'] = '.:: ' .$meta_title. ' | Global Job :: Complete HR Solution..';
 
 
-        $data['main'] = 'detail-page';
+        $data['main'] = 'content/detail-page';
         $this->load->view('main',$data);
     }
 

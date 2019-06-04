@@ -89,7 +89,7 @@
                                     <a href="#">ABOUT US</a>
                                 </li>
                                 <li class="">
-                                    <a href="#">CONTACT US</a>
+                                    <a href="<?php echo base_url().'contactus'?>">CONTACT US</a>
                                 </li>
                             </ul>
                         </nav>

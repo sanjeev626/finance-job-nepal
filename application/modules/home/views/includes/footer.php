@@ -45,7 +45,7 @@
               <li><a href="<?php echo base_url().'services/staff-outsourcing'?>"><i class="fa fa-angle-double-right "></i>Staff Outsourcing</a></li>
               <li><a href="<?php echo base_url().'services/hr-audit-consulting'?>"><i class="fa fa-angle-double-right "></i>HR Audit &amp; Consulting</a></li>
               <li><a href="<?php echo base_url().'services/payroll-management'?>"><i class="fa fa-angle-double-right "></i>Payroll Management</a></li>
-              <li><a href="<?php echo base_url().'services/corporate-training'?>"><i class="fa fa-angle-double-right "></i>Corporate Training</a></li>
+              <li><a href="<?php echo base_url().'services/corporate-training-for-employer-job-seeker'?>"><i class="fa fa-angle-double-right "></i>Corporate Training for Employer & Job Seeker</a></li>
             </ul>
           </div>
         </div>
@@ -117,7 +117,8 @@
     $('document').ready(function () {
 
         tinymce.init({
-            selector: "textarea", theme: "modern", height: 300,
+            editor_deselector : "contacttext",
+            editor_selector: "textarea", theme: "modern", height: 300,
             plugins: [
                 "advlist autolink lists link image charmap print preview anchor",
                 "searchreplace visualblocks code fullscreen",
