@@ -113,15 +113,14 @@
 
         tinymce.EditorManager.editors = [];
 
-        tinymce.init({selector:'textarea'});//this will reinitialze tinymce
+        tinymce.init({selector:'.textarea'});//this will reinitialze tinymce
 
     }
 
     $('document').ready(function () {
 
         tinymce.init({
-            editor_deselector : "contacttext",
-            editor_selector: "textarea", theme: "modern", height: 300,
+            selector: ".textarea", theme: "modern", height: 300,
             plugins: [
                 "advlist autolink lists link image charmap print preview anchor",
                 "searchreplace visualblocks code fullscreen",

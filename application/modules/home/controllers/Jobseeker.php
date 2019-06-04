@@ -1343,8 +1343,10 @@ class Jobseeker extends View_Controller {
         $education_html .= '<div class="single-input">'; // degree
         $education_html .= '<select name="degree['.$count.']" id="degree">';
         $education_html .= '<option value="">--Select Degree--</option>';
-        foreach ($education as $key => $value) {
-            $education_html .= '<option value='.$value->id.'>'.$value->dropvalue.'</option>"';
+        if($education) {
+            foreach ($education as $key => $value) {
+                $education_html .= '<option value=' . $value->id . '>' . $value->dropvalue . '</option>"';
+            }
         }
         $education_html .= '</select>';
         $education_html .= '</div>';//degree
@@ -1753,7 +1755,7 @@ class Jobseeker extends View_Controller {
         /*------------------------------------------------------*/
         $experience_html .= '<div class="single-resume-feild">
                                 <div class="single-input">
-                                    <textarea class="duties" id="duties" name="duties['.$count.']"  placeholder="Duties &amp; Responsibilities Here..."></textarea>
+                                    <textarea class="textarea duties" id="duties" name="duties['.$count.']"  placeholder="Duties &amp; Responsibilities Here..."></textarea>
                                 </div>
                             </div>';
         /*------------------------------------------------------*/

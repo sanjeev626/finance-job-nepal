@@ -19,7 +19,7 @@
                 <div class="dashboard-right">
                     <div class="candidate-single-profile-info earnings-page-box manage-jobs">
                         <?php
-                        $action =base_url().'jobseeker/updateExperience/'.$sid;
+                        $action =base_url().'jobseeker/updateexperience/'.$sid;
                         $attributes = array('class' => 'form-horizontal user-logIn','name'=>'jobseekersupdate',);
                         echo form_open_multipart($action, $attributes);
                         ?>
@@ -131,7 +131,7 @@
 
                                             <div class="single-resume-feild">
                                                 <div class="single-input">
-                                                    <textarea class="duties" id="duties" name="duties[<?php echo $key?>]" id="duties_and_responsibilities" placeholder="Duties &amp; Responsibilities Here..."><?php echo $val->roles_and_responsibilities;?></textarea>
+                                                    <textarea class="textarea duties" id="duties" name="duties[<?php echo $key?>]" id="duties_and_responsibilities" placeholder="Duties &amp; Responsibilities Here..."><?php echo $val->roles_and_responsibilities;?></textarea>
                                                 </div>
                                             </div>
                                             <?php
@@ -242,7 +242,7 @@
                                         </div>
                                         <div class="single-resume-feild">
                                             <div class="single-input">
-                                                <textarea class="duties" id="duties" name="duties[0]" id="duties_and_responsibilities" placeholder="Duties &amp; Responsibilities Here..."></textarea>
+                                                <textarea class="textarea duties" id="duties" name="duties[0]" id="duties_and_responsibilities" placeholder="Duties &amp; Responsibilities Here..."></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -288,7 +288,7 @@
             $.ajax({
                 data :{count:count},
                 type: 'POST',
-                url: '<?php echo base_url('Jobseeker/appendExperience')?>',
+                url: '<?php echo base_url('jobseeker/appendexperience')?>',
                 success: function (data) {
                     $('.addexperiencediv').last().append(data);
                     count++;

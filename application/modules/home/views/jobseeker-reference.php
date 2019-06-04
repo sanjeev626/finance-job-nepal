@@ -18,7 +18,7 @@
                 <div class="dashboard-right">
                     <div class="candidate-single-profile-info earnings-page-box manage-jobs">
                         <?php
-                        $action =base_url().'jobseeker/updateReference/'.$sid;
+                        $action =base_url().'jobseeker/updatereference/'.$sid;
                         $attributes = array('class' => 'form-horizontal user-logIn','name'=>'jobseekersupdate',);
                         echo form_open_multipart($action, $attributes);
                         ?>
@@ -130,7 +130,7 @@
         $('#addreference').on('click',function(){
             $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url('Jobseeker/appendReference')?>',
+                url: '<?php echo base_url('jobseeker/appendreference')?>',
                 success: function (data) {
                     $('.addreferencediv').last().append(data);
                 }

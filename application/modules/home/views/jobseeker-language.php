@@ -18,7 +18,7 @@
                 <div class="dashboard-right">
                     <div class="candidate-single-profile-info earnings-page-box manage-jobs">
                         <?php
-                        $action =base_url().'jobseeker/updateLanguage/'.$sid;
+                        $action =base_url().'jobseeker/updatelanguage/'.$sid;
                         $attributes = array('class' => 'form-horizontal user-logIn','name'=>'jobseekersupdate',);
                         echo form_open_multipart($action, $attributes);
                         ?>
@@ -166,7 +166,7 @@
         $('#addlanguage').on('click',function(){
             $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url('Jobseeker/appendLanguage')?>',
+                url: '<?php echo base_url('jobseeker/appendlanguage')?>',
                 success: function (data) {
                     $('.addlanguagediv').last().append(data);
                 }

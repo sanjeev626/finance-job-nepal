@@ -19,7 +19,7 @@
                 <div class="dashboard-right">
                     <div class="candidate-single-profile-info earnings-page-box manage-jobs">
                         <?php
-                        $action =base_url().'jobseeker/updateEducation/'.$sid;
+                        $action =base_url().'jobseeker/updateeducation/'.$sid;
                         $attributes = array('class' => 'form-horizontal user-logIn','name'=>'jobseekersupdate',);
                         echo form_open_multipart($action, $attributes);
                         ?>
@@ -338,7 +338,7 @@
             $.ajax({
                 data :{count:count},
                 type: 'POST',
-                url: '<?php echo base_url('Jobseeker/appendEducation')?>',
+                url: '<?php echo base_url('jobseeker/appendeducation')?>',
                 success: function (data) {
                     $('.addeducationdiv').last().append(data);
                     count++;
