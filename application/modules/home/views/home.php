@@ -60,96 +60,29 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder account_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-briefcase"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Accounting & Finance</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/account_cat.jpg" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder design_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-pencil-square-o"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Design, Art & Multimedia</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/design_art.jpg" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder restaurant_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-cutlery"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Restaurant / Food Service</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/restaurent.jpg" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder tech_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-code"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Programming & Tech</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/programing_cat.jpeg" alt="category" />
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder data_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-bar-chart"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Data Science & Analitycs</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/data_cat.png" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder writing_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-pencil"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Writing / Translations</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/writing_cat.jpg" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder edu_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-graduation-cap"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>Education / Training</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/edu_cat.jpg" alt="category" />
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <a href="#" class="single-category-holder sale_cat">
-                    <div class="category-holder-icon">
-                        <i class="fa fa-bullhorn"></i>
-                    </div>
-                    <div class="category-holder-text">
-                        <h3>sales / marketing</h3>
-                    </div>
-                    <img src="<?php echo base_url();?>content_home/img/sale_cat.png" alt="category" />
-                </a>
-            </div>
+            <?php
+            foreach($job_category as $jc){?>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <a href="<?php echo base_url().'category/'.$jc->slug;?>" class="single-category-holder account_cat">
+                        <div class="category-holder-icon">
+                            <i class="fa fa-briefcase"></i>
+                        </div>
+                        <div class="category-holder-text">
+                            <h3><?php echo $jc->dropvalue;?></h3>
+                        </div>
+                        <?php
+                            if(!empty($jc->image)){
+                                $image = base_url().'uploads/category/'.$jc->image;
+                            }
+                        else{
+                            $image = base_url().'content_home/img/account_cat.jpg';
+                        }
+                        ?>
+                        <img src="<?php echo $image;?>" alt="<?php echo $jc->dropvalue;?>" />
+                    </a>
+                </div>
+            <?php  }
+            ?>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -182,205 +115,9 @@
 
 
 <!-- Job Tab Area Start -->
-<section class="fjn-job-tab-area section_70">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="site-heading">
-                    <h2>Companies & <span>job offers</span></h2>
-                    <p>It's easy. Simply post a job you need completed and receive competitive bids from freelancers within minutes</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class=" job-tab">
-                    <ul class="nav nav-pills job-tab-switch" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="pills-companies-tab" data-toggle="pill" href="#pills-companies" role="tab" aria-controls="pills-companies" aria-selected="true">top Companies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-job-tab" data-toggle="pill" href="#pills-job" role="tab" aria-controls="pills-job" aria-selected="false">job openning</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-companies" role="tabpanel" aria-labelledby="pills-companies-tab">
-                        <div class="top-company-tab">
-                            <ul>
-                                <li>
-                                    <div class="top-company-list">
-                                        <div class="company-list-logo">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>content_home/img/company-logo-4.png" alt="company list 1" />
-                                            </a>
-                                        </div>
-                                        <div class="company-list-details">
-                                            <h3><a href="#">jamulai - consulting & finance Co.</a></h3>
-                                            <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                            <p class="open-icon"><i class="fa fa-briefcase"></i>32 open position</p>
-                                            <p class="varify"><i class="fa fa-check"></i>Verified</p>
-                                            <p class="rating-company">4.9</p>
-                                        </div>
-                                        <div class="company-list-btn">
-                                            <a href="#" class="fjn-btn">view profile</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="top-company-list">
-                                        <div class="company-list-logo">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>content_home/img/company-logo-2.png" alt="company list 1" />
-                                            </a>
-                                        </div>
-                                        <div class="company-list-details">
-                                            <h3><a href="#">Buildo - construction Co.</a></h3>
-                                            <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                            <p class="open-icon"><i class="fa fa-briefcase"></i>32 open position</p>
-                                            <p class="varify"><i class="fa fa-check"></i>Verified</p>
-                                            <p class="rating-company">4.2</p>
-                                        </div>
-                                        <div class="company-list-btn">
-                                            <a href="#" class="fjn-btn">view profile</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="top-company-list">
-                                        <div class="company-list-logo">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>content_home/img/company-logo-3.png" alt="company list 1" />
-                                            </a>
-                                        </div>
-                                        <div class="company-list-details">
-                                            <h3><a href="#">palms - school & college.</a></h3>
-                                            <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                            <p class="open-icon"><i class="fa fa-briefcase"></i>32 open position</p>
-                                            <p class="varify"><i class="fa fa-check"></i>Verified</p>
-                                            <p class="rating-company">4.6</p>
-                                        </div>
-                                        <div class="company-list-btn">
-                                            <a href="#" class="fjn-btn">view profile</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="top-company-list">
-                                        <div class="company-list-logo">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>content_home/img/company-logo-1.png" alt="company list 1" />
-                                            </a>
-                                        </div>
-                                        <div class="company-list-details">
-                                            <h3><a href="#">finance - consulting & business Co.</a></h3>
-                                            <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                            <p class="open-icon"><i class="fa fa-briefcase"></i>32 open position</p>
-                                            <p class="varify"><i class="fa fa-check"></i>Verified</p>
-                                            <p class="rating-company">4.9</p>
-                                        </div>
-                                        <div class="company-list-btn">
-                                            <a href="#" class="fjn-btn">view profile</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-job" role="tabpanel" aria-labelledby="pills-job-tab">
-                        <div class="top-company-tab">
-                            <ul>
-                                <li>
-                                    <div class="top-company-list">
-                                        <div class="company-list-logo">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>content_home/img/company-logo-1.png" alt="company list 1" />
-                                            </a>
-                                        </div>
-                                        <div class="company-list-details">
-                                            <h3><a href="#">Regional Sales Manager</a></h3>
-                                            <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                            <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                                            <p class="varify"><i class="fa fa-check"></i>Fixed price : $1200-$2000</p>
-                                            <p class="rating-company">4.1</p>
-                                        </div>
-                                        <div class="company-list-btn">
-                                            <a href="#" class="fjn-btn">bid now</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="top-company-list">
-                                        <div class="company-list-logo">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>content_home/img/company-logo-4.png" alt="company list 1" />
-                                            </a>
-                                        </div>
-                                        <div class="company-list-details">
-                                            <h3><a href="#">C Developer (Senior) C .Net</a></h3>
-                                            <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                            <p class="open-icon"><i class="fa fa-clock-o"></i>2 minutes ago</p>
-                                            <p class="varify"><i class="fa fa-check"></i>Fixed price : $800-$1200</p>
-                                            <p class="rating-company">3.1</p>
-                                        </div>
-                                        <div class="company-list-btn">
-                                            <a href="#" class="fjn-btn">bid now</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="top-company-list">
-                                        <div class="company-list-logo">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>content_home/img/company-logo-3.png" alt="company list 1" />
-                                            </a>
-                                        </div>
-                                        <div class="company-list-details">
-                                            <h3><a href="#">Asst. Teacher</a></h3>
-                                            <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                            <p class="open-icon"><i class="fa fa-clock-o"></i>3 minutes ago</p>
-                                            <p class="varify"><i class="fa fa-check"></i>Fixed price : $800-$1200</p>
-                                            <p class="rating-company">4.3</p>
-                                        </div>
-                                        <div class="company-list-btn">
-                                            <a href="#" class="fjn-btn">bid now</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="top-company-list">
-                                        <div class="company-list-logo">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>content_home/img/company-logo-2.png" alt="company list 1" />
-                                            </a>
-                                        </div>
-                                        <div class="company-list-details">
-                                            <h3><a href="#">civil engineer</a></h3>
-                                            <p class="company-state"><i class="fa fa-map-marker"></i> Chicago, Michigan</p>
-                                            <p class="open-icon"><i class="fa fa-clock-o"></i>30 minutes ago</p>
-                                            <p class="varify"><i class="fa fa-check"></i>Fixed price : $2000-$2500</p>
-                                            <p class="rating-company">3.7</p>
-                                        </div>
-                                        <div class="company-list-btn">
-                                            <a href="#" class="fjn-btn">bid now</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="load-more">
-                    <a href="#" class="fjn-btn">browse more listing</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
+<?php include('includes/home-job-section.php');?>
+
 <!-- Job Tab Area End -->
 
 
@@ -456,57 +193,5 @@
 
 
 <!-- Blog Area Start -->
-<section class="fjn-blog-area section_70">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="site-heading">
-                    <h2>Recent From <span>Blog</span></h2>
-                    <p>It's easy. Simply post a job you need completed and receive competitive bids from freelancers within minutes</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-12">
-                <a href="#">
-                    <div class="single-blog">
-                        <div class="blog-image">
-                            <img src="<?php echo base_url();?>content_home/img/blog-1.jpeg" alt="blog image" />
-                            <p><span> 21</span> July</p>
-                        </div>
-                        <div class="blog-text">
-                            <h3>If you're having trouble coming up with</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <a href="#">
-                    <div class="single-blog">
-                        <div class="blog-image">
-                            <img src="<?php echo base_url();?>content_home/img/blog-2.jpeg" alt="blog image" />
-                            <p><span> 21</span> July</p>
-                        </div>
-                        <div class="blog-text">
-                            <h3>details about Apple’s new iPad Pro models</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <a href="#">
-                    <div class="single-blog">
-                        <div class="blog-image">
-                            <img src="<?php echo base_url();?>content_home/img/blog-3.jpeg" alt="blog image" />
-                            <p><span> 21</span> July</p>
-                        </div>
-                        <div class="blog-text">
-                            <h3>what are those Steps to be a Successful developer</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+<?php include('includes/home-blog-section.php');?>
 <!-- Blog Area End -->

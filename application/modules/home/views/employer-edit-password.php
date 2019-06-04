@@ -19,7 +19,7 @@
                         </div>
                         <?php
 
-                        $action = base_url() . 'Employer/changeEmployerPassword';
+                        $action = base_url() . 'employer/changeemployerpassword';
 
                         $attributes = array('class' => 'form-horizontal form-bordered', 'id' => 'form1');
 

@@ -43,7 +43,7 @@ class Jobseeker extends View_Controller {
         ---------------------------------------------------------*/
         $employer_profile = $this->session->userdata('employer_profile');
         if(!empty($employer_profile)){
-            redirect(base_url() . 'Employer/dashboard');
+            redirect(base_url() . 'employer/dashboard');
         }
         /*---------------------------------------------------------*/
 
@@ -52,7 +52,7 @@ class Jobseeker extends View_Controller {
         ---------------------------------------------------------*/
         $jobseeker_profile = $this->session->userdata('jobseeker_profile');
         if(!empty($jobseeker_profile)){
-            redirect(base_url() . 'Jobseeker/dashboard');
+            redirect(base_url() . 'jobseeker/dashboard');
         }
         /*---------------------------------------------------------
         Check Employer Session, if Set then unset Session of Employer
@@ -337,7 +337,7 @@ class Jobseeker extends View_Controller {
                 </head>
                 <body>
                   Dear '.$toName.'<br><br>
-                  Thank you for registering with financejobnepal.com. Please <a href="'.base_url().'Jobseeker/activate/?code='.$activation_code.'">click here</a> to activate your account.<br><br>
+                  Thank you for registering with financejobnepal.com. Please <a href="'.base_url().'jobseeker/activate/?code='.$activation_code.'">click here</a> to activate your account.<br><br>
                   financejobnepal.com<br>
                   A COMPLETE HR SOLUTION
                 </body>
@@ -357,10 +357,10 @@ class Jobseeker extends View_Controller {
                 // Send Mail 
                 if(@mail($to, $subject, $mess, $headers)){            		
                 	$this->session->set_flashdata('success',"The username ".$username." has been created Successfully.<br>Please click on the activation link sent to your email address to activate your account.");
-                    redirect(base_url() . 'Jobseeker/signup', 'refresh');
+                    redirect(base_url() . 'jobseeker/signup', 'refresh');
                 }else{
                     $this->session->set_flashdata('error',"Mail Couldn't be Send. There must be something wrong with mail.");
-                    redirect(base_url() . 'Jobseeker/signup', 'refresh');
+                    redirect(base_url() . 'jobseeker/signup', 'refresh');
                 }
           }else{
               
@@ -372,7 +372,7 @@ class Jobseeker extends View_Controller {
               }
                 
               if($checkemail > 0){
-                  $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='http://financejobnepal.com/Jobseeker/seekerforgotpassword'>HERE</a> and enter your email address.<br>GlobalJob administrator will mail you your authentication information.";
+                  $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='http://financejobnepal.com/jobseeker/seekerforgotpassword'>HERE</a> and enter your email address.<br>GlobalJob administrator will mail you your authentication information.";
               }
               
                 $data['menu'] = 'home';
@@ -390,6 +390,106 @@ class Jobseeker extends View_Controller {
            }
         }
     }
+
+    public function jobseekercv(){
+
+        $this->load->library('email');
+
+        $first_name = $this->input->post('first_name');
+        $last_name = $this->input->post('last_name');
+        $email = $this->input->post('email');
+        $contact_number = $this->input->post('contact_number');
+        //$cv_file = $this->input->post('cv_file');
+
+
+            //echo "Upload Employer Logo";
+            $config['upload_path'] = './././uploads/jobseeker/';
+            $config['log_threshold'] = 1;
+            $config['allowed_types'] = 'doc|docx|pdf';
+            $config['max_size'] = '100000'; // 0 = no file size limit
+            $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['attachment']['name']));
+            $config['overwrite'] = false;
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('attachment');
+            $upload_data = $this->upload->data();
+            $cv_file = $upload_data['file_name'];
+
+        $checkuser = $this->general_model->countTotal('seeker','email ="'.$email.'"');
+        if($checkuser >0){
+            $cv_data = array(
+                'resume' =>$cv_file,
+                'user_type' => 'cv_only',
+                'date_modified' => date("Y-m-d H:i:s"),
+            );
+            $this->general_model->update('seeker',$cv_data, array('email' => $email));
+        }
+        else{
+            $cv_data = array(
+                'username' =>$email,
+                'password' =>md5($first_name.$last_name),
+                'email' =>$email,
+                'resume' =>$cv_file,
+                'fname' =>$first_name,
+                'lname' =>$last_name,
+                'user_type' => 'cv_only',
+                'date_modified' => date("Y-m-d H:i:s"),
+            );
+
+            $this->general_model->insert('seeker',$cv_data);
+        }
+
+
+
+        //$attachment = $upload_data['full_path'];
+        $fromName = $first_name.' '.$last_name;
+        //$toemail = 'info@financejobnepal.com';
+        $toemail = 'binaya619@gmail.com';
+        // subject
+        $subject = 'CV Received';
+
+        // message
+        $mess = '
+                <html>
+                <head>
+                  <title>CV received </title>
+                </head>
+                <body>
+                    <table>
+                        <tr>
+                            <td>Full Name</td><td>'.$fromName.'</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td><td>'.$email.'</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Number</td><td>'.$contact_number.'</td>
+                        </tr>
+                    </table>
+                </body>
+                </html>
+                ';
+
+        // To send HTML mail, the Content-type header must be set
+
+
+        $this->email->attach($upload_data['full_path']);
+        $this->email->set_newline("\r\n");
+        $this->email->set_crlf("\r\n");
+        $this->email->set_mailtype("html");
+        $this->email->from($email,$fromName); // change it to yours
+        $this->email->to($toemail); // change it to yours
+        $this->email->subject($subject);
+        $this->email->message($mess);
+        if ($this->email->send()) {
+            $this->session->set_flashdata('success',"Cv Received. We will get back to you soon .");
+            redirect(base_url() . 'jobseeker/signup', 'refresh');
+        } else {
+            $this->session->set_flashdata('error',"Something went wrong.");
+            redirect(base_url() . 'jobseeker/signup', 'refresh');
+        }
+
+        // Send Mail
+    }
     
     public function loginCheck(){
 
@@ -398,7 +498,7 @@ class Jobseeker extends View_Controller {
 
         if (FALSE == $this->form_validation->run()) {
             $this->session->set_flashdata('error', 'Username and Password are required fields');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }
 
         $jobseeker_profile = $this->jobseeker_model->login($this->input->post('username'), $this->input->post('password'));
@@ -415,7 +515,7 @@ class Jobseeker extends View_Controller {
             }else{
                 $seekerId = $jobseeker_profile->id;
                 $this->jobseeker_model->last_access($seekerId);
-                redirect(base_url() . 'Jobseeker/dashboard', 'refresh');
+                redirect(base_url() . 'jobseeker/dashboard', 'refresh');
             }
         } else {
 
@@ -426,7 +526,7 @@ class Jobseeker extends View_Controller {
                 $employerId = $employer_profile->id;
                 $this->employer_model->last_access($employerId);
                 $this->session->set_userdata('employer_profile', $employer_profile);
-                redirect(base_url() . 'Employer/dashboard', 'refresh');
+                redirect(base_url() . 'employer/dashboard', 'refresh');
              }else{
             /*-----------------------------------------------------------------
                If JobId valiation error, redirect to login page with parameter
@@ -434,11 +534,11 @@ class Jobseeker extends View_Controller {
 
             if($jobId = $this->input->post('jobId')){
                  $this->session->set_flashdata('error', 'Invalid Username or Password');
-            redirect(base_url() . 'Jobseeker/login/?jobid='.$jobId);
+            redirect(base_url() . 'jobseeker/login/?jobid='.$jobId);
             }        
 
             $this->session->set_flashdata('error', 'Invalid Username or Password combination.');
-            redirect(base_url(). 'Jobseeker/login/') ;
+            redirect(base_url(). 'jobseeker/login/') ;
             }    
         }
     }
@@ -450,7 +550,7 @@ class Jobseeker extends View_Controller {
 
         if (FALSE == $this->form_validation->run()) {
             $this->session->set_flashdata('error', 'Username and Password are required fields');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }
         $jobseeker_profile = $this->jobseeker_model->login($this->input->post('username'), $this->input->post('password'));
         if (isset($jobseeker_profile) && !empty($jobseeker_profile)) {
@@ -462,11 +562,11 @@ class Jobseeker extends View_Controller {
             }else{
                 $seekerId = $jobseeker_profile->id;
                 $this->jobseeker_model->last_access($seekerId);
-                redirect(base_url() . 'Jobseeker/dashboard', 'refresh');
+                redirect(base_url() . 'jobseeker/dashboard', 'refresh');
             }
         }else {
             $this->session->set_flashdata('error', 'Invalid Username or Password');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }
     }
     
@@ -492,7 +592,7 @@ class Jobseeker extends View_Controller {
             $content .= "<span>You've recently asked to reset the password for this Globaljob JobSeeker account:</span><br>";
             $content .= $email;
             $content .= "<br><br>To update your password, click the link below<br>";
-            $content .= "<a href='".base_url()."Jobseeker/changePassword/?token=".$token."'>Reset my password</a>";
+            $content .= "<a href='".base_url()."jobseeker/changePassword/?token=".$token."'>Reset my password</a>";
             $content .= "<br><br><br><br>Cheers,<br>";
             $content .= "Finance Job Nepal Team";
 
@@ -512,11 +612,11 @@ class Jobseeker extends View_Controller {
                 }else{
                     $this->session->set_flashdata('error', 'Failed to send Password reset link. Please try again!');
                 }
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
 
         }else{
             $this->session->set_flashdata('error', 'The email address provided doesnot exists in our record');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }
     }
 
@@ -531,7 +631,7 @@ class Jobseeker extends View_Controller {
             $this->load->view('jobseeker-changepassword',$data);
         }else{
             $this->session->set_flashdata('error', 'The token provided doesnt exists in our record');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }
     }
 
@@ -549,7 +649,7 @@ class Jobseeker extends View_Controller {
             $data['message'] .= 'Confirm Password must match with Password';
 
             $this->session->set_flashdata('error', 'Password and Confirm Password are required and should match. Minimum length password must be 8');
-            redirect(base_url() . 'Jobseeker/changePassword/?token='.$token);
+            redirect(base_url() . 'jobseeker/changePassword/?token='.$token);
         }else{
 
             $seeker_info = $this->general_model->getById('seeker','token',$token);
@@ -561,7 +661,7 @@ class Jobseeker extends View_Controller {
             );
             $this->general_model->update('seeker',$data, array('id' => $sid));
             $this->session->set_flashdata('success', 'Password Update Successfully !!!');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }
     }
 
@@ -582,10 +682,10 @@ class Jobseeker extends View_Controller {
             );
             $this->general_model->update('seeker',$data, array('id' => $sid));
             $this->session->set_flashdata('success', 'Your Account Activate Successfully !!!');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }else{
             $this->session->set_flashdata('error', 'The Activation Code provided doesnt exists in our record');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }
     }
 
@@ -597,6 +697,7 @@ class Jobseeker extends View_Controller {
         $data['sidebar'] = 'jobseeker';
         $data['sid']= $sid;
         $data['select']='profile';
+        $data['appliedjobs'] = $this->jobseeker_model->get_applied_job($sid);
         $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
         $data['main'] = 'jobseeker-dashboard';
         $this->load->view('main',$data);
@@ -639,7 +740,7 @@ class Jobseeker extends View_Controller {
         }else{
             $this->session->set_flashdata('error', 'Profile Pic not Update Successfully !!!');
         }
-        redirect(base_url() . 'Jobseeker/dashboard');
+        redirect(base_url() . 'jobseeker/dashboard');
     }
     /*-----------------------------------------------------------------------
             Added by binaya for finance job
@@ -698,7 +799,7 @@ class Jobseeker extends View_Controller {
         $this->jobseeker_model->update_jobseeker_info($sid,$picture,$resume,$video_resume,$slc_docs,$docs_11_12,$bachelor_docs,$masters_docs,$other_docs);
 
         $this->session->set_flashdata('success', 'Personal Information Data update Successfully.');
-        redirect(base_url() . 'Jobseeker/basicInformation');
+        redirect(base_url() . 'jobseeker/basicInformation');
     }
 
     public function education(){
@@ -962,7 +1063,7 @@ class Jobseeker extends View_Controller {
 					}
 				}
         $this->session->set_flashdata('success',"Personal Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/editProfile', 'refresh');
+        redirect(base_url() . 'jobseeker/editProfile', 'refresh');
 
     }
 
@@ -1028,7 +1129,7 @@ class Jobseeker extends View_Controller {
 
         //echo '<pre>'; print_r($data);echo '</pre>';die();
         $this->session->set_flashdata('success',"Education Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/education', 'refresh');
+        redirect(base_url() . 'jobseeker/education', 'refresh');
     }
 
     public function updateExperience($sid){
@@ -1067,7 +1168,7 @@ class Jobseeker extends View_Controller {
             }
         //echo '<pre>'; print_r($data);echo '</pre>';die();
         $this->session->set_flashdata('success',"Work Experience Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/workExperience', 'refresh');
+        redirect(base_url() . 'jobseeker/workExperience', 'refresh');
     }
 
     public function updateTraining($sid){
@@ -1099,7 +1200,7 @@ class Jobseeker extends View_Controller {
 				}
             //echo '<pre>';print_r($data); echo '</pre>';die();
         $this->session->set_flashdata('success',"Training Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/training', 'refresh');
+        redirect(base_url() . 'jobseeker/training', 'refresh');
     }
 
     public function updateLanguage($sid){
@@ -1130,7 +1231,7 @@ class Jobseeker extends View_Controller {
 				}
 //        echo '<pre>';print_r($data);echo '</pre>'; die();
         $this->session->set_flashdata('success',"Language Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/language', 'refresh');
+        redirect(base_url() . 'jobseeker/language', 'refresh');
     }
 
      public function updateReference($sid){
@@ -1162,7 +1263,7 @@ class Jobseeker extends View_Controller {
 				}
 //                 echo '<pre>';print_r($data);echo '</pre>'; die();
         $this->session->set_flashdata('success',"Reference Information Data update Successfully.");
-        redirect(base_url() . 'Jobseeker/reference', 'refresh');
+        redirect(base_url() . 'jobseeker/reference', 'refresh');
     }
 
     public function changeJobSeekerPassword(){
@@ -1180,10 +1281,10 @@ class Jobseeker extends View_Controller {
             $this->general_model->update('seeker',$data, array('id' => $sid));
             $this->session->set_flashdata('success', 'Password Changed Update Successfully !!!');
             $this->session->unset_userdata('jobseeker_profile');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }else{
             $this->session->set_flashdata('error', 'Old Password not found in our Database.Please Try Again');
-            redirect(base_url() . 'Jobseeker/dashboard');
+            redirect(base_url() . 'jobseeker/dashboard');
         }
     }
 
@@ -1210,7 +1311,7 @@ class Jobseeker extends View_Controller {
 
         $this->general_model->delete('application',array('id'=>$appid));
         $this->session->set_flashdata('success', 'Applied Job Removed From the List.');
-        redirect(base_url() . 'Jobseeker/dashboard');
+        redirect(base_url() . 'jobseeker/dashboard');
     }
 
      public function logout(){
@@ -1228,7 +1329,7 @@ class Jobseeker extends View_Controller {
             $this->session->unset_userdata('jobseeker_profile');
             //$this->session->sess_destroy();
             $this->session->set_flashdata('error', 'You are not Loggen. Please login and proceed.');
-            redirect(base_url() . 'Jobseeker/login');
+            redirect(base_url() . 'jobseeker/login');
         }
     }
 
@@ -1690,6 +1791,7 @@ class Jobseeker extends View_Controller {
             //$userData['picture']    = !empty($fbUser['picture']['data']['url'])?$fbUser['picture']['data']['url']:'';
             $userData['link']        = !empty($fbUser['link'])?$fbUser['link']:'';
             $userData['isActivated']        = 1;
+            $userData['user_type'] = 'registered';
 
             // Insert or update user data
             $userID = $this->jobseeker_model->checkUser($userData);
@@ -1711,7 +1813,7 @@ class Jobseeker extends View_Controller {
             // Get login URL
             $data['authURL'] =  $this->facebook->login_url();
         }
-        redirect(base_url() . 'Jobseeker/dashboard', 'refresh');
+        redirect(base_url() . 'jobseeker/dashboard', 'refresh');
 
     }
 
@@ -1783,7 +1885,7 @@ class Jobseeker extends View_Controller {
                 //$this->session->set_userdata('userData',$userData);
 
                 //Redirect the user back to the same page
-                redirect(base_url() . 'Jobseeker/dashboard', 'refresh');
+                redirect(base_url() . 'jobseeker/dashboard', 'refresh');
 
             }else{
                 echo $data['error_msg'] = $client->error;
@@ -1800,7 +1902,7 @@ class Jobseeker extends View_Controller {
     public function loginGoogle(){
         $clientId = '182146452582-0dra8qi9co61ft2ol6qmppd5djbogqnd.apps.googleusercontent.com'; //Google client ID
         $clientSecret = 'n_DfFYNnTfNHbFnhmjK49iY0'; //Google client secret
-        $redirectURL = base_url() .'Jobseeker/loginGoogle';
+        $redirectURL = base_url() .'jobseeker/logingoogle';
 
         //https://curl.haxx.se/docs/caextract.html
 
@@ -1836,7 +1938,7 @@ class Jobseeker extends View_Controller {
             $userData['link']           = !empty($userProfile['link'])?$userProfile['link']:'';
             //$userData['picture']        = !empty($userProfile['picture'])?$userProfile['picture']:'';
             $userData['isActivated']        = 1;
-
+            $userData['user_type'] = 'registered';
             $userID = $this->jobseeker_model->checkUser($userData);
 
             if(!empty($userID)){
@@ -1857,7 +1959,7 @@ class Jobseeker extends View_Controller {
             header("Location: $url");
             exit;
         }
-        redirect(base_url() . 'Jobseeker/dashboard', 'refresh');
+        redirect(base_url() . 'jobseeker/dashboard', 'refresh');
     }
 
     /*-----------------------------------------------------------------

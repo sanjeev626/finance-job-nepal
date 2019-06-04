@@ -71,11 +71,19 @@ class Vacancy_model extends CI_Model {
             $adminPosted = 1;
         }
 
-        $job_display_in = '';
+        /*$job_display_in = '';
         if(isset($_POST['job_display_in']) && count($_POST['job_display_in'])>0)
         {
             for($i=0;$i<count($_POST['job_display_in']);$i++){
                 $job_display_in .= $_POST['job_display_in'][$i].',';
+            }
+        }*/
+
+        $isNewspaperJob = array();
+        if(isset($_POST['isNewspaperJob']) && count($_POST['isNewspaperJob'])>0)
+        {
+            for($i=0;$i<count($_POST['isNewspaperJob']);$i++){
+                $isNewspaperJob[] = $_POST['isNewspaperJob'][$i].',';
             }
         }
         
@@ -85,17 +93,25 @@ class Vacancy_model extends CI_Model {
             $joblocation.=$_POST['joblocation'][$i].",";
         }
         $joblocation = substr($joblocation, 0, -1);
-        
-        $jobtype1 = ($this->input->post('jobtype1')) ? $this->input->post('jobtype1') : '';
+
+        $jobtype = '';
+        if(isset($_POST['jobtype']) && count($_POST['jobtype'])>0)
+        {
+            for($i=0;$i<count($_POST['jobtype']);$i++){
+                $jobtype .= $_POST['jobtype'][$i];
+            }
+        }
+        $jobtype = substr($jobtype, 0, -1);
+        /*$jobtype1 = ($this->input->post('jobtype1')) ? $this->input->post('jobtype1') : '';
         $jobtype2 = ($this->input->post('jobtype2')) ? $this->input->post('jobtype2') : '';
         $jobtype3 = ($this->input->post('jobtype3')) ? $this->input->post('jobtype3') : '';
         $jobtype4 = ($this->input->post('jobtype4')) ? $this->input->post('jobtype4') : '';
-        $post_date = $this->input->post('pyy').'-'.$this->input->post('pmm').'-'.$this->input->post('pdd');
+        $post_date = $this->input->post('pyy').'-'.$this->input->post('pmm').'-'.$this->input->post('pdd');*/
 
         $data = array(
-            'job_display_in' => $job_display_in,
-            'isNewspaperJob' => $this->input->post('isNewspaperJob'),
-            'postedin' => $this->input->post('postedin'),
+            //'job_display_in' => $job_display_in,
+            'isNewspaperJob' => serialize($isNewspaperJob),
+            //'postedin' => $this->input->post('postedin'),
             'eid' => $eid,
             'orgemail' => $this->input->post('orgemail'),
             'complogo' => $complogo,
@@ -105,22 +121,24 @@ class Vacancy_model extends CI_Model {
             'jobcategory' => $this->input->post('jobcategory'),
             'preferredgender' => $this->input->post('preferredgender'),
             'requiredno' => $this->input->post('requiredno'),
-            //'pmm' => $this->input->post('pmm'),
-            //'pdd' => $this->input->post('pdd'),
-            //'pyy' => $this->input->post('pyy'),
+            /*'pmm' => $this->input->post('pmm'),
+            'pdd' => $this->input->post('pdd'),
+            'pyy' => $this->input->post('pyy'),
+             'apmm' => $apmm,
+             'apdd' => $apdd,
+             'apyy' => $apyy,*/
+
             'post_date' => $this->input->post('post_date'),
-            // 'apmm' => $apmm,
-            // 'apdd' => $apdd,
-            // 'apyy' => $apyy,
             'applybefore'=>$this->input->post('applybefore'),
             'salaryrange' => $this->input->post('salaryrange'),
             'noexperience' => $this->input->post('noexperience'),
-            /*'education' => $this->input->post('education'),*/
+
             'joblevel' => $this->input->post('joblevel'),
-            'jobtype1' => $jobtype1,
+            'jobtype' => $jobtype,
+            /*'jobtype1' => $jobtype1,
             'jobtype2' => $jobtype2,
             'jobtype3' => $jobtype3,
-            'jobtype4' => $jobtype4,
+            'jobtype4' => $jobtype4,*/
             'otherstype' => $this->input->post('otherstype'),
             'joblocation' => $joblocation,
             'background' => $this->input->post('background'),
@@ -179,11 +197,19 @@ class Vacancy_model extends CI_Model {
             $adminPosted = 1;
         }
 
-        $job_display_in = '';
+        /*$job_display_in = '';
         if(isset($_POST['job_display_in']) && count($_POST['job_display_in'])>0)
         {
             for($i=0;$i<count($_POST['job_display_in']);$i++){
                 $job_display_in .= $_POST['job_display_in'][$i].',';
+            }
+        }*/
+
+        $isNewspaperJob = array();
+        if(isset($_POST['isNewspaperJob']) && count($_POST['isNewspaperJob'])>0)
+        {
+            for($i=0;$i<count($_POST['isNewspaperJob']);$i++){
+                $isNewspaperJob[] = $_POST['isNewspaperJob'][$i];
             }
         }
         
@@ -195,16 +221,23 @@ class Vacancy_model extends CI_Model {
         $joblocation = substr($joblocation, 0, -1);
 
         //$post_date = $this->input->post('pyy').'-'.$this->input->post('pmm').'-'.$this->input->post('pdd');
-        
-        $jobtype1 = ($this->input->post('jobtype1')) ? $this->input->post('jobtype1') : '';
+        $jobtype = '';
+        if(isset($_POST['jobtype']) && count($_POST['jobtype'])>0)
+        {
+            for($i=0;$i<count($_POST['jobtype']);$i++){
+                $jobtype .= $_POST['jobtype'][$i].',';
+            }
+        }
+        $jobtype = substr($jobtype, 0, -1);
+        /*$jobtype1 = ($this->input->post('jobtype1')) ? $this->input->post('jobtype1') : '';
         $jobtype2 = ($this->input->post('jobtype2')) ? $this->input->post('jobtype2') : '';
         $jobtype3 = ($this->input->post('jobtype3')) ? $this->input->post('jobtype3') : '';
-        $jobtype4 = ($this->input->post('jobtype4')) ? $this->input->post('jobtype4') : '';
+        $jobtype4 = ($this->input->post('jobtype4')) ? $this->input->post('jobtype4') : '';*/
 
         $data = array(
-            'job_display_in' => $job_display_in,
-            'isNewspaperJob' => $this->input->post('isNewspaperJob'),
-            'postedin' => $this->input->post('postedin'),
+            //'job_display_in' => $job_display_in,
+            'isNewspaperJob' => serialize($isNewspaperJob),
+            //'postedin' => $this->input->post('postedin'),
             'eid' => $eid,
             'orgemail' => $this->input->post('orgemail'),
             'displayname' => $this->input->post('displayname'),
@@ -213,23 +246,26 @@ class Vacancy_model extends CI_Model {
             'jobcategory' => $this->input->post('jobcategory'),
             'preferredgender' => $this->input->post('preferredgender'),
             'requiredno' => $this->input->post('requiredno'),
-            //'pmm' => $this->input->post('pmm'),
-            //'pdd' => $this->input->post('pdd'),
-            //'pyy' => $this->input->post('pyy'),
+            /*'pmm' => $this->input->post('pmm'),
+            'pdd' => $this->input->post('pdd'),
+            'pyy' => $this->input->post('pyy'),
+             'apmm' => $apmm,
+             'apdd' => $apdd,
+             'apyy' => $apyy,*/
+
             'post_date' => $this->input->post('post_date'),
-            // 'apmm' => $apmm,
-            // 'apdd' => $apdd,
-            // 'apyy' => $apyy,
             'applybefore'=>$this->input->post('applybefore'),
             'salaryrange' => $this->input->post('salaryrange'),
             'noexperience' => $this->input->post('noexperience'),
-            /*'education' => $this->input->post('education'),*/
             'joblevel' => $this->input->post('joblevel'),
-            'jobtype1' => $jobtype1,
+            'jobtype' => $jobtype,
+
+            /*'jobtype1' => $jobtype1,
             'jobtype2' => $jobtype2,
             'jobtype3' => $jobtype3,
             'jobtype4' => $jobtype4,
-            'otherstype' => $this->input->post('otherstype'),
+            'otherstype' => $this->input->post('otherstype'),*/
+
             'joblocation' => $joblocation,
             'specification' => $this->input->post('specification'),
             'requirements' => $this->input->post('requirements'),
@@ -256,7 +292,10 @@ class Vacancy_model extends CI_Model {
         if(!empty($complogo)){
             $data['complogo'] = $complogo;
         }
-
+        /*echo '<pre>';
+        print_r($data);
+        echo '</pre>';
+        die();*/
     	$this->db->where('id',$id);
     	$this->db->update($this->table_jobs,$data);
         //echo $this->db->last_query();

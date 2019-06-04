@@ -22,7 +22,7 @@
                         <?php } ?>
                         <div class="new-job-submission">
                             <?php
-                            $action =base_url().'Employer/employerRegistration';
+                            $action =base_url().'employer/registration';
                             $attributes = array('id' => 'employersignup_demo','name'=>'employersignup',);
                             echo form_open_multipart($action, $attributes);
                             ?>

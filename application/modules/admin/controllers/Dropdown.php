@@ -50,19 +50,38 @@ class Dropdown extends MY_Controller {
             $data['dropdown'] = $this->dropdown_model->get_all_dropdown_field();
             $this->load->view('home', $data);
         } else {
-            $this->dropdown_model->insert_dropdown();
+
+            $a = $_FILES['image']['name'];
+
+            if ($a !== "") {
+                $config['upload_path'] = './././uploads/category/';
+                $config['log_threshold'] = 1;
+                $config['allowed_types'] = 'jpg|png|jpeg|gif';
+                $config['max_size'] = '100000'; // 0 = no file size limit
+                $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['image']['name']));
+                $config['overwrite'] = false;
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('image');
+                $upload_data = $this->upload->data();
+                $logoimage = $upload_data['file_name'];
+            }
+
+            if(!isset($logoimage))  $logoimage = '';
+
+
+            $this->dropdown_model->insert_dropdown($logoimage);
             $this->session->set_flashdata('success', 'Dropdown Field Added Successfully...');
-            redirect(base_url() . 'admin/Dropdown', 'refresh');
+            redirect(base_url() . 'admin/dropdown', 'refresh');
         }
     }
 
     public function edit($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
         $data['title'] = '.:: EDIT DROPDOWN FIELD ::.';
         $data['page_header'] = 'Dropdown';
@@ -79,10 +98,10 @@ class Dropdown extends MY_Controller {
     public function editDropdown($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
          $this->form_validation->set_rules('dropvalue', 'dropvalue', 'required');
         if (FALSE == $this->form_validation->run()) {
@@ -95,22 +114,39 @@ class Dropdown extends MY_Controller {
             $data['main'] = 'dropdown/add-edit-dropdown';
             $this->load->view('home', $data);
         } else {
-            $this->dropdown_model->update_dropdown($id);
+
+            $a = $_FILES['image']['name'];
+
+            if ($a !== "") {
+                $config['upload_path'] = './././uploads/category/';
+                $config['log_threshold'] = 1;
+                $config['allowed_types'] = 'jpg|png|jpeg|gif';
+                $config['max_size'] = '100000'; // 0 = no file size limit
+                $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['image']['name']));
+                $config['overwrite'] = false;
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('image');
+                $upload_data = $this->upload->data();
+                $logoimage = $upload_data['file_name'];
+            }
+            if(!isset($logoimage))  $logoimage = '';
+
+            $this->dropdown_model->update_dropdown($id,$logoimage);
             $this->session->set_flashdata('success', 'Dropdown Field Update Successfully...');
-            redirect(base_url() . 'admin/Dropdown', 'refresh');
+            redirect(base_url() . 'admin/dropdown', 'refresh');
         }
     }
 
     public function deleteDropdown($id){
         if (!isset($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Dropdown');
+            redirect(base_url() . 'admin/dropdown');
 
         $this->dropdown_model->delete_dropdown($id);
         $this->session->set_flashdata('success', 'Dropdown Field Deleted Successfully...');
-        redirect(base_url() . 'admin/Dropdown', 'refresh');
+        redirect(base_url() . 'admin/dropdown', 'refresh');
     }
 
 }

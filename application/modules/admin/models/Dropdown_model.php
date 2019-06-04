@@ -28,7 +28,7 @@ class Dropdown_model extends CI_Model {
     public function get_all_field($id){
         $this->db->select();
         $this->db->where('fid',$id);
-        $this->db->order_by("dropvalue", "asc");
+        $this->db->order_by("id", "asc");
         $query = $this->db->get($this->table_dropdown);  
         if ($query->num_rows() == 0) {
             return FALSE;
@@ -37,11 +37,17 @@ class Dropdown_model extends CI_Model {
         }
     }
 
-    public function insert_dropdown(){
+    public function insert_dropdown($image){
+        $slug = $this->cleanurl($this->input->post('dropvalue'));
         $data = array(
             'fid' => $this->input->post('fid'),
-            'dropvalue' => $this->input->post('dropvalue')
+            'dropvalue' => $this->input->post('dropvalue'),
+            'slug'  => $slug,
             );
+        if($image){
+            $data['image'] = $image;
+        }
+
         $this->db->insert($this->table_dropdown,$data);
     }
 
@@ -56,11 +62,16 @@ class Dropdown_model extends CI_Model {
     	}
     }
 
-    public function update_dropdown($id){
+    public function update_dropdown($id,$image){
+        $slug = $this->cleanurl($this->input->post('dropvalue'));
     	$data = array(
     		'fid' => $this->input->post('fid'),
-            'dropvalue' => $this->input->post('dropvalue')
+            'dropvalue' => $this->input->post('dropvalue'),
+            'slug'  => $slug
     		);
+        if($image){
+            $data['image'] = $image;
+        }
     	$this->db->where('id',$id);
     	$this->db->update($this->table_dropdown,$data);
     }
@@ -68,6 +79,14 @@ class Dropdown_model extends CI_Model {
     public function delete_dropdown($id){
         $this->db->where('id',$id);
         $this->db->delete($this->table_dropdown);
+    }
+
+    public function cleanurl($string) {
+        $string = strtolower(trim($string));
+        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+        $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+
+        return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one
     }
 
 }

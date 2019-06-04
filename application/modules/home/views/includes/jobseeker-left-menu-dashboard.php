@@ -34,22 +34,22 @@
                     <p>Fill all the required information to apply for job.</p>
                 </div>
                 <div class="col-md-6 col-lg-6 cv-box">
-                    <a href="<?php echo base_url() . 'Jobseeker/basicInformation' ?>"><i class="fa fa-user"></i> Basic Information</a>
+                    <a href="<?php echo base_url() . 'jobseeker/basicinformation' ?>"><i class="fa fa-user"></i> Basic Information</a>
                 </div>
                 <div class="col-md-6 col-lg-6 cv-box">
-                    <a href="<?php echo base_url().'Jobseeker/education'?>"><i class="fa fa-book"></i> Education</a>
+                    <a href="<?php echo base_url().'jobseeker/education'?>"><i class="fa fa-book"></i> Education</a>
                 </div>
                 <div class="col-md-6 col-lg-6 cv-box">
-                    <a href="<?php echo base_url().'Jobseeker/training'?>"><i class="fa fa-laptop"></i> Training</a>
+                    <a href="<?php echo base_url().'jobseeker/training'?>"><i class="fa fa-laptop"></i> Training</a>
                 </div>
                 <div class="col-md-6 col-lg-6 cv-box">
-                    <a href="<?php echo base_url().'Jobseeker/workExperience'?>"><i class="fa fa-building"></i> Work Experience</a>
+                    <a href="<?php echo base_url().'jobseeker/workexperience'?>"><i class="fa fa-building"></i> Work Experience</a>
                 </div>
                 <div class="col-md-6 col-lg-6 cv-box">
                     <a href="<?php echo base_url().'Jobseeker/language'?>"><i class="fa fa-language"></i> Language</a>
                 </div>
                 <div class="col-md-6 col-lg-6 cv-box">
-                    <a href="<?php echo base_url().'Jobseeker/reference'?>"><i class="fa fa-address-card"></i> References</a>
+                    <a href="<?php echo base_url().'jobseeker/reference'?>"><i class="fa fa-address-card"></i> References</a>
                 </div>
             </div>
         </div>
@@ -62,25 +62,22 @@
                         <h5>Recently Applied Jobs</h5>
                     </div>
                 </div>
+                <?php
+                    print_r($appliedjobs);
+                ?>
                 <div class="row">
-                    <div class="col-md-2 col-lg-2">
-                        <p>1</p>
-                    </div>
-                    <div class="col-md-10 col-lg-10">
-                        <a href="">Vacancy 1</a>
-                    </div>
-                    <div class="col-md-2 col-lg-2">
-                        <p>2</p>
-                    </div>
-                    <div class="col-md-10 col-lg-10">
-                        <a href="">Vacancy 2</a>
-                    </div>
-                    <div class="col-md-2 col-lg-2">
-                        <p>3</p>
-                    </div>
-                    <div class="col-md-10 col-lg-10">
-                        <a href="">Vacancy 3</a>
-                    </div>
+                    <?php
+                        foreach($appliedjobs as $key => $val):
+                            $key += 1;
+                    ?>
+                            <div class="col-md-2 col-lg-2">
+                                <p><?php echo $key?></p>
+                            </div>
+                            <div class="col-md-10 col-lg-10">
+                                <a href="<?php echo base_url() . 'job/' . $val->slug.'/' . $val->id;?>"><?php echo $val->jobtitle;?> </a>
+                            </div>
+                    <?php  endforeach;?>
+
                 </div>
             </div>
         </div>

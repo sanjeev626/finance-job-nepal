@@ -11,8 +11,8 @@
         <div class="col-md-8">
             <div class="panel-footer">
             
-            <a class="btn btn-success btn-sm below_space" href="<?php echo base_url(); ?>admin/Seeker/moveJobToBasket/<?php echo $job_seeker_info->id; ?>"><i class="fa fa-shopping-cart" data-original-title="View Basket"></i> Move To Basket </a>
-            <a class="btn btn-success btn-sm below_space" href="<?php echo base_url(); ?>admin/Employer/employerJobList/<?php echo $job_seeker_info->id; ?>"><i class="fa fa-file-text-o" data-original-title="View Basket"></i> Applied Job List </a>
+            <a class="btn btn-success btn-sm below_space" href="<?php echo base_url(); ?>admin/seeker/movejobtobasket/<?php echo $job_seeker_info->id; ?>"><i class="fa fa-shopping-cart" data-original-title="View Basket"></i> Move To Basket </a>
+            <a class="btn btn-success btn-sm below_space" href="<?php echo base_url(); ?>admin/seeker/seekerJobList/<?php echo $job_seeker_info->id; ?>"><i class="fa fa-file-text-o" data-original-title="View Basket"></i> Applied Job List </a>
             <?php if(!empty($job_seeker_info->resume) && file_exists(FCPATH.'uploads/resume/'.$job_seeker_info->resume)){ ?>
               <a class="btn btn-success btn-sm below_space" href="<?php echo base_url().'uploads/resume/'.$job_seeker_info->resume;?>" class="link2" target="_blank"><i class="fa fa-edit" data-original-title="View Employer"></i> Download/Open Resume</a>
             <?php } ?>
@@ -37,7 +37,7 @@
             </div>
             <?php } ?>
 
-            <button type="button" class="btn btn-success below_space btn-sm delete_seeker" link="<?php echo base_url(); ?>admin/Seeker/deleteSeeker/<?php echo $job_seeker_info->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Job Seeker"></i> Delete</button>
+            <button type="button" class="btn btn-success below_space btn-sm delete_seeker" link="<?php echo base_url(); ?>admin/seeker/delete/<?php echo $job_seeker_info->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Job Seeker"></i> Delete</button>
 
         </div>
           <div class="table-responsive">
@@ -90,7 +90,7 @@
                       <?php echo $job_seeker_info->fname; ?>
                       <?php if(!empty($job_seeker_info->mname)) echo " ".$job_seeker_info->mname; ?>
                       <?php if(!empty($job_seeker_info->lname)) echo " ".$job_seeker_info->lname; ?></h3></td>
-                    <td> <a class="btn btn-success btn-xs" href="<?php echo base_url(); ?>admin/Seeker/changeActivation/<?php echo $job_seeker_info->id; ?>/<?php echo $job_seeker_info->isActivated; ?>"><?php if($job_seeker_info->isActivated =='1'){ echo "Change to UnActive State"; } else { echo "Change To Active State"; } ?> </a></td>
+                    <td> <a class="btn btn-success btn-xs" href="<?php echo base_url(); ?>admin/seeker/changeactivation/<?php echo $job_seeker_info->id; ?>/<?php echo $job_seeker_info->isActivated; ?>"><?php if($job_seeker_info->isActivated =='1'){ echo "Change to UnActive State"; } else { echo "Change To Active State"; } ?> </a></td>
                   </tr>
 
                   <tr>
@@ -285,7 +285,7 @@
                  
            <div class="panel-body panel-body-nopadding">
             <?php
-             $action = base_url() . 'admin/Seeker/changeSeekerPassword';
+             $action = base_url() . 'admin/seeker/changeseekerpassword';
        		 $attributes = array('class' => 'form-horizontal form-bordered', 'id' => 'form1');
         	 echo form_open($action, $attributes);
         	?>

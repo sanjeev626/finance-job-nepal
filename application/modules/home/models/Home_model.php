@@ -17,7 +17,7 @@ class Home_model extends CI_Model {
     public function get_job_by_type($jobType,$limit){
         $date = date('Y-m-d');
         $this->db->select();
-        $this->db->where('isNewspaperJob',$jobType);
+        $this->db->where('`isNewspaperJob` REGEXP','.*;s:[0-9]+:"'.$jobType.'".*');  // regexp for sql search in serialize field
         $this->db->where('applybefore >=',$date);
         $this->db->where('post_status','public');
         $where = '(job_display_in="" OR job_display_in = "0")';
@@ -29,7 +29,8 @@ class Home_model extends CI_Model {
         $this->db->order_by('post_date','DESC');
         $this->db->limit($limit);
         $query = $this->db->get('jobs');
-        //echo $this->db->last_query();
+        //return $this->db->last_query();
+        //die();
         if ($query->num_rows() == 0) {
             return FALSE;
         } else {
@@ -678,6 +679,24 @@ class Home_model extends CI_Model {
                 $this->db->where('id',$job->id);
                 $this->db->update('jobs',$dataStatus);
             }
+        }
+    }
+
+    public function get_similar_jobs($title,$id,$applydate){
+
+        $splittitle = explode (" ", $title);
+        $sql = "SELECT * FROM jobs WHERE id !='$id' AND applybefore >= '$applydate'";
+        $sql.=" AND (";
+        foreach($splittitle as $key=>$st){
+            $sql.=($key>0?' OR ':'')." jobtitle LIKE '%".$st."%'";
+
+        }
+        $sql .= ') ORDER BY `post_date` DESC LIMIT 6';
+        $query = $this->db->query($sql);
+        if ($query->num_rows() == 0) {
+            return FALSE;
+        } else {
+            return $query->result();
         }
     }
 

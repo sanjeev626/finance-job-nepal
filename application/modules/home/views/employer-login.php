@@ -26,7 +26,7 @@
                     </div>
 
                     <?php
-                    $action =base_url().'Employer/loginCheck';
+                    $action =base_url().'employer/logincheck';
                     $attributes = array('name'=>'employerlogin',);
                     echo form_open_multipart($action, $attributes);
                     ?>

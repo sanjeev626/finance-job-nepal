@@ -14,11 +14,12 @@ class Seeker extends MY_Controller {
         $this->load->model('seeker_model');
         $this->load->model('general_model');
         $this->load->model('vacancy_model');
+        $this->load->model('dropdown_model');
     }
  
     public function index(){
 
-        $config['base_url'] = base_url() . 'admin/Seeker';
+        $config['base_url'] = base_url() . 'admin/seeker';
         $config['uri_segment'] = 3;
         $config['per_page'] = 25;
 
@@ -330,7 +331,7 @@ class Seeker extends MY_Controller {
         redirect(base_url() . 'admin/Seeker/viewJobSekeerBasket', 'refresh');
     }
 
-    public function deleteSeeker($jobid){
+    public function delete($jobid){
 
         if (!isset($jobid))
             redirect(base_url() . 'admin/Seeker');
@@ -366,16 +367,16 @@ class Seeker extends MY_Controller {
         $this->seeker_model->delete_job_seeker($jobid);
 
         $this->session->set_flashdata('success', 'Job Seeker Deleted Successfully...');
-        redirect(base_url() . 'admin/Seeker', 'refresh');
+        redirect(base_url() . 'admin/seeker', 'refresh');
     }
 
     public function view($eid){
 
         if (!isset($eid))
-            redirect(base_url() . 'admin/Seeker');
+            redirect(base_url() . 'admin/seeker');
 
         if (!is_numeric($eid))
-            redirect(base_url() . 'admin/Seeker');
+            redirect(base_url() . 'admin/seeker');
 
         $data['title'] = '.:: VIEW JOB SEEKER ::.';
         $data['page_header'] = 'View Job Seeker ';
@@ -394,29 +395,29 @@ class Seeker extends MY_Controller {
 
         $this->seeker_model->update_seeker_password($new_password,$job_id);
         $this->session->set_flashdata('success', 'Job Seeker Password Updated Successfully...');
-        redirect(base_url() . 'admin/Seeker/view/'.$job_id, 'refresh');
+        redirect(base_url() . 'admin/seeker/view/'.$job_id, 'refresh');
     }
 
     public function changeActivation($job_id,$activated){
 
         if (!isset($job_id))
-            redirect(base_url() . 'admin/Seeker');
+            redirect(base_url() . 'admin/seeker');
 
         if (!is_numeric($job_id))
-            redirect(base_url() . 'admin/Seeker');
+            redirect(base_url() . 'admin/seeker');
 
         $this->seeker_model->update_activation($activated,$job_id);
         $this->session->set_flashdata('success', 'Employer Activation Changed.');
-        redirect(base_url() . 'admin/Seeker/view/'.$job_id, 'refresh');   
+        redirect(base_url() . 'admin/seeker/view/'.$job_id, 'refresh');
     }
 
     public function moveJobToBasket($job_id){
 
         if (!isset($job_id))
-            redirect(base_url() . 'admin/Seeker');
+            redirect(base_url() . 'admin/seeker');
 
         if (!is_numeric($job_id))
-            redirect(base_url() . 'admin/Seeker');
+            redirect(base_url() . 'admin/seeker');
 
 
         $result = $this->seeker_model->insert_seeker_basket($job_id);
@@ -425,15 +426,15 @@ class Seeker extends MY_Controller {
         }else{
             $this->session->set_flashdata('success', 'Job Seeker has been Move To Basket');
         }   
-        redirect(base_url() . 'admin/Seeker/view/'.$job_id, 'refresh');  
+        redirect(base_url() . 'admin/seeker/view/'.$job_id, 'refresh');
     }
 
     public function seekerJobList($job_id){
         if (!isset($job_id))
-            redirect(base_url() . 'admin/Seeker');
+            redirect(base_url() . 'admin/seeker');
 
         if (!is_numeric($job_id))
-            redirect(base_url() . 'admin/Seeker');
+            redirect(base_url() . 'admin/seeker');
 
         $data['title'] = '.:: APPLIED JOB LIST ::.';
         $data['page_header'] = 'Applied Job List';
@@ -446,11 +447,11 @@ class Seeker extends MY_Controller {
         $this->load->view('home', $data);
     }
 
-     public function searchSeeker(){
+     public function search(){
 
         $data['total_job_seeker'] = $this->seeker_model->search_seeker_by_param();
 
-        $config['base_url'] = base_url() . 'admin/Seeker/searchSeeker';
+        $config['base_url'] = base_url() . 'admin/seeker/search';
         $config['uri_segment'] = 4;
         //$config['per_page'] = 100;
         $config['per_page'] = 10;
@@ -516,10 +517,10 @@ class Seeker extends MY_Controller {
 
     public function seeker_applied_job_list($seeker_id){
         if (!isset($seeker_id))
-            redirect(base_url() . 'admin/Seeker');
+            redirect(base_url() . 'admin/seeker');
 
         if (!is_numeric($seeker_id))
-            redirect(base_url() . 'admin/Seeker');
+            redirect(base_url() . 'admin/seeker');
 
         $data['title'] = 'Applied Job List';
         $data['page_header'] = 'Applied Job List';

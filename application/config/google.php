@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['google']['client_id']        = 'client_id'; //413522021459-8iclcu4tf6n58ssls018vj7d1ngn5hmo.apps.googleusercontent.com
 $config['google']['client_secret']    = 'client_secret'; //SXI5m7nhQ2X0tmgWH266h_yy
-$config['google']['redirect_uri']     = 'Jobseeker/loginGoogle';
+$config['google']['redirect_uri']     = 'jobseeker/logingoogle';
 $config['google']['application_name'] = 'Login to Finance Job Nepal';
 $config['google']['api_key']          = '';
 $config['google']['scopes']           = array();

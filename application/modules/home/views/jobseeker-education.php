@@ -19,7 +19,7 @@
                 <div class="dashboard-right">
                     <div class="candidate-single-profile-info earnings-page-box manage-jobs">
                         <?php
-                        $action =base_url().'Jobseeker/updateEducation/'.$sid;
+                        $action =base_url().'jobseeker/updateEducation/'.$sid;
                         $attributes = array('class' => 'form-horizontal user-logIn','name'=>'jobseekersupdate',);
                         echo form_open_multipart($action, $attributes);
                         ?>

@@ -1,8 +1,8 @@
 <?php
 if (!empty($service_detail)) {
-    $action = base_url() . 'admin/Service/editService/' . $service_detail->id;
+    $action = base_url() . 'admin/service/editservice/' . $service_detail->id;
 } else {
-    $action = base_url() . 'admin/Service/addService';
+    $action = base_url() . 'admin/service/addservice';
 }
 ?> 
 
@@ -21,24 +21,53 @@ if (!empty($service_detail)) {
         ?>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label">Service Name :<span class="asterisk">*</span></label>
+            <label class="col-sm-3 control-label">Title:<span class="asterisk">*</span></label>
             <div class="col-sm-7">
-                <input type="text" required name="servicename" id='servicename' class="form-control" value='<?php if (!empty($service_detail)) echo $service_detail->servicename; ?>' />
+                <input type="text" required name="title" id='title' class="form-control" value='<?php if (!empty($service_detail)) echo $service_detail->title; ?>' />
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label">Content:</label>
+            <label class="col-sm-3 control-label">Logo :</label>
             <div class="col-sm-7">
-                <textarea name="content" class="form-control simple" id="description" ><?php
-                    if (!empty($service_detail)) {
-                        echo $service_detail->content;
-                    }
-                    ?></textarea>
+                <input type="file" name="servicelogo" id='servicelogo' class="form-control" value='' />
+                <span class="green">(Image resolution must be 714 X 518 for better view)</span>
+
+                <?php if (!empty($service_detail->logo)) { ?>
+                    <input type="hidden" value="<?php echo $service_detail->logo; ?>" name="old_servicelogo">
+                    <div style="padding-top:10px;"><img height="30%" width="30%" src="<?php echo base_url() . 'uploads/service/' . $service_detail->logo; ?>"></div>
+                <?php } ?>
 
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Short Description :</label>
+            <div class="col-sm-9">
+
+                <textarea required rows="5" name="short_description" class="form-control simple" id="description" ><?php
+                    if (!empty($service_detail)) {
+                        echo $service_detail->short_description;
+                    }
+                    ?>
+                </textarea>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Content :</label>
+            <div class="col-sm-9">
+
+                <textarea required rows="5" name="content" class="form-control textarea_description" id="description" ><?php
+                    if (!empty($service_detail)) {
+                        echo $service_detail->content;
+                    }
+                    ?>
+                </textarea>
+
+            </div>
+        </div>
 
         <div class="panel-footer">
             <div class="row">

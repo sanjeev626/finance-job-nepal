@@ -1,3 +1,20 @@
+<style>
+    .text{
+        text-align: center;
+        font-size: 22px;
+        margin: 10px;
+    }
+    .uploadcv{
+        text-align: center;
+    }
+    .uploadcv a{color: #6b739c;}
+    .uploadcv .modal{top: 43px;}
+    .uploadcv .modal .modal-header{background: #FF6A00;}
+    .uploadcv .modal .modal-title {color:#fff}
+    .uploadcv .modal .modal-title span{font-size: 15px;float: left;}
+    .uploadcv .modal .modal-body .control-label{float:left;font-weight: bold}
+    .uploadcv .modal .modal-footer .subbtn{background: #FF6A00;}
+</style>
 <!-- Breadcromb Area Start -->
 <section class="fjn-breadcromb-area">
 
@@ -13,7 +30,7 @@
                 <div class="dashboard-right">
                     <div class="candidate-single-profile-info earnings-page-box manage-jobs">
                         <?php
-                        $action =base_url().'Jobseeker/jobseekerRegistration';
+                        $action =base_url().'jobseeker/jobseekerRegistration';
                         $attributes = array('id' => 'jobseekersignup_demo','name'=>'jobseekersignup',);
                         echo form_open_multipart($action, $attributes);
                         ?>
@@ -236,9 +253,77 @@
                                 <button type="submit" name="submit">Signup</button>
                                 <a href="<?php echo $authURL; ?>">Signup via Facebook |</a>
                                 <!--<a href="<?php /*echo $oauthURL;*/?>">Signup via Linked In |</a>-->
-                                <a href="<?php echo base_url().'Jobseeker/loginGoogle';?>">Signup via gmail |</a>
+                                <a href="<?php echo base_url().'jobseeker/logingoogle';?>">Signup via gmail |</a>
                             </div>
+
+
                         <?php echo form_close(); ?>
+
+                        <div class="text">OR</div>
+                        <div class="uploadcv">
+                            <a href="javascript:void(0);" data-toggle="modal" data-target="#cvModal">
+                                Just Upload your CV if you dont want to register
+                            </a>
+
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="cvModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                Apply With Your Basic Information
+                                                <br>
+                                                <span>We will get you back soon.</span>
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="<?php echo base_url().'Jobseeker/jobseekercv'?>" method="post" enctype='multipart/form-data'>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <label class="control-label">First Name*</label>
+                                                    <div>
+                                                        <input type="text" class="form-control input-lg" name="first_name" value=""required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Last Name*</label>
+                                                    <div>
+                                                        <input type="text" class="form-control input-lg" name="last_name" value="" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">E-Mail Address*</label>
+                                                    <div>
+                                                        <input type="email" class="form-control input-lg" name="email" value="" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Contact Number</label>
+                                                    <div>
+                                                        <input type="text" class="form-control input-lg" name="contact_number" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Upload your CV(Formate Doc, PDF only)*</label>
+                                                    <div>
+                                                        <input type="file" id="exampleInputFile"  class="form-control input-lg" name="attachment" required>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn" data-dismiss="modal">Close</button>
+                                                <button type="submit" name="cvsubmit" class="btn btn-primary subbtn">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>

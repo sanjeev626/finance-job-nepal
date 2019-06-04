@@ -25,7 +25,7 @@
                     </div>
 
                     <?php
-                    $action =base_url().'Jobseeker/seekerloginCheck';
+                    $action =base_url().'jobseeker/seekerloginCheck';
                     $attributes = array('name'=>'jobseekerlogin',);
                     echo form_open_multipart($action, $attributes);
                     ?>

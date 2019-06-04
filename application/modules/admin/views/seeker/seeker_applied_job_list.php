@@ -21,11 +21,12 @@
                 </thead>
                 <tbody>
                   <?php
-                  if ($this->uri->segment(3) == NULL) {
+                  /*if ($this->uri->segment(3) == NULL) {
                     $i = 1;
                   } else {
                     $i = $this->uri->segment(3) + 1;
-                  }
+                  }*/
+                  $i=1;
                   if (!empty($applied_job_info)) {  
                   foreach ($applied_job_info as $key => $val):
 
@@ -39,7 +40,13 @@
                     <td><?php echo $val->jobtitle; ?></td>
                     <td><?php echo $organiation; ?></td>
                     <td><?php echo $val->appdate; ?></td>
-                    <td><?php echo $val->joblevel; ?></td>
+                    <td><?php //echo $val->joblevel;
+                      $dropdowns = $this->dropdown_model->get_dropdown_by_id($val->joblevel);
+                      if(!empty($dropdowns))
+                        echo  $dropdowns->dropvalue;
+                      else
+                        echo 'N/A';
+                      ?></td>
                     <td class="text-center"><?php echo $val->requiredno; ?></td>
                   </tr>
                   <?php

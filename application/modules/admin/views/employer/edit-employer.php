@@ -1,5 +1,5 @@
 <?php
-$action = base_url() . 'admin/Employer/editEmployer/' . $employer_detail->id;
+$action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
 ?>
 
 <div class="box box-info">
@@ -128,7 +128,8 @@ $action = base_url() . 'admin/Employer/editEmployer/' . $employer_detail->id;
             <div class="col-sm-7">
                 <select class="form-control" name="organization_type">
                     <option value="">--Select Ogranization Type--</option>
-                    <?php 
+                    <?php
+
                         foreach ($org_type as $ot) {
                             if($ot->id == $employer_detail->organization_type)
                                 $selected = 'selected';
@@ -146,8 +147,21 @@ $action = base_url() . 'admin/Employer/editEmployer/' . $employer_detail->id;
             <label class="col-sm-3 control-label">Organization Size :</label>
 
             <div class="col-sm-7">
-                <input type="text" name="organization_size" id='organization_size' class="form-control"
-                       value='<?php if (!empty($employer_detail->organization_size)) echo $employer_detail->organization_size;else echo set_value('organization_size') ?>'/>
+                <!--<input type="text" name="organization_size" id='organization_size' class="form-control"
+                       value='<?php /*if (!empty($employer_detail->organization_size)) echo $employer_detail->organization_size;else echo set_value('organization_size') */?>'/>-->
+                <select class="form-control" name="organization_size">
+                    <option value="">--Select Ogranization Size--</option>
+                    <?php
+
+                    foreach ($org_size as $os) {
+                        if($os->id == $employer_detail->organization_size)
+                            $selected = 'selected';
+                        else
+                            $selected = '';
+                        echo '<option value="'.$os->id.'" '.$selected.' >'.$os->dropvalue.'</option>';
+                    }
+                    ?>
+                </select>
             </div>
         </div>
 

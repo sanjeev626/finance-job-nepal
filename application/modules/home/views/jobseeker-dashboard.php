@@ -29,6 +29,16 @@ else
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-12">
+                <?php if($this->session->flashdata('error')){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+                        <?php echo $this->session->flashdata('error');?> </div>
+                <?php }
+                if($this->session->flashdata('success')){ ?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+                        <?php echo $this->session->flashdata('success');?> </div>
+                <?php } ?>
                 <div class="job-grid-right">
                     <div class="browse-job-head-option">
                         <div class="col-md-12 col-lg-3 text-center">

@@ -1,10 +1,10 @@
 <?php
 if (!empty($job_detail)) {
-    $action = base_url() . 'admin/Vacancy/editVacancy/' . $job_detail->id;
+    $action = base_url() . 'admin/vacancy/editvacancy/' . $job_detail->id;
     $post_date = $job_detail->post_date;
     $applybefore = $job_detail->applybefore;
 } else {
-    $action = base_url() . 'admin/Vacancy/addVacancy';
+    $action = base_url() . 'admin/vacancy/addvacancy';
     $post_date = date('Y-m-d');
     $applybefore = date('Y-m-d', strtotime("+30 days"));
 }
@@ -46,26 +46,36 @@ if (!empty($job_detail)) {
             <label class="col-sm-3 control-label">Display In :</label>
             <div class="col-sm-7">
               <div class="radio">
+
+                  <?php
+                  if(!empty($job_detail))
+                    $isNewspaperJob_arr =  unserialize($job_detail->isNewspaperJob);
+                  else
+                    $isNewspaperJob_arr = array();
+                  ?>
+
+
                 <label>
-                  <input type="radio" name="isNewspaperJob" id="RJob" value="RJob" checked="checked">
-                  None
+                  <input type="checkbox" name="isNewspaperJob[]" id="RJob" value="RJob" <?php if(!empty($job_detail) &&(!empty($job_detail->isNewspaperJob)) && in_array('RJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; }elseif(empty($job_detail)){echo "checked = 'checked'";} ?>>
+                  Default
+                </label>
+                &nbsp;
+
+                <label>
+                  <input type="checkbox" name="isNewspaperJob[]" id="FJNJob" value="FJNJob" <?php if(!empty($job_detail) &&(!empty($job_detail->isNewspaperJob)) && in_array('FJNJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; } ?>>
+                  FJN JOb
                 </label>
                 &nbsp;
                 <label>
-                  <input type="radio" name="isNewspaperJob" id="CJob" value="CJob" <?php if(!empty($job_detail) && $job_detail->isNewspaperJob == 'CJob'){ echo "checked='checked'"; } ?>>
-                 Corporate Job
-                </label>
-                &nbsp;
-                <label>
-                  <input type="radio" name="isNewspaperJob" id="IJob" value="IJob" <?php if(!empty($job_detail) && $job_detail->isNewspaperJob == 'IJob'){ echo "checked='checked'"; } ?>>
-                  Key Positions
-                </label>
-                &nbsp;
-                <!-- <label>
-                  <input type="radio" name="isNewspaperJob" id="NJob" value="NJob" <?php if(!empty($job_detail) && $job_detail->isNewspaperJob == 'NJob'){ echo "checked='checked'"; } ?>>
+                  <input type="checkbox" name="isNewspaperJob[]" id="NJob" value="NJob" <?php if(!empty($job_detail) &&(!empty($job_detail->isNewspaperJob)) && in_array('NJob', $isNewspaperJob_arr)){ echo "checked = 'checked'"; } ?>>
                   Newspaper Job 
                 </label>
-                &nbsp;
+                  <!--<label>
+                  <input type="radio" name="isNewspaperJob" id="CJob" value="CJob" <?php /*if(!empty($job_detail) && $job_detail->isNewspaperJob == 'CJob'){ echo "checked='checked'"; } */?>>
+                 Corporate Job
+                </label>
+                &nbsp;-->
+                <!-- &nbsp;
                 <label>
                   <input type="radio" name="isNewspaperJob" id="FJob" value="FJob" <?php if(!empty($job_detail) && $job_detail->isNewspaperJob == 'FJob'){ echo "checked='checked'"; } ?>>
                   Featured Job
@@ -80,10 +90,10 @@ if (!empty($job_detail)) {
         </div>
     </div>
 
-    <div class="form-group">
+    <!--<div class="form-group">
         <label class="col-sm-3 control-label">Show this job in :</label>
         <div class="col-sm-7">
-              <?php 
+              <?php /*
               if (!empty($job_detail) && isset($job_detail->job_display_in))
               {
                 $job_display_in = $job_detail->job_display_in;
@@ -101,15 +111,15 @@ if (!empty($job_detail)) {
               if (in_array($value->id, $jdi)) {
                   $checked = 'checked="checked"';
               }
-              ?>
+              */?>
               <div class="col-sm-3">
                 <label class="radio-inline" style="font-size: 12px; padding-left:0px;">
-                <input type="checkbox" name="job_display_in[]" value="<?php echo $value->id; ?>" <?php echo $checked;?>> <?php echo $value->dropvalue; ?>   
+                <input type="checkbox" name="job_display_in[]" value="<?php /*echo $value->id; */?>" <?php /*echo $checked;*/?>> <?php /*echo $value->dropvalue; */?>
                 </label>
               </div>            
-              <?php  } ?>
+              <?php /* } */?>
         </div>
-    </div>
+    </div>-->
 
     <!-- <div class="form-group">
         <label class="col-sm-3 control-label">Posted In :</label>
@@ -205,7 +215,7 @@ if (!empty($job_detail)) {
                 </label>
                 &nbsp;&nbsp;
                 <label>
-                  <input type="radio" name="preferredgender" id="preferredgender" value="Both" <?php if(!empty($job_detail) && $job_detail->preferredgender == 'Both'){ echo "checked='checked'"; } ?>>
+                  <input type="radio" name="preferredgender" id="preferredgender" value="Male/Female" <?php if(!empty($job_detail) && $job_detail->preferredgender == 'Male/Female'){ echo "checked='checked'"; } ?>>
                   Male/Female 
                 </label>
             </div>
@@ -277,25 +287,16 @@ if (!empty($job_detail)) {
         <label class="col-sm-3 control-label">Job Level :<span class="asterisk">*</span></label>
         <div class="col-sm-7">
           <div class="radio">
-            <label>
-              <input type="radio" name="joblevel" id="joblevel" value="Entry Level" checked="checked">
-              Entry Level
-            </label>
-            &nbsp;&nbsp;
-            <label>
-              <input type="radio" name="joblevel" id="joblevel" value="Mid Level" <?php if(!empty($job_detail) && $job_detail->joblevel == 'Mid Level'){ echo "checked='checked'"; } ?>>
-             Mid Level
-            </label>
-            &nbsp;&nbsp;
-            <label>
-              <input type="radio" name="joblevel" id="joblevel" value="Senior Level" <?php if(!empty($job_detail) && $job_detail->joblevel == 'Senior Level'){ echo "checked='checked'"; } ?>>
-              Senior Level 
-            </label>
-            &nbsp;&nbsp;
-            <label>
-              <input type="radio" name="joblevel" id="joblevel" value="Top Level" <?php if(!empty($job_detail) && $job_detail->joblevel == 'Top Level'){ echo "checked='checked'"; } ?>>
-              Top Level
-            </label>
+
+              <?php foreach ($joblevel as $key => $value) {?>
+                  <label>
+                      <input type="radio" name="joblevel" id="joblevel" value="<?php echo $value->id?>" <?php if(!empty($job_detail) && $job_detail->joblevel == $value->id){ echo "checked='checked'"; } ?>>
+                      <?php echo $value->dropvalue; ?>
+                  </label>
+
+              <?php  } ?>
+
+
         </div>
        </div>
     </div>
@@ -304,35 +305,53 @@ if (!empty($job_detail)) {
         <label class="col-sm-3 control-label">Job Type :<span class="asterisk">*</span></label>
         <div class="col-sm-7">
           <div class="checkbox">
-            <label>
+              <?php
+              $jobtype_arr='';
+              if(!empty($job_detail))
+              {
+                  $jobtype_arr = explode(',',$job_detail->jobtype);
+              }
+
+              ?>
+              <?php foreach ($jobtype as $key => $value) {?>
+                  <label>
+                      <input type="checkbox" name="jobtype[]" id="jobtype" value="<?php echo $value->id?>" <?php if(!empty($job_detail) && in_array($value->id, $jobtype_arr)){ echo "checked = 'checked'"; } ?> >
+                      <?php echo $value->dropvalue; ?>
+                  </label>
+
+              <?php  } ?>
+
+
+
+           <!-- <label>
               <input type="checkbox" name="jobtype1" id="jobtype1" value="Full Time" checked="checked">
               Full Time
             </label>
             &nbsp;&nbsp;
             <label>
-              <input type="checkbox" name="jobtype2" id="jobtype2" value="Part Time" <?php if(!empty($job_detail) && $job_detail->jobtype2 == 'Part Time'){ echo "checked='checked'"; } ?>>
+              <input type="checkbox" name="jobtype2" id="jobtype2" value="Part Time" <?php /*if(!empty($job_detail) && $job_detail->jobtype2 == 'Part Time'){ echo "checked='checked'"; } */?>>
              Part Time
             </label>
             &nbsp;&nbsp;
             <label>
-              <input type="checkbox" name="jobtype3" id="jobtype3" value="Contract" <?php if(!empty($job_detail) && $job_detail->jobtype3 == 'Contract'){ echo "checked='checked'"; } ?>>
+              <input type="checkbox" name="jobtype3" id="jobtype3" value="Contract" <?php /*if(!empty($job_detail) && $job_detail->jobtype3 == 'Contract'){ echo "checked='checked'"; } */?>>
               Contract 
             </label>
             &nbsp;&nbsp;
             <label>
-              <input type="checkbox" name="jobtype4" id="jobtype4" value="Others" <?php if(!empty($job_detail) && $job_detail->jobtype4 == 'Others'){ echo "checked='checked'"; } ?>>
+              <input type="checkbox" name="jobtype4" id="jobtype4" value="Others" <?php /*if(!empty($job_detail) && $job_detail->jobtype4 == 'Others'){ echo "checked='checked'"; } */?>>
               Any Others 
-            </label>
+            </label>-->
         </div>
        </div>
     </div>
 
-    <div class="form-group other_job_type">
+    <!--<div class="form-group other_job_type">
     <label class="col-sm-3 control-label"></label>
         <div class="col-sm-4">
-            <input type="text"  name="otherstype" id='otherstype' class="form-control" value='<?php if (!empty($job_detail)) echo $job_detail->otherstype; ?>' />
+            <input type="text"  name="otherstype" id='otherstype' class="form-control" value='<?php /*if (!empty($job_detail)) echo $job_detail->otherstype; */?>' />
         </div>
-    </div>
+    </div>-->
 
     <div class="form-group">
         <label class="col-sm-3 control-label">Job Location :<span class="asterisk">*</span></label>
@@ -371,7 +390,8 @@ if (!empty($job_detail)) {
             <div class="row">
                 <div class="col-sm-12">
                   <select class="form-control" name="required_education" id="required_education">
-                    <option value="none" <?php if(!empty($job_detail) && $job_detail->required_education == 'none'){ echo "selected='selected'"; } ?>>None</option>
+                      <option value="">Select One</option>
+                    <option value="Not Required" <?php if(!empty($job_detail) && $job_detail->required_education == 'Not Required'){ echo "selected='selected'"; } ?>>Not Required</option>
                     <option value="intermediate" <?php if(!empty($job_detail) && $job_detail->required_education == 'intermediate'){ echo "selected='selected'"; } ?>>Intermediate</option>
                     <option value="bachelor" <?php if(!empty($job_detail) && $job_detail->required_education == 'bachelor'){ echo "selected='selected'"; } ?>>Bachelor</option>
                     <option value="master" <?php if(!empty($job_detail) && $job_detail->required_education == 'master'){ echo "selected='selected'"; } ?>>Master</option>

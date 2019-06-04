@@ -8,7 +8,7 @@
         <div class="col-md-12">
           <div class="panel-footer">
             <div class="col-sm-10 col-md-10">
-              <?php echo form_open('admin/Vacancy');?>
+              <?php echo form_open('admin/vacancy');?>
               <div class="row">
                 <fieldset >
                   <div class="col-sm-6 col-md-6 below_space"> 
@@ -30,7 +30,7 @@
                 <?php echo form_close();?>
               </div>
               <div class="below_space margin-left">
-              <a class="btn btn-success" href="<?php echo base_url(); ?>admin/Vacancy/add">+ Add Job </a>
+              <a class="btn btn-success" href="<?php echo base_url(); ?>admin/vacancy/add">+ Add Job </a>
               </div>
 
             </div>
@@ -61,22 +61,35 @@
 
                     $organiation = $this->vacancy_model->get_organisation_by_eid($val->eid);
                     if(empty($organiation)) $organiation = $val->displayname;
-                    $applybefore = $val->apdd."-".$val->apmm."-".$val->apyy;
+                    $addeddate = $val->date_added;
+                    $applybefore = $val->applybefore;
                     $cdate = date('d-m-Y');
+
+
                   ?>
                   <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $val->jobtitle; ?></td>
                     <td><?php echo $organiation; ?></td>
-                    <td><?php echo $val->date_added; ?></td>
-                    <td <?php if($applybefore < $cdate){ ?> style="color:#FF0000;"<?php } ?>><?php echo $applybefore; ?></td>
-                    <td><?php echo $val->joblevel; ?></td>
+                    <td><?php echo date("d-m-Y", strtotime($addeddate)); ?></td>
+                    <td <?php if($applybefore < $cdate){ ?> style="color:#FF0000;"<?php } ?>> <?php echo date("d-m-Y", strtotime($applybefore)); ?></td>
+                    <td>
+                      <?php
+                      $val->joblevel;
+                        $dropdowns = $this->dropdown_model->get_dropdown_by_id($val->joblevel);
+                        if(!empty($dropdowns))
+                          echo  $dropdowns->dropvalue;
+                        else
+                          echo 'N/A';
+
+                      ?>
+                    </td>
                     <td class="text-center"><?php echo $val->requiredno; ?></td>
                     <td class="table-action text-center">
 
-                      <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/Vacancy/edit/<?php echo $val->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Job"></i> Edit</a>
+                      <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/vacancy/edit/<?php echo $val->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Job"></i> Edit</a>
                       |
-                      <button type="button" class="btn btn-success btn-sm delete_vacancy" link="<?php echo base_url(); ?>admin/Vacancy/deleteVacancy/<?php echo $val->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Job"></i> Delete</button>
+                      <button type="button" class="btn btn-success btn-sm delete_vacancy" link="<?php echo base_url(); ?>admin/vacancy/deletevacancy/<?php echo $val->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Job"></i> Delete</button>
 
                     </td>
                   </tr>

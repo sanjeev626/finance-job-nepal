@@ -1,10 +1,10 @@
 <?php
 if (!empty($jobpost_detail)) {
-    $action = base_url() . 'Employer/editPostJob/' . $jobpost_detail->id;
+    $action = base_url() . 'employer/editjob/' . $jobpost_detail->id;
     $post_date = $jobpost_detail->post_date;
     $applybefore = $jobpost_detail->applybefore;
 } else {
-    $action = base_url() . 'Employer/addPostJob';
+    $action = base_url() . 'employer/addjob';
     $post_date = date('Y-m-d');
     $applybefore = date('Y-m-d', strtotime("+30 days"));
 }
@@ -120,7 +120,7 @@ if (!empty($jobpost_detail)) {
                                             <label for="Location">Preferred Education:</label>
 
                                                 <select class="form-control" name="required_education" id="required_education">
-                                                    <option value="301">Select One</option>
+                                                    <option value="">Select One</option>
                                                     <option value="Not Required" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'Not Required'){ echo "selected='selected'"; } ?>>Not Required</option>
                                                     <option value="intermediate" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'intermediate'){ echo "selected='selected'"; } ?>>Intermediate</option>
                                                     <option value="bachelor" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'bachelor'){ echo "selected='selected'"; } ?>>Bachelor</option>

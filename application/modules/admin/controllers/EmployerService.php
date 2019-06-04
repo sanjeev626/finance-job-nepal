@@ -133,7 +133,7 @@ class EmployerService extends MY_Controller {
             
             $this->employerService_model->update_employerService($id,$serviceimage);
             $this->session->set_flashdata('success', 'EmployerService Update Successfully...');
-            redirect(base_url() . 'admin/EmployerService', 'refresh');
+            redirect(base_url() . 'admin/EmployerService/edit'.$id, 'refresh');
         }
     }
 

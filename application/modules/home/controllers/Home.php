@@ -33,26 +33,25 @@ class Home extends View_Controller {
 
         $data['menu'] = 'home';
         $data['page_title'] = '.:: Finance Job Nepal ..';
-        $data['premium_job'] = $this->home_model->get_job_by_type('PJob',5);
+        //$data['premium_job'] = $this->home_model->get_job_by_type('PJob',5);
         $data['no_of_corporate_job'] = 16;
-        $data['corporate_job'] = $this->home_model->get_job_by_type('CJob',$no_of_corporate_jobs);
+        //$data['corporate_job'] = $this->home_model->get_job_by_type('CJob',$no_of_corporate_jobs);
         $data['tno_corporate_job'] = $this->home_model->count_job_by_type('isNewspaperJob','CJob');
         //$countRecord = $this->general_model->countTotal('employer',array('email' => $email));
         $data['hot_job'] = $this->home_model->get_hot_job($no_of_hot_job);
         //echo $this->db->last_query();exit();
-        $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',9);
-        $data['keyposition_job'] = $this->home_model->get_job_by_type('IJob',9);
-        $data['recent_job'] = $this->home_model->get_job_by_type('RJob',9);
-        $data['featured_job'] = $this->home_model->get_job_by_type('FJob',9);   
+        $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',8);
+
+        $data['fjn_job'] = $this->home_model->get_job_by_type('FJNJob',8);
+        $data['recent_job'] = $this->home_model->get_job_by_type('RJob',8);
+
         $data['location'] = $this->general_model->getAll('dropdown','fid = 2','dropvalue ASC','id,dropvalue','',200);
         $data['type'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue','',6);        
         $data['job_display_in'] = $this->general_model->getAll('dropdown','fid = 16','ordering','id,dropvalue');
-        //$data['sliders'] = $this->general_model->getAll('slider',array('status' => 'Enabled','type' => 'slider'),'ordering');
-        //$data['middle_banner'] = $this->general_model->getAll('slider',array('status' => 'Enabled','type' => 'middle_portion'),'','','',2);
-        //$data['candidate_services']= $this->general_model->getAll('jobseek_banner',array('publish'=>1));
-       // $data['employer_services']=  $this->general_model->getAll('globaljob_service','','','id,urlcode,title');
-       // $data['clients']=  $this->general_model->getAll('clients','','','id,clientname,image');
 
+        $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','',8);
+
+        $data['home_blog'] =  $this->general_model->getAll('blog','stat = "Y"','id ASC','*','',3);
         $data['main'] = 'home';
         $this->load->view('main',$data);
     }
@@ -82,7 +81,7 @@ class Home extends View_Controller {
             $jobid = $this->uri->segment(3);
         }
 
-        $data['menu'] = 'home';
+        $data['menu'] = 'job';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         $data['job_detail'] = $jobInfo = $this->general_model->getAll('jobs',array('id'=>$jobid));
         //print_r($jobInfo[0]);
@@ -98,14 +97,18 @@ class Home extends View_Controller {
         $data['employer_info'] = $employer_info = $this->general_model->getById('employer','id',$employerId); 
         $applydate = date('Y-m-d');
         if($employerId>0)
-        $data['related_job'] = $this->general_model->getAll('jobs',array('eid'=>$employerId,'id !=' => $jobid,'applybefore >='=>$applydate),'','id,jobtitle,slug');
+        $data['related_job'] = $this->general_model->getAll('jobs',array('eid'=>$employerId,'id !=' => $jobid,'applybefore >='=>$applydate),'','*');
         else
             $data['related_job'] = '';
-        //print_r($employer_info);
+
+        //$data['similar_job'] = $this->general_model->getAll('jobs',array('jobtitle','like',$jobInfo['0']->jobtitle,'id !=' => $jobid,'applybefore >='=>$applydate),'','*');
+        $data['similar_job'] = $this->home_model->get_similar_jobs($jobInfo['0']->jobtitle,$jobid,$applydate);
+
+        
         //og tags here 
         //print_r($jobInfo);   
         if(!empty($employer_info))
-            $ogurl = base_url().'job/'.$employer_info->orgcode.'/'.$jobInfo['0']->slug.'/'.$jobInfo['0']->id;
+            $ogurl = base_url().'job/'.$employer_info->organization_code.'/'.$jobInfo['0']->slug.'/'.$jobInfo['0']->id;
         else
             $ogurl = base_url().'job/'.$jobInfo['0']->slug.'/'.$jobInfo['0']->id;
 
@@ -123,16 +126,17 @@ class Home extends View_Controller {
         //$ogimage = base_url() .  "uploads/employer/".$jobInfo->logo;        
         $ogimage = "";
         $data['ogurl'] = $ogurl;
-        $data['ogwebsite'] = 'http://globaljob.com.np';
+        $data['ogwebsite'] = 'http://financejob.com';
         $data['ogtitle'] = $ogtitle;
         $data['ogdescription'] = $ogdescription;
         $data['ogimage'] = $ogimage;
 
-        //print_r($employer_info);
-        $banner_image = $employer_info->banner_image;
+        
+        //$banner_image = $employer_info->organization_banner;
+        $data['banner_image'] = $employer_info->organization_banner;
         //$banner_image = "";
         //echo "banner_image = ".$banner_image;
-        if(!empty($job_display_in)){
+        /*if(!empty($job_display_in)){
             $this->load->view('job-detail-normal',$data);
         }       
         else if((isset($banner_image)) && ($banner_image != NULL)){
@@ -140,8 +144,11 @@ class Home extends View_Controller {
         } 
         else{
             $this->load->view('job-detail',$data);
-        }
+        }*/
         //$this->load->view('job-detail',$data);
+
+        $data['main'] = 'job-detail';
+        $this->load->view('main',$data);
     }
 
     public function premium_jobs(){
@@ -388,7 +395,7 @@ class Home extends View_Controller {
     /*---------------------------------------------------------
         Check Befor Apply Whether User is Login or Not
     ---------------------------------------------------------*/
-    public function applyJob($jobid){
+    public function applyjob($jobid){
 
        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
 
@@ -408,7 +415,6 @@ class Home extends View_Controller {
 
             $seekerInfo = $this->general_model->getById('seeker','id',$sid);
 
-
             $seeker_faculty = $seekerInfo->faculty;
             $seeker_dob = $seekerInfo->dob;
             $seeker_age = $this->_ageCalculator($seeker_dob);
@@ -421,9 +427,9 @@ class Home extends View_Controller {
              $seeker_gender = $seekerInfo->gender;
              $preferredgender = $empinfo->preferredgender;
 
-            if($preferredgender != $seeker_gender && $preferredgender !='Both'){
+            if($preferredgender != $seeker_gender && $preferredgender !='Male/Female'){
                 $this->session->set_flashdata('error', 'Preferred Gender does not match. Please Apply for Correct Criteria');
-                redirect(base_url() . 'Jobseeker/dashboard');
+                redirect(base_url() . 'jobseeker/dashboard');
             }
             /*------------------------------------------------------------
                           Preferred gender wise check
@@ -440,7 +446,7 @@ class Home extends View_Controller {
                    // continue;
                 }else{
                     $this->session->set_flashdata('error', 'Job Condition does not match with your Age. Please Apply for Correct Criteria');
-                    redirect(base_url() . 'Jobseeker/dashboard');
+                    redirect(base_url() . 'jobseeker/dashboard');
                 }
             }
             if($job_faculty=='')
@@ -450,7 +456,7 @@ class Home extends View_Controller {
                 if($job_faculty == $seeker_faculty){
                 }else{
                     $this->session->set_flashdata('error', 'Job Condition does not match with your Faculty. Please Apply for Correct Criteria');
-                    redirect(base_url() . 'Jobseeker/dashboard');
+                    redirect(base_url() . 'jobseeker/dashboard');
                 }
             }
 
@@ -470,10 +476,10 @@ class Home extends View_Controller {
                   $required_education = $empinfo->required_education;
                   if(!empty($required_education))
                   {
-                    $edu_arr = array('none'=>'0','intermediate'=>'1','bachelor'=>'2','master'=>'3');
+                    $edu_arr = array('none'=>'Not Required','intermediate'=>'intermediate','bachelor'=>'bachelor','master'=>'master','other'=>'other');
                     //echo $required_education.'=='.$seekerInfo->faculty;
                     $req_edu_no = $edu_arr[$required_education];
-                    $sek_edu_no = $edu_arr[$seekerInfo->faculty];
+                    $sek_edu_no = $edu_arr[$seekerInfo->highest_qualification];
                     //echo "<br>".$req_edu_no.'=='.$sek_edu_no;
                     if($req_edu_no!=0 && $req_edu_no > $sek_edu_no)
                     {
@@ -568,7 +574,7 @@ class Home extends View_Controller {
                     if(!empty($jobInfo->orgemail)) $to .= $jobInfo->orgemail;
 
                     // subject
-                    $subject = 'globaljob.com.np :: Job Application for the post of '.$jobtitle." ::";
+                    $subject = 'financejobnepal.com :: Job Application for the post of '.$jobtitle." ::";
 
                     $content1 = $this->_jobSeekerDetail($sid);
 
@@ -596,11 +602,11 @@ class Home extends View_Controller {
 
                         Best regards,<br><br>
 
-                        <strong>Global Job Pvt. Ltd.</strong><br>
+                        <strong>Finance Job Nepal Pvt. Ltd.</strong><br>
                         P.O.Box 8975 EPC 5273<br>
-                        4th Floor, Kathmandu Plaza-Y Block, Kamaladi, Kathmandu, Nepal<br>
-                        Tel: 977-01- 4168657, 4168658,4168517<br>
-                        Website: www.globaljob.com.np<br>
+                        4th Floor, Everest Bank Building, Bagdole, Lalitpur, Nepal<br>
+                        Tel: 977 1 6226783<br>
+                        Website: www.financejobnepal.com<br>
                         <img src='".base_url()."content_home/images/logo.png' alt='Global Job Pvt. Ltd.'>&nbsp;&nbsp;<img src='".base_url()."content_home/images/imi.jpg' alt='IMI Nepal'>&nbsp;&nbsp;<img src='".base_url()."content_home/images/president.jpg' alt='President Educational Consultancy'>";
                     $headers  = 'MIME-Version: 1.0' . "\r\n";
                     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -624,7 +630,7 @@ class Home extends View_Controller {
                     );
                     $this->general_model->insert('application',$data);
                     $this->session->set_flashdata('success', 'Your application has been sent for this job.');
-                    redirect(base_url() . 'Jobseeker/dashboard');
+                    redirect(base_url() . 'jobseeker/dashboard');
 
                 }else{
                     $this->session->set_flashdata('error', $error_message);
@@ -633,14 +639,14 @@ class Home extends View_Controller {
 
             }else{
                 $this->session->set_flashdata('success', 'You have already applied for this job.');
-                redirect(base_url() . 'Jobseeker/dashboard');
+                redirect(base_url() . 'jobseeker/dashboard');
             }
 
             echo 'You are logged now';
             //echo "<br><br>".$error_message;
         }else{
             $this->session->set_flashdata('error', 'You must be a registered member to apply for this job.');
-            redirect(base_url() . 'Jobseeker/login/?jobid='.$jobid);
+            redirect(base_url() . 'jobseeker/login/?jobid='.$jobid);
         }
 
         if(isset($error_message))
@@ -650,7 +656,7 @@ class Home extends View_Controller {
     /*-------------------------------------------------------------
         Job Category Information with paramater Type and job Id
     -------------------------------------------------------------*/
-    public function category($type,$catid){
+    public function category_back($type,$catid){
         $data['job_list'] = '';
          /* Bootstrap Pagination  */
 
@@ -713,6 +719,16 @@ class Home extends View_Controller {
         $data['main'] = 'job-list';
         $this->load->view('main',$data);
     }
+
+
+    public function category($slug){
+        //echo $slug;
+        $data['menu'] = $slug;
+        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['title'] ='Job List';
+        $data['main'] = 'job-by-category';
+        $this->load->view('main',$data);
+    }
     
     /*---------------------------------------------------------
                     About Us Information
@@ -728,7 +744,7 @@ class Home extends View_Controller {
 
     public function upload_your_video_cv(){
         $content_id = "11";
-        $data['menu'] = 'home';
+        $data['menu'] = 'upload_your_video_cv';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -738,7 +754,7 @@ class Home extends View_Controller {
 
     public function express_your_perception(){
         $content_id = "12";
-        $data['menu'] = 'home';
+        $data['menu'] = 'express_your_perception';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -748,7 +764,7 @@ class Home extends View_Controller {
 
     public function give_your_feedbacks(){
         $content_id = "13";
-        $data['menu'] = 'home';
+        $data['menu'] = 'give_your_feedbacks';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -772,7 +788,7 @@ class Home extends View_Controller {
 
     public function subscribe_for_video_cv(){
         $content_id = "14";
-        $data['menu'] = 'home';
+        $data['menu'] = 'subscribe_for_video_cv';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -782,7 +798,7 @@ class Home extends View_Controller {
 
     public function express_employers_perception(){
         $content_id = "15";
-        $data['menu'] = 'home';
+        $data['menu'] = 'express_employers_perception';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -792,7 +808,7 @@ class Home extends View_Controller {
 
     public function give_your_feedback(){
         $content_id = "13";
-        $data['menu'] = 'home';
+        $data['menu'] = 'give_your_feedback';
         $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' .:: Global Job :: Complete HR Solution..';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
@@ -804,7 +820,7 @@ class Home extends View_Controller {
                     Feeback  Page
     ---------------------------------------------------------*/
     public function feedback(){
-        $data['menu'] = 'home';
+        $data['menu'] = 'feedback';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         $data['title'] ='Feedback';
         $data['main'] = 'feedback-view';
@@ -881,7 +897,7 @@ class Home extends View_Controller {
                     Term And Condition  Page
     ---------------------------------------------------------*/
     public function termandcondition(){
-        $data['menu'] = 'home';
+        $data['menu'] = 'termandcondition';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
        
         $data['main'] = 'term-condition';
@@ -892,7 +908,7 @@ class Home extends View_Controller {
                     Privacy and Policy  Page
     ---------------------------------------------------------*/
     public function privacypolicy(){
-        $data['menu'] = 'home';
+        $data['menu'] = 'privacypolicy';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
        
         $data['main'] = 'privacy-policy';
@@ -1581,7 +1597,7 @@ class Home extends View_Controller {
     }
     
     public function clients(){
-        $data['menu'] = 'home';
+        $data['menu'] = 'clients';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         //$data['client_list'] = $this->general_model->getAll('clients','','','id,clientname,image');
         
@@ -1589,7 +1605,7 @@ class Home extends View_Controller {
     }
     
     public function testimonial_list(){
-        $data['menu'] = 'home';
+        $data['menu'] = 'testimonial_list';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         $data['testimonial_list'] = $this->home_model->get_all_testimonial();
         
@@ -1599,31 +1615,37 @@ class Home extends View_Controller {
     public function services(){
         
         $urlcode = $this->uri->segment(2);
-        $data['menu'] = 'home';
+        $data['menu'] = 'services';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
         //echo 'urlcode = '.$urlcode;
-        $data['title'] = $this->general_model->getById('globaljob_service','urlcode',$urlcode)->title;
-        $data['content'] = $this->general_model->getById('globaljob_service','urlcode',$urlcode)->content;
-        $data['main'] = 'employer-services-details';
+        //$data['title'] = $this->general_model->getById('service','urlcode',$urlcode)->title;
+        $data['content'] = $this->general_model->getById('service','urlcode',$urlcode);
+        $data['main'] = 'services-details';
         $this->load->view('main',$data);
     }
 
     public function content(){        
         $urlcode = $this->uri->segment(2);
-        $data['menu'] = 'home';
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['menu'] = 'content';
+        
         //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
 
         $data['title'] = $this->general_model->getById('content','slug',$urlcode)->title;
-        $data['content'] = $this->general_model->getById('content','slug',$urlcode)->contents;
+        $data['content'] = $this->general_model->getById('content','slug',$urlcode);
+        $meta_title = $this->general_model->getById('content','slug',$urlcode)->meta_title;
+        $data['meta_description'] = $this->general_model->getById('content','slug',$urlcode)->meta_description;
+        $data['meta_keyword'] = $this->general_model->getById('content','slug',$urlcode)->meta_keyword;
+        $data['page_title'] = '.:: ' .$meta_title. ' | Global Job :: Complete HR Solution..';
+
+
         $data['main'] = 'detail-page';
         $this->load->view('main',$data);
     }
 
     public function article(){        
         $urlcode = $this->uri->segment(2);
-        $data['menu'] = 'home';
+        $data['menu'] = 'article';
         $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
         //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
 

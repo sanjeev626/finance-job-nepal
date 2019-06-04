@@ -19,7 +19,7 @@ class Employer extends MY_Controller {
 
     public function index(){
 
-        $config['base_url'] = base_url() . 'admin/Employer';
+        $config['base_url'] = base_url() . 'admin/employer';
         $config['uri_segment'] = 3;
         $config['per_page'] = 20;
 
@@ -212,18 +212,18 @@ class Employer extends MY_Controller {
         redirect(base_url() . 'admin/Employer/viewEmployerBasket', 'refresh');
     }
 
-    public function deleteEmployer($eid){
+    public function delete($eid){
 
         if (!isset($eid))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($eid))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
 
         $this->employer_model->delete_employer($eid);
         $this->session->set_flashdata('success', 'Employer Deleted Successfully...');
-        redirect(base_url() . 'admin/Employer', 'refresh');
+        redirect(base_url() . 'admin/employer', 'refresh');
     }
 
     /*public function convert_password(){
@@ -240,10 +240,10 @@ class Employer extends MY_Controller {
     public function view($eid){
 
         if (!isset($eid))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($eid))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         $data['title'] = '.:: VIEW EMPLOYER ::.';
         $data['page_header'] = 'View Employer ';
@@ -262,16 +262,16 @@ class Employer extends MY_Controller {
 
         $this->employer_model->update_password($new_password,$emp_id);
         $this->session->set_flashdata('success', 'Employer Password Updated Successfully...');
-        redirect(base_url() . 'admin/Employer/view/'.$emp_id, 'refresh');
+        redirect(base_url() . 'admin/employer/view/'.$emp_id, 'refresh');
     }
 
     public function changeCorporate($emp_id,$is_corporate){
 
         if (!isset($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if($is_corporate == 'Yes'){
             $make_corporate = 'NO';
@@ -280,16 +280,16 @@ class Employer extends MY_Controller {
         }
         $this->employer_model->update_corporate($make_corporate,$emp_id);
         $this->session->set_flashdata('success', 'Employer Status Changed');
-        redirect(base_url() . 'admin/Employer/view/'.$emp_id, 'refresh');   
+        redirect(base_url() . 'admin/employer/view/'.$emp_id, 'refresh');
     }
 
     public function moveToBasket($emp_id){
 
         if (!isset($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
 
         $result = $this->employer_model->insert_employer_basket($emp_id);
@@ -298,15 +298,15 @@ class Employer extends MY_Controller {
         }else{
             $this->session->set_flashdata('success', 'Employer has been Move To Basket');
         }   
-        redirect(base_url() . 'admin/Employer/view/'.$emp_id, 'refresh');  
+        redirect(base_url() . 'admin/employer/view/'.$emp_id, 'refresh');
     }
 
-    public function employerJobList($emp_id){
+    public function joblist($emp_id){
         if (!isset($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         $data['title'] = '.:: EMPLOYER JOB LIST ::.';
         $data['page_header'] = 'Employer Job List';
@@ -324,10 +324,10 @@ class Employer extends MY_Controller {
     public function edit($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         $data['title'] = '.:: EDIT EMPLOYER ::.';
         $data['page_header'] = 'Employer';
@@ -336,21 +336,22 @@ class Employer extends MY_Controller {
         $data['panel_title'] = 'Edit Employer ';
         $data['employer_detail'] = $this->general_model->getById('employer','id',$id);
         $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue'); 
-        $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue'); 
-        $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
+        $data['org_size'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
+        //$data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue');
+        //$data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
         $data['nature_of_organization'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');
         $data['main'] = 'employer/edit-employer';
 
         $this->load->view('home', $data);
     }
 
-    public function editEmployer($e_id){
+    public function editemployer($e_id){
 
         if (!isset($e_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($e_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         $this->form_validation->set_rules('orgname', 'Organization Name', 'required');
         //$this->form_validation->set_rules('email', 'email', 'required');
@@ -409,15 +410,15 @@ class Employer extends MY_Controller {
 
             $this->employer_model->update_employer($e_id,$complogo,$banner);
             $this->session->set_flashdata('success', 'Employer Update Successfully...');
-            redirect(base_url() . 'admin/Employer', 'refresh');
+            redirect(base_url() . 'admin/employer/edit/'.$e_id, 'refresh');
         }
     }
 
-     public function searchEmployer(){
+     public function search(){
 
         $data['total_employer'] = $this->employer_model->search_employer_by_param();
 
-        $config['base_url'] = base_url() . 'admin/Employer/searchEmployer';
+        $config['base_url'] = base_url() . 'admin/employer/search';
         $config['uri_segment'] = 4;
         $config['per_page'] = 100;
 
@@ -471,10 +472,10 @@ class Employer extends MY_Controller {
     public function employerVideocv($emp_id)
     {
         if (!isset($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         $data['title'] = '.:: EMPLOYER Video CV ::.';
         $data['page_header'] = 'Employer Video CV';
@@ -491,10 +492,10 @@ class Employer extends MY_Controller {
     public function videocvAdd($emp_id)
     {
         if (!isset($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (FALSE == $this->form_validation->run()) {
             $data['title'] = '.:: ADD VIDEO CV ::.';
@@ -521,10 +522,10 @@ class Employer extends MY_Controller {
     public function addVideo_cv($emp_id){
 
         if (!isset($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($emp_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         $this->form_validation->set_rules('activated_date', 'activated_date', 'required');
         $this->form_validation->set_rules('start_date', 'start_date', 'required');
@@ -549,17 +550,17 @@ class Employer extends MY_Controller {
             
             $this->employer_model->add_video_cv($emp_id);
             $this->session->set_flashdata('success', 'Video CV Added Successfully...');
-            redirect(base_url() . 'admin/Employer/employerVideocv/'.$emp_id, 'refresh');
+            redirect(base_url() . 'admin/employer/employervideocv/'.$emp_id, 'refresh');
         }
     }
 
     public function videocvEdit($video_cv_id)
     {
         if (!isset($video_cv_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($video_cv_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         $data['title'] = '.:: EMPLOYER Video CV ::.';
         $data['page_header'] = 'Employer Video CV';
@@ -576,10 +577,10 @@ class Employer extends MY_Controller {
     public function editVideo_cv($video_cv_id){
 
         if (!isset($video_cv_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($video_cv_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
             $data['title'] = '.:: EDIT EMPLOYER ::.';
             $data['page_header'] = 'Employer';
@@ -589,21 +590,21 @@ class Employer extends MY_Controller {
             
             $this->employer_model->update_video_cv($video_cv_id);
             $this->session->set_flashdata('success', 'Video CV Updated Successfully...');
-            redirect(base_url() . 'admin/Employer/videocvEdit/'.$video_cv_id, 'refresh');
+            redirect(base_url() . 'admin/employer/videocvedit/'.$video_cv_id, 'refresh');
     }
 
     public function deleteVideoCv($emp_id, $video_cv_id){
 
         if (!isset($video_cv_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
 
         if (!is_numeric($video_cv_id))
-            redirect(base_url() . 'admin/Employer');
+            redirect(base_url() . 'admin/employer');
         echo $emp_id.$video_cv_id;
             
         $this->employer_model->delete_video_cv($video_cv_id);
         $this->session->set_flashdata('success', 'Video CV deleted Successfully...');
-        redirect(base_url() . 'admin/Employer/employerVideocv/'.$emp_id, 'refresh');
+        redirect(base_url() . 'admin/employer/employervideocv/'.$emp_id, 'refresh');
     }
 
     public function updateJobs(){
