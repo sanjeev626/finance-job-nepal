@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="541cec99-7595-46a6-93cc-4c8278930a92" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/home/views/contact/contact_us.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/controllers/Home.php" afterPath="$PROJECT_DIR$/application/modules/home/controllers/Home.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/service/add-edit-service.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/service/add-edit-service.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content_home/css/custom.css" afterPath="$PROJECT_DIR$/content_home/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/assets/css/developer.css" afterPath="$PROJECT_DIR$/theme/assets/css/developer.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/includes/footer.php" afterPath="$PROJECT_DIR$/application/modules/home/views/includes/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theme/includes/head-other.php" afterPath="$PROJECT_DIR$/theme/includes/head-other.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/includes/header.php" afterPath="$PROJECT_DIR$/application/modules/home/views/includes/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\xampp\htdocs\financejobnepal\application\modules\home\views\detail-page.php" afterPath="$PROJECT_DIR$/application/modules/home/views/content/detail-page.php" />
-      <change type="MOVED" beforePath="D:\xampp\htdocs\financejobnepal\application\modules\home\views\services-details.php" afterPath="$PROJECT_DIR$/application/modules/home/views/service/services-details.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/service/services-details.php" afterPath="$PROJECT_DIR$/application/modules/home/views/service/services-details.php" />
     </list>
     <ignored path="finance-job-nepal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,74 +33,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="footer.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="footer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0">
-              <caret line="120" column="19" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.58429563">
+              <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="49" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Home.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Home.php">
+      <file leaf-file-name="Service.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Service.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.016666">
-              <caret line="939" column="0" selection-start-line="920" selection-start-column="20" selection-end-line="920" selection-end-column="29" />
-              <folding>
-                <element signature="e#29473#32495#0#PHP" expanded="false" />
-                <element signature="e#32502#32787#0#PHP" expanded="false" />
-                <element signature="e#32966#33316#0#PHP" expanded="false" />
-                <element signature="e#33322#33847#0#PHP" expanded="false" />
-                <element signature="e#33853#34384#0#PHP" expanded="false" />
-                <element signature="e#34390#34913#0#PHP" expanded="false" />
-                <element signature="e#34919#35208#0#PHP" expanded="false" />
-                <element signature="e#35214#35498#0#PHP" expanded="false" />
-                <element signature="e#35504#36033#0#PHP" expanded="false" />
-                <element signature="e#36039#36580#0#PHP" expanded="false" />
-                <element signature="e#40635#40879#0#PHP" expanded="false" />
-                <element signature="e#44333#46449#0#PHP" expanded="false" />
-                <element signature="e#46634#48951#0#PHP" expanded="false" />
-                <element signature="e#49240#49931#0#PHP" expanded="false" />
-                <element signature="e#49937#73093#0#PHP" expanded="false" />
-                <element signature="e#73099#75561#0#PHP" expanded="false" />
-                <element signature="e#75571#75871#0#PHP" expanded="false" />
-                <element signature="e#75881#76180#0#PHP" expanded="false" />
-                <element signature="e#76186#76776#0#PHP" expanded="false" />
-                <element signature="e#77664#78217#0#PHP" expanded="false" />
-                <marker date="1559643904350" expanded="true" signature="50409:50450" placeholder="..." />
-                <marker date="1559643904350" expanded="true" signature="50691:50709" placeholder="..." />
-                <marker date="1559643904350" expanded="true" signature="51348:51365" placeholder="..." />
-                <marker date="1559643904350" expanded="true" signature="54332:54349" placeholder="..." />
-                <marker date="1559643904350" expanded="true" signature="57071:57088" placeholder="..." />
-                <marker date="1559643904350" expanded="true" signature="59910:59928" placeholder="..." />
-                <marker date="1559643904350" expanded="true" signature="61839:61888" placeholder="..." />
-                <marker date="1559643904350" expanded="true" signature="64312:64361" placeholder="..." />
-                <marker date="1559643904350" expanded="true" signature="66334:66383" placeholder="..." />
-                <marker date="1559643904350" expanded="true" signature="68209:68258" placeholder="..." />
-                <marker date="1559643904350" expanded="true" signature="72305:72323" placeholder="..." />
-                <marker date="1559643904350" expanded="true" signature="72577:72626" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="-12.064516">
+              <caret line="23" column="67" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="67" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6119134">
-              <caret line="91" column="80" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="80" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contact_us.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/contact/contact_us.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.806452">
-              <caret line="76" column="117" selection-start-line="76" selection-start-column="117" selection-end-line="76" selection-end-column="117" />
+            <state vertical-scroll-proportion="-4.2580647">
+              <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="84" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -169,16 +119,16 @@
         <option value="$PROJECT_DIR$/application/modules/home/views/detail-page.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/controllers/Content.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/views/content/content_manager_view.php" />
-        <option value="$PROJECT_DIR$/application/modules/admin/views/service/add-edit-service.php" />
         <option value="$PROJECT_DIR$/theme/includes/head-other.php" />
         <option value="$PROJECT_DIR$/content_home/css/custom.css" />
         <option value="$PROJECT_DIR$/application/modules/home/views/content/detail-page.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/service/services-details.php" />
         <option value="$PROJECT_DIR$/application/modules/home/controllers/Home.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/includes/footer.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/contact/contact_us.php" />
+        <option value="$PROJECT_DIR$/application/modules/admin/views/service/add-edit-service.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/includes/header.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/includes/footer.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/service/services-details.php" />
       </list>
     </option>
   </component>
@@ -194,10 +144,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1358" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -412,7 +362,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
+              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -435,6 +385,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance-job-nepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financejobnepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance-job-nepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financejobnepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -515,10 +513,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25567323" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18017058" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -740,13 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Service.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="75.09677">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/admin/views/common/sidenav.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4368231">
@@ -824,14 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/service/add-edit-service.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31768954">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Service.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9133574">
@@ -865,16 +848,6 @@
         <state vertical-scroll-proportion="-11.703704">
           <caret line="51" column="10" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/service/services-details.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55595666">
-          <caret line="62" column="205" selection-start-line="62" selection-start-column="205" selection-end-line="62" selection-end-column="205" />
-          <folding>
-            <element signature="e#316#1231#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -939,22 +912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="120" column="19" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/contact/contact_us.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.806452">
-          <caret line="76" column="117" selection-start-line="76" selection-start-column="117" selection-end-line="76" selection-end-column="117" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Home.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.016666">
@@ -980,26 +937,66 @@
             <element signature="e#75881#76180#0#PHP" expanded="false" />
             <element signature="e#76186#76776#0#PHP" expanded="false" />
             <element signature="e#77664#78217#0#PHP" expanded="false" />
-            <marker date="1559643904350" expanded="true" signature="50409:50450" placeholder="..." />
-            <marker date="1559643904350" expanded="true" signature="50691:50709" placeholder="..." />
-            <marker date="1559643904350" expanded="true" signature="51348:51365" placeholder="..." />
-            <marker date="1559643904350" expanded="true" signature="54332:54349" placeholder="..." />
-            <marker date="1559643904350" expanded="true" signature="57071:57088" placeholder="..." />
-            <marker date="1559643904350" expanded="true" signature="59910:59928" placeholder="..." />
-            <marker date="1559643904350" expanded="true" signature="61839:61888" placeholder="..." />
-            <marker date="1559643904350" expanded="true" signature="64312:64361" placeholder="..." />
-            <marker date="1559643904350" expanded="true" signature="66334:66383" placeholder="..." />
-            <marker date="1559643904350" expanded="true" signature="68209:68258" placeholder="..." />
-            <marker date="1559643904350" expanded="true" signature="72305:72323" placeholder="..." />
-            <marker date="1559643904350" expanded="true" signature="72577:72626" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1559643904350" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/contact/contact_us.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5234657">
+          <caret line="81" column="51" selection-start-line="81" selection-start-column="51" selection-end-line="81" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Service.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.064516">
+          <caret line="23" column="67" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/views/service/add-edit-service.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59584296">
+          <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6119134">
-          <caret line="91" column="80" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="80" />
+        <state vertical-scroll-proportion="-4.2580647">
+          <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="84" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/service/services-details.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68591225">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="33" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.58429563">
+          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="49" selection-end-column="18" />
           <folding />
         </state>
       </provider>

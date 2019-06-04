@@ -41,11 +41,14 @@
           <div class="single-footer-widget">
             <h3>Services we offer</h3>
             <ul>
-              <li><a href="<?php echo base_url().'services/recruitment'?>"><i class="fa fa-angle-double-right "></i>Recruitment</a></li>
-              <li><a href="<?php echo base_url().'services/staff-outsourcing'?>"><i class="fa fa-angle-double-right "></i>Staff Outsourcing</a></li>
-              <li><a href="<?php echo base_url().'services/hr-audit-consulting'?>"><i class="fa fa-angle-double-right "></i>HR Audit &amp; Consulting</a></li>
-              <li><a href="<?php echo base_url().'services/payroll-management'?>"><i class="fa fa-angle-double-right "></i>Payroll Management</a></li>
-              <li><a href="<?php echo base_url().'services/corporate-training-for-employer-job-seeker'?>"><i class="fa fa-angle-double-right "></i>Corporate Training for Employer & Job Seeker</a></li>
+                <?php
+                $this->load->model('../../admin/models/service_model');
+                $services = $this->service_model->get_all_service();
+                foreach($services as $service){
+                    echo '<li><a href="'.base_url().'services/'.$service->urlcode.'"><i class="fa fa-angle-double-right "></i>'.$service->title.'</a></li>';
+                }
+                ?>
+
             </ul>
           </div>
         </div>
