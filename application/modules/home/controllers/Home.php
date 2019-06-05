@@ -548,7 +548,7 @@ class Home extends View_Controller {
                     /*---------------------------------------------------------
                             Sending Mail to job Seeker about apply job
                     ---------------------------------------------------------*/
-                    $adminEmail = 'info@globaljob.com.np';
+                    $adminEmail = 'info@financejob.com.np';
 
                     //Get job Seeker Info
                     $fromEmail = $jobseeker_profile->email;
@@ -607,7 +607,7 @@ class Home extends View_Controller {
                         4th Floor, Everest Bank Building, Bagdole, Lalitpur, Nepal<br>
                         Tel: 977 1 6226783<br>
                         Website: www.financejobnepal.com<br>
-                        <img src='".base_url()."content_home/images/logo.png' alt='Global Job Pvt. Ltd.'>&nbsp;&nbsp;<img src='".base_url()."content_home/images/imi.jpg' alt='IMI Nepal'>&nbsp;&nbsp;<img src='".base_url()."content_home/images/president.jpg' alt='President Educational Consultancy'>";
+                        <img src='".base_url()."content_home/images/logo.png' alt='finance Job Pvt. Ltd.'>&nbsp;&nbsp;<img src='".base_url()."content_home/images/imi.jpg' alt='IMI Nepal'>&nbsp;&nbsp;<img src='".base_url()."content_home/images/president.jpg' alt='President Educational Consultancy'>";
                     $headers  = 'MIME-Version: 1.0' . "\r\n";
                     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
@@ -828,8 +828,8 @@ class Home extends View_Controller {
     }
 
     public function submitFeedback(){
-        $to = "info@searchglobaljobs.com";
-        $toname = "Global Job-Complete HR Solution";
+        $to = "info@searchfinancejobs.com";
+        $toname = "finance Job";
         $from = $this->input->post('email');
         $fromname = $this->input->post('name');
 
@@ -1001,8 +1001,8 @@ class Home extends View_Controller {
                         Submitting Jobseeker Feedbacks
     ---------------------------------------------------------*/
     public function submitJobseekerFeedbacks(){
-        $to = "info@searchglobaljobs.com";
-        $toname = "Global Job-Complete HR Solution";
+        $to = "info@searchfinancejobs.com";
+        $toname = "finance Job";
         $from = $this->input->post('email');
         $fromname = $this->input->post('name');
 
@@ -1061,7 +1061,7 @@ class Home extends View_Controller {
     ---------------------------------------------------------*/
     public function submitEmployerFeedbacks(){
         $to = "masanjeev@gmail.com";
-        $toname = "Global Job-Complete HR Solution";
+        $toname = "finance Job";
         $from = $this->input->post('email');
         $fromname = $this->input->post('name');
 
@@ -1534,7 +1534,7 @@ class Home extends View_Controller {
 
     public function submitMessage(){
         $to = "masanjeev@gmail.com";
-        $toname = "Global Job-Complete HR Solution";
+        $toname = "finance Job";
         $from = $this->input->post('email');
         $fromname = $this->input->post('name');
 
@@ -1619,7 +1619,7 @@ class Home extends View_Controller {
         $urlcode = $this->uri->segment(2);
         $data['menu'] = 'services';
         $data['page_title'] = 'Finance Job Nepal.';
-        //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
+        //$this->general_model->getById('financejob_service','urlcode',$urlcode);
         //echo 'urlcode = '.$urlcode;
         //$data['title'] = $this->general_model->getById('service','urlcode',$urlcode)->title;
         $data['content'] = $this->general_model->getById('service','urlcode',$urlcode);
@@ -1631,14 +1631,14 @@ class Home extends View_Controller {
         $urlcode = $this->uri->segment(2);
         $data['menu'] = 'content';
         
-        //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
+        //$this->general_model->getById('financejob_service','urlcode',$urlcode);
 
         $data['title'] = $this->general_model->getById('content','slug',$urlcode)->title;
         $data['content'] = $this->general_model->getById('content','slug',$urlcode);
         $meta_title = $this->general_model->getById('content','slug',$urlcode)->meta_title;
         $data['meta_description'] = $this->general_model->getById('content','slug',$urlcode)->meta_description;
         $data['meta_keyword'] = $this->general_model->getById('content','slug',$urlcode)->meta_keyword;
-        $data['page_title'] = '.:: ' .$meta_title. ' | Finance Job Nepal..';
+        $data['page_title'] = $meta_title. ' | Finance Job Nepal';
 
 
         $data['main'] = 'content/detail-page';
@@ -1649,7 +1649,7 @@ class Home extends View_Controller {
         $urlcode = $this->uri->segment(2);
         $data['menu'] = 'article';
         $data['page_title'] = 'Finance Job Nepal.';
-        //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
+        //$this->general_model->getById('financejob_service','urlcode',$urlcode);
 
         $data['title'] = $this->general_model->getById('article','slug',$urlcode)->title;
         $data['content'] = $this->general_model->getById('article','slug',$urlcode)->articles;
