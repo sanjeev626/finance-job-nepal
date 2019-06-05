@@ -50,7 +50,7 @@ class Search extends View_Controller {
 
         $this->pagination->initialize($config);
         $data['menu'] = 'searchjob';
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['page_title'] = '.:: Finance Job :: Complete HR Solution..';
         $data['title'] ='Job List';
         $data['job_info'] = $data['job_list'];
         $data['total_job'] = $data['total'];
@@ -64,7 +64,7 @@ class Search extends View_Controller {
     ---------------------------------------------------------*/
     public function job(){
         $data['menu'] = 'searchjob';
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['page_title'] = '.:: Finance Job :: Complete HR Solution..';
         $data['title'] ='Search Job';
         $data['job_category'] = $this->general_model->getAll('dropdown','fid = 1','','id,dropvalue');
         $data['job_location'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue');
@@ -108,7 +108,7 @@ class Search extends View_Controller {
         $this->pagination->initialize($config);
 
         $data['menu'] = 'searchjob';
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['page_title'] = '.:: Finance Job :: Complete HR Solution..';
         $data['title'] ='Search Job';
         $data['job_category'] = $this->general_model->getAll('dropdown','fid = 1','','id,dropvalue');
         $data['job_location'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue');
@@ -155,7 +155,7 @@ class Search extends View_Controller {
 
         $this->pagination->initialize($config);
         $data['menu'] = 'searchjob';
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['page_title'] = '.:: Finance Job :: Complete HR Solution..';
         $data['title'] ='Job List';
         $data['job_info'] = $data['job_list'];
         $data['total_job'] = $data['total'];
@@ -210,7 +210,7 @@ class Search extends View_Controller {
 
         $this->pagination->initialize($config);
         $data['menu'] = 'searchjob';
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['page_title'] = '.:: Finance Job :: Complete HR Solution..';
         $data['title'] ='Job List';
         $data['job_info'] = $job_list;
         $data['total_job'] = $data['total'];

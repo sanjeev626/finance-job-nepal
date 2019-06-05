@@ -151,10 +151,10 @@ class Employer extends View_Controller {
             $content  = '';
             $content .= "<h2>Don't worry, we all forget sometimes</h2><br>";
             $content .= "Hi <b>".$fullname."</b><br>";
-            $content .= "<span>You've recently asked to reset the password for this Globaljob Employer account:</span><br>";
+            $content .= "<span>You've recently asked to reset the password for this Finance Job Employer account:</span><br>";
             $content .= $email;
             $content .= "<br><br>To update your password, click the link below<br>";
-            $content .= "<a href='".base_url()."Employer/changePassword/?token=".$token."'>Reset my password";
+            $content .= "<a href='".base_url()."employer/changepassword/?token=".$token."'>Reset my password";
             $content .= "<br><br><br><br>Cheers,<br>";
             $content .= "Finance Job Nepal Team";
 

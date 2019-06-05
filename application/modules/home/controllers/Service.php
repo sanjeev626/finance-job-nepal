@@ -24,7 +24,7 @@ class Service extends View_Controller {
     **/
     public function interviewPreparation(){
         $data['menu'] = 'home';
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['page_title'] = '.:: Finance Job :: Complete HR Solution..';
         $data['title'] ='Interview Preparation Techniques';
         $data['content'] = $this->general_model->getById('content','id','8')->contents;
         $data['main'] = 'page-view';
@@ -36,7 +36,7 @@ class Service extends View_Controller {
     **/
     public function bachelorCapsule(){
         $data['menu'] = 'home';
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['page_title'] = '.:: Finance Job :: Complete HR Solution..';
         $data['title'] ='Plus 2 and bachelor capsule';
         $data['content'] = $this->general_model->getById('content','id','10')->contents;
         $data['main'] = 'page-view';
@@ -45,7 +45,7 @@ class Service extends View_Controller {
     
     public function industrialExperties(){
         $data['menu'] = 'home';
-        $data['page_title'] = '.:: Global Job :: Complete HR Solution..';
+        $data['page_title'] = '.:: Finance Job :: Complete HR Solution..';
         $data['title'] ='Interview Experties';
         //$data['content'] = $this->general_model->getById('content','id','8')->contents;
         $data['main'] = 'industrail-experties-view';
@@ -54,7 +54,7 @@ class Service extends View_Controller {
     
     public function submitExperties(){
         $to = "info@searchglobaljobs.com";
-        $toname = "Global Job-Complete HR Solution";
+        $toname = "Finance Job-Complete HR Solution";
         $from = $this->input->post('email');
         $fromname = $this->input->post('name');
 

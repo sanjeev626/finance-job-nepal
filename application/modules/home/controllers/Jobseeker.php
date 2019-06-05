@@ -372,7 +372,7 @@ class Jobseeker extends View_Controller {
               }
                 
               if($checkemail > 0){
-                  $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='http://financejobnepal.com/jobseeker/seekerforgotpassword'>HERE</a> and enter your email address.<br>GlobalJob administrator will mail you your authentication information.";
+                  $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='http://financejobnepal.com/jobseeker/seekerforgotpassword'>HERE</a> and enter your email address.<br>Finance Job administrator will mail you your authentication information.";
               }
               
                 $data['menu'] = 'home';
@@ -589,10 +589,10 @@ class Jobseeker extends View_Controller {
             $content  = '';
             $content .= "<h2>Don't worry, we all forget sometimes</h2><br>";
             $content .= "Hi <b>".$fullname."</b><br>";
-            $content .= "<span>You've recently asked to reset the password for this Globaljob JobSeeker account:</span><br>";
+            $content .= "<span>You've recently asked to reset the password for this Finance Job JobSeeker account:</span><br>";
             $content .= $email;
             $content .= "<br><br>To update your password, click the link below<br>";
-            $content .= "<a href='".base_url()."jobseeker/changePassword/?token=".$token."'>Reset my password</a>";
+            $content .= "<a href='".base_url()."jobseeker/changepassword/?token=".$token."'>Reset my password</a>";
             $content .= "<br><br><br><br>Cheers,<br>";
             $content .= "Finance Job Nepal Team";
 
