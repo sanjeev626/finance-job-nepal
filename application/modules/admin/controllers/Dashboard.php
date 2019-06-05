@@ -15,7 +15,7 @@ class Dashboard extends MY_Controller {
     }
    
     function index() {
-        $data['title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['title'] = 'Finance Job Nepal';
         $data['page_header'] = 'Dashboard';
         $data['page_header_icone'] = 'fa-home';
         $data['main'] = 'dashboard_view';

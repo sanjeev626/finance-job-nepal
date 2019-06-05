@@ -94,7 +94,11 @@
                                     <a href="#">TRAINING & CONSULTING </a>
                                 </li>
                                 <li class="">
-                                    <a href="#">ABOUT US</a>
+                                    <?php
+                                    $this->load->model('../../admin/models/content_model');
+                                    $aboutus = $this->content_model->get_content_by_id(2)->slug;
+                                    ?>
+                                    <a href="<?php echo base_url().'content/'.$aboutus?>">ABOUT US</a>
                                 </li>
                                 <li class="">
                                     <a href="<?php echo base_url().'contactus'?>">CONTACT US</a>

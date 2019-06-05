@@ -32,7 +32,7 @@ class Home extends View_Controller {
         }
 
         $data['menu'] = 'home';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'Finance Job Nepal';
         //$data['premium_job'] = $this->home_model->get_job_by_type('PJob',5);
         $data['no_of_corporate_job'] = 16;
         //$data['corporate_job'] = $this->home_model->get_job_by_type('CJob',$no_of_corporate_jobs);
@@ -82,7 +82,7 @@ class Home extends View_Controller {
         }
 
         $data['menu'] = 'job';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         $data['job_detail'] = $jobInfo = $this->general_model->getAll('jobs',array('id'=>$jobid));
         //print_r($jobInfo[0]);
         $jobview = ($jobInfo[0]->no_of_views != '') ? $jobInfo[0]->no_of_views : 0; 
@@ -187,7 +187,7 @@ class Home extends View_Controller {
         $this->pagination->initialize($config);
         */
         $data['menu'] = 'none';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         $data['title'] ='PREMUIM JOBS';
         //$data['job_info'] = $data['job_list'];
         //$data['total_job'] = $data['total'];
@@ -237,7 +237,7 @@ class Home extends View_Controller {
         $this->pagination->initialize($config);
         */
         $data['menu'] = 'none';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         $data['title'] = $title;
         //$data['job_info'] = $data['job_list'];
         //$data['total_job'] = $data['total'];
@@ -282,7 +282,7 @@ class Home extends View_Controller {
         $this->pagination->initialize($config);
         */
         $data['menu'] = 'none';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         $data['title'] ='TOP JOBS';
         //$data['job_info'] = $data['job_list'];
         //$data['total_job'] = $data['total'];
@@ -327,7 +327,7 @@ class Home extends View_Controller {
         $this->pagination->initialize($config);
         */
         $data['menu'] = 'none';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         $data['title'] ='TOP JOBS';
         //$data['job_info'] = $data['job_list'];
         //$data['total_job'] = $data['total'];
@@ -372,7 +372,7 @@ class Home extends View_Controller {
         $this->pagination->initialize($config);
         */
         $data['menu'] = 'none';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         $data['title'] ='INTERNATIONAL JOBS';
         //$data['job_info'] = $data['job_list'];
         //$data['total_job'] = $data['total'];
@@ -711,7 +711,7 @@ class Home extends View_Controller {
 
         $this->pagination->initialize($config);
         $data['menu'] = 'home';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         $data['title'] ='Job List';
         $data['job_info'] = $data['job_list'];
         $data['total_job'] = $data['total'];
@@ -724,7 +724,7 @@ class Home extends View_Controller {
     public function category($slug){
         //echo $slug;
         $data['menu'] = $slug;
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         $data['title'] ='Job List';
         $data['main'] = 'job-by-category';
         $this->load->view('main',$data);
@@ -735,7 +735,7 @@ class Home extends View_Controller {
     ---------------------------------------------------------*/
     public function aboutus(){
         $data['menu'] = 'about';
-        $data['page_title'] = 'About Us Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'About Us Finance Job Nepal.';
         $data['title'] ='About Us';
         $data['content'] = $this->general_model->getById('content','id','1')->contents;
         $data['main'] = 'page-view';
@@ -745,7 +745,7 @@ class Home extends View_Controller {
     public function upload_your_video_cv(){
         $content_id = "11";
         $data['menu'] = 'upload_your_video_cv';
-        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal.';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
         $data['main'] = 'page-view';
@@ -755,7 +755,7 @@ class Home extends View_Controller {
     public function express_your_perception(){
         $content_id = "12";
         $data['menu'] = 'express_your_perception';
-        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal.';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
         $data['main'] = 'page-view';
@@ -765,7 +765,7 @@ class Home extends View_Controller {
     public function give_your_feedbacks(){
         $content_id = "13";
         $data['menu'] = 'give_your_feedbacks';
-        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal.';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
         $data['main'] = 'page-view';
@@ -774,14 +774,14 @@ class Home extends View_Controller {
 
     public function jobseeker_feedbacks(){
         $data['menu'] = 'Jobseeker Feedbacks';
-        $data['page_title'] = 'Jobseeker Feedbacks Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Jobseeker Feedbacks Finance Job Nepal.';
         $data['title'] = "Jobseeker Feedbacks";
         $this->load->view('jobseeker_feedbacks',$data);
     }
 
     public function employer_feedbacks(){
         $data['menu'] = 'Employer Feedbacks';
-        $data['page_title'] = 'Employer Feedbacks Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Employer Feedbacks Finance Job Nepal.';
         $data['title'] = "Employer Feedbacks";
         $this->load->view('employer_feedbacks',$data);
     }
@@ -789,7 +789,7 @@ class Home extends View_Controller {
     public function subscribe_for_video_cv(){
         $content_id = "14";
         $data['menu'] = 'subscribe_for_video_cv';
-        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal.';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
         $data['main'] = 'page-view';
@@ -799,7 +799,7 @@ class Home extends View_Controller {
     public function express_employers_perception(){
         $content_id = "15";
         $data['menu'] = 'express_employers_perception';
-        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal.';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
         $data['main'] = 'page-view';
@@ -809,7 +809,7 @@ class Home extends View_Controller {
     public function give_your_feedback(){
         $content_id = "13";
         $data['menu'] = 'give_your_feedback';
-        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = $this->general_model->getById('content','id',$content_id)->title.' Finance Job Nepal.';
         $data['title'] =$this->general_model->getById('content','id',$content_id)->title;
         $data['content'] = $this->general_model->getById('content','id',$content_id)->contents;
         $data['main'] = 'page-view';
@@ -821,7 +821,7 @@ class Home extends View_Controller {
     ---------------------------------------------------------*/
     public function feedback(){
         $data['menu'] = 'feedback';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         $data['title'] ='Feedback';
         $data['main'] = 'feedback-view';
         $this->load->view('main',$data);
@@ -898,7 +898,7 @@ class Home extends View_Controller {
     ---------------------------------------------------------*/
     public function termandcondition(){
         $data['menu'] = 'termandcondition';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
        
         $data['main'] = 'term-condition';
         $this->load->view('main',$data);
@@ -909,7 +909,7 @@ class Home extends View_Controller {
     ---------------------------------------------------------*/
     public function privacypolicy(){
         $data['menu'] = 'privacypolicy';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
        
         $data['main'] = 'privacy-policy';
         $this->load->view('main',$data);
@@ -920,7 +920,7 @@ class Home extends View_Controller {
     ---------------------------------------------------------*/
     public function contactus(){
         $data['menu'] = 'contactus';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         $data['title'] ='Contact Us';
 //        $data['content'] = $this->general_model->getById('content','id','3')->contents;
         $data['main'] = 'contact/contact_us';
@@ -1600,7 +1600,7 @@ class Home extends View_Controller {
     
     public function clients(){
         $data['menu'] = 'clients';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         //$data['client_list'] = $this->general_model->getAll('clients','','','id,clientname,image');
         
         $this->load->view('client-list',$data);
@@ -1608,7 +1608,7 @@ class Home extends View_Controller {
     
     public function testimonial_list(){
         $data['menu'] = 'testimonial_list';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         $data['testimonial_list'] = $this->home_model->get_all_testimonial();
         
         $this->load->view('testimonial-list',$data);
@@ -1618,7 +1618,7 @@ class Home extends View_Controller {
         
         $urlcode = $this->uri->segment(2);
         $data['menu'] = 'services';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
         //echo 'urlcode = '.$urlcode;
         //$data['title'] = $this->general_model->getById('service','urlcode',$urlcode)->title;
@@ -1638,7 +1638,7 @@ class Home extends View_Controller {
         $meta_title = $this->general_model->getById('content','slug',$urlcode)->meta_title;
         $data['meta_description'] = $this->general_model->getById('content','slug',$urlcode)->meta_description;
         $data['meta_keyword'] = $this->general_model->getById('content','slug',$urlcode)->meta_keyword;
-        $data['page_title'] = '.:: ' .$meta_title. ' | Finance Job Nepal :: A complete HR Solution..';
+        $data['page_title'] = '.:: ' .$meta_title. ' | Finance Job Nepal..';
 
 
         $data['main'] = 'content/detail-page';
@@ -1648,7 +1648,7 @@ class Home extends View_Controller {
     public function article(){        
         $urlcode = $this->uri->segment(2);
         $data['menu'] = 'article';
-        $data['page_title'] = 'Finance Job Nepal :: A complete HR Solution.';
+        $data['page_title'] = 'Finance Job Nepal.';
         //$this->general_model->getById('globaljob_service','urlcode',$urlcode);
 
         $data['title'] = $this->general_model->getById('article','slug',$urlcode)->title;

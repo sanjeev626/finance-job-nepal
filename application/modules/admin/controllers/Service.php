@@ -16,7 +16,7 @@ class Service extends MY_Controller {
 
     public function index(){
 
-        $data['title'] = '.:: SERVICE ::.';
+        $data['title'] = 'SERVICE ';
         $data['page_header'] = 'Service';
         $data['page_header_icone'] = 'fa-cogs';
         $data['nav'] = 'service';
@@ -28,7 +28,7 @@ class Service extends MY_Controller {
     }
 
     public function add(){
-        $data['title'] = '.:: ADD SERVICE ::.';
+        $data['title'] = 'ADD SERVICE ';
         $data['page_header'] = 'Service';
         $data['page_header_icone'] = 'fa-cogs';
         $data['nav'] = 'service';
@@ -74,7 +74,7 @@ class Service extends MY_Controller {
         if (!is_numeric($id))
             redirect(base_url() . 'admin/service');
 
-        $data['title'] = '.:: EDIT SERVICE ::.';
+        $data['title'] = 'EDIT SERVICE ';
         $data['page_header'] = 'Service';
         $data['page_header_icone'] = 'fa-cogs';
         $data['nav'] = 'service';

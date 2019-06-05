@@ -24,7 +24,7 @@ class Service extends View_Controller {
     **/
     public function interviewPreparation(){
         $data['menu'] = 'home';
-        $data['page_title'] = '.:: Finance Job :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['title'] ='Interview Preparation Techniques';
         $data['content'] = $this->general_model->getById('content','id','8')->contents;
         $data['main'] = 'page-view';
@@ -36,7 +36,7 @@ class Service extends View_Controller {
     **/
     public function bachelorCapsule(){
         $data['menu'] = 'home';
-        $data['page_title'] = '.:: Finance Job :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['title'] ='Plus 2 and bachelor capsule';
         $data['content'] = $this->general_model->getById('content','id','10')->contents;
         $data['main'] = 'page-view';
@@ -45,7 +45,7 @@ class Service extends View_Controller {
     
     public function industrialExperties(){
         $data['menu'] = 'home';
-        $data['page_title'] = '.:: Finance Job :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['title'] ='Interview Experties';
         //$data['content'] = $this->general_model->getById('content','id','8')->contents;
         $data['main'] = 'industrail-experties-view';

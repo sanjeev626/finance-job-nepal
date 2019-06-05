@@ -14,7 +14,7 @@ class Blog extends CI_Controller
     }
 
     public function index(){
-        $data['title'] = '.:: Blog ::.';
+        $data['title'] = 'Blog ';
         $data['page_header'] = 'Blog Manager';
         $data['page_header_icone'] = 'fa-plus';
         $data['nav'] = 'blog';
@@ -26,7 +26,7 @@ class Blog extends CI_Controller
     }
 
     public function blogadd(){
-        $data['title'] = '.:: ADD Blog ::.';
+        $data['title'] = 'ADD Blog ';
         $data['page_header'] = 'Blog Manager';
         $data['page_header_icone'] = 'fa-plus';
         $data['nav'] = 'blog';
@@ -69,7 +69,7 @@ class Blog extends CI_Controller
         if (!is_numeric($id))
             redirect(base_url() . 'admin/blog');
 
-        $data['title'] = '.:: EDIT Blog ::.';
+        $data['title'] = 'EDIT Blog ';
         $data['page_header'] = 'Blog Manager';
         $data['page_header_icone'] = 'fa-edit';
         $data['nav'] = 'blog';
@@ -116,7 +116,7 @@ class Blog extends CI_Controller
      */
 
     public function category(){
-        $data['title'] = '.:: Blog ::.';
+        $data['title'] = 'Blog ';
         $data['page_header'] = 'Blog Category Manager';
         $data['page_header_icone'] = 'fa-plus';
         $data['nav'] = 'category';
@@ -128,7 +128,7 @@ class Blog extends CI_Controller
     }
 
     public  function categoryadd(){
-        $data['title'] = '.:: Add Category ::.';
+        $data['title'] = 'Add Category ';
         $data['page_header'] = 'Blog Category Manager';
         $data['page_header_icone'] = 'fa-plus';
         $data['nav'] = 'category';
@@ -147,7 +147,7 @@ class Blog extends CI_Controller
             redirect(base_url() . 'admin/blog/category');
 
 
-        $data['title'] = '.:: EDIT Category ::.';
+        $data['title'] = 'EDIT Category ';
         $data['page_header'] = 'Blog Category Manager';
         $data['page_header_icone'] = 'fa-edit';
         $data['nav'] = 'category';

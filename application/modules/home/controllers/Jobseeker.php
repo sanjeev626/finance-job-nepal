@@ -598,7 +598,7 @@ class Jobseeker extends View_Controller {
 
 
             $adminEmail = 'info@financejobnepal.com';
-            $mail_subject = "Forget Password Response from Finance Job Nepal :: A Complete HR solution";
+            $mail_subject = "Forget Password Response from Finance Job Nepal";
             $mail_body = $content;
             $mail_header  = 'MIME-Version: 1.0' . "\r\n";
             $mail_header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";

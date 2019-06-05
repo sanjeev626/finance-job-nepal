@@ -30,7 +30,7 @@ class Vacancy extends MY_Controller {
         $data['category'] = '';
         }
 
-      $data['title'] = '.:: VACANCY ::.';
+      $data['title'] = 'VACANCY';
       $data['page_header'] = 'Vacancy';
       $data['page_header_icone'] = 'fa fa-bullhorn';
       $data['nav'] = 'vacancy';
@@ -42,7 +42,7 @@ class Vacancy extends MY_Controller {
     }
 
     public function add(){
-        $data['title'] = '.:: ADD VACANCY ::.';
+        $data['title'] = 'ADD VACANCY';
         $data['page_header'] = 'Vacancy';
         $data['page_header_icone'] = 'fa fa-bullhorn';
         $data['nav'] = 'vacancy';
@@ -66,7 +66,7 @@ class Vacancy extends MY_Controller {
 
         if (FALSE == $this->form_validation->run()) {
             $this->session->set_flashdata('success', validation_errors());
-            $data['title'] = '.:: ADD VACANCY ::.';
+            $data['title'] = 'ADD VACANCY';
             $data['page_header'] = 'Vacancy';
             $data['page_header_icone'] = 'fa fa-bullhorn';
             $data['nav'] = 'vacancy';
@@ -113,7 +113,7 @@ class Vacancy extends MY_Controller {
         if (!is_numeric($id))
             redirect(base_url() . 'admin/Vacancy');
 
-        $data['title'] = '.:: EDIT Vacancy ::.';
+        $data['title'] = 'EDIT Vacancy';
         $data['page_header'] = 'Vacancy';
         $data['page_header_icone'] = 'fa fa-bullhorn';
         $data['nav'] = 'vacancy';

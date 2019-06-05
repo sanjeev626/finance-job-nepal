@@ -16,7 +16,7 @@ class Content extends CI_Controller {
 
     public function index(){
 
-        $data['title'] = '.:: CONTENT ::.';
+        $data['title'] = 'CONTENT ';
         $data['page_header'] = 'Content Manager';
         $data['page_header_icone'] = 'fa-edit';
         $data['nav'] = 'content';
@@ -29,7 +29,7 @@ class Content extends CI_Controller {
 
     public function add(){
 
-        $data['title'] = '.:: ADD CONTENT ::.';
+        $data['title'] = 'ADD CONTENT ';
         $data['page_header'] = 'Content Manager';
         $data['page_header_icone'] = 'fa-plus';
         $data['nav'] = 'content';
@@ -72,7 +72,7 @@ class Content extends CI_Controller {
         if (!is_numeric($id))
             redirect(base_url() . 'admin/content');
 
-        $data['title'] = '.:: EDIT CONTENT ::.';
+        $data['title'] = 'EDIT CONTENT ';
         $data['page_header'] = 'Content Manager';
         $data['page_header_icone'] = 'fa-edit';
         $data['nav'] = 'content';

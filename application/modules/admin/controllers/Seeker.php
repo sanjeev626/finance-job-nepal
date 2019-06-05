@@ -48,7 +48,7 @@ class Seeker extends MY_Controller {
         $config['total_rows'] = $this->db->count_all('seeker');
         $data['seeker'] = $this->seeker_model->get_all_seeker_limited($config['per_page'], $page);
         $this->pagination->initialize($config);
-        $data['title'] = '.:: JOB SEEKER LIST::.';
+        $data['title'] = 'JOB SEEKER LIST';
         $data['page_header'] = 'Job Seeker';
         $data['page_header_icone'] = 'fa-user';
         $data['nav'] = 'seeker';
@@ -66,7 +66,7 @@ class Seeker extends MY_Controller {
     }
 
     public function viewJobSekeerBasket(){
-        $data['title'] = '.:: VIEW BASKET ::.';
+        $data['title'] = 'VIEW BASKET';
         $data['page_header'] = 'View Job Seeker Basket';
         $data['page_header_icone'] = 'fa-user';
         $data['nav'] = 'seeker';
@@ -378,7 +378,7 @@ class Seeker extends MY_Controller {
         if (!is_numeric($eid))
             redirect(base_url() . 'admin/seeker');
 
-        $data['title'] = '.:: VIEW JOB SEEKER ::.';
+        $data['title'] = 'VIEW JOB SEEKER';
         $data['page_header'] = 'View Job Seeker ';
         $data['page_header_icone'] = 'fa-user';
         $data['nav'] = 'seeker';
@@ -436,7 +436,7 @@ class Seeker extends MY_Controller {
         if (!is_numeric($job_id))
             redirect(base_url() . 'admin/seeker');
 
-        $data['title'] = '.:: APPLIED JOB LIST ::.';
+        $data['title'] = 'APPLIED JOB LIST';
         $data['page_header'] = 'Applied Job List';
         $data['page_header_icone'] = 'fa-user';
         $data['nav'] = 'seeker';
@@ -479,7 +479,7 @@ class Seeker extends MY_Controller {
         
         $this->pagination->initialize($config);
 
-        $data['title'] = '.:: SEARCH RESULT JOB SEEKER ::.';
+        $data['title'] = 'SEARCH RESULT JOB SEEKER';
         $data['page_header'] = 'Search Result Job Seeker';
         $data['page_header_icone'] = 'fa-user';
         $data['nav'] = 'seeker';
