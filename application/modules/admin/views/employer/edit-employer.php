@@ -19,189 +19,6 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
         ?>
 
         <div class="form-group">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-green"><i class="fa fa-list-alt"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text"><h3>Company Details</h3></span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Organization Name :<span class="asterisk">*</span></label>
-
-            <div class="col-sm-7">
-                <input type="text" required name="orgname" id='orgname' class="form-control"
-                       value='<?php if (!empty($employer_detail->orgname)) echo $employer_detail->orgname;else echo set_value('orgname') ?>'/>
-                <?php echo form_error('orgname'); ?>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Email :</label>
-
-            <div class="col-sm-7">
-                <input type="email" readonly name="email" id='email' class="form-control"
-                       value='<?php if (!empty($employer_detail->email)) echo $employer_detail->email;else echo set_value('email') ?>'/>
-            </div>
-        </div>
-
-        <!--<div class="form-group">
-        <label class="col-sm-3 control-label">Secondary Email :</label>
-        <div class="col-sm-7">
-            <input type="text" name="email2" id='email2' class="form-control" value='<?php /*if (!empty($employer_detail)) echo $employer_detail->email2; */ ?>' />
-        </div>
-    </div>-->
-
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Phone :<span class="asterisk">*</span></label>
-
-            <div class="col-sm-7">
-                <input type="text"  name="phone" id='phone' class="form-control"
-                       value='<?php if (!empty($employer_detail->organization_phone)) echo $employer_detail->organization_phone;else echo set_value('phone') ?>'/>
-                <?php echo form_error('phone'); ?>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Address : <span class="asterisk">*</span></label>
-
-            <div class="col-sm-7">
-                <input type="text"  name="address" id='address' class="form-control"
-                       value='<?php if (!empty($employer_detail->organization_address)) echo $employer_detail->organization_address; else echo set_value('address') ?>'/>
-                <?php echo form_error('address'); ?>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Description :<span class="asterisk">*</span></label>
-
-            <div class="col-sm-7">
-            <textarea required rows="5" name="orgdesc" class="form-control" id="orgdesc">
-            <?php
-            if (!empty($employer_detail->organization_description)) {
-                echo $employer_detail->organization_description;
-            }
-            else{
-             echo set_value('orgdesc');
-            }
-            ?></textarea>
-                <?php echo form_error('orgdesc'); ?>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Organization Fax :</label>
-
-            <div class="col-sm-7">
-                <input type="text" name="fax" id='fax' class="form-control"
-                       value='<?php if (!empty($employer_detail->organization_fax)) echo $employer_detail->organization_fax;else echo set_value('fax') ?>'/>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Organization P.O.Box :</label>
-
-            <div class="col-sm-7">
-                <input type="text" name="pobox" id='pobox' class="form-control"
-                       value='<?php if (!empty($employer_detail->organization_pobox)) echo $employer_detail->organization_pobox;else echo set_value('pobox') ?>'/>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Organization Website :</label>
-
-            <div class="col-sm-7">
-                <input type="text" name="website" id='website' class="form-control"
-                       value='<?php if (!empty($employer_detail->organization_website)) echo $employer_detail->organization_website;else echo set_value('website') ?>'/>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Organization Type :</label>
-
-            <div class="col-sm-7">
-                <select class="form-control" name="organization_type">
-                    <option value="">--Select Ogranization Type--</option>
-                    <?php
-
-                        foreach ($org_type as $ot) {
-                            if($ot->id == $employer_detail->organization_type)
-                                $selected = 'selected';
-                            else
-                                $selected = '';
-                            echo '<option value="'.$ot->id.'" '.$selected.' >'.$ot->dropvalue.'</option>';
-                        }
-                    ?>
-                </select>
-                
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Organization Size :</label>
-
-            <div class="col-sm-7">
-                <!--<input type="text" name="organization_size" id='organization_size' class="form-control"
-                       value='<?php /*if (!empty($employer_detail->organization_size)) echo $employer_detail->organization_size;else echo set_value('organization_size') */?>'/>-->
-                <select class="form-control" name="organization_size">
-                    <option value="">--Select Ogranization Size--</option>
-                    <?php
-
-                    foreach ($org_size as $os) {
-                        if($os->id == $employer_detail->organization_size)
-                            $selected = 'selected';
-                        else
-                            $selected = '';
-                        echo '<option value="'.$os->id.'" '.$selected.' >'.$os->dropvalue.'</option>';
-                    }
-                    ?>
-                </select>
-            </div>
-        </div>
-
-        
-
-        <!--<div class="form-group">
-        <label class="col-sm-3 control-label">Nature of Organization :</label>
-        <div class="col-sm-7">
-            <select class="form-control chosen-select" id="natureoforg" name='natureoforg' data-placeholder="Choose Nature of Organization">
-                <option value='0'>NONE</option>
-                <?php /*foreach ($nature_of_organization as $key => $value) {*/ ?>
-                <option value='<?php /*echo $value->id; */ ?>' <?php /*if(!empty($employer_detail) && $employer_detail->natureoforg == $value->id){ echo "selected='selected'"; } */ ?>><?php /*echo $value->dropvalue; */ ?></option>
-                <?php /* } */ ?>
-            </select>
-        </div>
-    </div>-->
-
-        <!-- <div class="form-group">
-            <label class="col-sm-3 control-label">Organization Type :<span class="asterisk">*</span></label>
-            <div class="col-sm-7">
-                <select class="form-control chosen-select" name='orgtype' data-placeholder="Choose a Organisation Type...">
-                    <?php foreach ($org_type as $key => $value) { ?>
-                    <option value='<?php echo $value->id;  ?>' <?php if(!empty($employer_detail) && $employer_detail->organization_size == $value->id){ echo "selected='selected'"; }  ?>><?php echo $value->dropvalue;  ?></option>
-                    <?php }  ?>
-                </select>
-            </div>
-    </div> -->
-
-        <!--<div class="form-group">
-            <label class="col-sm-3 control-label">Ownership :<span class="asterisk">*</span></label>
-            <div class="col-sm-7">
-                <select class="form-control chosen-select" name='ownership' data-placeholder="Choose a Ownership">
-                    <?php /*foreach ($ownship as $key => $value) {*/ ?>
-                    <option value='<?php /*echo $value->id; */ ?>' <?php /*if(!empty($employer_detail) && $employer_detail->ownership == $value->id){ echo "selected='selected'"; } */ ?>><?php /*echo $value->dropvalue; */ ?></option>
-                    <?php /* } */ ?>
-                </select>
-            </div>
-    </div>-->
-
-        <div class="form-group">
             <label class="col-sm-3 control-label">Company Logo :</label>
 
             <div class="col-sm-7">
@@ -237,6 +54,200 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
             </div>
         </div>
 
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-list-alt"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text"><h3>Company Details</h3></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+        </div>
+
+        <!-- Organization Name -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Organization Name :<span class="asterisk">*</span></label>
+
+            <div class="col-sm-7">
+                <input type="text" required name="orgname" id='orgname' class="form-control"
+                       value='<?php if (!empty($employer_detail->orgname)) echo $employer_detail->orgname;else echo set_value('orgname') ?>'/>
+                <?php echo form_error('orgname'); ?>
+            </div>
+        </div>
+
+        <!-- Organization Type -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Organization Type :</label>
+
+            <div class="col-sm-7">
+                <select class="form-control" name="organization_type">
+                    <option value="">--Select Ogranization Type--</option>
+                    <?php
+
+                        foreach ($org_type as $ot) {
+                            if($ot->id == $employer_detail->organization_type)
+                                $selected = 'selected';
+                            else
+                                $selected = '';
+                            echo '<option value="'.$ot->id.'" '.$selected.' >'.$ot->dropvalue.'</option>';
+                        }
+                    ?>
+                </select>
+                
+            </div>
+        </div>
+
+        <!-- Organization Size -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Organization Size :</label>
+
+            <div class="col-sm-7">
+                <!--<input type="text" name="organization_size" id='organization_size' class="form-control"
+                       value='<?php /*if (!empty($employer_detail->organization_size)) echo $employer_detail->organization_size;else echo set_value('organization_size') */?>'/>-->
+                <select class="form-control" name="organization_size">
+                    <option value="">--Select Ogranization Size--</option>
+                    <?php
+
+                    foreach ($org_size as $os) {
+                        if($os->id == $employer_detail->organization_size)
+                            $selected = 'selected';
+                        else
+                            $selected = '';
+                        echo '<option value="'.$os->id.'" '.$selected.' >'.$os->dropvalue.'</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+
+        <!-- Organization Phone -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Phone :<span class="asterisk">*</span></label>
+
+            <div class="col-sm-7">
+                <input type="text"  name="phone" id='phone' class="form-control"
+                       value='<?php if (!empty($employer_detail->organization_phone)) echo $employer_detail->organization_phone;else echo set_value('phone') ?>'/>
+                <?php echo form_error('phone'); ?>
+            </div>
+        </div>
+
+        <!-- Organization Email -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Email :</label>
+
+            <div class="col-sm-7">
+                <input type="email" readonly name="email" id='email' class="form-control"
+                       value='<?php if (!empty($employer_detail->email)) echo $employer_detail->email;else echo set_value('email') ?>'/>
+            </div>
+        </div>
+
+        <!-- Organization P.O.Box -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Organization P.O.Box :</label>
+
+            <div class="col-sm-7">
+                <input type="text" name="pobox" id='pobox' class="form-control"
+                       value='<?php if (!empty($employer_detail->organization_pobox)) echo $employer_detail->organization_pobox;else echo set_value('pobox') ?>'/>
+            </div>
+        </div>
+
+        <!-- Organization Website -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Organization Website :</label>
+
+            <div class="col-sm-7">
+                <input type="text" name="website" id='website' class="form-control"
+                       value='<?php if (!empty($employer_detail->organization_website)) echo $employer_detail->organization_website;else echo set_value('website') ?>'/>
+            </div>
+        </div>
+
+        <!--<div class="form-group">
+        <label class="col-sm-3 control-label">Secondary Email :</label>
+        <div class="col-sm-7">
+            <input type="text" name="email2" id='email2' class="form-control" value='<?php /*if (!empty($employer_detail)) echo $employer_detail->email2; */ ?>' />
+        </div>
+    </div>-->
+
+        
+        <!-- Organization Address -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Organization Address : <span class="asterisk">*</span></label>
+
+            <div class="col-sm-7">
+                <input type="text"  name="address" id='address' class="form-control"
+                       value='<?php if (!empty($employer_detail->organization_address)) echo $employer_detail->organization_address; else echo set_value('address') ?>'/>
+                <?php echo form_error('address'); ?>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Description :<span class="asterisk">*</span></label>
+
+            <div class="col-sm-7">
+            <textarea required rows="5" name="orgdesc" class="form-control" id="orgdesc">
+            <?php
+            if (!empty($employer_detail->organization_description)) {
+                echo $employer_detail->organization_description;
+            }
+            else{
+             echo set_value('orgdesc');
+            }
+            ?></textarea>
+                <?php echo form_error('orgdesc'); ?>
+            </div>
+        </div>
+
+        <!-- <div class="form-group">
+            <label class="col-sm-3 control-label">Organization Fax :</label>
+
+            <div class="col-sm-7">
+                <input type="text" name="fax" id='fax' class="form-control"
+                       value='<?php if (!empty($employer_detail->organization_fax)) echo $employer_detail->organization_fax;else echo set_value('fax') ?>'/>
+            </div>
+        </div> -->
+
+                    
+        <!--<div class="form-group">
+        <label class="col-sm-3 control-label">Nature of Organization :</label>
+        <div class="col-sm-7">
+            <select class="form-control chosen-select" id="natureoforg" name='natureoforg' data-placeholder="Choose Nature of Organization">
+                <option value='0'>NONE</option>
+                <?php /*foreach ($nature_of_organization as $key => $value) {*/ ?>
+                <option value='<?php /*echo $value->id; */ ?>' <?php /*if(!empty($employer_detail) && $employer_detail->natureoforg == $value->id){ echo "selected='selected'"; } */ ?>><?php /*echo $value->dropvalue; */ ?></option>
+                <?php /* } */ ?>
+            </select>
+        </div>
+    </div>-->
+
+        <!-- <div class="form-group">
+            <label class="col-sm-3 control-label">Organization Type :<span class="asterisk">*</span></label>
+            <div class="col-sm-7">
+                <select class="form-control chosen-select" name='orgtype' data-placeholder="Choose a Organisation Type...">
+                    <?php foreach ($org_type as $key => $value) { ?>
+                    <option value='<?php echo $value->id;  ?>' <?php if(!empty($employer_detail) && $employer_detail->organization_size == $value->id){ echo "selected='selected'"; }  ?>><?php echo $value->dropvalue;  ?></option>
+                    <?php }  ?>
+                </select>
+            </div>
+    </div> -->
+
+        <!--<div class="form-group">
+            <label class="col-sm-3 control-label">Ownership :<span class="asterisk">*</span></label>
+            <div class="col-sm-7">
+                <select class="form-control chosen-select" name='ownership' data-placeholder="Choose a Ownership">
+                    <?php /*foreach ($ownship as $key => $value) {*/ ?>
+                    <option value='<?php /*echo $value->id; */ ?>' <?php /*if(!empty($employer_detail) && $employer_detail->ownership == $value->id){ echo "selected='selected'"; } */ ?>><?php /*echo $value->dropvalue; */ ?></option>
+                    <?php /* } */ ?>
+                </select>
+            </div>
+    </div>-->
+
+        
+
 
         <div class="form-group">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -251,6 +262,7 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
                 <!-- /.info-box -->
             </div>
         </div>
+        <!-- Contact Person -->
         <div class="form-group">
             <label class="col-sm-3 control-label">Contact Person :<span class="asterisk">*</span></label>
 
@@ -261,6 +273,7 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
             </div>
         </div>
 
+        <!-- Designation -->
         <div class="form-group">
             <label class="col-sm-3 control-label">Designation :<span class="asterisk">*</span></label>
 
@@ -270,6 +283,18 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
                 <?php echo form_error('designation'); ?>
             </div>
         </div>
+
+        <!-- Contact Person Mobile -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Contact Person Mobile :</label>
+
+            <div class="col-sm-7">
+                <input type="text" name="contact_mobile" id='contact_mobile' class="form-control"
+                       value='<?php if (!empty($employer_detail->contact_mobile)) echo $employer_detail->contact_mobile;else echo set_value('contact_mobile') ?>'/>
+            </div>
+        </div>
+
+        <!-- Contact Person Email -->
         <div class="form-group">
             <label class="col-sm-3 control-label">Contact Person Email :</label>
 
@@ -280,17 +305,10 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
         </div>
 
 
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Contact Person Mobile :</label>
-
-            <div class="col-sm-7">
-                <input type="text" name="contact_mobile" id='contact_mobile' class="form-control"
-                       value='<?php if (!empty($employer_detail->contact_mobile)) echo $employer_detail->contact_mobile;else echo set_value('contact_mobile') ?>'/>
-            </div>
-        </div>
+        
 
 
-        <!-- alternate contact -->
+        <!-- Alternate Contact Person -->
         <div class="form-group">
             <label class="col-sm-3 control-label">Alternate Contact Person :</label>
 
@@ -300,6 +318,7 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
             </div>
         </div>
 
+        <!-- Alternate Contact Person Designation -->
         <div class="form-group">
             <label class="col-sm-3 control-label">Alternate Contact Person Designation :</label>
 
@@ -309,7 +328,18 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
                 
             </div>
         </div>
+
+        <!-- Alternate Contact Person Mobile -->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Alternate Contact Person Mobile :</label>
+
+            <div class="col-sm-7">
+                <input type="text" name="alternate_contact_mobile" id='alternate_contact_mobile' class="form-control"
+                       value='<?php if (!empty($employer_detail->alternate_contact_mobile)) echo $employer_detail->alternate_contact_mobile;else echo set_value('alternate_contact_mobile') ?>'/>
+            </div>
+        </div>
         
+        <!-- Alternate Contact Person Email -->
         <div class="form-group">
             <label class="col-sm-3 control-label">Alternate Contact Person Email :</label>
 
@@ -320,16 +350,22 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
         </div>
 
 
+        
         <div class="form-group">
-            <label class="col-sm-3 control-label">Alternate Contact Person Mobile :</label>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-file-text-o"></i></span>
 
-            <div class="col-sm-7">
-                <input type="text" name="alternate_contact_mobile" id='alternate_contact_mobile' class="form-control"
-                       value='<?php if (!empty($employer_detail->alternate_contact_mobile)) echo $employer_detail->alternate_contact_mobile;else echo set_value('alternate_contact_mobile') ?>'/>
+                    <div class="info-box-content">
+                        <span class="info-box-text"><h3>Social Links</h3></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
             </div>
         </div>
 
-
+        <!-- Organization Facebook -->
         <div class="form-group">
             <label class="col-sm-3 control-label">Organization Facebook :</label>
 
@@ -338,7 +374,8 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
                        value='<?php if (!empty($employer_detail->organization_facebook)) echo $employer_detail->organization_facebook; else echo set_value('facebook')?>'/>
             </div>
         </div>
-
+        
+        <!-- Organization Linkedin -->
         <div class="form-group">
             <label class="col-sm-3 control-label">Organization Linkedin :</label>
 

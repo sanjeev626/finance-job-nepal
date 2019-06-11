@@ -70,8 +70,9 @@ class Dropdown extends MY_Controller {
 
 
             $this->dropdown_model->insert_dropdown($logoimage);
+            $this->session->set_flashdata('selectedfield', $this->input->post('fid'));
             $this->session->set_flashdata('success', 'Dropdown Field Added Successfully...');
-            redirect(base_url() . 'admin/dropdown', 'refresh');
+            redirect(base_url() . 'admin/dropdown/add', 'refresh');
         }
     }
 
@@ -133,7 +134,7 @@ class Dropdown extends MY_Controller {
 
             $this->dropdown_model->update_dropdown($id,$logoimage);
             $this->session->set_flashdata('success', 'Dropdown Field Update Successfully...');
-            redirect(base_url() . 'admin/dropdown', 'refresh');
+            redirect(base_url() . 'admin/dropdown/edit/'.$id, 'refresh');
         }
     }
 

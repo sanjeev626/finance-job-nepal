@@ -6,7 +6,7 @@
 
 
 <!-- Candidate Dashboard Area Start -->
-<section class="candidate-dashboard-area section_70">
+<section class="candidate-dashboard-area section_15">
     <div class="container">
         <?php
         if (!empty($employerInfo->organization_banner)){

@@ -101,17 +101,17 @@ class Vacancy extends MY_Controller {
 
             $this->vacancy_model->insert_vacancy($complogo);
             $this->session->set_flashdata('success', 'Job Added Successfully...');
-            redirect(base_url() . 'admin/Vacancy', 'refresh');
+            redirect(base_url() . 'admin/vacancy', 'refresh');
         }
     }
 
     public function edit($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
         $data['title'] = 'EDIT Vacancy';
         $data['page_header'] = 'Vacancy';
@@ -135,10 +135,10 @@ class Vacancy extends MY_Controller {
     public function editVacancy($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
         $this->form_validation->set_rules('jobtitle', 'jobtitle', 'required');
         $this->form_validation->set_rules('requiredno', 'requiredno', 'required');
@@ -174,17 +174,17 @@ class Vacancy extends MY_Controller {
 
             $this->vacancy_model->update_vacancy($id,$complogo);
             $this->session->set_flashdata('success', 'Job Update Successfully...');
-            redirect(base_url() . 'admin/Vacancy/edit/'.$id, 'refresh');
+            redirect(base_url() . 'admin/vacancy/edit/'.$id, 'refresh');
         }
     }
 
     public function deleteVacancy($id){
 
       if (!isset($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
         $this->vacancy_model->delete_vacancy($id);
         $this->session->set_flashdata('success', 'Job Deleted Successfully...');

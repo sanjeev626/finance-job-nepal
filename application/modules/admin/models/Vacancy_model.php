@@ -88,11 +88,11 @@ class Vacancy_model extends CI_Model {
         }
         
         $joblocation='';
-        for($i=0;$i<count($_POST['joblocation']);$i++)
+        /*for($i=0;$i<count($_POST['joblocation']);$i++)
         {
             $joblocation.=$_POST['joblocation'][$i].",";
         }
-        $joblocation = substr($joblocation, 0, -1);
+        $joblocation = substr($joblocation, 0, -1);*/
 
         $jobtype = '';
         if(isset($_POST['jobtype']) && count($_POST['jobtype'])>0)
@@ -214,11 +214,11 @@ class Vacancy_model extends CI_Model {
         }
         
         $joblocation='';
-        for($i=0;$i<count($_POST['joblocation']);$i++)
+        /*for($i=0;$i<count($_POST['joblocation']);$i++)
         {
             $joblocation.=$_POST['joblocation'][$i].",";
         }
-        $joblocation = substr($joblocation, 0, -1);
+        $joblocation = substr($joblocation, 0, -1);*/
 
         //$post_date = $this->input->post('pyy').'-'.$this->input->post('pmm').'-'.$this->input->post('pdd');
         $jobtype = '';

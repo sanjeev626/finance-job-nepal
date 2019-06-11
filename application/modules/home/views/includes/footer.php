@@ -26,6 +26,7 @@
             <h3>Employer</h3>
             <ul>
                 <?php
+                $employer_profile = $this->session->userdata('employer_profile');
                 if(!empty($employer_profile)){ ?>
                     <li><a href="<?php echo base_url() . 'employer/postJob' ?>"><i class="fa fa-angle-double-right "></i>Post Job</a></li>
                 <?php }else{?>
