@@ -27,7 +27,7 @@
                 <tr>
                   <th width="1%">SN.</th>
                   <th width="25%">Contact Name </th>
-                  <th width="25%">Organisation </th>
+                  <th width="25%">Organization </th>
                   <th width="25%">Email </th>
 
                   <th width="24%" class="table-action text-center">Action</th>
