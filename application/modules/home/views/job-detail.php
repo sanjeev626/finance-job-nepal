@@ -36,11 +36,13 @@ if(!empty($banner_image)){
                             <?php
                             //echo $jobDetail->joblocation;
                             if(!empty($jobDetail->joblocation)){
-                                $joblocation_arr = explode(',',$jobDetail->joblocation);
-                                for($i=0;$i<count($joblocation_arr);$i++)
-                                {
-                                    echo $this->general_model->getById('dropdown','id',$joblocation_arr[$i])->dropvalue;
-                                    if(count($joblocation_arr)>0 && $i<(count($joblocation_arr)-1)) echo ', ';
+                                $joblocation_arr = unserialize($jobDetail->joblocation);
+                                if($joblocation_arr !=''){
+                                    for($i=0;$i<count($joblocation_arr);$i++)
+                                    {
+                                        echo $this->general_model->getById('dropdown','id',$joblocation_arr[$i])->dropvalue;
+                                        if(count($joblocation_arr)>0 && $i<(count($joblocation_arr)-1)) echo ', ';
+                                    }
                                 }
                             }
 
@@ -51,11 +53,13 @@ if(!empty($banner_image)){
                             <p><i class="fa fa-thumb-tack"></i> <strong>Job Type :</strong>
                                 <?php
                                 if(!empty($jobDetail->jobtype)){
-                                    $jobtype_arr = explode(',',$jobDetail->jobtype);
-                                    for($i=0;$i<count($jobtype_arr);$i++)
-                                    {
-                                        echo $this->general_model->getById('dropdown','id',$jobtype_arr[$i])->dropvalue;
-                                        if(count($jobtype_arr)>0 && $i<(count($jobtype_arr)-1)) echo ', ';
+                                    $jobtype_arr = unserialize($jobDetail->jobtype);
+                                    if($jobtype_arr!=''){
+                                        for($i=0;$i<count($jobtype_arr);$i++)
+                                        {
+                                            echo $this->general_model->getById('dropdown','id',$jobtype_arr[$i])->dropvalue;
+                                            if(count($jobtype_arr)>0 && $i<(count($jobtype_arr)-1)) echo ', ';
+                                        }
                                     }
                                 }
 

@@ -451,23 +451,34 @@ class Employer_model extends CI_Model {
                 $job_display_in .= $_POST['job_display_in'][$i].',';
             }
         }*/
-        
-        $joblocation='';
-        for($i=0;$i<count($_POST['joblocation']);$i++)
+
+
+        $joblocation=array();
+        if(isset($_POST['joblocation'])&& count($_POST['joblocation'])>0)
         {
-            $joblocation.=$_POST['joblocation'][$i].",";
+            for($i=0;$i<count($_POST['joblocation']);$i++)
+            {
+                $joblocation[] =$_POST['joblocation'][$i];
+            }
         }
-        $joblocation = substr($joblocation, 0, -1);
+        else{
+            $joblocation = '';
+        }
+
+        $jobtype = array();
+        if(isset($_POST['jobtype']) && count($_POST['jobtype'])>0)
+        {
+            for($i=0;$i<count($_POST['jobtype']);$i++){
+                $jobtype[] = $_POST['jobtype'][$i];
+            }
+        }
+        else{
+            $jobtype = '';
+        }
 
         $data = array(
-            //'job_display_in' => $job_display_in,
-            //'isNewspaperJob' => $this->input->post('isNewspaperJob'),
             'postedin' => date('Y-m-d'),
             'eid' => $eid,
-            //'orgemail' => $this->input->post('orgemail'),
-            //'complogo' => $complogo,
-            //'banner_image' => $banner,
-            //'displayname' => $this->input->post('displayname'),
             'jobtitle' => $jobtitle,
             'slug' => $slug,
             'jobcategory' => $this->input->post('jobcategory'),
@@ -484,37 +495,16 @@ class Employer_model extends CI_Model {
             'salaryrange' => $this->input->post('salaryrange'),
             'exprequire' => $this->input->post('exprequire'),
             'noexperience' => $this->input->post('noexperience'),
-            //'education' => $this->input->post('education'),
             'joblevel' => $this->input->post('joblevel'),
-            'jobtype' => $this->input->post('jobtype'),
-            /*'jobtype2' => $jobtype2,
-            'jobtype3' => $jobtype3,
-            'jobtype4' => $jobtype4,
-            'otherstype' => $this->input->post('otherstype'),*/
-            'joblocation' => $joblocation,
-            //'background' => $this->input->post('background'),
+            'jobtype' => serialize($jobtype),
+            'joblocation' => serialize($joblocation),
             'specification' => $this->input->post('specification'),
             'requirements' => $this->input->post('requirements'),
             'post_status' => $this->input->post('post_status'),
-            /*'howtoapply' => $this->input->post('howtoapply'),
-            'onlineap' => $onlineap,
-            'emailap' => $emailap,
-            'postap' => $postap,
-            'video_cv' => $video_cv,
-            'pobox' => $this->input->post('pobox'),
-
-            'apply_by_faculty' => $this->input->post('apply_by_faculty'),
-            'from_age' => $this->input->post('from_age'),
-            'to_age' => $this->input->post('to_age'),
-            'apply_by_age' => $this->input->post('from_age').'-'.$this->input->post('to_age'),
-            'adminPosted' => $adminPosted,*/
             'required_education' => $this->input->post('required_education'),
-            /*'other_faculty' => $this->input->post('other_faculty'),
+            'other_faculty' => $this->input->post('other_faculty'),
             'expected_faculty' => $this->input->post('expected_faculty'),          
-            'slc_docs' =>$this->input->post('slc_docs'),
-            'docs_11_12' =>$this->input->post('docs_11_12'),
-            'bachelor_docs' =>$this->input->post('bachelor_docs'),
-            'masters_docs' =>$this->input->post('masters_docs')*/
+
             );
 
             $this->db->insert('jobs',$data);
@@ -578,20 +568,32 @@ class Employer_model extends CI_Model {
         }
         //echo $job_display_in;
         //print_r($_POST['joblocation']);
-        $joblocation='';
-        for($i=0;$i<count($_POST['joblocation']);$i++)
+        $joblocation=array();
+        if(isset($_POST['joblocation'])&& count($_POST['joblocation'])>0)
         {
-            $joblocation.=$_POST['joblocation'][$i].",";
+            for($i=0;$i<count($_POST['joblocation']);$i++)
+            {
+                $joblocation[] =$_POST['joblocation'][$i];
+            }
         }
-        $joblocation = substr($joblocation, 0, -1);
+        else{
+            $joblocation = '';
+        }
+
+        $jobtype = array();
+        if(isset($_POST['jobtype']) && count($_POST['jobtype'])>0)
+        {
+            for($i=0;$i<count($_POST['jobtype']);$i++){
+                $jobtype[] = $_POST['jobtype'][$i];
+            }
+        }
+        else{
+            $jobtype = '';
+        }
 
         $data = array(
-            'job_display_in' => $job_display_in,
-            'isNewspaperJob' => $this->input->post('isNewspaperJob'),
-            'postedin' => $this->input->post('postedin'),
+            'postedin' => date('Y-m-d'),
             'eid' => $eid,
-            'orgemail' => $this->input->post('orgemail'),
-            'displayname' => $this->input->post('displayname'),
             'jobtitle' => $jobtitle,
             'slug' => $slug,
             'jobcategory' => $this->input->post('jobcategory'),
@@ -603,43 +605,21 @@ class Employer_model extends CI_Model {
             'apmm' => $apmm,
             'apdd' => $apdd,
             'apyy' => $apyy,
-            // 'applybefore'=>$applybefore,
             'post_date'=>$this->input->post('post_date'),
             'applybefore'=>$this->input->post('applybefore'),
-            'updatedate' =>$updatedate,
             'salaryrange' => $this->input->post('salaryrange'),
+            'exprequire' => $this->input->post('exprequire'),
             'noexperience' => $this->input->post('noexperience'),
-            'education' => $this->input->post('education'),
             'joblevel' => $this->input->post('joblevel'),
-            'jobtype' => $this->input->post('jobtype'),
-            'jobtype2' => $jobtype2,
-            'jobtype3' => $jobtype3,
-            'jobtype4' => $jobtype4,
-            'otherstype' => $this->input->post('otherstype'),
-            'joblocation' => $joblocation,
-            'background' => $this->input->post('background'),
+            'jobtype' => serialize($jobtype),
+            'joblocation' => serialize($joblocation),
             'specification' => $this->input->post('specification'),
             'requirements' => $this->input->post('requirements'),
-            'howtoapply' => $this->input->post('howtoapply'),
-            'onlineap' => $onlineap,
-            'emailap' => $emailap,
-            'postap' => $postap,
-            'video_cv' => $video_cv,
-            'pobox' => $this->input->post('pobox'),
             'post_status' => $this->input->post('post_status'),
-            'apply_by_faculty' => $this->input->post('apply_by_faculty'),
-            'from_age' => $this->input->post('from_age'),
-            'to_age' => $this->input->post('to_age'),
-            'apply_by_age' => $this->input->post('from_age').'-'.$this->input->post('to_age'),
-            'adminPosted' => $adminPosted,
             'required_education' => $this->input->post('required_education'),
-            'other_faculty' => $this->input->post('other_faculty'), 
-            'expected_faculty' => $this->input->post('expected_faculty'),             
-            'slc_docs' =>$this->input->post('slc_docs'),
-            'docs_11_12' =>$this->input->post('docs_11_12'),
-            'bachelor_docs' =>$this->input->post('bachelor_docs'),
-            'masters_docs' =>$this->input->post('masters_docs')
-            );
+            'other_faculty' => $this->input->post('other_faculty'),
+            'expected_faculty' => $this->input->post('expected_faculty'),
+        );
         if($logo){
             $data['complogo'] = $logo;
         }

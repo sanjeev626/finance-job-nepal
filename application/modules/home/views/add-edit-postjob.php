@@ -58,12 +58,10 @@ if (!empty($jobpost_detail)) {
                                         <div class="single-input">
                                             <label for="Location">Location:</label>
                                             <?php
-                                            $joblocation_arr='';
-                                            if(!empty($jobpost_detail))
-                                            {
-                                                $jobpost_detail->joblocation;
-                                                $joblocation_arr = explode(',',$jobpost_detail->joblocation);
-                                            }
+                                            if (!empty($jobpost_detail->joblocation))
+                                                $joblocation_arr = unserialize($jobpost_detail->joblocation);
+                                            else
+                                                $joblocation_arr = array();
                                             ?>
                                             <select multiple="" class="form-control" name="joblocation[]">
                                                 <?php foreach ($joblocation as $key => $value) {?>
@@ -74,10 +72,17 @@ if (!empty($jobpost_detail)) {
 
                                         <div class="single-input">
                                             <label for="j_type">Job Type:</label>
-                                            <select id="j_type" name="jobtype" class="form-control">
-                                                <option value=''>Select One</option>
+                                            <?php
+
+                                            if (!empty($jobpost_detail->jobtype))
+                                                $jobtype_arr = unserialize($jobpost_detail->jobtype);
+                                            else
+                                                $jobtype_arr = array();
+
+                                            ?>
+                                            <select id="j_type" multiple="" name="jobtype[]" class="form-control">
                                                 <?php foreach ($jobtype as $key => $value) {?>
-                                                    <option <?php if(!empty($jobpost_detail) && $jobpost_detail->jobtype == $value->id){ echo "selected='selected'"; } ?> value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
+                                                    <option <?php if(!empty($jobpost_detail) && in_array($value->id, $jobtype_arr)){ echo "selected='selected'"; } ?> value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
                                                 <?php  } ?>
                                             </select>
                                         </div>
@@ -130,7 +135,7 @@ if (!empty($jobpost_detail)) {
                                         </div>
                                         <div class="single-input">
                                             <label for="j_title">Expected Faculty :</label>
-                                            <input type="text" id="j_title" class="form-control">
+                                            <input type="text" id="j_title" name="expected_faculty" class="form-control">
                                         </div>
                                     </div>
                                     <div class="single-resume-feild feild-flex-2">
@@ -183,10 +188,26 @@ if (!empty($jobpost_detail)) {
 
                                     <div class="single-input">
                                         <label for="Location">Post Status :</label>
-                                        <select class="form-control" name="post_status" >
-                                            <option value="private" <?php if(!empty($jobpost_detail) && $jobpost_detail->post_status == 'private'){ echo "selected='selected'"; } ?>>Private</option>
-                                            <option value="public" <?php if(!empty($jobpost_detail) && $jobpost_detail->post_status == 'public'){ echo "selected='selected'"; } ?>>Public</option>
-                                        </select>
+
+                                        <?php
+                                        if ($jobpost_detail->post_status == 'disapproved') {
+                                            echo 'Admin Disapproved';
+                                            echo '<input type="hidden" name="post_status" value="disapproved">';
+                                        } else {
+                                            ?>
+                                            <select class="form-control" name="post_status">
+                                                <option
+                                                    value="private" <?php if (!empty($jobpost_detail) && $jobpost_detail->post_status == 'private') {
+                                                    echo "selected='selected'";
+                                                } ?>>Private
+                                                </option>
+                                                <option
+                                                    value="public" <?php if (!empty($jobpost_detail) && $jobpost_detail->post_status == 'public') {
+                                                    echo "selected='selected'";
+                                                } ?>>Public
+                                                </option>
+                                            </select>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="single-input submit-resume">

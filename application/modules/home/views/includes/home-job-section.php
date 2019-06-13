@@ -34,10 +34,8 @@
                                             $eid = $rj->eid;
                                             $empInfo = $this->general_model->getById('employer', 'id', $eid, '*');
                                             $orgcode = $empInfo->organization_code;
-                                            if (empty($rj->displayname))
-                                                $orgname = $empInfo->orgname;
-                                            else
-                                                $orgname = $rj->displayname;
+                                            $orgname = $empInfo->orgname;
+
                                             ?>
                                             <li>
                                                 <div class="top-company-list">
