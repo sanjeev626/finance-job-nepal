@@ -50,8 +50,8 @@ class Vacancy extends MY_Controller {
         $data['jobcategory'] = $this->vacancy_model->get_all_jobcategory(); 
         $data['employer'] =$this->general_model->getAll('employer','','orgname');
         $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','id','id,dropvalue');
-        $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue'); 
-        $data['job_location'] =$this->general_model->getAll('dropdown','fid = 2','id','id,dropvalue');
+        $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
+        $data['job_location'] =$this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','id','id,dropvalue');
         $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','id','id,dropvalue');
         $data['main'] = 'vacancy/add-edit-vacancy';

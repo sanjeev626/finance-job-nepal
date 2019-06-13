@@ -17,7 +17,7 @@ if (!empty($jobpost_detail)) {
 <!-- Breadcromb Area End -->
 
 <!-- Candidate Dashboard Area Start -->
-<section class="candidate-dashboard-area section_70">
+<section class="candidate-dashboard-area section_15">
     <div class="container">
         <div class="row">
             <?php $this->load->view('includes/employer-dashboard-sidebar');?>
@@ -168,13 +168,13 @@ if (!empty($jobpost_detail)) {
                                     <div class="single-resume-feild">
                                         <div class="single-input">
                                             <label for="j_desc">Job Specification:</label>
-                                            <textarea id="j_desc" name="specification"><?php if (!empty($jobpost_detail)) echo $jobpost_detail->specification; ?></textarea>
+                                            <textarea class="textarea" id="j_desc" name="specification"><?php if (!empty($jobpost_detail)) echo $jobpost_detail->specification; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="single-resume-feild">
                                         <div class="single-input">
                                             <label for="j_desc">Job Description:</label>
-                                            <textarea id="j_desc" name="requirements"><?php if (!empty($jobpost_detail)) echo $jobpost_detail->requirements; ?></textarea>
+                                            <textarea class="textarea" id="j_desc" name="requirements"><?php if (!empty($jobpost_detail)) echo $jobpost_detail->requirements; ?></textarea>
                                         </div>
                                     </div>
                                 </div>

@@ -276,10 +276,10 @@ class Employer extends View_Controller {
         $eid = $employer_profile->id;
         $todaydate=date('Y-m-d');
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);  
-        $data['post_job'] = $this->general_model->getAll('jobs',array('eid'=>$eid));
-        $data['activejobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'post_status'=>'public','applybefore >='=>$todaydate));
-        $data['inactivejobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'post_status'=>'private','applybefore >='=>$todaydate));
-        $data['expiredjobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'applybefore <='=>$todaydate));
+        $data['post_job'] = $this->general_model->getAll('jobs',array('eid'=>$eid),'date_added DESC');
+        $data['activejobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'post_status'=>'public','applybefore >='=>$todaydate),'date_added DESC');
+        $data['inactivejobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'post_status'=>'private','applybefore >='=>$todaydate),'date_added DESC');
+        $data['expiredjobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'applybefore <='=>$todaydate),'date_added DESC');
         $data['menu'] = 'dashboard';
         $data['sidebar'] = 'employer';
         $data['select'] = '';
@@ -790,7 +790,7 @@ class Employer extends View_Controller {
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
-        $data['menu'] = 'home';
+        $data['menu'] = 'viewseekerdetail';
         $data['sidebar'] = 'employer';
         $data['sid']= $sid;
         $data['select'] = '';

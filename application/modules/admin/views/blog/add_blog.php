@@ -27,7 +27,7 @@ if (!empty($blog_detail)) {
                 <input type="text" name="title" id='title' required class="form-control" value='<?php if (!empty($blog_detail)) echo $blog_detail->title; ?>' />
             </div>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label class="col-sm-3 control-label" for="category">Category</label>
             <div class="col-sm-8">
                 <select class="form-control" name="category" id="category">
@@ -45,7 +45,7 @@ if (!empty($blog_detail)) {
                     ?>
                 </select>
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group">
             <label class="col-sm-3 control-label">Article:</label>

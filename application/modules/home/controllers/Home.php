@@ -43,7 +43,7 @@ class Home extends View_Controller {
         $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',8);
 
         $data['fjn_job'] = $this->home_model->get_job_by_type('FJNJob',8);
-        $data['recent_job'] = $this->home_model->get_job_by_type('RJob',8);
+        $data['recent_job'] = $this->home_model->get_recent_job('RJob',8);
 
         $data['location'] = $this->general_model->getAll('dropdown','fid = 2','dropvalue ASC','id,dropvalue','',200);
         $data['type'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue','',6);        

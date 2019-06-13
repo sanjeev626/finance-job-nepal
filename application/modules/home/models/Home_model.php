@@ -153,7 +153,7 @@ class Home_model extends CI_Model {
         }
     }
 
-    public function get_recent_job($jobType){
+    /*public function get_recent_job($jobType){
         $date = date('Y-m-d');
 
         $this->db->select();
@@ -166,6 +166,23 @@ class Home_model extends CI_Model {
         $this->db->group_by('emp.id');
         $this->db->limit(6);
         $query = $this->db->get();  
+        if ($query->num_rows() == 0) {
+            return FALSE;
+        } else {
+            return $query->result();
+        }
+    }*/
+
+    public function get_recent_job($jobtype,$limit){
+        $date = date('Y-m-d');
+
+        $this->db->select();
+        //$this->db->where('isNewspaperJob',$jobtype);
+        $this->db->where('applybefore >=',$date);
+        $this->db->order_by('id','DESC');
+        $this->db->where('post_status','public');
+        $this->db->limit($limit);
+        $query = $this->db->get('jobs'); 
         if ($query->num_rows() == 0) {
             return FALSE;
         } else {

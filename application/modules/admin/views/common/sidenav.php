@@ -73,7 +73,7 @@ else
 -->
         <li class ="<?php if($nav == 'content'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/content"><i class="fa fa-newspaper-o"></i> <span>CONTENT</span></a></li>
 
-          <li class ="<?php if($nav == 'category'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/blog/category"><i class="fa fa-newspaper-o"></i> <span>BLOG CATEGORY</span></a></li>
+          <!-- <li class ="<?php if($nav == 'category'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/blog/category"><i class="fa fa-newspaper-o"></i> <span>BLOG CATEGORY</span></a></li> -->
           <li class ="<?php if($nav == 'blog'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/blog"><i class="fa fa-newspaper-o"></i> <span>BLOG</span></a></li>
       </ul>
       <?php
