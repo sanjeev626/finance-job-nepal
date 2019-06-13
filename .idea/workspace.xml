@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="541cec99-7595-46a6-93cc-4c8278930a92" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/models/Employer_model.php" afterPath="$PROJECT_DIR$/application/modules/home/models/Employer_model.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/modules/home/controllers/Home_back.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/controllers/Home.php" afterPath="$PROJECT_DIR$/application/modules/home/controllers/Home.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/add-edit-postjob.php" afterPath="$PROJECT_DIR$/application/modules/home/views/add-edit-postjob.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/job-detail.php" afterPath="$PROJECT_DIR$/application/modules/home/views/job-detail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-dashboard.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-dashboard.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-edit-profile.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-edit-profile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-education.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-education.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-language.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-language.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-reference.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-reference.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-training.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-training.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobseeker-work-experience.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobseeker-work-experience.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="finance-job-nepal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,39 +41,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Employer_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/models/Employer_model.php">
+      <file leaf-file-name="Home.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="31.933332">
-              <caret line="522" column="49" selection-start-line="522" selection-start-column="45" selection-end-line="522" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.517179">
+              <caret line="413" column="0" selection-start-line="413" selection-start-column="0" selection-end-line="413" selection-end-column="0" />
               <folding>
-                <element signature="e#1021#1615#0#PHP" expanded="false" />
-                <element signature="e#1694#2150#0#PHP" expanded="false" />
-                <marker date="1560407384398" expanded="true" signature="20445:21662" placeholder="..." />
-                <marker date="1560407384398" expanded="true" signature="20468:20538" placeholder="..." />
-                <marker date="1560407384398" expanded="true" signature="20561:21638" placeholder="..." />
-                <marker date="1560407384398" expanded="true" signature="20997:21546" placeholder="..." />
+                <element signature="e#62215#64657#0#PHP" expanded="false" />
+                <element signature="e#64667#64945#0#PHP" expanded="false" />
+                <marker date="1560417305994" expanded="true" signature="44159:44200" placeholder="..." />
+                <marker date="1560417305994" expanded="true" signature="44441:44459" placeholder="..." />
+                <marker date="1560417305994" expanded="true" signature="44881:44898" placeholder="..." />
+                <marker date="1560417305994" expanded="true" signature="47005:47022" placeholder="..." />
+                <marker date="1560417305994" expanded="true" signature="49003:49020" placeholder="..." />
+                <marker date="1560417305994" expanded="true" signature="50220:50238" placeholder="..." />
+                <marker date="1560417305994" expanded="true" signature="52477:52526" placeholder="..." />
+                <marker date="1560417305994" expanded="true" signature="54964:55013" placeholder="..." />
+                <marker date="1560417305994" expanded="true" signature="56986:57035" placeholder="..." />
+                <marker date="1560417305994" expanded="true" signature="58861:58910" placeholder="..." />
+                <marker date="1560417305994" expanded="true" signature="61421:61439" placeholder="..." />
+                <marker date="1560417305994" expanded="true" signature="61693:61742" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add-edit-postjob.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/add-edit-postjob.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.83206105">
-              <caret line="209" column="50" selection-start-line="191" selection-start-column="40" selection-end-line="209" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add-edit-vacancy.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/admin/views/vacancy/add-edit-vacancy.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.5161295">
-              <caret line="507" column="50" selection-start-line="507" selection-start-column="33" selection-end-line="507" selection-end-column="50" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -83,8 +81,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/modules/admin/views/employer/edit-employer.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/employer-edit-profile.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/models/Dropdown_model.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/views/dropdown/add-edit-dropdown.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/home.php" />
@@ -109,11 +105,6 @@
         <option value="$PROJECT_DIR$/application/modules/home/views/service/services-details.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/includes/jobseeker-left-menu-dashboard.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/includes/footer.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-education.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-work-experience.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-training.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-language.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-reference.php" />
         <option value="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" />
         <option value="$PROJECT_DIR$/application/modules/home/controllers/Search.php" />
         <option value="$PROJECT_DIR$/application/modules/home/controllers/Service.php" />
@@ -125,15 +116,22 @@
         <option value="$PROJECT_DIR$/application/modules/admin/controllers/Content.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/controllers/Blog.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/includes/header.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/controllers/Home.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/controllers/Vacancy.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/views/vacancy/add-edit-vacancy.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/models/Vacancy_model.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/includes/home-job-section.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/views/job-detail.php" />
         <option value="$PROJECT_DIR$/application/modules/home/controllers/Employer.php" />
         <option value="$PROJECT_DIR$/application/modules/home/models/Employer_model.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-dashboard.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-education.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-language.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-reference.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-training.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-work-experience.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/add-edit-postjob.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/controllers/Home.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/job-detail.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/views/jobseeker-edit-profile.php" />
       </list>
     </option>
   </component>
@@ -388,110 +386,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finance-job-nepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financejobnepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finance-job-nepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financejobnepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vacancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finance-job-nepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financejobnepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finance-job-nepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financejobnepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -509,11 +403,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\financejobnepal\application\modules\home\controllers" />
       <recent name="D:\xampp\htdocs\financejobnepal\application\modules\admin\models" />
       <recent name="D:\xampp\htdocs\financejobnepal\application\modules\admin\views\vacancy" />
       <recent name="D:\xampp\htdocs\financejobnepal\application\modules\home\views" />
       <recent name="D:\xampp\htdocs\financejobnepal\theme" />
-      <recent name="D:\xampp\htdocs\financejobnepal\application\modules\admin\views\seeker" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\financejobnepal\application\modules\home\views\content" />
@@ -616,45 +510,12 @@
           <line>73</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/application/modules/home/controllers/Home.php</url>
-          <line>658</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/content_home/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.703704">
-          <caret line="51" column="10" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theme/content-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.039711192">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="154" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/content/detail-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2580647">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="21" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theme/contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11913358">
-          <caret line="73" column="31" selection-start-line="1" selection-start-column="6" selection-end-line="73" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/views_back/contact_us.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.096774">
@@ -718,41 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-training.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="224" column="60" selection-start-line="224" selection-start-column="60" selection-end-line="224" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-language.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="168" column="60" selection-start-line="168" selection-start-column="60" selection-end-line="168" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-reference.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="132" column="60" selection-start-line="132" selection-start-column="60" selection-end-line="132" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-work-experience.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.716094">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-education.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Blog.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.064516">
@@ -792,14 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.0666666">
           <caret line="158" column="21" selection-start-line="158" selection-start-column="21" selection-end-line="158" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="600" column="76" selection-start-line="600" selection-start-column="59" selection-end-line="600" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -890,27 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.477396">
-          <caret line="44" column="61" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="61" />
-          <folding>
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1560337610373" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/models/Home_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17109826">
@@ -954,14 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/job-detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.676311">
-          <caret line="62" column="37" selection-start-line="62" selection-start-column="37" selection-end-line="62" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/home-job-section.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.358047">
@@ -996,32 +785,158 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/models/Employer_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="31.933332">
+        <state vertical-scroll-proportion="-3.6564887">
           <caret line="522" column="49" selection-start-line="522" selection-start-column="45" selection-end-line="522" selection-end-column="49" />
           <folding>
             <element signature="e#1021#1615#0#PHP" expanded="false" />
             <element signature="e#1694#2150#0#PHP" expanded="false" />
-            <marker date="1560407384398" expanded="true" signature="20445:21662" placeholder="..." />
-            <marker date="1560407384398" expanded="true" signature="20468:20538" placeholder="..." />
-            <marker date="1560407384398" expanded="true" signature="20561:21638" placeholder="..." />
-            <marker date="1560407384398" expanded="true" signature="20997:21546" placeholder="..." />
+            <marker date="1560407384398" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1560407384398" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1560407384398" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1560407384398" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/admin/views/vacancy/add-edit-vacancy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5161295">
+        <state vertical-scroll-proportion="0.477396">
           <caret line="507" column="50" selection-start-line="507" selection-start-column="33" selection-end-line="507" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Home_back.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.0">
+          <caret line="694" column="38" selection-start-line="693" selection-start-column="8" selection-end-line="694" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.517179">
+          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-language.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.437613">
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-education.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.238698">
+          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+          <folding>
+            <marker date="1560410329800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1560410329800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1560410329800" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1560410329800" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-reference.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.437613">
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-training.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.806452">
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+          <folding>
+            <marker date="1560410412767" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1560410412767" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1560410412767" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-work-experience.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5161295">
+          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+          <folding>
+            <marker date="1560410443134" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1560410443134" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1560410443134" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/home/views/add-edit-postjob.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83206105">
-          <caret line="209" column="50" selection-start-line="191" selection-start-column="40" selection-end-line="209" selection-end-column="50" />
+        <state vertical-scroll-proportion="-5.677419">
+          <caret line="132" column="52" selection-start-line="132" selection-start-column="52" selection-end-line="132" selection-end-column="200" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/job-detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67175573">
+          <caret line="133" column="26" selection-start-line="120" selection-start-column="24" selection-end-line="133" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#section#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobseeker-edit-profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66726947">
+          <caret line="69" column="97" selection-start-line="69" selection-start-column="97" selection-end-line="69" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.517179">
+          <caret line="413" column="0" selection-start-line="413" selection-start-column="0" selection-end-line="413" selection-end-column="0" />
+          <folding>
+            <element signature="e#62215#64657#0#PHP" expanded="false" />
+            <element signature="e#64667#64945#0#PHP" expanded="false" />
+            <marker date="1560417305994" expanded="true" signature="44159:44200" placeholder="..." />
+            <marker date="1560417305994" expanded="true" signature="44441:44459" placeholder="..." />
+            <marker date="1560417305994" expanded="true" signature="44881:44898" placeholder="..." />
+            <marker date="1560417305994" expanded="true" signature="47005:47022" placeholder="..." />
+            <marker date="1560417305994" expanded="true" signature="49003:49020" placeholder="..." />
+            <marker date="1560417305994" expanded="true" signature="50220:50238" placeholder="..." />
+            <marker date="1560417305994" expanded="true" signature="52477:52526" placeholder="..." />
+            <marker date="1560417305994" expanded="true" signature="54964:55013" placeholder="..." />
+            <marker date="1560417305994" expanded="true" signature="56986:57035" placeholder="..." />
+            <marker date="1560417305994" expanded="true" signature="58861:58910" placeholder="..." />
+            <marker date="1560417305994" expanded="true" signature="61421:61439" placeholder="..." />
+            <marker date="1560417305994" expanded="true" signature="61693:61742" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

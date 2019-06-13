@@ -130,6 +130,7 @@ if (!empty($jobpost_detail)) {
                                                     <option value="intermediate" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'intermediate'){ echo "selected='selected'"; } ?>>Intermediate</option>
                                                     <option value="bachelor" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'bachelor'){ echo "selected='selected'"; } ?>>Bachelor</option>
                                                     <option value="master" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'master'){ echo "selected='selected'"; } ?>>Master</option>
+                                                    <option value="phd" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'phd'){ echo "selected='selected'"; } ?>>PHD</option>
                                                     <option value="other" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'other'){ echo "selected='selected'"; } ?>>Other</option>
                                                 </select>
                                         </div>

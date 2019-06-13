@@ -398,49 +398,153 @@ class Home extends View_Controller {
     public function applyjob($jobid){
 
        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
+
         if(!empty($jobseeker_profile)){
             $jid = $jobid;  // jid = Job Id
             $empinfo = $this->general_model->getById('jobs','id',$jobid);
 
             $eid =$empinfo->eid;  // eid = Employer Id
             $sid = $jobseeker_profile->id; // Job Seeker User Id
+
+            //print_r($jobseeker_profile);
+            /*------ Condition Check for Faculty and Age ----*/
             $error_message = '';
+            //echo '<br>-----'.$sid.'-----<br>';
+            $job_faculty = $empinfo->apply_by_faculty;
+            //$job_age = $empinfo->apply_by_age;
+
             $seekerInfo = $this->general_model->getById('seeker','id',$sid);
+
+            $seeker_faculty = $seekerInfo->faculty;
+            $seeker_dob = $seekerInfo->dob;
+            $seeker_age = $this->_ageCalculator($seeker_dob);
+
+
+
             /*------------------------------------------------------------
                           Preferred gender wise check
              ------------------------------------------------------------*/
-            $seeker_gender = $seekerInfo->gender;
-            $preferredgender = $empinfo->preferredgender;
+             $seeker_gender = $seekerInfo->gender;
+             $preferredgender = $empinfo->preferredgender;
 
             if($preferredgender != $seeker_gender && $preferredgender !='Male/Female'){
                 $this->session->set_flashdata('error', 'Preferred Gender does not match. Please Apply for Correct Criteria');
                 redirect(base_url() . 'jobseeker/dashboard');
             }
+            /*------------------------------------------------------------
+                          Preferred gender wise check
+             ------------------------------------------------------------*/
 
+            /*$start_age = $empinfo->from_age;
+            $end_age = $empinfo->to_age;
+
+            if($start_age==0 ){
+            }
+            elseif($start_age>0 && $end_age>0){
+
+                if($seeker_age >= $start_age && $seeker_age <= $end_age){
+                   // continue;
+                }else{
+                    $this->session->set_flashdata('error', 'Job Condition does not match with your Age. Please Apply for Correct Criteria');
+                    redirect(base_url() . 'jobseeker/dashboard');
+                }
+            }*/
+            if($job_faculty=='')
+            {
+            }
+            elseif($job_faculty!=''){
+                if($job_faculty == $seeker_faculty){
+                }else{
+                    $this->session->set_flashdata('error', 'Job Condition does not match with your Faculty. Please Apply for Correct Criteria');
+                    redirect(base_url() . 'jobseeker/dashboard');
+                }
+            }
+
+             /*-----------------------------------------------------------------------------------------------------------------
+                                                 End of Condition Check for Faculty and Age
+            -------------------------------------------------------------------------------------------------------------------*/
             $check =  $this->general_model->countTotal('application',array('jid' => $jid,'sid'=>$sid,'eid'=>$eid));
+
             if($check == 0){
-                $applicable=0;
-                $required_education = $empinfo->required_education;
-                if(!empty($required_education)){
-                    $edu_arr = array(
-                        'Not Required' => 'Not Required',
-                        'intermediate' => 'intermediate',
-                        'bachelor' => 'bachelor',
-                        'master' => 'master',
-                        'phd' => 'phd',
-                        'other' => 'other');
+                  $applicable=0;
+                  $education = $this->general_model->countTotal('seeker_education',array('sid'=>$sid));
+                  $experience = $this->general_model->countTotal('seeker_experience',array('sid'=>$sid));
+                  $training = $this->general_model->countTotal('seeker_training',array('sid'=>$sid));
+                  $lang = $this->general_model->countTotal('seeker_language',array('sid'=>$sid));
+                  $reference = $this->general_model->countTotal('seeker_reference',array('sid'=>$sid));
+
+                  $required_education = $empinfo->required_education;
+                  if(!empty($required_education))
+                  {
+                    $edu_arr = array('none'=>'Not Required','intermediate'=>'intermediate','bachelor'=>'bachelor','master'=>'master','other'=>'other');
+                    //echo $required_education.'=='.$seekerInfo->faculty;
                     $req_edu_no = $edu_arr[$required_education];
                     $sek_edu_no = $edu_arr[$seekerInfo->highest_qualification];
+                    //echo "<br>".$req_edu_no.'=='.$sek_edu_no;
                     if($req_edu_no!=0 && $req_edu_no > $sek_edu_no)
                     {
-                        $error_message .= "<br>Your Education details doesn't match employer's required education";
-                        $applicable += 1;
+                       $error_message .= "<br>Your Education details doesn't match employer's required education"; 
+                       $applicable += 1; 
                     }
+                  }
+
+                  $other_faculty = $empinfo->other_faculty;
+
+                /*$slc_docs = $empinfo->slc_docs;
+                if($slc_docs==1)
+                {
+                  if(empty($seekerInfo->slc_docs))
+                  {
+                     $error_message .= "<br>Please upload SLC Marksheet to apply for this job.";
+                     $applicable += 1;
+                  }
                 }
 
+                /*$docs_11_12 = $einfo->docs_11_12;
+                if($docs_11_12==1)
+                {
+                  if(empty($seekerInfo->docs_11_12))
+                  {
+                     $error_message .= "<br>Please upload 11/12 Transcript to apply for this job.";
+                     $applicable += 1;
+                  }
+                }
+
+                  $bachelor_docs = $empinfo->bachelor_docs;
+                  if($bachelor_docs==1)
+                  {
+                    if(empty($seekerInfo->bachelor_docs))
+                    {
+                       $error_message .= "<br>Please upload bachelor transcript to apply for this job."; 
+                       $applicable += 1; 
+                    }
+                  }
+
+                  $masters_docs = $empinfo->masters_docs;
+                  if($masters_docs==1)
+                  {
+                    if(empty($seekerInfo->masters_docs))
+                    {
+                       $error_message .= "<br>Please upload Masters Transcript to apply for this job."; 
+                       $applicable += 1; 
+                    }
+                  }*/
 
 
+                  //echo $required_education.' -- '.$other_faculty.' -- '.$slc_docs.' -- '.$docs_11_12.' -- '.$bachelor_docs.' -- '.$masters_docs;
+                  //echo "<br>";
+
+                 if($education==0){ $error_message .= "<br>Education details is mandatory"; $applicable += 1;}
+	             //if($training==0){ $applicable += 1; }
+	             //if($lang==0){ $error_message .= "<br>Language details is mandatory";  $applicable += 1; }
+	             //if($reference==0){ $error_message .= "<br>Reference details is mandatory";  $applicable += 1; }
+
+                //Get job Seeker Info
+                    $fromEmail = $jobseeker_profile->email;
+                    $fromName = $jobseeker_profile->fname.' '.$jobseeker_profile->mname.' '.$jobseeker_profile->lname;
+                //echo "<br>applicable = ".$applicable;
                 if($applicable == 0){
+
                     /*---------------------------------------------------------
                             Sending Mail to job Seeker about apply job
                     ---------------------------------------------------------*/
@@ -450,17 +554,31 @@ class Home extends View_Controller {
                     $fromEmail = $jobseeker_profile->email;
                     $fromName = $jobseeker_profile->fname.' '.$jobseeker_profile->mname.' '.$jobseeker_profile->lname;
 
-                    //employer Info
-                    $employerInfo = $this->general_model->getById('employer','id',$eid,'*');
+                    $employerInfo = $this->general_model->getById('employer','id',$eid,'email,organization_name');
 
                     $toEmail = $employerInfo->email;
                     $toName = $employerInfo->orgname;
-                    $jobtitle = $empinfo->jobtitle; // job title
 
-                    $to = $adminEmail.' , '.$toEmail;
-                    $subject = 'https://www.financejobnepal.com :: Job Application for the post of '.$jobtitle.'.';
-                    $content1 = $this->_jobSeekerDetail($sid);
+                    $jobInfo = $this->general_model->getById('jobs','id',$jid,'jobtitle,onlineap,emailap,postap,orgemail');
+
+                    $jobtitle = $jobInfo->jobtitle;
+                    $onlineap = $jobInfo->onlineap;
+                    $emailap = $jobInfo->emailap;
+                    $postap = $jobInfo->postap;
+
                     /*---------------------------------------------------------
+                                Send Mail to multiple recipients
+                    ---------------------------------------------------------*/
+                    $to  = $adminEmail . ', '; // note the comma
+                    if($emailap=="Yes") $to .= $toEmail;
+                    if(!empty($jobInfo->orgemail)) $to .= $jobInfo->orgemail;
+
+                    // subject
+                    $subject = 'financejobnepal.com :: Job Application for the post of '.$jobtitle." ::";
+
+                    $content1 = $this->_jobSeekerDetail($sid);
+
+                     /*---------------------------------------------------------
                         To send HTML mail, the Content-type header must be set
                     ---------------------------------------------------------*/
                     $headers  = 'MIME-Version: 1.0' . "\r\n";
@@ -470,6 +588,7 @@ class Home extends View_Controller {
                     $headers .= 'To: '.$toName.' <'.$to.'>' . "\r\n";
                     $headers .= 'From: '.$fromName.' <'.$fromEmail.'>' . "\r\n";
                     $headers .= 'Bcc: '.$adminEmail . "\r\n";
+
                     // Mail it
                     @mail($to, $subject, $content1, $headers);
 
@@ -500,7 +619,7 @@ class Home extends View_Controller {
                     // Mail it
                     @mail($fromEmail, $subject, $content, $headers);
 
-                    /*---------------------------------------------------------
+                  /*---------------------------------------------------------
                             Insert into Application table for information
                     ---------------------------------------------------------*/
                     $data = array(
@@ -513,25 +632,25 @@ class Home extends View_Controller {
                     $this->session->set_flashdata('success', 'Your application has been sent for this job.');
                     redirect(base_url() . 'jobseeker/dashboard');
 
-
-
-                }
-                else{
+                }else{
                     $this->session->set_flashdata('error', $error_message);
                     redirect(base_url() . 'job/'.$empinfo->slug.'/'.$jid);
                 }
 
-            }//check
-            else{
+            }else{
                 $this->session->set_flashdata('success', 'You have already applied for this job.');
                 redirect(base_url() . 'jobseeker/dashboard');
             }
-        }//check jobseeker profile
-        else{
+
+            echo 'You are logged now';
+            //echo "<br><br>".$error_message;
+        }else{
             $this->session->set_flashdata('error', 'You must be a registered member to apply for this job.');
             redirect(base_url() . 'jobseeker/login/?jobid='.$jobid);
         }
 
+        if(isset($error_message))
+        echo "<br><br>".$error_message;
     }
     
     /*-------------------------------------------------------------
@@ -1023,9 +1142,9 @@ class Home extends View_Controller {
 
     private function _jobSeekerDetail($sid){
        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
+       $salutation = $this->general_model->getById('dropdown','id',$jobseeker_profile->salutation)->dropvalue;
 
-
-       $jsname = $jobseeker_profile->fname." ".$jobseeker_profile->mname." ".$jobseeker_profile->lname;
+       $jsname = $salutation." ".$jobseeker_profile->fname." ".$jobseeker_profile->mname." ".$jobseeker_profile->lname;
 
                 $html ='';
 
@@ -1040,69 +1159,91 @@ class Home extends View_Controller {
                       $html .='<td width="160" class="txt">Email :</td>';
                       $html .='<td>'.$jobseeker_profile->email.'</td>';
                     $html .='</tr>';
-
+                    $html .='<tr>';
+                      $html .='<td class="txt">Secondary Email :</td>';
+                      $html .='<td>'.$jobseeker_profile->email2.'</td>';
+                    $html .='</tr>';
                   $html .='</table>';
                   $html .='<br />';
                   $html .='<p style="font-weight:bold;"><strong>Personal Details</strong></p>';
                   $html .='<table border="0" cellpadding="0" cellspacing="0" width="100%">';
                     $html .='<tr>';
                       $html .='<td width="160" class="txt">Date of Birth :</td>';
-                      $html .='<td>'.$jobseeker_profile->dob.'</td>';
+                      $html .='<td>'.$jobseeker_profile->mm.'-'.$jobseeker_profile->dd.'-'.$jobseeker_profile->yy.'</td>';
                       $html .='<td width="160" rowspan="8">';
 
-                    $imagepath = base_url()."images/jobseeker/".$jobseeker_profile->profile_picture;
-                    if(isset($jobseeker_profile->profile_picture) && file_exists($imagepath)){
+                    $imagepath = base_url()."images/jobseeker/".$jobseeker_profile->picture;
+                    if(isset($jobseeker_profile->picture) && file_exists($imagepath)){
                         $html .= '<img src='.$imagepath.' alt="Image" width="130"/>';
                     }
 
                     $html .='</td>';
                     $html .='</tr>';
-                    /*$html .='<tr>';
+                    $html .='<tr>';
                       $nationality = $this->general_model->getById('dropdown','id',$jobseeker_profile->nationality)->dropvalue;
                       $html .='<td class="txt">Nationality :</td>';
                       $html .='<td>'.$nationality.'</td>';
-                      $html .='</tr>';*/
+                      $html .='</tr>';
                     $html .='<tr>';
                       $html .='<td class="txt">Phone (Res) :</td>';
-                      $html .='<td>'.$jobseeker_profile->phone_resisdance.'</td>';
+                      $html .='<td>'.$jobseeker_profile->phoneres.'</td>';
                       $html .='</tr>';
-
+                    $html .='<tr>';
+                      $html .='<td class="txt">Phone (off) :</td>';
+                      $html .='<td>'.$jobseeker_profile->phoneoff.'</td>';
+                    $html .='</tr>';
                     $html .='<tr>';
                       $html .='<td class="txt">Cell No. :</td>';
-                      $html .='<td>'.$jobseeker_profile->phone_cell.'</td>';
+                      $html .='<td>'.$jobseeker_profile->phonecell.'</td>';
                       $html .='</tr>';
                     $html .='<tr>';
                       $html .='<td class="txt">Marital Status :</td>';
-                      $html .='<td>'.$jobseeker_profile->marital_status.'</td>';
+                      $html .='<td>'.$jobseeker_profile->maritalstatus.'</td>';
                       $html .='</tr>';
                     $html .='<tr>';
-                      $html .='<td class="txt">Address</td>';
-                      $html .='<td>'.$jobseeker_profile->address_permanent.'</td>';
-                      $html .='</tr>';
+                      $html .='<td class="txt">Current Address</td>';
 
+                      $country_name = $this->general_model->getById('country2code','country_code',$jobseeker_profile->currentcon);
+                      $html .='<td>'.$jobseeker_profile->currentadd.' '.ucfirst(strtolower($country_name->country_name)).'</td>';
+                      $html .='</tr>';
+                    $html .='<tr>';
+                      $html .='<td class="txt">Permanent Address</td>';
+
+                    $country_name1 = $this->general_model->getById('country2code','country_code',$jobseeker_profile->permanentcon);
+                    $country = ($country_name1) ? ucfirst(strtolower($country_name1->country_name)) : '';
+                    $html .='<td>'.$jobseeker_profile->permanentadd.' '.$country.'</td>';
                     $html .='</table>';
                     $html .='<br />';
                   $html .='<p style="font-weight:bold;"><strong>Experience Details</strong></p>';
                   $html .='<table border="0" cellpadding="0" cellspacing="0">';
                     $html .='<tr>';
                       $html .='<td class="txt" width="160">Have work experience:</td>';
-                      $html .='<td>'.$jobseeker_profile->have_work_experience.','.$jobseeker_profile->experience_years.' years '.$jobseeker_profile->experience_months.' Months </td>';
+                      $html .='<td>'.$jobseeker_profile->workexp.','.$jobseeker_profile->expyrs.' years '.$jobseeker_profile->expmths.' Months </td>';
                     $html .='</tr>';
-
+                    $html .='<tr>';
+                      $html .='<td class="txt">Present Salary :</td>';
+                      $html .='<td>'.$jobseeker_profile->preunit.' '.$jobseeker_profile->presal.' per month (Gross) </td>';
+                    $html .='</tr>';
+                    $html .='<tr>';
                       $html .='<td class="txt">Expected Salary :</td>';
-                      $salary = $this->general_model->getById('dropdown','id',$jobseeker_profile->desired_expected_salary);
+                      $salary = $this->general_model->getById('dropdown','id',$jobseeker_profile->expsal);
                       $expected = ($salary) ? $salary->dropvalue : '';
-                      $html .='<td>'.$expected.' per month (Gross) </td>';
+                      $html .='<td>'.$jobseeker_profile->expunit.' '.$expected.' per month (Gross) </td>';
                     $html .='</tr>';
-
+                    $html .='<tr>';
+                      $html .='<td class="txt">Looking for :</td>';
+                      $html .='<td>'.$jobseeker_profile->joblevel.'</td>';
+                    $html .='</tr>';
                     $html .='<tr>';
                       $html .='<td class="txt">Job Type :</td>';
-                      $jobType  = (!empty($jobseeker_profile->desired_job_type)) ? $jobseeker_profile->	desired_job_type.',' : ' ';
-
+                      $jobType = '';
+                      $jobType  = (!empty($jobseeker_profile->jobtype1)) ? $jobseeker_profile->jobtype1.',' : ' ';
+                      $jobType .= (!empty($jobseeker_profile->jobtype2)) ? $jobseeker_profile->jobtype2.',' : ' ';
+                      $jobType .= (!empty($jobseeker_profile->jobtype3)) ? $jobseeker_profile->jobtype3 : ' ';
 
                     $html .='<td>'.$jobType.'</td>';
                     $html .='</tr>';
-                    /*$html .='<tr>';
+                    $html .='<tr>';
                       $html .='<td>Job Region:</td>';
                         $jobRegion = ($jobseeker_profile->job_region > 0) ? $this->general_model->getById('dropdown','id',$jobseeker_profile->job_region)->dropvalue : ' ';
                       $html .='<td>'.$jobRegion.'</td>';
@@ -1111,12 +1252,35 @@ class Home extends View_Controller {
                       $html .='<td>Job Location:</td>';
                         $jobLocation = ($jobseeker_profile->joblocation > 0) ? $this->general_model->getById('dropdown','id',$jobseeker_profile->joblocation)->dropvalue : ' ';
                       $html .='<td>'.$jobLocation.'</td>';
-                    $html .='</tr>';*/
+                    $html .='</tr>';
                   $html .='</table><br />';
 
                   $html .='<p style="font-weight:bold;"><strong>Preferred Job Category</strong></p>';
                   $html .='<table border="0" cellpadding="0" cellspacing="0">';
-
+                    $html .='<tr>';
+                      $html .='<td colspan="2"><strong>First Job Preference:</strong></td>';
+                    $html .='</tr>';
+                    $html .='<tr>';
+                      $html .='<td class="txt" width="160">Funtional Area :</td>';
+                        $functionalArea = ($jobseeker_profile->funcarea1 > 0) ? $this->general_model->getById('dropdown','id',$jobseeker_profile->funcarea1)->dropvalue : ' ';
+                      $html .='<td>'.$functionalArea.'</td>';
+                    $html .='</tr>';
+                    $html .='<tr>';
+                      $html .='<td class="txt" valign="top">Nature of Organization :</td>';
+                      $html .='<td valign="top">'.$jobseeker_profile->natureoforg1.'</td>';
+                    $html .='</tr>';
+                    $html .='<tr>';
+                      $html .='<td colspan="2"><strong>Second Job Preference:</strong></td>';
+                    $html .='</tr>';
+                    $html .='<tr>';
+                      $html .='<td class="txt">Funtional Area :</td>';
+                        $functionalArea2 = ($jobseeker_profile->funcarea2 > 0) ? $this->general_model->getById('dropdown','id',$jobseeker_profile->funcarea2)->dropvalue : ' ';
+                      $html .='<td>'.$functionalArea2.'</td>';
+                    $html .='</tr>';
+                    $html .='<tr>';
+                      $html .='<td class="txt" valign="top">Nature of Organization :</td>';
+                      $html .='<td valign="top">'.$jobseeker_profile->natureoforg2.'</td>';
+                    $html .='</tr>';
                     $html .='<tr>';
                       $html .='<td colspan="2" valign="top">&nbsp;</td>';
                       $html .='</tr>';
@@ -1138,14 +1302,14 @@ class Home extends View_Controller {
                   $html .='<table width="100%" border="0" cellspacing="0" cellpadding="0">';
                     $html .='<tr>';
                       $html .='<td valign="top" colspan="2" style="padding-left:10px;">';
-                      $html .='<table border="1" cellpadding="0" cellspacing="0" width="100%">';
+                      $html .='<table border="0" cellpadding="0" cellspacing="0" width="100%">';
                       $html .='<tr>';
                         $html .='<th colspan="7">Education Background</th>';
                       $html .='</tr>';
                       $html .='<tr>';
                         $html .='<td width="5%">SN</td>';
                         $html .='<td>Degree</td>';
-                        $html .='<td>Name of Program</td>';
+                        $html .='<td>Name of Degree</td>';
                         $html .='<td>Graduation Year</td>';
                         $html .='<td>Collage/ School</td>';
                         $html .='<td>Board/ University</td>';
@@ -1156,21 +1320,15 @@ class Home extends View_Controller {
                         if(!empty($seekerEducation)){
                             foreach($seekerEducation as $key => $sval):
                                 $edu_degree = $this->general_model->getById('dropdown','id',$sval->degree);
-                                if(!empty($edu_degree)){
-                                    $edu_degree = $edu_degree->dropvalue;
-                                }
-                                else{
-                                    $edu_degree = 'N/A';
-                                }
                                 $key = $key+1;
                                 $html .='<tr>';
                                 $html .='<td>'.$key++.'</td>';
-                                $html .='<td>'.$edu_degree.'</td>';
-                                $html .='<td>'.$sval->education_program.'</td>';
+                                $html .='<td>'.$edu_degree->dropvalue.'</td>';
+                                $html .='<td>'.$sval->faculty.'</td>';
                                 $html .='<td>'.$sval->graduationyear.'</td>';
                                 $html .='<td>'.$sval->instution.'</td>';
                                 $html .='<td>'.$sval->board.'</td>';
-                                $html .='<td>'.$sval->marks_secured.' in '.$sval->marks_secured_in.'</td>';
+                                $html .='<td>'.$sval->percentage.'</td>';
                                 $html .='</tr>';
                             endforeach;
                         }else{
@@ -1184,7 +1342,7 @@ class Home extends View_Controller {
                       $html .='</tr>';
                       $html .='</table>';
                       $html .='<br />';
-                      $html .='<table border="1" cellpadding="0" cellspacing="0" width="100%">';
+                      $html .='<table border="0" cellpadding="0" cellspacing="0" width="100%">';
                       $html .='<tr>';
                         $html .='<th colspan="6">Work Experience</th>';
                       $html .='</tr>';
@@ -1204,15 +1362,15 @@ class Home extends View_Controller {
                                 $html .='<tr>';
                                 $html .='<td>'.$key++.'</td>';
                                 $html .='<td>'.$sval->company.'</td>';
-                                $html .='<td>'.$sval->location.'</td>';
-                                $html .='<td>'.$sval->position.'</td>';
+                                $html .='<td>'.$sval->empoyername.'</td>';
+                                $html .='<td>'.$sval->designation.'</td>';
                                 $html .='<td>'.date('M',strtotime($sval->frommonth)).' '.$sval->fromyear.'</td>';
                                 $html .='<td>'.date('M',strtotime($sval->tomonth)).' '.$sval->toyear.'</td>';
                                 $html .='</tr>';
                                 $html .='<tr>';
                                 $html .='<td>&nbsp;</td>';
                                 $html .='<td>Duties and Responsibilities</td>';
-                                $html .='<td colspan="4">'.$sval->roles_and_responsibilities.'</td>';
+                                $html .='<td colspan="4">'.$sval->duties.'</td>';
                                 $html .='</tr>';
                             endforeach;
                         }else{
@@ -1226,7 +1384,7 @@ class Home extends View_Controller {
                       $html .='</tr>';
                     $html .='</table>';
                       $html .='<br />';
-                      $html .='<table border="1" cellpadding="0" cellspacing="0" width="100%">';
+                      $html .='<table border="0" cellpadding="0" cellspacing="0" width="100%">';
                       $html .='<tr>';
                         $html .='<th colspan="5">Training History</th>';
                       $html .='</tr>';
@@ -1261,7 +1419,7 @@ class Home extends View_Controller {
                       $html .='</tr>';
                     $html .='</table>';
                       $html .='<br />';
-                      $html .='<table border="1" cellpadding="0" cellspacing="0" width="100%">';
+                      $html .='<table border="0" cellpadding="0" cellspacing="0" width="100%">';
                       $html .='<tr>';
                         $html .='<th colspan="5">Language Proficiency</th>';
                       $html .='</tr>';
@@ -1298,38 +1456,59 @@ class Home extends View_Controller {
                       $html .='<br />';
                       $html .='<table cellspacing="0" cellpadding="0" width="100%">';
                       $html .='<tr>';
-                        $html .='<th colspan="2">Reference</th>';
+                        $html .='<th colspan="6">Reference</th>';
                       $html .='</tr>';
 
                         $seekerReference = $this->general_model->getAll('seeker_reference',array('sid'=>$sid));
                          if(!empty($seekerReference)){
                             foreach($seekerReference as $key => $refval):
-                            //$salutationref = $this->general_model->getById('dropdown','id',$refval->salutation);
-                            //$countryName = $this->general_model->getById('country2code','country_code',$refval->country);
+                            $salutationref = $this->general_model->getById('dropdown','id',$refval->salutation);
+                            $countryName = $this->general_model->getById('country2code','country_code',$refval->country);
                              $key = $key+1;
-
-                             $full_name = $refval->reference_name;
+                             $saturation = ($salutationref) ? $salutationref->dropvalue : '';
+                             $full_name = $refval->fname.' '.$refval->mname.' '.$refval->lname;
                                 $html .='<tr>';
+                                $html .='<td width="5%">SN</td>';
                                 $html .='<td width="12%">Name :</td>';
-                                $html .='<td >'.$full_name.' </td>';
+                                $html .='<td colspan="4">'.$saturation.' '.$full_name.' </td>';
                               $html .='</tr>';
-                                $html .='<tr>';
-                                $html .='<td width="12%">Organization Name :</td>';
-                                $html .='<td >'.$refval->organization_name.' </td>';
+                              $html .='<tr>';
+                                $html .='<td>'.$key++.'</td>';
+                                $html .='<td>Address :</td>';
+                                $html .='<td colspan="4">'.$refval->block.' '.$refval->street.' '.$refval->city.' '.ucfirst(strtolower($countryName->country_name)).'</td>';
                               $html .='</tr>';
-                                $html .='<tr>';
-                                $html .='<td width="12%">Position :</td>';
-                                $html .='<td >'.$refval->position.' </td>';
-                                $html .='</tr>';
-                                $html .='<tr>';
-                                $html .='<td width="12%">Email :</td>';
-                                $html .='<td >'.$refval->email.' </td>';
-                                $html .='</tr>';
-                                $html .='<tr>';
-                                $html .='<td width="12%">Contact Number:</td>';
-                                $html .='<td >'.$refval->mobile_number.' </td>';
-                                $html .='</tr>';
-
+                              $html .='<tr>';
+                                $html .='<td>&nbsp;</td>';
+                                $html .='<td>Home Phone </td>';
+                                $html .='<td>Office Phone </td>';
+                                $html .='<td>Cell No.</td>';
+                                $html .='<td>Fax</td>';
+                                $html .='<td>Email</td>';
+                              $html .='</tr>';
+                              $html .='<tr>';
+                                $html .='<td>&nbsp;</td>';
+                                $html .='<td>'.$refval->home.'</td>';
+                                $html .='<td>'.$refval->office.'</td>';
+                                $html .='<td>'.$refval->cell.'</td>';
+                                $html .='<td>'.$refval->fax.'</td>';
+                                $html .='<td>'.$refval->email.'</td>';
+                              $html .='</tr>';
+                              $html .='<tr>';
+                                $html .='<td>&nbsp;</td>';
+                                $html .='<td>Company Name</td>';
+                                $html .='<td>Company Location</td>';
+                                $html .='<td>Designation</td>';
+                                $html .='<td>Relationship</td>';
+                                $html .='<td>&nbsp;</td>';
+                              $html .='</tr>';
+                              $html .='<tr>';
+                                $html .='<td>&nbsp;</td>';
+                                $html .='<td>'.$refval->cname.'</td>';
+                                $html .='<td>'.$refval->clocation.'</td>';
+                                $html .='<td>'.$refval->designation.'</td>';
+                                $html .='<td>'.$refval->relationship.'</td>';
+                                $html .='<td>&nbsp;</td>';
+                              $html .='</tr>';
                               $html .='<tr>';
                                 $html .='<td colspan="6" style="padding-right:5px;"><hr color="#CCCCCC" /></td>';
                               $html .='</tr>';
