@@ -32,7 +32,7 @@
                             </thead>
                             <tbody>
                             <?php
-                            if ($this->uri->segment(3) == NULL) {
+                            if ($this->uri->segment(4) == NULL) {
                                 $i = 1;
                             } else {
                                 $i = $this->uri->segment(3) + 1;

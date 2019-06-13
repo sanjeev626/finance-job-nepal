@@ -184,11 +184,22 @@ if (!empty($job_detail)) {
                 ?>
                 <select class="form-control chosen-select" name='joblocation[]' multiple
                         data-placeholder="Choose a Job Location">
-                    <?php foreach ($job_location as $key => $value) { ?>
+                    <?php foreach ($job_location as $key => $value) {
+                        if(!empty($job_detail)){
+                            if(!empty($joblocation_arr)&& in_array($value->id, $joblocation_arr)){
+                                $checked = "selected='selected";
+                            }
+                            else{
+                                $checked ='';
+                            }
+                        }
+                        else{
+                            $checked = '';
+                        }
+
+                        ?>
                         <option
-                            value='<?php echo $value->id; ?>' <?php if (!empty($job_detail) && in_array($value->id, $joblocation_arr)) {
-                            echo "selected='selected'";
-                        } ?>><?php echo $value->dropvalue; ?></option>
+                            value='<?php echo $value->id; ?>' <?php echo $checked; ?>><?php echo $value->dropvalue; ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -209,12 +220,23 @@ if (!empty($job_detail)) {
                         $jobtype_arr = array();
 
                     ?>
-                    <?php foreach ($jobtype as $key => $value) { ?>
+                    <?php foreach ($jobtype as $key => $value) {
+                        if(!empty($job_detail)){
+                            if(!empty($jobtype_arr)&& in_array($value->id, $jobtype_arr)){
+                                $checked = "checked = 'checked'";
+                            }
+                            else{
+                                $checked ='';
+                            }
+                        }
+                        else{
+                            $checked = '';
+                        }
+
+                        ?>
                         <label>
                             <input type="checkbox" name="jobtype[]" id="jobtype"
-                                   value="<?php echo $value->id ?>" <?php if (!empty($job_detail) && in_array($value->id, $jobtype_arr)) {
-                                echo "checked = 'checked'";
-                            } ?> >
+                                   value="<?php echo $value->id ?>" <?php echo $checked ?> >
                             <?php echo $value->dropvalue; ?>
                         </label>
 

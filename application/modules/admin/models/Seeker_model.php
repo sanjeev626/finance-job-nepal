@@ -28,7 +28,7 @@ class Seeker_model extends CI_Model {
     public function get_all_seeker_limited($limit,$offset){
       //$this->db->select('id','email','summary','salutation','fname','mname','lname','mm','dd','yy','nationality','phoneres','phonecell','maritalstatus','currentadd','permanentadd','preunit','presal','expunit','exptype','salrange','expsal','resume','modifieddate','faculty','lastaccess','isActivated','slc_docs','docs_11_12','bachelor_docs','masters_docs','other_docs');
       $this->db->select();
-      $this->db->order_by("fname","ASC");
+      $this->db->order_by("date_created","DESC");
       $query =  $this->db->get('seeker',$limit,$offset);
       $this->db->last_query();
       if ($query->num_rows() == 0) {

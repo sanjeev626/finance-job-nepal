@@ -41,6 +41,21 @@ class Vacancy extends MY_Controller {
         $this->load->view('admin/home', $data);
     }
 
+    public function active(){
+        $date = date('Y-m-d');
+        
+        $data['title'] = 'VACANCY';
+        $data['page_header'] = 'Vacancy';
+        $data['page_header_icone'] = 'fa fa-bullhorn';
+        $data['nav'] = 'vacancy';
+        $data['panel_title'] = 'Job Manager';
+        $data['jobcategory'] = $this->vacancy_model->get_all_jobcategory();
+        $data['job_info'] = $this->general_model->getAll('jobs',"applybefore >= '".$date."'");
+        $data['main'] = 'vacancy/vacancy_manager_view';
+
+        $this->load->view('admin/home', $data);
+    }
+
     public function add(){
         $data['title'] = 'ADD VACANCY';
         $data['page_header'] = 'Vacancy';
