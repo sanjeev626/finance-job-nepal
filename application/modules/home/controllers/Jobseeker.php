@@ -372,10 +372,10 @@ class Jobseeker extends View_Controller {
               }
                 
               if($checkemail > 0){
-                  $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='http://financejobnepal.com/jobseeker/seekerforgotpassword'>HERE</a> and enter your email address.<br>Finance Job administrator will mail you your authentication information.";
+                  $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='".base_url()."jobseeker/seekerforgotpassword'>HERE</a> and enter your email address.<br>Finance Job administrator will mail you your authentication information.";
               }
               
-                $data['menu'] = 'home';
+                $data['menu'] = 'seeker';
                 $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
                 $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue'); 
                 $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
@@ -385,6 +385,13 @@ class Jobseeker extends View_Controller {
                 $data['functional_area'] =$this->general_model->getAll('dropdown','fid = 9','','id,dropvalue');
                 $data['natureoforg'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');
                 $data['nationality'] =$this->general_model->getAll('dropdown','fid = 8','','id,dropvalue');
+                /*facebook login */
+                $data['authURL'] =  $this->facebook->login_url();
+                /*facebook login */
+                /*linked in login*/
+                $data['oauthURL'] = base_url().$this->config->item('linkedin_redirect_url').'?oauth_init=1';
+                /*linked in login*/
+
                 $data['main'] = 'jobseeker-signup';
                 $this->load->view('main',$data);
            }

@@ -93,19 +93,51 @@ class Employer extends View_Controller {
             $this->load->view('main',$data);
             
         }else{
-            $picture = resize_image_upload('logo','employer');            
-            if ($picture['status'] === true) {
-                $complogo = $picture['images'];  
-            }else{
-                $complogo = '';
+
+            $username = $this->input->post('email');
+            $email = $this->input->post('email');
+
+
+            $checkusername = $this->general_model->countTotal('employer',array('username' => $username));
+            $checkemail = $this->general_model->countTotal('employer',array('email' => $email));
+            if($checkusername == 0 && $checkemail == 0 ){
+                $picture = resize_image_upload('logo','employer');
+                if ($picture['status'] === true) {
+                    $complogo = $picture['images'];
+                }else{
+                    $complogo = '';
+                }
+                //echo "complogo = ".$complogo;
+
+
+
+                $employerInsert = $this->employer_model->insert_employer_info($complogo);
+                $this->session->set_flashdata('success', 'Employer Successfully Register. ');
+                redirect(base_url() . 'employer/login', 'refresh');
             }
-            echo "complogo = ".$complogo;
+            else{
+                /*----------------------------------------------------------------
+                If  Username and Email Exists, Send Message On Flash Messgage
+              -----------------------------------------------------------------*/
+                if($checkusername > 0){
+                    $data['message'] =  "The username <strong>".$username."</strong> is already taken.";
+                }
+
+                if($checkemail > 0){
+                    $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='".base_url()."employer/forgetpassword'>HERE</a> and enter your email address.<br>Finance Job administrator will mail you your authentication information.";
+                }
+
+                $data['menu'] = 'employer';
+                $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+                $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
+                $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue');
+                $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
+                $data['nature_of_organisation'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');
+                $data['main'] = 'employer-signup';
+                $this->load->view('main',$data);
+            }
 
 
-            
-            $employerInsert = $this->employer_model->insert_employer_info($complogo);    
-            $this->session->set_flashdata('message', 'Employer Successfully Register. ');
-            redirect(base_url() . 'employer/signup', 'refresh');
         }
     }
     
