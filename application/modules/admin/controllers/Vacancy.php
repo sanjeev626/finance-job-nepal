@@ -43,7 +43,7 @@ class Vacancy extends MY_Controller {
 
     public function active(){
         $date = date('Y-m-d');
-
+        $data['category'] = '';
         $data['title'] = 'VACANCY';
         $data['page_header'] = 'Vacancy';
         $data['page_header_icone'] = 'fa fa-bullhorn';

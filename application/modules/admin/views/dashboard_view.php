@@ -27,7 +27,7 @@ else
     <div class="small-box bg-aqua">
       <div class="inner">
         <h3><?php echo $total_job; ?></h3>
-        <p>Vacancies</p>
+        <p>Active Vacancies</p>
       </div>
       <div class="icon">
         <i class="ion ion-android-search"></i>
