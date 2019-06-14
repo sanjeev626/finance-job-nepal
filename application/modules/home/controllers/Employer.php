@@ -124,11 +124,11 @@ class Employer extends View_Controller {
                 }
 
                 if($checkemail > 0){
-                    $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='".base_url()."employer/forgetpassword'>HERE</a> and enter your email address.<br>Finance Job administrator will mail you your authentication information.";
+                    $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='".base_url()."employer/login#forgotpassword'>HERE</a> and enter your email address.<br>Finance Job administrator will mail you your authentication information.";
                 }
 
                 $data['menu'] = 'employer';
-                $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+                $data['page_title'] = 'Finance Job Nepal';
                 $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
                 $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue');
                 $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
@@ -197,7 +197,7 @@ class Employer extends View_Controller {
             $mail_header  = 'MIME-Version: 1.0' . "\r\n";
             $mail_header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $mail_header .= 'To: '.$mail_to.' <'.$mail_to.'>' . "\r\n";
-            $mail_header .= 'From: Finance Job Nepal :: Complete HR solution <'.$adminEmail.'>' . "\r\n";
+            $mail_header .= 'From: Finance Job Nepal <'.$adminEmail.'>' . "\r\n";
 
             if(@mail($mail_to,$mail_subject,$mail_body,$mail_header)){
                      $this->session->set_flashdata('success', 'Password reset link has been Sent. Please check your Email.');
@@ -216,10 +216,11 @@ class Employer extends View_Controller {
         $token = $_GET['token'];
         $countToken = $this->general_model->countTotal('employer',array('token' => $token));
         if($countToken > 0){
-                 $data['menu'] = 'home';
+                 $data['menu'] = 'changePassword';
                  $data['token'] = $token;
-                 $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
-                 $this->load->view('employer-changepassword',$data);
+                 $data['page_title'] = 'Finance Job Nepal';
+                 $data['main'] = 'employer-changepassword';
+                 $this->load->view('main',$data);
         }else{
             $this->session->set_flashdata('error', 'The token provided doesnt exists in our record');
             redirect(base_url() . 'employer/login');
@@ -399,7 +400,7 @@ class Employer extends View_Controller {
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','id','id,dropvalue');
         $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','id','id,dropvalue');
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['main'] = 'add-edit-postjob';
         $this->load->view('main',$data);
     }
@@ -475,7 +476,7 @@ class Employer extends View_Controller {
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','dropvalue','id,dropvalue');
         $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','dropvalue','id,dropvalue');
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['jobpost_detail'] = $this->general_model->getById('jobs','id',$id);
         $data['main'] = 'add-edit-postjob';
         $this->load->view('main',$data);

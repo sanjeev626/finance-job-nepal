@@ -56,11 +56,11 @@
                                     </p>
                                 </div>
                                 <div class="single-login-field">
-                                    <button type="submit">Sign in</button>
+                                    <button type="submit">Create an Employer Account</button>
                                 </div>
                             <?php echo form_close(); ?>
                             <div class="dont_have">
-                                <a href="<?php echo base_url();?>Employer/login">Already have an account?</a>
+                                <a href="<?php echo base_url();?>employer/login">Already have an account?</a>
                             </div>
                         </div>
                     </div>

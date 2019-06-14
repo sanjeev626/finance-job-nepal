@@ -4,7 +4,7 @@
 </section>
 <!-- Breadcromb Area End -->
 <!-- Login Area Start -->
-<section class="fjn-login-area section_70">
+<section class="fjn-login-area section_15">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -42,7 +42,9 @@
                                 <label for="Freelance"><span></span>Keep Me Signed In</label>
                             </p>
                             <p class="lost-pass">
-                                <a href="#">forgot password?</a>
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#myModalPassword">
+                                    Forgot Password?
+                                </a>
                             </p>
                         </div>
                         <div class="single-login-field">
@@ -50,7 +52,7 @@
                         </div>
                     <?php echo form_close(); ?>
                     <div class="dont_have">
-                        <a href="<?php echo base_url();?>Employer/signup">Don't have an account?</a>
+                        <a href="<?php echo base_url();?>employer/signup">Don't have an account?</a>
                     </div>
                 </div>
             </div>
@@ -58,3 +60,49 @@
     </div>
 </section>
 <!-- Login Area End -->
+
+<!-- Modal -->
+
+<div class="modal fade" id="myModalPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Employer Forget Password
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?php
+            $action = base_url() . 'employer/forgetpassword/';
+            $attributes = array('class' => 'form-horizontal form-bordered', 'id' => 'form1');
+            echo form_open($action, $attributes);
+            ?>
+            <div class="modal-body center">
+                <span>Please provide us your Email Address and we will send your user authentication.</span>
+                <br><br>
+
+
+                <div class="form-group">
+                    <label class="control-label">Email*</label>
+                    <div>
+                        <input type="email" placeholder="Registered Email" required name="email" id='email' class="form-control" value='' />
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-info btn-flat" type="submit">
+                    Submit
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            <?php echo form_close(); ?>
+        </div>
+
+    </div>
+</div>

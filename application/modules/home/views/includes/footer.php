@@ -141,6 +141,9 @@
             if(hash == 'uploadcv'){
                 $('#cvModal').modal();
             }
+            if(hash== 'forgotpassword'){
+                $('#myModalPassword').modal();
+            }
 
         } else {
 
