@@ -70,7 +70,7 @@ class Jobseeker extends View_Controller {
             $data['job_id'] ='';
             $data['job_detail'] = '';
         }
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         //$data['seeker_right_banner']= $this->general_model->getAll('jobseek_banner',array('publish'=>1),'ordering asc');
         //$this->load->view('jobseeker-login',$data);
         $data['main'] = 'jobseeker-login';
@@ -79,7 +79,7 @@ class Jobseeker extends View_Controller {
     
     public function signup(){
         $data['menu'] = 'seeker';
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue'); 
         $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
         $data['country'] = $this->general_model->getAll('country2code','','country_name','country_code,country_name');
@@ -124,7 +124,7 @@ class Jobseeker extends View_Controller {
             $data['message'] .= validation_errors();
             
             $data['menu'] = 'home';
-            $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+            $data['page_title'] = 'Finance Job Nepal';
             $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
             $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
             $data['country'] = $this->general_model->getAll('country2code','','country_name','country_code,country_name');
@@ -372,11 +372,11 @@ class Jobseeker extends View_Controller {
               }
                 
               if($checkemail > 0){
-                  $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='http://financejobnepal.com/jobseeker/seekerforgotpassword'>HERE</a> and enter your email address.<br>GlobalJob administrator will mail you your authentication information.";
+                  $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='".base_url()."jobseeker/login#forgotpassword'>HERE</a> and enter your email address.<br>Finance Job administrator will mail you your authentication information.";
               }
               
-                $data['menu'] = 'home';
-                $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+                $data['menu'] = 'seeker';
+                $data['page_title'] = 'Finance Job Nepal';
                 $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue'); 
                 $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
                 $data['country'] = $this->general_model->getAll('country2code','','country_name','country_code,country_name');
@@ -385,6 +385,13 @@ class Jobseeker extends View_Controller {
                 $data['functional_area'] =$this->general_model->getAll('dropdown','fid = 9','','id,dropvalue');
                 $data['natureoforg'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');
                 $data['nationality'] =$this->general_model->getAll('dropdown','fid = 8','','id,dropvalue');
+                /*facebook login */
+                $data['authURL'] =  $this->facebook->login_url();
+                /*facebook login */
+                /*linked in login*/
+                $data['oauthURL'] = base_url().$this->config->item('linkedin_redirect_url').'?oauth_init=1';
+                /*linked in login*/
+
                 $data['main'] = 'jobseeker-signup';
                 $this->load->view('main',$data);
            }
@@ -589,16 +596,16 @@ class Jobseeker extends View_Controller {
             $content  = '';
             $content .= "<h2>Don't worry, we all forget sometimes</h2><br>";
             $content .= "Hi <b>".$fullname."</b><br>";
-            $content .= "<span>You've recently asked to reset the password for this Globaljob JobSeeker account:</span><br>";
+            $content .= "<span>You've recently asked to reset the password for this Finance Job JobSeeker account:</span><br>";
             $content .= $email;
             $content .= "<br><br>To update your password, click the link below<br>";
-            $content .= "<a href='".base_url()."jobseeker/changePassword/?token=".$token."'>Reset my password</a>";
+            $content .= "<a href='".base_url()."jobseeker/changepassword/?token=".$token."'>Reset my password</a>";
             $content .= "<br><br><br><br>Cheers,<br>";
             $content .= "Finance Job Nepal Team";
 
 
             $adminEmail = 'info@financejobnepal.com';
-            $mail_subject = "Forget Password Response from Finance Job Nepal :: A Complete HR solution";
+            $mail_subject = "Forget Password Response from Finance Job Nepal";
             $mail_body = $content;
             $mail_header  = 'MIME-Version: 1.0' . "\r\n";
             $mail_header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -624,11 +631,12 @@ class Jobseeker extends View_Controller {
         $token = $_GET['token'];
         $countToken = $this->jobseeker_model->countToken($token);
         if($countToken > 0){
-            $data['menu'] = 'home';
+            $data['menu'] = 'changepassword';
             $data['token'] = $token;
-            $data['seeker_right_banner']= $this->general_model->getAll('jobseek_banner',array('publish'=>1));
-            $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
-            $this->load->view('jobseeker-changepassword',$data);
+            //$data['seeker_right_banner']= $this->general_model->getAll('jobseek_banner',array('publish'=>1));
+            $data['page_title'] = 'Finance Job Nepal';
+            $data['main'] = 'jobseeker-changepassword';
+            $this->load->view('main',$data);
         }else{
             $this->session->set_flashdata('error', 'The token provided doesnt exists in our record');
             redirect(base_url() . 'jobseeker/login');
@@ -698,7 +706,7 @@ class Jobseeker extends View_Controller {
         $data['sid']= $sid;
         $data['select']='profile';
         $data['appliedjobs'] = $this->jobseeker_model->get_applied_job($sid);
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['main'] = 'jobseeker-dashboard';
         $this->load->view('main',$data);
     }
@@ -751,7 +759,7 @@ class Jobseeker extends View_Controller {
         $sid = $jobseeker_profile->id;
         $data['menu'] = 'basicInformation';
         $data['sid']= $sid;
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['basicInfo'] = $this->general_model->getById('seeker','id',$sid);
         $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','','id,dropvalue');
         $data['main'] = 'jobseeker-edit-profile';
@@ -808,7 +816,7 @@ class Jobseeker extends View_Controller {
         $sid = $jobseeker_profile->id;
         $data['menu'] = 'education';
         $data['sid']= $sid;
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['education'] =$this->general_model->getAll('dropdown','fid = 11','','id,dropvalue');
         $data['education_detail'] = $this->general_model->getAll('seeker_education',array('sid'=>$sid),'id');
         $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','','id,dropvalue');
@@ -822,7 +830,7 @@ class Jobseeker extends View_Controller {
         $sid = $jobseeker_profile->id;
         $data['menu'] = 'training';
         $data['sid']= $sid;
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['training_detail'] = $this->general_model->getAll('seeker_training',array('sid'=>$sid),'id');
         $data['main'] = 'jobseeker-training';
         $this->load->view('main',$data);
@@ -834,7 +842,7 @@ class Jobseeker extends View_Controller {
         $sid = $jobseeker_profile->id;
         $data['menu'] = 'workExperience';
         $data['sid']= $sid;
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['experience_detail'] = $this->general_model->getAll('seeker_experience',array('sid'=>$sid),'id');
         $data['main'] = 'jobseeker-work-experience';
         $this->load->view('main',$data);
@@ -846,7 +854,7 @@ class Jobseeker extends View_Controller {
         $sid = $jobseeker_profile->id;
         $data['menu'] = 'language';
         $data['sid']= $sid;
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['language_detail'] = $this->general_model->getAll('seeker_language',array('sid'=>$sid),'id');
         $data['main'] = 'jobseeker-language';
         $this->load->view('main',$data);
@@ -858,7 +866,7 @@ class Jobseeker extends View_Controller {
         $sid = $jobseeker_profile->id;
         $data['menu'] = 'reference';
         $data['sid']= $sid;
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['reference_detail'] = $this->general_model->getAll('seeker_reference',array('sid'=>$sid),'id');
         $data['main'] = 'jobseeker-reference';
         $this->load->view('main',$data);
@@ -876,7 +884,7 @@ class Jobseeker extends View_Controller {
         $data['sidebar'] = 'jobseeker';
         $data['sid']= $sid;
         $data['select']='editprofile';
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
         $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
         $data['country'] = $this->general_model->getAll('country2code','','country_name','country_code,country_name');
@@ -1298,7 +1306,7 @@ class Jobseeker extends View_Controller {
         $data['sidebar'] = 'jobseeker';
         $data['sid']= $sid;
         $data['select']='jobapplied';
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['main'] = 'jobseeker-appliedto';
         $this->load->view('dashboard',$data);
     }
@@ -1343,8 +1351,10 @@ class Jobseeker extends View_Controller {
         $education_html .= '<div class="single-input">'; // degree
         $education_html .= '<select name="degree['.$count.']" id="degree">';
         $education_html .= '<option value="">--Select Degree--</option>';
-        foreach ($education as $key => $value) {
-            $education_html .= '<option value='.$value->id.'>'.$value->dropvalue.'</option>"';
+        if($education) {
+            foreach ($education as $key => $value) {
+                $education_html .= '<option value=' . $value->id . '>' . $value->dropvalue . '</option>"';
+            }
         }
         $education_html .= '</select>';
         $education_html .= '</div>';//degree
@@ -1753,7 +1763,7 @@ class Jobseeker extends View_Controller {
         /*------------------------------------------------------*/
         $experience_html .= '<div class="single-resume-feild">
                                 <div class="single-input">
-                                    <textarea class="duties" id="duties" name="duties['.$count.']"  placeholder="Duties &amp; Responsibilities Here..."></textarea>
+                                    <textarea class="textarea duties" id="duties" name="duties['.$count.']"  placeholder="Duties &amp; Responsibilities Here..."></textarea>
                                 </div>
                             </div>';
         /*------------------------------------------------------*/

@@ -6,7 +6,7 @@
 
 <!-- Candidate Dashboard Area Start -->
 
-<section class="candidate-dashboard-area section_70">
+<section class="candidate-dashboard-area section_15">
     <div class="container">
         <div class="row">
 
@@ -82,9 +82,14 @@
                                     <div class="single-input">
                                         <select id="highest_qualification" name="highest_qualification">
                                             <option>Select Highest Qualification</option>
-                                            <option <?php echo ($basicInfo->highest_qualification=='PHD')?'selected':''?> value="PHD">PHD</option>
-                                            <option <?php echo ($basicInfo->highest_qualification=='Masters')?'selected':''?> value="Masters">Masters</option>
-                                            <option <?php echo ($basicInfo->highest_qualification=='Bachelor')?'selected':''?> value="Bachelor">Bachelor</option>
+
+                                            <option value="Not Required" <?php if($basicInfo->highest_qualification == 'Not Required'){ echo "selected='selected'"; } ?>>Not Required</option>
+                                            <option value="intermediate" <?php if($basicInfo->highest_qualification == 'intermediate'){ echo "selected='selected'"; } ?>>Intermediate</option>
+                                            <option value="bachelor" <?php if($basicInfo->highest_qualification == 'bachelor'){ echo "selected='selected'"; } ?>>Bachelor</option>
+                                            <option value="master" <?php if($basicInfo->highest_qualification == 'master'){ echo "selected='selected'"; } ?>>Master</option>
+                                            <option value="phd" <?php if($basicInfo->highest_qualification == 'phd'){ echo "selected='selected'"; } ?>>PHD</option>
+                                            <option value="other" <?php if($basicInfo->highest_qualification == 'other'){ echo "selected='selected'"; } ?>>Other</option>
+
                                         </select>
                                     </div>
                                     <div class="single-input">

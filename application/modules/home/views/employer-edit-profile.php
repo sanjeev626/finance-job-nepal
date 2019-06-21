@@ -13,7 +13,7 @@
 
 
 <!-- Candidate Dashboard Area Start -->
-<section class="candidate-dashboard-area section_70">
+<section class="candidate-dashboard-area section_15">
     <div class="container">
         <div class="row">
             <?php $this->load->view('includes/employer-dashboard-sidebar');?>
@@ -163,7 +163,7 @@
                                 <div class="single-resume-feild ">
                                     <div class="single-input">
                                         <label for="Bio">Description:</label>
-                                        <textarea class="form-control" rows="4" name="orgdesc" placeholder="Description"><?php if (!empty($employerInfo)) echo $employerInfo->organization_description; ?>
+                                        <textarea class="textarea form-control" rows="4" name="orgdesc" placeholder="Description"><?php if (!empty($employerInfo)) echo $employerInfo->organization_description; ?>
 </textarea>
                                     </div>
                                 </div>

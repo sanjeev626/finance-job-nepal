@@ -75,21 +75,33 @@
                                 <li class="has-children">
                                     <a href="#">SERVICES</a>
                                     <ul>
-                                        <li><a href="<?php echo base_url().'services/recruitment'?>">Recruitment</a></li>
-                                        <li><a href="<?php echo base_url().'services/staff-outsourcing'?>">Staff Outsourcing</a></li>
-                                        <li><a href="<?php echo base_url().'services/hr-audit-consulting'?>">HR Audit &amp; Consulting</a></li>
-                                        <li><a href="<?php echo base_url().'services/payroll-management'?>">Payroll Management</a></li>
-                                        <li><a href="<?php echo base_url().'services/corporate-training'?>">Corporate Training</a></li>
+                                        <?php
+                                        $this->load->model('../../admin/models/service_model');
+                                        $services = $this->service_model->get_all_service();
+
+                                            foreach($services as $service){
+                                                echo '<li><a href="'.base_url().'services/'.$service->urlcode.'">'.$service->title.'</a></li>';
+                                            }
+                                        ?>
+                                        <!--<li><a href="<?php /*echo base_url().'services/recruitment'*/?>">Recruitment</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/staff-outsourcing'*/?>">Staff Outsourcing</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/hr-audit-consulting'*/?>">HR Audit &amp; Consulting</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/payroll-management'*/?>">Payroll Management</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/corporate-training'*/?>">Corporate Training</a></li>-->
                                     </ul>
                                 </li>
                                 <li class="">
                                     <a href="#">TRAINING & CONSULTING </a>
                                 </li>
                                 <li class="">
-                                    <a href="#">ABOUT US</a>
+                                    <?php
+                                    $this->load->model('../../admin/models/content_model');
+                                    $aboutus = $this->content_model->get_content_by_id(2)->slug;
+                                    ?>
+                                    <a href="<?php echo base_url().'content/'.$aboutus?>">ABOUT US</a>
                                 </li>
                                 <li class="">
-                                    <a href="#">CONTACT US</a>
+                                    <a href="<?php echo base_url().'contactus'?>">CONTACT US</a>
                                 </li>
                             </ul>
                         </nav>

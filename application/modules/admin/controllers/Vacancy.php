@@ -30,7 +30,7 @@ class Vacancy extends MY_Controller {
         $data['category'] = '';
         }
 
-      $data['title'] = '.:: VACANCY ::.';
+      $data['title'] = 'VACANCY';
       $data['page_header'] = 'Vacancy';
       $data['page_header_icone'] = 'fa fa-bullhorn';
       $data['nav'] = 'vacancy';
@@ -41,8 +41,23 @@ class Vacancy extends MY_Controller {
         $this->load->view('admin/home', $data);
     }
 
+    public function active(){
+        $date = date('Y-m-d');
+        $data['category'] = '';
+        $data['title'] = 'VACANCY';
+        $data['page_header'] = 'Vacancy';
+        $data['page_header_icone'] = 'fa fa-bullhorn';
+        $data['nav'] = 'vacancy';
+        $data['panel_title'] = 'Job Manager';
+        $data['jobcategory'] = $this->vacancy_model->get_all_jobcategory();
+        $data['job_info'] = $this->general_model->getAll('jobs',"applybefore >= '".$date."'");
+        $data['main'] = 'vacancy/vacancy_manager_view';
+
+        $this->load->view('admin/home', $data);
+    }
+
     public function add(){
-        $data['title'] = '.:: ADD VACANCY ::.';
+        $data['title'] = 'ADD VACANCY';
         $data['page_header'] = 'Vacancy';
         $data['page_header_icone'] = 'fa fa-bullhorn';
         $data['nav'] = 'vacancy';
@@ -50,8 +65,8 @@ class Vacancy extends MY_Controller {
         $data['jobcategory'] = $this->vacancy_model->get_all_jobcategory(); 
         $data['employer'] =$this->general_model->getAll('employer','','orgname');
         $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','id','id,dropvalue');
-        $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue'); 
-        $data['job_location'] =$this->general_model->getAll('dropdown','fid = 2','id','id,dropvalue');
+        $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
+        $data['job_location'] =$this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','id','id,dropvalue');
         $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','id','id,dropvalue');
         $data['main'] = 'vacancy/add-edit-vacancy';
@@ -66,7 +81,7 @@ class Vacancy extends MY_Controller {
 
         if (FALSE == $this->form_validation->run()) {
             $this->session->set_flashdata('success', validation_errors());
-            $data['title'] = '.:: ADD VACANCY ::.';
+            $data['title'] = 'ADD VACANCY';
             $data['page_header'] = 'Vacancy';
             $data['page_header_icone'] = 'fa fa-bullhorn';
             $data['nav'] = 'vacancy';
@@ -101,19 +116,19 @@ class Vacancy extends MY_Controller {
 
             $this->vacancy_model->insert_vacancy($complogo);
             $this->session->set_flashdata('success', 'Job Added Successfully...');
-            redirect(base_url() . 'admin/Vacancy', 'refresh');
+            redirect(base_url() . 'admin/vacancy', 'refresh');
         }
     }
 
     public function edit($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
-        $data['title'] = '.:: EDIT Vacancy ::.';
+        $data['title'] = 'EDIT Vacancy';
         $data['page_header'] = 'Vacancy';
         $data['page_header_icone'] = 'fa fa-bullhorn';
         $data['nav'] = 'vacancy';
@@ -135,10 +150,10 @@ class Vacancy extends MY_Controller {
     public function editVacancy($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
         $this->form_validation->set_rules('jobtitle', 'jobtitle', 'required');
         $this->form_validation->set_rules('requiredno', 'requiredno', 'required');
@@ -174,17 +189,17 @@ class Vacancy extends MY_Controller {
 
             $this->vacancy_model->update_vacancy($id,$complogo);
             $this->session->set_flashdata('success', 'Job Update Successfully...');
-            redirect(base_url() . 'admin/Vacancy/edit/'.$id, 'refresh');
+            redirect(base_url() . 'admin/vacancy/edit/'.$id, 'refresh');
         }
     }
 
     public function deleteVacancy($id){
 
       if (!isset($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Vacancy');
+            redirect(base_url() . 'admin/vacancy');
 
         $this->vacancy_model->delete_vacancy($id);
         $this->session->set_flashdata('success', 'Job Deleted Successfully...');

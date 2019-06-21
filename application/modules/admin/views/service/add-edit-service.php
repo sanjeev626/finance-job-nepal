@@ -27,33 +27,33 @@ if (!empty($service_detail)) {
             </div>
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
             <label class="col-sm-3 control-label">Logo :</label>
             <div class="col-sm-7">
                 <input type="file" name="servicelogo" id='servicelogo' class="form-control" value='' />
                 <span class="green">(Image resolution must be 714 X 518 for better view)</span>
 
-                <?php if (!empty($service_detail->logo)) { ?>
-                    <input type="hidden" value="<?php echo $service_detail->logo; ?>" name="old_servicelogo">
-                    <div style="padding-top:10px;"><img height="30%" width="30%" src="<?php echo base_url() . 'uploads/service/' . $service_detail->logo; ?>"></div>
-                <?php } ?>
+                <?php /*if (!empty($service_detail->logo)) { */?>
+                    <input type="hidden" value="<?php /*echo $service_detail->logo; */?>" name="old_servicelogo">
+                    <div style="padding-top:10px;"><img height="30%" width="30%" src="<?php /*echo base_url() . 'uploads/service/' . $service_detail->logo; */?>"></div>
+                <?php /*} */?>
 
             </div>
-        </div>
+        </div>-->
 
-        <div class="form-group">
+        <!--<div class="form-group">
             <label class="col-sm-3 control-label">Short Description :</label>
             <div class="col-sm-9">
 
                 <textarea required rows="5" name="short_description" class="form-control simple" id="description" ><?php
-                    if (!empty($service_detail)) {
+/*                    if (!empty($service_detail)) {
                         echo $service_detail->short_description;
                     }
-                    ?>
+                    */?>
                 </textarea>
 
             </div>
-        </div>
+        </div>-->
 
         <div class="form-group">
             <label class="col-sm-3 control-label">Content :</label>

@@ -18,11 +18,11 @@
                                 <tr>
                                     <th width="5%">SN.</th>
                                     <th width="20%">Title </th>
-                                    <th width="20%">Category </th>
+                                    <!-- <th width="20%">Category </th> -->
                                     <th width="15%">Status </th>
                                     <th width="15%">Created Date</th>
                                     <th width="15%">Updated Date</th>
-                                    <th width="10%" class="table-action">Action</th>
+                                    <th width="15%" class="table-action">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -38,7 +38,7 @@
                                         <tr>
                                             <td><?php echo $i; ?></td>
                                             <td><?php echo $key->title; ?></td>
-                                            <td>
+                                            <!-- <td>
                                                 <?php
                                                 if($key->cat_id !=0){
                                                     $category = $this->blog_model->get_category_by_id($key->cat_id);
@@ -49,7 +49,7 @@
                                                 }
 
                                                 ?>
-                                            </td>
+                                            </td> -->
                                             <td><?php
                                                 if($key->stat=='Y')
                                                     echo 'Publish';

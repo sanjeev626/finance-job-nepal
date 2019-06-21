@@ -25,7 +25,16 @@ if (!empty($dropdown_detail)) {
             <div class="col-sm-7">
                 <select class="form-control chosen-select" name='fid' id="fid" data-placeholder="Choose a Field..." onchange="getfid(this);">
                 <?php foreach ($dropdown as $key => $value) { ?>
-                    <option value='<?php echo $value->id; ?>' <?php if (isset($dropdown_detail) && $dropdown_detail->fid == $value->id) echo "selected='selected'"; ?>><?php echo $value->title; ?> </option>
+                    <option value='<?php echo $value->id; ?>' 
+                        <?php 
+                        if (isset($dropdown_detail) && $dropdown_detail->fid == $value->id) 
+                            echo "selected='selected'";
+                        elseif($this->session->flashdata('selectedfield')==$value->id){
+                            echo "selected= 'selected'";
+                        }
+                             ?>
+
+                        ><?php echo $value->title; ?> </option>
                 <?php } ?>    
                 </select>
             </div>
@@ -95,4 +104,3 @@ if (isset($dropdown_detail)){?>
             }
         }
     </script>
-

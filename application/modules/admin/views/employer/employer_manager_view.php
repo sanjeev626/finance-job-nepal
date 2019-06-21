@@ -24,7 +24,7 @@
                             <tr>
                                 <th width="1%">SN.</th>
                                 <th width="25%">Employer Name</th>
-                                <th width="25%">Organisation</th>
+                                <th width="25%">Organization</th>
                                 <th width="2%">Email</th>
                                 <!--<th width="2%">Is Corporate </th>-->
                                 <th width="35%" class="table-action text-center">Action</th>
@@ -32,7 +32,7 @@
                             </thead>
                             <tbody>
                             <?php
-                            if ($this->uri->segment(3) == NULL) {
+                            if ($this->uri->segment(4) == NULL) {
                                 $i = 1;
                             } else {
                                 $i = $this->uri->segment(3) + 1;

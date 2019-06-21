@@ -16,7 +16,7 @@ class Dropdown extends MY_Controller {
 
     public function index(){
 
-        $data['title'] = '.:: DROPDOWN FIELD ::.';
+        $data['title'] = 'DROPDOWN FIELD ';
         $data['page_header'] = 'Dropdown Field';
         $data['page_header_icone'] = 'fa-caret-square-o-down';
         $data['nav'] = 'dropdown';
@@ -27,7 +27,7 @@ class Dropdown extends MY_Controller {
     }
 
     public function add(){
-        $data['title'] = '.:: ADD DROPDOWN FIELD ::.';
+        $data['title'] = 'ADD DROPDOWN FIELD ';
         $data['page_header'] = 'Dropdown Field';
         $data['page_header_icone'] = 'fa-caret-square-o-down';
         $data['nav'] = 'dropdown';
@@ -41,7 +41,7 @@ class Dropdown extends MY_Controller {
     public function addDropdown(){
         $this->form_validation->set_rules('dropvalue', 'dropvalue', 'required');
         if (FALSE == $this->form_validation->run()) {
-            $data['title'] = '.:: ADD DROPDOWN FIELD ::.';
+            $data['title'] = 'ADD DROPDOWN FIELD ';
             $data['page_header'] = 'Dropdown Field';
             $data['page_header_icone'] = 'fa-caret-square-o-down';
             $data['nav'] = 'dropdown';
@@ -70,8 +70,9 @@ class Dropdown extends MY_Controller {
 
 
             $this->dropdown_model->insert_dropdown($logoimage);
+            $this->session->set_flashdata('selectedfield', $this->input->post('fid'));
             $this->session->set_flashdata('success', 'Dropdown Field Added Successfully...');
-            redirect(base_url() . 'admin/dropdown', 'refresh');
+            redirect(base_url() . 'admin/dropdown/add', 'refresh');
         }
     }
 
@@ -83,7 +84,7 @@ class Dropdown extends MY_Controller {
         if (!is_numeric($id))
             redirect(base_url() . 'admin/dropdown');
 
-        $data['title'] = '.:: EDIT DROPDOWN FIELD ::.';
+        $data['title'] = 'EDIT DROPDOWN FIELD ';
         $data['page_header'] = 'Dropdown';
         $data['page_header_icone'] = 'fa-caret-square-o-down';
         $data['nav'] = 'dropdown';
@@ -105,7 +106,7 @@ class Dropdown extends MY_Controller {
 
          $this->form_validation->set_rules('dropvalue', 'dropvalue', 'required');
         if (FALSE == $this->form_validation->run()) {
-            $data['title'] = '.:: EDIT DROPDOWN FIELD ::.';
+            $data['title'] = 'EDIT DROPDOWN FIELD ';
             $data['page_header'] = 'Dropdown';
             $data['page_header_icone'] = 'fa-caret-square-o-down';
             $data['nav'] = 'dropdown';
@@ -133,7 +134,7 @@ class Dropdown extends MY_Controller {
 
             $this->dropdown_model->update_dropdown($id,$logoimage);
             $this->session->set_flashdata('success', 'Dropdown Field Update Successfully...');
-            redirect(base_url() . 'admin/dropdown', 'refresh');
+            redirect(base_url() . 'admin/dropdown/edit/'.$id, 'refresh');
         }
     }
 

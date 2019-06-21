@@ -63,20 +63,25 @@
                     </div>
                 </div>
                 <?php
-                    print_r($appliedjobs);
+                    //print_r($appliedjobs);
                 ?>
                 <div class="row">
                     <?php
-                        foreach($appliedjobs as $key => $val):
+                    if($appliedjobs) {
+                        foreach ($appliedjobs as $key => $val):
                             $key += 1;
-                    ?>
+                            ?>
                             <div class="col-md-2 col-lg-2">
-                                <p><?php echo $key?></p>
+                                <p><?php echo $key ?></p>
                             </div>
                             <div class="col-md-10 col-lg-10">
-                                <a href="<?php echo base_url() . 'job/' . $val->slug.'/' . $val->id;?>"><?php echo $val->jobtitle;?> </a>
+                                <a href="<?php echo base_url() . 'job/' . $val->slug . '/' . $val->id; ?>"><?php echo $val->jobtitle; ?> </a>
                             </div>
-                    <?php  endforeach;?>
+                        <?php endforeach;
+                    }else{
+                        echo '<div class="col-md-12">No applied jobs</div>';
+                    }
+                    ?>
 
                 </div>
             </div>

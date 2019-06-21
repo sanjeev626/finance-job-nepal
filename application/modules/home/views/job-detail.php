@@ -1,5 +1,16 @@
 <!-- Single Candidate Start -->
 <?php
+$jobseeker_profile = $this->session->userdata('jobseeker_profile');
+$sid = $jobseeker_profile->id;
+$personal =  $this->general_model->countCheck('seeker',array('id' => $sid));
+$education =  $this->general_model->countCheck('seeker_education',array('sid' => $sid));
+$experience =  $this->general_model->countCheck('seeker_experience',array('sid' => $sid));
+$training =  $this->general_model->countCheck('seeker_training',array('sid' => $sid));
+$language =  $this->general_model->countCheck('seeker_language',array('sid' => $sid));
+$reference =  $this->general_model->countCheck('seeker_reference',array('sid' => $sid));
+$total = $personal + $education + $experience + $training + $language + $reference;
+$percent = ($total / 6) * 100;
+
 $jobDetail = $job_detail[0];
 if(!empty($banner_image)){
 ?>
@@ -36,11 +47,13 @@ if(!empty($banner_image)){
                             <?php
                             //echo $jobDetail->joblocation;
                             if(!empty($jobDetail->joblocation)){
-                                $joblocation_arr = explode(',',$jobDetail->joblocation);
-                                for($i=0;$i<count($joblocation_arr);$i++)
-                                {
-                                    echo $this->general_model->getById('dropdown','id',$joblocation_arr[$i])->dropvalue;
-                                    if(count($joblocation_arr)>0 && $i<(count($joblocation_arr)-1)) echo ', ';
+                                $joblocation_arr = unserialize($jobDetail->joblocation);
+                                if($joblocation_arr !=''){
+                                    for($i=0;$i<count($joblocation_arr);$i++)
+                                    {
+                                        echo $this->general_model->getById('dropdown','id',$joblocation_arr[$i])->dropvalue;
+                                        if(count($joblocation_arr)>0 && $i<(count($joblocation_arr)-1)) echo ', ';
+                                    }
                                 }
                             }
 
@@ -51,11 +64,13 @@ if(!empty($banner_image)){
                             <p><i class="fa fa-thumb-tack"></i> <strong>Job Type :</strong>
                                 <?php
                                 if(!empty($jobDetail->jobtype)){
-                                    $jobtype_arr = explode(',',$jobDetail->jobtype);
-                                    for($i=0;$i<count($jobtype_arr);$i++)
-                                    {
-                                        echo $this->general_model->getById('dropdown','id',$jobtype_arr[$i])->dropvalue;
-                                        if(count($jobtype_arr)>0 && $i<(count($jobtype_arr)-1)) echo ', ';
+                                    $jobtype_arr = unserialize($jobDetail->jobtype);
+                                    if($jobtype_arr!=''){
+                                        for($i=0;$i<count($jobtype_arr);$i++)
+                                        {
+                                            echo $this->general_model->getById('dropdown','id',$jobtype_arr[$i])->dropvalue;
+                                            if(count($jobtype_arr)>0 && $i<(count($jobtype_arr)-1)) echo ', ';
+                                        }
                                     }
                                 }
 
@@ -92,10 +107,7 @@ if(!empty($banner_image)){
                         <h3>Job Specification (Skills, and Abilities)</h3>
                         <?php echo $jobDetail->requirements?>
                     </div>
-                    <div class="single-candidate-widget clearfix">
-                        <h3>Applying Procedures</h3>
-                        <?php echo $jobDetail->howtoapply?>
-                    </div>
+
                     <div class="single-candidate-widget clearfix">
                         <h3>share this post</h3>
                         <ul class="share-job">
@@ -106,10 +118,21 @@ if(!empty($banner_image)){
                         </ul>
                     </div>
                     <div class="single-candidate-widget-2">
-                        <a href="<?php echo base_url();?>applyjob/<?php echo $jobDetail->id; ?>" class="fjn-btn-2">
-                            <i class="fa fa-paper-plane-o"></i>
-                            Apply Now
-                        </a>
+                        <?php
+                            if($percent<50){?>
+
+                                <a href="<?php echo base_url();?>jobseeker/dashboard" class="fjn-btn-danger" style="width: 100%;text-align: center">
+                                    <i class="fa fa-paper-plane-o"></i>
+                                    Please fill your information
+                                </a>
+                            <?php }else{?>
+                                <a href="<?php echo base_url();?>applyjob/<?php echo $jobDetail->id; ?>" class="fjn-btn-2">
+                                    <i class="fa fa-paper-plane-o"></i>
+                                    Apply Now
+                                </a>
+                            <?php }
+                        ?>
+
                     </div>
                     <?php include('includes/detail-page-similar-job.php')?>
 

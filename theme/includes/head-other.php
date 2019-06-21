@@ -34,7 +34,10 @@
       <link rel="stylesheet" href="assets/css/perfect-scrollbar.min.css">
       <!--Site Main Style css-->
       <link rel="stylesheet" href="assets/css/style.css">
+<<<<<<< HEAD
       <!--Site Main Developer css-->
+=======
+>>>>>>> b72653c38e7f74591dc80443115913b4c4c66ad8
       <link rel="stylesheet" href="assets/css/developer.css">
       <!--Responsive css-->
       <link rel="stylesheet" href="assets/css/responsive.css">

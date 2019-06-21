@@ -9,7 +9,7 @@
 <!-- Breadcromb Area End -->
 
 
-<section class="candidate-dashboard-area section_70">
+<section class="candidate-dashboard-area section_15">
     <div class="container">
         <div class="row">
             <?php include('includes/jobseeker-dashboard-sidebar.php');?>
@@ -18,7 +18,7 @@
                 <div class="dashboard-right">
                     <div class="candidate-single-profile-info earnings-page-box manage-jobs">
                         <?php
-                        $action =base_url().'jobseeker/updateTraining/'.$sid;
+                        $action =base_url().'jobseeker/updatetraining/'.$sid;
                         $attributes = array('class' => 'form-horizontal user-logIn','name'=>'jobseekersupdate',);
                         echo form_open_multipart($action, $attributes);
                         ?>
@@ -222,7 +222,7 @@
         $('#add_training').on('click',function(){
             $.ajax({
                 type: 'GET',
-                url: '<?php echo base_url('Jobseeker/appendTraining')?>',
+                url: '<?php echo base_url('jobseeker/appendtraining')?>',
                 success: function (data) {
                     $('.addtrainingdiv').last().append(data);
                 }

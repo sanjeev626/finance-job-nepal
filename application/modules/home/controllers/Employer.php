@@ -51,7 +51,7 @@ class Employer extends View_Controller {
 //        }
 
         $data['menu'] = 'employer';
-        $data['page_title'] = 'Employer Login - Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'Employer Login - Finance Job Nepal';
         //$data['clients'] = $this->general_model->getAll('clients','image!=""','','id,clientname,image','',30);
         //$data['services']=  $this->general_model->getAll('globaljob_service','','','id,title,urlcode,logo,short_description');
 
@@ -61,7 +61,7 @@ class Employer extends View_Controller {
     
     public function signup(){
         $data['menu'] = 'employer';
-        $data['page_title'] = 'Employer Registration - Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'Employer Registration - Finance Job Nepal';
         $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue'); 
         $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue'); 
         $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
@@ -93,19 +93,51 @@ class Employer extends View_Controller {
             $this->load->view('main',$data);
             
         }else{
-            $picture = resize_image_upload('logo','employer');            
-            if ($picture['status'] === true) {
-                $complogo = $picture['images'];  
-            }else{
-                $complogo = '';
+
+            $username = $this->input->post('email');
+            $email = $this->input->post('email');
+
+
+            $checkusername = $this->general_model->countTotal('employer',array('username' => $username));
+            $checkemail = $this->general_model->countTotal('employer',array('email' => $email));
+            if($checkusername == 0 && $checkemail == 0 ){
+                $picture = resize_image_upload('logo','employer');
+                if ($picture['status'] === true) {
+                    $complogo = $picture['images'];
+                }else{
+                    $complogo = '';
+                }
+                //echo "complogo = ".$complogo;
+
+
+
+                $employerInsert = $this->employer_model->insert_employer_info($complogo);
+                $this->session->set_flashdata('success', 'Employer Successfully Register. ');
+                redirect(base_url() . 'employer/login', 'refresh');
             }
-            echo "complogo = ".$complogo;
+            else{
+                /*----------------------------------------------------------------
+                If  Username and Email Exists, Send Message On Flash Messgage
+              -----------------------------------------------------------------*/
+                if($checkusername > 0){
+                    $data['message'] =  "The username <strong>".$username."</strong> is already taken.";
+                }
+
+                if($checkemail > 0){
+                    $data['message'] = "The email address <strong>".$email."</strong> already exists in our record.<br>If you have forgot your password, please click <a href='".base_url()."employer/login#forgotpassword'>HERE</a> and enter your email address.<br>Finance Job administrator will mail you your authentication information.";
+                }
+
+                $data['menu'] = 'employer';
+                $data['page_title'] = 'Finance Job Nepal';
+                $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
+                $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue');
+                $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
+                $data['nature_of_organisation'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');
+                $data['main'] = 'employer-signup';
+                $this->load->view('main',$data);
+            }
 
 
-            
-            $employerInsert = $this->employer_model->insert_employer_info($complogo);    
-            $this->session->set_flashdata('message', 'Employer Successfully Register. ');
-            redirect(base_url() . 'employer/signup', 'refresh');
         }
     }
     
@@ -151,21 +183,21 @@ class Employer extends View_Controller {
             $content  = '';
             $content .= "<h2>Don't worry, we all forget sometimes</h2><br>";
             $content .= "Hi <b>".$fullname."</b><br>";
-            $content .= "<span>You've recently asked to reset the password for this Globaljob Employer account:</span><br>";
+            $content .= "<span>You've recently asked to reset the password for this Finance Job Employer account:</span><br>";
             $content .= $email;
             $content .= "<br><br>To update your password, click the link below<br>";
-            $content .= "<a href='".base_url()."Employer/changePassword/?token=".$token."'>Reset my password";
+            $content .= "<a href='".base_url()."employer/changepassword/?token=".$token."'>Reset my password";
             $content .= "<br><br><br><br>Cheers,<br>";
             $content .= "Finance Job Nepal Team";
 
 
             $adminEmail = 'info@financejobnepal.com';
-            $mail_subject = "Forget Password Response from Finance Job Nepal :: A Complete HR solution";
+            $mail_subject = "Forget Password Response from Finance Job Nepal";
             $mail_body = $content;
             $mail_header  = 'MIME-Version: 1.0' . "\r\n";
             $mail_header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $mail_header .= 'To: '.$mail_to.' <'.$mail_to.'>' . "\r\n";
-            $mail_header .= 'From: Finance Job Nepal :: Complete HR solution <'.$adminEmail.'>' . "\r\n";
+            $mail_header .= 'From: Finance Job Nepal <'.$adminEmail.'>' . "\r\n";
 
             if(@mail($mail_to,$mail_subject,$mail_body,$mail_header)){
                      $this->session->set_flashdata('success', 'Password reset link has been Sent. Please check your Email.');
@@ -184,10 +216,11 @@ class Employer extends View_Controller {
         $token = $_GET['token'];
         $countToken = $this->general_model->countTotal('employer',array('token' => $token));
         if($countToken > 0){
-                 $data['menu'] = 'home';
+                 $data['menu'] = 'changePassword';
                  $data['token'] = $token;
-                 $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
-                 $this->load->view('employer-changepassword',$data);
+                 $data['page_title'] = 'Finance Job Nepal';
+                 $data['main'] = 'employer-changepassword';
+                 $this->load->view('main',$data);
         }else{
             $this->session->set_flashdata('error', 'The token provided doesnt exists in our record');
             redirect(base_url() . 'employer/login');
@@ -244,9 +277,9 @@ class Employer extends View_Controller {
         {
             $jobs.=$job_detail->jobtitle.', ';
         }
-        $data['page_title'] = $ogtitle = 'List of Jobs posted by '.$employer_info->orgname.' on Finance Job Nepal :: A complete HR Solution';
-        $data['page_keywords'] = $jobs.' posted by '.$employer_info->orgname.' on Finance Job Nepal :: A complete HR Solution';
-        $data['page_description'] = $ogdescription = $jobs.' posted by '.$employer_info->orgname.' on Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = $ogtitle = 'List of Jobs posted by '.$employer_info->orgname.' on Finance Job Nepal';
+        $data['page_keywords'] = $jobs.' posted by '.$employer_info->orgname.' on Finance Job Nepal';
+        $data['page_description'] = $ogdescription = $jobs.' posted by '.$employer_info->orgname.' on Finance Job Nepal';
         
         $ogurl = base_url().'employer/jobList/'.$employer_info->orgcode.'/'.$employer_info->id;
 
@@ -276,14 +309,14 @@ class Employer extends View_Controller {
         $eid = $employer_profile->id;
         $todaydate=date('Y-m-d');
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);  
-        $data['post_job'] = $this->general_model->getAll('jobs',array('eid'=>$eid));
-        $data['activejobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'post_status'=>'public','applybefore >='=>$todaydate));
-        $data['inactivejobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'post_status'=>'private','applybefore >='=>$todaydate));
-        $data['expiredjobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'applybefore <='=>$todaydate));
+        $data['post_job'] = $this->general_model->getAll('jobs',array('eid'=>$eid),'date_added DESC');
+        $data['activejobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'post_status'=>'public','applybefore >='=>$todaydate),'date_added DESC');
+        $data['inactivejobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'post_status'=>'private','applybefore >='=>$todaydate),'date_added DESC');
+        $data['expiredjobs'] =$this->general_model->getAll('jobs',array('eid'=>$eid,'applybefore <='=>$todaydate),'date_added DESC');
         $data['menu'] = 'dashboard';
         $data['sidebar'] = 'employer';
         $data['select'] = '';
-        $data['page_title'] = 'Employer Dashboard - Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'Employer Dashboard - Finance Job Nepal';
         $data['main'] = 'employer-dashboard';
         $this->load->view('main',$data);
     }
@@ -296,7 +329,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = 'profile';
-        $data['page_title'] = 'My Profile - Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'My Profile - Finance Job Nepal';
         $data['main'] = 'employer-profile';
         $this->load->view('dashboard',$data);
     }
@@ -348,7 +381,7 @@ class Employer extends View_Controller {
         $data['sidebar'] = 'employer';
         $data['select'] = 'listjob';
         $data['list_job'] = $this->general_model->getAll('jobs',array('eid'=>$eid),'','','',$config['per_page'],$page);
-        $data['page_title'] = 'List of Jobs Posted - Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'List of Jobs Posted - Finance Job Nepal';
         $data['main'] = 'employer-job-list';
         $this->load->view('main',$data);
     }
@@ -367,7 +400,7 @@ class Employer extends View_Controller {
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','id','id,dropvalue');
         $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','id','id,dropvalue');
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['main'] = 'add-edit-postjob';
         $this->load->view('main',$data);
     }
@@ -443,7 +476,7 @@ class Employer extends View_Controller {
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','dropvalue','id,dropvalue');
         $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','dropvalue','id,dropvalue');
-        $data['page_title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $data['page_title'] = 'Finance Job Nepal';
         $data['jobpost_detail'] = $this->general_model->getById('jobs','id',$id);
         $data['main'] = 'add-edit-postjob';
         $this->load->view('main',$data);
@@ -463,7 +496,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = '';
-        $data['page_title'] = 'List of Job Applicants - Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'List of Job Applicants - Finance Job Nepal';
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
         /* Bootstrap Pagination  */
@@ -522,7 +555,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = 'rejected';
-        $data['page_title'] = 'Rejected Applicants - Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'Rejected Applicants - Finance Job Nepal';
         $data['title'] = 'List of Rejected Applicants'; 
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
@@ -582,7 +615,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = '';
-        $data['page_title'] = 'Shortlisted Applicants - Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'Shortlisted Applicants - Finance Job Nepal';
         $data['title'] = 'List of Shortlisted Applicants'; 
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
@@ -642,7 +675,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = 'shortlisted';
-        $data['page_title'] = 'Shortlisted Applicants - Finance Job Nepal :: A complete HR Solution..';
+        $data['page_title'] = 'Shortlisted Applicants - Finance Job Nepal..';
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
         /* Bootstrap Pagination  */
@@ -701,7 +734,7 @@ class Employer extends View_Controller {
         $data['menu'] = 'home';
         $data['sidebar'] = 'employer';
         $data['select'] = 'rejected';
-        $data['page_title'] = 'Rejected Applicants - Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'Rejected Applicants - Finance Job Nepal';
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
 
         /* Bootstrap Pagination  */
@@ -790,11 +823,11 @@ class Employer extends View_Controller {
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
         $data['employerInfo']= $this->general_model->getById('employer','id',$eid);
-        $data['menu'] = 'home';
+        $data['menu'] = 'viewseekerdetail';
         $data['sidebar'] = 'employer';
         $data['sid']= $sid;
         $data['select'] = '';
-        $data['page_title'] = 'Job Seeker Details - Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'Job Seeker Details - Finance Job Nepal';
         $data['main'] = 'view-seeker-details';
         $this->load->view('main',$data);
     }
@@ -899,7 +932,7 @@ class Employer extends View_Controller {
         $employer_profile = $this->session->userdata('employer_profile');
         $eid = $employer_profile->id;
         $data['menu'] = 'home';
-        $data['page_title'] = 'Change Password - Finance Job Nepal :: A complete HR Solution';
+        $data['page_title'] = 'Change Password - Finance Job Nepal';
         $this->employer_model->change_pasword($eid);
         $this->session->set_flashdata('success', 'Your Password has been changed. Please login and proceed');
         redirect(base_url() . 'employer/login', 'refresh');

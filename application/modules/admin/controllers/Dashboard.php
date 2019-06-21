@@ -15,7 +15,8 @@ class Dashboard extends MY_Controller {
     }
    
     function index() {
-        $data['title'] = '.:: Finance Job Nepal :: Complete HR Solution..';
+        $date = date('Y-m-d');
+        $data['title'] = 'Finance Job Nepal';
         $data['page_header'] = 'Dashboard';
         $data['page_header_icone'] = 'fa-home';
         $data['main'] = 'dashboard_view';
@@ -24,7 +25,7 @@ class Dashboard extends MY_Controller {
         //$data['total_clients'] = $this->general_model->countTotal('clients');
         $data['total_employer'] = $this->general_model->countTotal('employer');
         $data['total_job_seeker'] = $this->general_model->countTotal('seeker');
-        $data['total_job'] = $this->general_model->countTotal('jobs');
+        $data['total_job'] = $this->general_model->countTotal('jobs',"applybefore >= '".$date."'",'applybefore DESC');
         //print_r($this->session->all_userdata());
         
         $user_id = $this->session->userdata('user_id');

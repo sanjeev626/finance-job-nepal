@@ -25,7 +25,7 @@ else
 
 <!-- Candidate Dashboard Area Start -->
 
-<section class="candidate-dashboard-area section_50">
+<section class="candidate-dashboard-area section_15">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-12">

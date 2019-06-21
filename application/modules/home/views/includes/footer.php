@@ -26,6 +26,7 @@
             <h3>Employer</h3>
             <ul>
                 <?php
+                $employer_profile = $this->session->userdata('employer_profile');
                 if(!empty($employer_profile)){ ?>
                     <li><a href="<?php echo base_url() . 'employer/postJob' ?>"><i class="fa fa-angle-double-right "></i>Post Job</a></li>
                 <?php }else{?>
@@ -41,11 +42,14 @@
           <div class="single-footer-widget">
             <h3>Services we offer</h3>
             <ul>
-              <li><a href="<?php echo base_url().'services/recruitment'?>"><i class="fa fa-angle-double-right "></i>Recruitment</a></li>
-              <li><a href="<?php echo base_url().'services/staff-outsourcing'?>"><i class="fa fa-angle-double-right "></i>Staff Outsourcing</a></li>
-              <li><a href="<?php echo base_url().'services/hr-audit-consulting'?>"><i class="fa fa-angle-double-right "></i>HR Audit &amp; Consulting</a></li>
-              <li><a href="<?php echo base_url().'services/payroll-management'?>"><i class="fa fa-angle-double-right "></i>Payroll Management</a></li>
-              <li><a href="<?php echo base_url().'services/corporate-training'?>"><i class="fa fa-angle-double-right "></i>Corporate Training</a></li>
+                <?php
+                $this->load->model('../../admin/models/service_model');
+                $services = $this->service_model->get_all_service();
+                foreach($services as $service){
+                    echo '<li><a href="'.base_url().'services/'.$service->urlcode.'"><i class="fa fa-angle-double-right "></i>'.$service->title.'</a></li>';
+                }
+                ?>
+
             </ul>
           </div>
         </div>
@@ -110,14 +114,14 @@
 
         tinymce.EditorManager.editors = [];
 
-        tinymce.init({selector:'textarea'});//this will reinitialze tinymce
+        tinymce.init({selector:'.textarea'});//this will reinitialze tinymce
 
     }
 
     $('document').ready(function () {
 
         tinymce.init({
-            selector: "textarea", theme: "modern", height: 300,
+            selector: ".textarea", theme: "modern", height: 300,
             plugins: [
                 "advlist autolink lists link image charmap print preview anchor",
                 "searchreplace visualblocks code fullscreen",
@@ -136,6 +140,9 @@
             var hash = window.location.hash.substring(1);
             if(hash == 'uploadcv'){
                 $('#cvModal').modal();
+            }
+            if(hash== 'forgotpassword'){
+                $('#myModalPassword').modal();
             }
 
         } else {

@@ -63,6 +63,52 @@ class Employer extends MY_Controller {
         $this->load->view('admin/home', $data);
     }
 
+    public function all(){
+
+        $config['base_url'] = base_url() . 'admin/employer';
+        $config['uri_segment'] = 3;
+        $config['per_page'] = 20;
+
+        /* Bootstrap Pagination  */
+
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+
+        /* End of Bootstrap Pagination */
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+
+        //$config['total_rows'] = $this->db->count_all('employer');
+        $config['total_rows'] = $this->employer_model->get_count_recent_post_employer();
+        $data['employer'] = $this->employer_model->get_all_employer($config['per_page'], $page);
+
+
+        $this->pagination->initialize($config);
+
+        $data['title'] = '.:: EMPLOYER ::.';
+        $data['page_header'] = 'Employer';
+        $data['page_header_icone'] = 'fa-user-secret';
+        $data['nav'] = 'employer';
+        $data['panel_title'] = 'Employer List';
+        $data['main'] = 'employer/employer_manager_view';
+        $data['organisation_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
+
+        $this->load->view('admin/home', $data);
+    }
+
     public function viewEmployerBasket(){
         $data['title'] = '.:: VIEW BASKET ::.';
         $data['page_header'] = 'View Employer Basket';

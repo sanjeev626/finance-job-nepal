@@ -22,7 +22,7 @@
 <!-- Breadcromb Area End -->
 
 <!-- Candidate Dashboard Area Start -->
-<section class="candidate-dashboard-area section_70">
+<section class="candidate-dashboard-area section_15">
     <div class="container">
         <div class="row">
 
@@ -30,7 +30,7 @@
                 <div class="dashboard-right">
                     <div class="candidate-single-profile-info earnings-page-box manage-jobs">
                         <?php
-                        $action =base_url().'jobseeker/jobseekerRegistration';
+                        $action =base_url().'jobseeker/jobseekerregistration';
                         $attributes = array('id' => 'jobseekersignup_demo','name'=>'jobseekersignup',);
                         echo form_open_multipart($action, $attributes);
                         ?>

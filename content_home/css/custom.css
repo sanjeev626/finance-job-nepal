@@ -32,3 +32,30 @@ width: 100%;
 	margin: 0 auto;
 	margin-top: 10px;
 }
+
+.blog-content {
+	background: #fff none repeat scroll 0 0;
+	border-radius:5px;
+	padding: 20px 30px;
+}
+.blog-content h3{
+	color: #333333;
+}
+.blog-content ul{
+	padding-left: 20px !important;
+}
+
+.blog-content ul li{
+	list-style-type: disc;
+	color: #000000;
+}
+.breadcromb-box h3{
+	font-size: 30px;
+	line-height: 30px;
+}
+.margin_top_0{
+	margin-top: 0px;
+}
+.margin_bottom_15{
+	margin-bottom: 15px;
+}

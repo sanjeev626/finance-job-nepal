@@ -11,7 +11,7 @@ $seekerTraining = $this->general_model->getAll('seeker_training', array('sid' =>
 $seekerReference = $this->general_model->getAll('seeker_reference', array('sid' => $sid));
 ?>
 <!-- Candidate Dashboard Area Start -->
-<section class="candidate-dashboard-area section_70">
+<section class="candidate-dashboard-area section_15">
     <div class="container">
         <div class="row margin_top_15">
             <?php $this->load->view('includes/employer-dashboard-sidebar'); ?>
