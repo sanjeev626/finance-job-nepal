@@ -80,6 +80,7 @@
                                 </div>
                                 <div class="single-resume-feild feild-flex-2">
                                     <div class="single-input">
+                                        <?php //echo $basicInfo->highest_qualification;?>
                                         <select id="highest_qualification" name="highest_qualification">
                                             <option>Select Highest Qualification</option>
 

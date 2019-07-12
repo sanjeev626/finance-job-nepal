@@ -152,7 +152,7 @@
                                 <div class="single-resume-feild feild-flex-2">
                                     <div class="single-input">
                                         <select class="form-control" name="faculty" id="faculty">
-                                            <option value="None">None</option>
+                                            <option value="None">Highest Education</option>
                                             <option value="intermediate" <?php echo  set_select('faculty','intermediate'); ?>>Intermediate</option>
                                             <option value="bachelor" <?php echo  set_select('faculty','bachelor'); ?>>Bachelor</option>
                                             <option value="master" <?php echo  set_select('faculty','master'); ?>>Master</option>
@@ -162,7 +162,7 @@
                                     <div class="single-input">
                                         <select class="form-control" name="expyrs">
                                             <option>Select Experience in years</option>
-                                            <?php for($y=0;$y<=5;$y++){?>
+                                            <?php for($y=0;$y<=50;$y++){?>
                                                 <option value="<?php echo $y;?>" <?php echo  set_select('expyrs',$y); ?> ><?php echo $y;?> Years</option>
                                             <?php } ?>
                                         </select>

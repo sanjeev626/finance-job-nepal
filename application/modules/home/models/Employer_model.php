@@ -503,7 +503,7 @@ class Employer_model extends CI_Model {
             'post_status' => $this->input->post('post_status'),
             'required_education' => $this->input->post('required_education'),
             'other_faculty' => $this->input->post('other_faculty'),
-            'expected_faculty' => $this->input->post('expected_faculty'),          
+            /*'expected_faculty' => $this->input->post('expected_faculty'),*/          
 
             );
 
@@ -618,7 +618,7 @@ class Employer_model extends CI_Model {
             'post_status' => $this->input->post('post_status'),
             'required_education' => $this->input->post('required_education'),
             'other_faculty' => $this->input->post('other_faculty'),
-            'expected_faculty' => $this->input->post('expected_faculty'),
+            /*'expected_faculty' => $this->input->post('expected_faculty'),*/
         );
         if($logo){
             $data['complogo'] = $logo;

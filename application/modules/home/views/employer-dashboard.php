@@ -68,12 +68,13 @@
                                     <?php }
                                 }
                                 else{
-                                    echo '<tr><td colspan="6">No Records Found</td></tr>';
+                                    echo '<tr><td colspan="6">There are no active jobs.</td></tr>';
                                 }
                                 ?>
 
                                 </tbody>
                             </table>
+                            <?php /* ?>
                             <div class="pagination-box-row">
                                 <p>Page 1 of 5</p>
                                 <ul class="pagination">
@@ -85,6 +86,7 @@
                                     <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
                                 </ul>
                             </div>
+                            <?php */ ?>
                         </div>
                     </div>
                 </div>
@@ -132,11 +134,12 @@
                                     <?php }
                                 }
                                 else{
-                                    echo '<tr><td colspan="6">No Records Found</td></tr>';
+                                    echo '<tr><td colspan="6">There are no unpublished jobs.</td></tr>';
                                 }
                                 ?>
                                 </tbody>
                             </table>
+                            <?php /* ?>
                             <div class="pagination-box-row">
                                 <p>Page 1 of 5</p>
                                 <ul class="pagination">
@@ -148,6 +151,7 @@
                                     <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
                                 </ul>
                             </div>
+                            <?php */ ?>
                         </div>
                     </div>
                 </div>
@@ -195,11 +199,12 @@
                                     <?php }
                                 }
                                 else{
-                                    echo '<tr><td colspan="6">No Records Found</td></tr>';
+                                    echo '<tr><td colspan="6">There are no expired jobs.</td></tr>';
                                 }
                                 ?>
                                 </tbody>
                             </table>
+                            <?php /* ?>
                             <div class="pagination-box-row">
                                 <p>Page 1 of 5</p>
                                 <ul class="pagination">
@@ -211,6 +216,7 @@
                                     <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
                                 </ul>
                             </div>
+                            <?php */ ?>
                         </div>
                     </div>
                 </div>

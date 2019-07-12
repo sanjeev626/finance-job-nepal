@@ -112,7 +112,7 @@ class Employer extends View_Controller {
 
 
                 $employerInsert = $this->employer_model->insert_employer_info($complogo);
-                $this->session->set_flashdata('success', 'Employer Successfully Register. ');
+                $this->session->set_flashdata('success', 'Your employer account has been created successfully. ');
                 redirect(base_url() . 'employer/login', 'refresh');
             }
             else{
@@ -400,6 +400,7 @@ class Employer extends View_Controller {
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','id','id,dropvalue');
         $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','id','id,dropvalue');
+        $data['btn_title'] = 'Add';
         $data['page_title'] = 'Finance Job Nepal';
         $data['main'] = 'add-edit-postjob';
         $this->load->view('main',$data);
@@ -476,7 +477,8 @@ class Employer extends View_Controller {
         $data['education'] =$this->general_model->getAll('dropdown','fid = 3','dropvalue','id,dropvalue');
         $data['jobtype'] = $this->general_model->getAll('dropdown','fid = 16','dropvalue','id,dropvalue');
         $data['joblevel'] = $this->general_model->getAll('dropdown','fid = 17','dropvalue','id,dropvalue');
-        $data['page_title'] = 'Finance Job Nepal';
+        $data['page_title'] = 'Finance Job Nepal - Update Job';
+        $data['btn_title'] = 'Save Changes';
         $data['jobpost_detail'] = $this->general_model->getById('jobs','id',$id);
         $data['main'] = 'add-edit-postjob';
         $this->load->view('main',$data);
