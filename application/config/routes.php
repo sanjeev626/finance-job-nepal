@@ -106,7 +106,7 @@ $route['jobseeker/(:any)'] = 'home/Jobseeker/$1';
 $route['jobseeker/(:any)/([0-9]+)'] = 'home/Jobseeker/$1/$2';
 
 $route['employer/jobList/(:any)/([0-9]+)'] = 'home/Employer/jobList/$1/$2';
-$route['category/(:any)/(:any)/([0-9]+)'] = 'home/category/$1/$2';
+$route['category/(:any)/([0-9]+)'] = 'home/category/$1/$2';
 $route['search/jobSearch/([0-9]+)'] = 'home/Search/jobSearch';
 $route['search/job/([0-9]+)'] = 'home/Search/job';
 $route['search/searchResult/([0-9]+)'] = 'home/Search/searchResult';

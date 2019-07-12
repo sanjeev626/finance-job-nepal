@@ -580,8 +580,10 @@ class CI_Pagination {
 			if ($i === $base_page)
 			{
 				// First page
-				$output .= $this->prev_tag_open.'<a href="'.$first_url.'"'.$attributes.$this->_attr_rel('prev').'>'
-					.$this->prev_link.'</a>'.$this->prev_tag_close;
+				/*$output .= $this->prev_tag_open.'<a href="'.$first_url.'"'.$attributes.$this->_attr_rel('prev').'>'
+					.$this->prev_link.'</a>'.$this->prev_tag_close;*/
+				$output .= $this->prev_tag_open.'<a href="'.$first_url.'"'.$attributes.$this->_attr_rel('prev').'>
+				<i class="fa fa-angle-double-left"></i></a>'.$this->prev_tag_close;
 			}
 			else
 			{
@@ -632,8 +634,10 @@ class CI_Pagination {
 
 			$attributes = sprintf('%s %s="%d"', $this->_attributes, $this->data_page_attr, $this->cur_page + 1);
 
+			/*$output .= $this->next_tag_open.'<a href="'.$base_url.$this->prefix.$i.$this->suffix.'"'.$attributes
+				.$this->_attr_rel('next').'>'.$this->next_link.'</a>'.$this->next_tag_close;*/
 			$output .= $this->next_tag_open.'<a href="'.$base_url.$this->prefix.$i.$this->suffix.'"'.$attributes
-				.$this->_attr_rel('next').'>'.$this->next_link.'</a>'.$this->next_tag_close;
+				.$this->_attr_rel('next').'><i class="fa fa-angle-double-right"></i></a>'.$this->next_tag_close;
 		}
 
 		// Render the "Last" link

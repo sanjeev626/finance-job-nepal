@@ -717,6 +717,39 @@ class Home_model extends CI_Model {
         }
     }
 
+
+
+    public function get_job_by_category($slug,$limit,$offset){
+        $date = date('Y-m-d');
+        $this->db->from('jobs as jb');
+        $this->db->join('dropdown as dp','dp.id = jb.jobcategory');
+        $this->db->where('dp.slug',$slug);
+        $this->db->where('applybefore >=',$date);
+        $this->db->where('post_status','public');
+        $this->db->limit($limit);
+        $this->db->offset($offset);
+        $this->db->select('jb.*');
+        $query = $this->db->get();
+        if ($query->num_rows() == 0) {
+            return FALSE;
+        } else {
+            return $query->result();
+        }
+    }
+
+    public function get_job_count_by_category($slug){
+        $date = date('Y-m-d');
+
+        $this->db->select();
+        $this->db->from('jobs as jb');
+        $this->db->join('dropdown as dp','dp.id = jb.jobcategory');
+        $this->db->where('dp.slug',$slug);
+        $this->db->where('applybefore >=',$date);
+        $this->db->where('post_status','public');
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
 }
 
 /* End of file Home_model.php
