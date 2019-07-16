@@ -1,24 +1,31 @@
 <!-- Single Candidate Start -->
 <?php
 $jobseeker_profile = $this->session->userdata('jobseeker_profile');
-$sid = $jobseeker_profile->id;
-$personal =  $this->general_model->countCheck('seeker',array('id' => $sid));
-$education =  $this->general_model->countCheck('seeker_education',array('sid' => $sid));
-$experience =  $this->general_model->countCheck('seeker_experience',array('sid' => $sid));
-$training =  $this->general_model->countCheck('seeker_training',array('sid' => $sid));
-$language =  $this->general_model->countCheck('seeker_language',array('sid' => $sid));
-$reference =  $this->general_model->countCheck('seeker_reference',array('sid' => $sid));
-$total = $personal + $education + $experience + $training + $language + $reference;
-$percent = ($total / 6) * 100;
+if(!empty($jobseeker_profile)){
+    $sid = $jobseeker_profile->id;
+    $personal =  $this->general_model->countCheck('seeker',array('id' => $sid));
+    $education =  $this->general_model->countCheck('seeker_education',array('sid' => $sid));
+    $experience =  $this->general_model->countCheck('seeker_experience',array('sid' => $sid));
+    $training =  $this->general_model->countCheck('seeker_training',array('sid' => $sid));
+    $language =  $this->general_model->countCheck('seeker_language',array('sid' => $sid));
+    $reference =  $this->general_model->countCheck('seeker_reference',array('sid' => $sid));
+    $total = $personal + $education + $experience + $training + $language + $reference;
+    $percent = ($total / 6) * 100;
+}
+else{
+   $percent = '';
+}
+
 
 $jobDetail = $job_detail[0];
-if(!empty($banner_image)){
+
 ?>
 <section class="single-candidate-page">
+    <?php if(!empty($banner_image)){?>
     <img src="<?php echo base_url().'uploads/employer/'.$banner_image;?>" width="100%">
-
+    <?php }?>
 </section>
-<?php }?>
+
 <!-- Single Candidate End -->
 
 <!-- Single Candidate Bottom Start -->
@@ -119,7 +126,13 @@ if(!empty($banner_image)){
                     </div>
                     <div class="single-candidate-widget-2">
                         <?php
-                            if($percent<50){?>
+                            if($percent == ''){?>
+                                <a href="<?php echo base_url();?>jobseeker/login" class="fjn-btn-danger" style="width: 100%;text-align: center">
+                                    <i class="fa fa-paper-plane-o"></i>
+                                    Please Login
+                                </a>
+                            <?php }
+                            elseif($percent<50){?>
 
                                 <a href="<?php echo base_url();?>jobseeker/dashboard" class="fjn-btn-danger" style="width: 100%;text-align: center">
                                     <i class="fa fa-paper-plane-o"></i>
