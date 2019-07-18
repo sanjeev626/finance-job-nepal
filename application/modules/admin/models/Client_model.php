@@ -30,6 +30,7 @@ class Client_model extends CI_Model {
     public function insert_client($logoimage){
         $data = array(
             'clientname' => $this->input->post('clientname'),
+            'url' => $this->input->post('website'),
             'image' => $logoimage
             );
         $this->db->insert($this->table_clients,$data);
@@ -48,7 +49,8 @@ class Client_model extends CI_Model {
 
     public function update_client($id,$logoimage){
     	$data = array(
-    		'clientname' => $this->input->post('clientname')
+    		'clientname' => $this->input->post('clientname'),
+            'url' => $this->input->post('website'),
     		);
         if($logoimage){
             $data['image'] = $logoimage;

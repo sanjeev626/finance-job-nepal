@@ -122,7 +122,7 @@
 
 
 <!-- Video Area Start -->
-<section class="fjn-video-area section_100">
+<!--<section class="fjn-video-area section_100">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -138,7 +138,7 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 <!-- Video Area End -->
 
 

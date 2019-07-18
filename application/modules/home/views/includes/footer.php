@@ -15,7 +15,7 @@
             <ul>
               <li><a href="<?php echo base_url().'jobseeker/signup'?>"><i class="fa fa-angle-double-right "></i>Create Account</a></li>
               <li><a href="<?php echo base_url().'jobseeker/signup#uploadcv'?>"><i class="fa fa-angle-double-right "></i>Direct CV Upload</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>Online CV</a></li>
+              <!--<li><a href="#"><i class="fa fa-angle-double-right "></i>Online CV</a></li>-->
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Search Job</a></li>
               <li><a href="<?php echo base_url().'content/seeker-terms-conditions'?>"><i class="fa fa-angle-double-right "></i>Terms &amp; Conditions</a></li>
             </ul>

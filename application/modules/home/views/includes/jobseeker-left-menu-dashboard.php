@@ -59,6 +59,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
+                        <div class="submit-resume">
+                            <button type="submit">Download your CV</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="candidate-dashboard-area section_15">
+        <div class="dashboard-left">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
                         <h5>Recently Applied Jobs</h5>
                     </div>
                 </div>

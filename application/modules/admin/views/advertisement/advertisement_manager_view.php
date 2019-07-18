@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="panel-footer">
-            <a class="btn btn-success" href="<?php echo base_url(); ?>admin/Advertisement/add">+ Add Advertisement </a>
+            <a class="btn btn-success" href="<?php echo base_url(); ?>admin/advertisement/add">+ Add Advertisement </a>
         </div>
           <div class="table-responsive">
             <table class="table table-striped mb30" id="table1" cellspacing="0" width="100%">
@@ -40,7 +40,7 @@
                     <td class="table-action">
                       <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/Advertisement/edit/<?php echo $key->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Advertisement"></i> Edit</a>
                       |
-                      <button type="button" class="btn btn-success btn-sm delete_advertisment" link="<?php echo base_url(); ?>admin/Advertisement/deleteAdvertisement/<?php echo $key->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Advertisement"></i> Delete</button>
+                      <button type="button" class="btn btn-success btn-sm delete_advertisment" link="<?php echo base_url(); ?>admin/advertisement/deleteadvertisement/<?php echo $key->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Advertisement"></i> Delete</button>
                     </td>
                   </tr>
                   <?php
