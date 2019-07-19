@@ -75,7 +75,7 @@ class Advertisement extends MY_Controller {
 
     public function addAdvertisement(){
         $this->form_validation->set_rules('addtitle', 'addtitle', 'required');
-        $this->form_validation->set_rules('website', 'website', 'required');
+
         if (FALSE == $this->form_validation->run()) {
             $data['title'] = 'ADD ADVERTISEMENT';
             $data['page_header'] = 'Advertisement';

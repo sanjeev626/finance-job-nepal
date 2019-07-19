@@ -90,13 +90,13 @@
             <?php  }
             ?>
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="col-md-12">
                 <div class="load-more">
                     <a href="#" class="fjn-btn">browse all categories</a>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </section>
 <!-- Categories Area End -->

@@ -1,6 +1,6 @@
 <!-- Footer Area Start -->
 <footer class="fjn-footer-area">
-  <div class="footer-top section_50">
+  <div class="footer-top section_15">
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-6">

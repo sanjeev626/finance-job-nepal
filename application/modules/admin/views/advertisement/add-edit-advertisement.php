@@ -28,9 +28,9 @@ if (!empty($advertisement_detail)) {
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label">Website URL :<span class="asterisk">*</span></label>
+            <label class="col-sm-3 control-label">Website URL :</label>
             <div class="col-sm-7">
-                <input type="text" required name="website" id='website' class="form-control" value='<?php if (!empty($advertisement_detail)) echo $advertisement_detail->website; ?>' />
+                <input type="text"  name="website" id='website' class="form-control" value='<?php if (!empty($advertisement_detail)) echo $advertisement_detail->website; ?>' />
             </div>
         </div>
 
