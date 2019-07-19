@@ -47,6 +47,12 @@
 </section>
 <!-- Banner Area End -->
 
+<!-- Job Tab Area Start -->
+
+<?php include('includes/home-job-section.php');?>
+
+<!-- Job Tab Area End -->
+
 
 <!-- Categories Area Start -->
 <section class="fjn-categories-area section_70">
@@ -114,11 +120,7 @@
 <!-- Inner Hire Area End -->
 
 
-<!-- Job Tab Area Start -->
 
-<?php include('includes/home-job-section.php');?>
-
-<!-- Job Tab Area End -->
 
 
 <!-- Video Area Start -->
