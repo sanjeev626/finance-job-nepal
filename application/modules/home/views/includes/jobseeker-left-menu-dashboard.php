@@ -50,7 +50,7 @@
                     <a href="<?php echo base_url().'jobseeker/workexperience'?>"><i class="fa fa-building"></i> Work Experience</a>
                 </div>
                 <div class="col-md-6 col-lg-6 cv-box">
-                    <a href="<?php echo base_url().'Jobseeker/language'?>"><i class="fa fa-language"></i> Language</a>
+                    <a href="<?php echo base_url().'jobseeker/language'?>"><i class="fa fa-language"></i> Language</a>
                 </div>
                 <div class="col-md-6 col-lg-6 cv-box">
                     <a href="<?php echo base_url().'jobseeker/reference'?>"><i class="fa fa-address-card"></i> References</a>
