@@ -42,6 +42,13 @@
           <div class="single-footer-widget">
             <h3>Services we offer</h3>
             <ul>
+                <li class="">
+                    <?php
+                    $this->load->model('../../admin/models/content_model');
+                    $aboutus = $this->content_model->get_content_by_id(2)->slug;
+                    ?>
+                    <a href="<?php echo base_url().'content/'.$aboutus?>"><i class="fa fa-angle-double-right "></i>About Us</a>
+                </li>
                 <?php
                 $this->load->model('../../admin/models/service_model');
                 $services = $this->service_model->get_all_service();

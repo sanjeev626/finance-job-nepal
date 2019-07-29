@@ -3,7 +3,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-3 text-center">
+                    <?php if(!empty($jobseekerInfo->profile_picture)){?>
+                            <img src="<?php echo base_url().'uploads/jobseeker/'.$jobseekerInfo->profile_picture;?>" alt="">
+                    <?php }else{?>
                     <img src="<?php echo base_url()?>content_home/img/boy.png"/>
+                    <?php } ?>
                 </div>
                 <div class="col-md-12 col-lg-9">
                     <h4><?php echo $jobseekerInfo->fname.' '.$jobseekerInfo->mname. ' '.$jobseekerInfo->lname;?></h4>
@@ -60,7 +64,8 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
                         <div class="submit-resume">
-                            <button type="submit">Download your CV</button>
+                            <!--<a href="<?php /*echo base_url().'jobseeker/resume'*/?>">Download your cv</a>-->
+                            <button type="submit" onclick="downloadcv()">Download your CV</button>
                         </div>
                     </div>
                 </div>
@@ -101,3 +106,10 @@
         </div>
     </section>
 </div>
+
+<script>
+    function downloadcv(){
+        window.location.href = "<?php echo base_url('jobseeker/downloadresume')?>";
+
+    }
+</script>
