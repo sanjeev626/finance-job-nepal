@@ -1,3 +1,9 @@
+<style>
+    .left{float:left}
+    .right{float:right}
+    .clear{clear: both}
+</style>
+
 <?php
 $action = base_url() . 'admin/seeker/search';
 
@@ -196,9 +202,15 @@ echo form_open_multipart($action, $attributes);
     </div>
     <div class="panel-footer">
         <div class="row">
-            <div class="">
-                <button class="btn btn-success btn-flat" type="submit"> Search Job Seeker</button>
+            <div class="left">
+                <input type="submit" class="btn btn-success btn-flat" name="search" value="Search Employer">
+                <!--<button class="btn btn-success btn-flat" type="submit">Search Employer</button>-->
             </div>
+
+            <div class="right">
+                <input type="submit" class="btn btn-success btn-flat" name="excel" value="Export Excel">
+            </div>
+            <div class="clear"></div>
         </div>
     </div>
 </form>

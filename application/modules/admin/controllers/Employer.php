@@ -52,7 +52,7 @@ class Employer extends MY_Controller {
 
         $this->pagination->initialize($config);
 
-        $data['title'] = '.:: EMPLOYER ::.';
+        $data['title'] = 'EMPLOYER';
         $data['page_header'] = 'Employer';
         $data['page_header_icone'] = 'fa-user-secret';
         $data['nav'] = 'employer';
@@ -98,7 +98,7 @@ class Employer extends MY_Controller {
 
         $this->pagination->initialize($config);
 
-        $data['title'] = '.:: EMPLOYER ::.';
+        $data['title'] = 'EMPLOYER';
         $data['page_header'] = 'Employer';
         $data['page_header_icone'] = 'fa-user-secret';
         $data['nav'] = 'employer';
@@ -110,7 +110,7 @@ class Employer extends MY_Controller {
     }
 
     public function viewEmployerBasket(){
-        $data['title'] = '.:: VIEW BASKET ::.';
+        $data['title'] = 'VIEW BASKET';
         $data['page_header'] = 'View Employer Basket';
         $data['page_header_icone'] = 'fa-user-secret';
         $data['nav'] = 'employer';
@@ -291,7 +291,7 @@ class Employer extends MY_Controller {
         if (!is_numeric($eid))
             redirect(base_url() . 'admin/employer');
 
-        $data['title'] = '.:: VIEW EMPLOYER ::.';
+        $data['title'] = 'VIEW EMPLOYER';
         $data['page_header'] = 'View Employer ';
         $data['page_header_icone'] = 'fa-user-secret';
         $data['nav'] = 'employer';
@@ -354,7 +354,7 @@ class Employer extends MY_Controller {
         if (!is_numeric($emp_id))
             redirect(base_url() . 'admin/employer');
 
-        $data['title'] = '.:: EMPLOYER JOB LIST ::.';
+        $data['title'] = 'EMPLOYER JOB LIST';
         $data['page_header'] = 'Employer Job List';
         $data['page_header_icone'] = 'fa-user-secret';
         $data['nav'] = 'employer';
@@ -375,7 +375,7 @@ class Employer extends MY_Controller {
         if (!is_numeric($id))
             redirect(base_url() . 'admin/employer');
 
-        $data['title'] = '.:: EDIT EMPLOYER ::.';
+        $data['title'] = 'EDIT EMPLOYER';
         $data['page_header'] = 'Employer';
         $data['page_header_icone'] = 'fa-user-secret';
         $data['nav'] = 'employer';
@@ -407,7 +407,7 @@ class Employer extends MY_Controller {
         $this->form_validation->set_rules('contactperson', 'Contact Person', 'required');
 
         if (FALSE == $this->form_validation->run()) {
-            $data['title'] = '.:: EDIT EMPLOYER ::.';
+            $data['title'] = 'EDIT EMPLOYER';
             $data['page_header'] = 'Employer';
             $data['page_header_icone'] = 'fa-user-secret';
             $data['nav'] = 'employer';
@@ -461,57 +461,105 @@ class Employer extends MY_Controller {
     }
 
      public function search(){
+         if(!empty($_POST['search'])){
+             $data['total_employer'] = $this->employer_model->search_employer_by_param();
 
-        $data['total_employer'] = $this->employer_model->search_employer_by_param();
+             $config['base_url'] = base_url() . 'admin/employer/search';
+             $config['uri_segment'] = 4;
+             $config['per_page'] = 100;
 
-        $config['base_url'] = base_url() . 'admin/employer/search';
-        $config['uri_segment'] = 4;
-        $config['per_page'] = 100;
+             /* Bootstrap Pagination  */
 
-        /* Bootstrap Pagination  */
+             $config['full_tag_open'] = "<ul class='pagination'>";
+             $config['full_tag_close'] ="</ul>";
+             $config['num_tag_open'] = '<li>';
+             $config['num_tag_close'] = '</li>';
+             $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+             $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+             $config['next_tag_open'] = "<li>";
+             $config['next_tagl_close'] = "</li>";
+             $config['prev_tag_open'] = "<li>";
+             $config['prev_tagl_close'] = "</li>";
+             $config['first_tag_open'] = "<li>";
+             $config['first_tagl_close'] = "</li>";
+             $config['last_tag_open'] = "<li>";
+             $config['last_tagl_close'] = "</li>";
 
-        $config['full_tag_open'] = "<ul class='pagination'>";
-        $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-        $config['next_tag_open'] = "<li>";
-        $config['next_tagl_close'] = "</li>";
-        $config['prev_tag_open'] = "<li>";
-        $config['prev_tagl_close'] = "</li>";
-        $config['first_tag_open'] = "<li>";
-        $config['first_tagl_close'] = "</li>";
-        $config['last_tag_open'] = "<li>";
-        $config['last_tagl_close'] = "</li>";
+             /* End of Bootstrap Pagination */
 
-        /* End of Bootstrap Pagination */
+             $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
 
-        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+             $data['employer'] = $this->employer_model->search_employer_by_param($config['per_page'], $page);
+             $config['total_rows'] = $data['total_employer'];
 
-        $data['employer'] = $this->employer_model->search_employer_by_param($config['per_page'], $page);
-        $config['total_rows'] = $data['total_employer'];
-        
-        $this->pagination->initialize($config);
+             $this->pagination->initialize($config);
 
-        $data['title'] = '.:: SEARCH RESULT EMPLOYER ::.';
-        $data['page_header'] = 'Search Result Employer';
-        $data['page_header_icone'] = 'fa-user-secret';
-        $data['nav'] = 'employer';
-        $data['panel_title'] = 'Search Result Employer ';
-        $data['main'] = 'employer/search_result_employer';
+             $data['title'] = 'SEARCH RESULT EMPLOYER';
+             $data['page_header'] = 'Search Result Employer';
+             $data['page_header_icone'] = 'fa-user-secret';
+             $data['nav'] = 'employer';
+             $data['panel_title'] = 'Search Result Employer ';
+             $data['main'] = 'employer/search_result_employer';
 
-         $data['orgname'] = $this->input->post('orgname');
-         $data['email'] = $this->input->post('email');
-         $data['website'] = $this->input->post('website');
-         $data['orgtype'] = $this->input->post('orgtype');
-         $data['phone'] = $this->input->post('phone');
-         $data['contact_name'] = $this->input->post('contact_name');
-         $data['address'] = $this->input->post('address');
+             $data['orgname'] = $this->input->post('orgname');
+             $data['email'] = $this->input->post('email');
+             $data['website'] = $this->input->post('website');
+             $data['orgtype'] = $this->input->post('orgtype');
+             $data['phone'] = $this->input->post('phone');
+             $data['contact_name'] = $this->input->post('contact_name');
+             $data['address'] = $this->input->post('address');
 
 
-         $data['organisation_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
-        $this->load->view('home', $data);
+             $data['organisation_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
+             $this->load->view('home', $data);
+         }
+
+         if(!empty($_POST['excel'])){
+            $this->export_to_excel();
+         }
+
+    }
+
+    public function export_to_excel(){
+        //print_r($_POST);
+        $this->load->library("excel");
+        $object = new PHPExcel();
+
+        $object->setActiveSheetIndex(0);
+
+        $table_columns = array("Organization Name","Organization Address","Organization Phone", "Organization Email","Organization Website","Organization Type",
+            "Contact Person","Contact Designation","Contact Email","Contact Number",);
+
+        $column = 0;
+
+        foreach($table_columns as $field)
+        {
+            $object->getActiveSheet()->setCellValueByColumnAndRow($column, 1, $field);
+            $column++;
+        }
+        $employee_data = $this->employer_model->search_employer_by_param_for_export();
+        $excel_row = 2;
+
+        foreach($employee_data as $ed){
+            $orgtype = $this->general_model->getfieldById('dropdown', 'dropvalue', $ed->organization_type);
+
+            $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $ed->organization_name);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $ed->organization_address);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $ed->organization_phone);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $ed->email);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $orgtype);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $ed->organization_website);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $ed->contact_name);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $ed->contact_designation);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $ed->contact_email);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $ed->contact_mobile);
+            $excel_row++;
+        }
+
+        $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel5');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="Employer Data exported on '.date('Y-m-d H:i:s').'.xls"');
+        $object_writer->save('php://output');
 
     }
 
@@ -523,7 +571,7 @@ class Employer extends MY_Controller {
         if (!is_numeric($emp_id))
             redirect(base_url() . 'admin/employer');
 
-        $data['title'] = '.:: EMPLOYER Video CV ::.';
+        $data['title'] = 'EMPLOYER Video CV';
         $data['page_header'] = 'Employer Video CV';
         $data['page_header_icone'] = 'fa-video-camera';
         $data['nav'] = 'employer';
@@ -544,7 +592,7 @@ class Employer extends MY_Controller {
             redirect(base_url() . 'admin/employer');
 
         if (FALSE == $this->form_validation->run()) {
-            $data['title'] = '.:: ADD VIDEO CV ::.';
+            $data['title'] = 'ADD VIDEO CV';
             $data['page_header'] = 'Add Video CV';
             $data['page_header_icone'] = 'fa-video-camera';
             $data['nav'] = 'Video CV';
@@ -554,7 +602,7 @@ class Employer extends MY_Controller {
             $this->load->view('home', $data);
 
         } else {
-        $data['title'] = '.:: ADD Video CV ::.';
+        $data['title'] = 'ADD Video CV';
         $data['page_header'] = 'Add Video CV';
         $data['page_header_icone'] = 'fa-video-camera';
         $data['nav'] = 'employer';
@@ -578,7 +626,7 @@ class Employer extends MY_Controller {
         $this->form_validation->set_rules('expiry_date', 'expiry_date', 'required');
 
         if (FALSE == $this->form_validation->run()) {
-            $data['title'] = '.:: ADD VIDEO CV ::.';
+            $data['title'] = 'ADD VIDEO CV';
             $data['page_header'] = 'Add Video CV';
             $data['page_header_icone'] = 'fa-video-camera';
             $data['nav'] = 'employer';
@@ -588,7 +636,7 @@ class Employer extends MY_Controller {
             $this->load->view('home', $data);
 
         } else {
-            $data['title'] = '.:: Employer Video CV ::.';
+            $data['title'] = 'Employer Video CV';
             $data['page_header'] = 'Employer Video CV';
             $data['page_header_icone'] = 'fa-video-camera';
             $data['nav'] = 'employer';
@@ -608,7 +656,7 @@ class Employer extends MY_Controller {
         if (!is_numeric($video_cv_id))
             redirect(base_url() . 'admin/employer');
 
-        $data['title'] = '.:: EMPLOYER Video CV ::.';
+        $data['title'] = 'EMPLOYER Video CV';
         $data['page_header'] = 'Employer Video CV';
         $data['page_header_icone'] = 'fa-video-camera';
         $data['nav'] = 'employer';
@@ -628,7 +676,7 @@ class Employer extends MY_Controller {
         if (!is_numeric($video_cv_id))
             redirect(base_url() . 'admin/employer');
 
-            $data['title'] = '.:: EDIT EMPLOYER ::.';
+            $data['title'] = 'EDIT EMPLOYER';
             $data['page_header'] = 'Employer';
             $data['page_header_icone'] = 'fa-user-secret';
             $data['nav'] = 'employer';

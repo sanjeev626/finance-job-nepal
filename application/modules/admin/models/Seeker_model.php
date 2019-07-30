@@ -381,6 +381,11 @@ class Seeker_model extends CI_Model {
         if(isset($lname) && !empty($lname)){
             $this->db->or_like('skr.lname', $lname);
         }
+
+        if(isset($gender) && !empty($gender)){
+            $this->db->where('skr.gender',$gender);
+        }
+
         if(isset($qualification) && !empty($qualification)) {
             $this->db->or_like('skr.highest_qualification', $qualification);
         }
@@ -466,6 +471,121 @@ class Seeker_model extends CI_Model {
             }
         }
 
+    }
+
+
+    public function search_seeker_by_param_for_export(){
+        $fname = $this->input->post('fname');
+        $mname = $this->input->post('mname');
+        $lname = $this->input->post('lname');
+        $dobfrom = $this->input->post('dobfrom');
+        $dobto = $this->input->post('dobto');
+        $address = $this->input->post('address');
+        $phone = $this->input->post('phone');
+        $email = $this->input->post('email');
+        $gender = $this->input->post('gender');
+        $keyskills = $this->input->post('keyskills');
+        $qualification = $this->input->post('qualification');
+        $expyrs = $this->input->post('experience_years');
+        $expsal = $this->input->post('expsal');
+        $apporg = $this->input->post('apporg');
+        $jid = $this->input->post('jid');
+        $registeredfrom = $this->input->post('registeredfrom');
+        $registeredto = $this->input->post('registeredto');
+
+
+        $this->db->select("*");
+
+        if(isset($fname) && !empty($fname)){
+            $this->db->like('skr.fname', $fname);
+        }
+        if(isset($mname) && !empty($mname)){
+            $this->db->or_like('skr.mname', $mname);
+        }
+        if(isset($lname) && !empty($lname)){
+            $this->db->or_like('skr.lname', $lname);
+        }
+
+        if(isset($gender) && !empty($gender)){
+            $this->db->where('skr.gender',$gender);
+        }
+
+        if(isset($qualification) && !empty($qualification)) {
+            $this->db->or_like('skr.highest_qualification', $qualification);
+        }
+
+        if(isset($dobfrom) && !empty($dobfrom) && isset($dobto) && !empty($dobto))
+        {
+            $this->db->where("skr.dob BETWEEN '$dobfrom' AND '$dobto'");
+
+        }
+        if(isset($address) && !empty($address))
+        {
+            $this->db->or_like('skr.address_current', $address);
+
+        }
+        if(isset($phone) && !empty($phone))
+        {
+            $this->db->or_like('skr.phoneres', $phone);
+            $this->db->or_like('skr.phoneoff', $phone);
+            $this->db->or_like('skr.phonecell', $phone);
+
+        }
+        if(isset($email) && !empty($email))
+        {
+            $this->db->or_like('skr.email', $email);
+
+        }
+        if(isset($funcarea) && !empty($funcarea))
+        {
+            $this->db->or_like('skr.desired_functional_area', $funcarea);
+
+        }
+        if(isset($cjobposition) && !empty($cjobposition))
+        {
+            $this->db->or_like('skr.desired_role', $cjobposition);
+
+        }
+        if(isset($joblocation) && !empty($joblocation))
+        {
+            $this->db->or_like('skr.desired_job_location', $joblocation);
+
+        }
+        if(!empty($expyrs) )
+        {
+            $this->db->or_like('skr.expyrs >=', $expyrs);
+
+        }
+        if(isset($expsal) && $expsal !="0")
+        {
+            $this->db->or_like('skr.desired_expected_salary', $expsal);
+
+        }
+        if(isset($keyskills) && !empty($keyskills))
+        {
+            $aa = explode(",",$keyskills);
+            $count = count($aa);
+            for($i=0;$i<$count;$i++)
+            {
+                $keyskills=trim($aa[$i]);
+
+                $this->db->or_like('skr.keyskills', $keyskills);
+
+            }
+
+        }
+
+        $this->db->group_by('skr.id','asc');
+        $this->db->order_by('skr.fname','asc');
+        $query = $this->db->get('seeker skr');
+
+        if($query->num_rows() == 0){
+            return FALSE;
+        }else {
+
+                return $query->result();
+
+        }
     }
 
 }

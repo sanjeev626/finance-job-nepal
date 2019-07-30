@@ -438,6 +438,81 @@ class Employer_model extends CI_Model {
         }
     }
 
+    public function search_employer_by_param_for_export(){
+        $orgname = $this->input->post('orgname');
+        $email = $this->input->post('email');
+        $website = $this->input->post('website');
+        $orgtype = $this->input->post('orgtype');
+        $phone = $this->input->post('phone');
+        $contact_name = $this->input->post('contact_name');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $address = $this->input->post('address');
+
+
+        $this->db->select('*');
+
+        if(isset($empId) && !empty($empId) && isset($empId2) && !empty($empId2)){
+            $this->db->where("id BETWEEN $empId AND $empId2");
+        }
+
+        if(isset($empId) && !empty($empId) && empty($empId2))
+        {
+            $this->db->where('id',$empId);
+        }
+
+        if(isset($orgname) && !empty($orgname)){
+            $this->db->like('orgname',$orgname);
+        }
+        if(isset($address) && !empty($address)){
+            //$this->db->where('organization_address',$address);
+            $this->db->or_like('organization_address',$address);
+        }
+        if(isset($email) && !empty($email)){
+            $this->db->or_like('email',$email);
+        }
+        if(isset($website) && !empty($website)){
+            $this->db->or_like('organization_website',$website);
+        }
+        if(isset($orgtype) && !empty($orgtype)){
+            $this->db->where('organization_type',$orgtype);
+        }
+        if(isset($phone) && !empty($phone)){
+            $this->db->or_like('organization_phone',$phone);
+        }
+        if(isset($contact_name) && !empty($contact_name)){
+            $this->db->or_like('contact_name',$contact_name);
+        }
+        if(isset($username) && !empty($username)){
+            $this->db->or_like('username',$username);
+        }
+        if(isset($password) && !empty($password)){
+            $this->db->or_like('password',md5($password));
+        }
+        if(isset($joindate_from) && !empty($joindate_from) && isset($joindate_to) && !empty($joindate_to)){
+            //$this->db->where("joindate BETWEEN $joindate_from AND `$joindate_to`");
+            $this->db->or_like('joindate >=',$joindate_from);
+            $this->db->or_like('joindate <=',$joindate_to);
+        }
+        if(isset($modifieddate1) && !empty($modifieddate1) && isset($modifieddate2) && !empty($modifieddate2)){
+            //$this->db->where("modifieddate BETWEEN $modifieddate1 AND `$modifieddate2`");
+            $this->db->or_like('modifieddate >=',$modifieddate1);
+            $this->db->or_like('modifieddate <=',$modifieddate2);
+        }
+
+        $query = $this->db->get('employer');
+        //echo $this->db->last_query();
+        if($query->num_rows() == 0){
+            return FALSE;
+        }else {
+
+                return $query->result();
+
+        }
+
+    }
+
+
     public function get_video_cv_info($eid){
         $this->db->select();
         $this->db->from('employer_video_cv');
