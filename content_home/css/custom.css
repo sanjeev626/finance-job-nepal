@@ -71,7 +71,8 @@ width: 100%;
 	padding: 10px;
 }
 .client-content img{
-	max-width: 160px;
+	/*max-width: 160px;*/
+	max-width: 146px;
 	border: #cccccc 1px solid;
 	border-radius: 4px;
 }
@@ -129,7 +130,7 @@ width: 100%;
 	background: #fff none repeat scroll 0 0;
 	-webkit-transition: all 0.4s ease 0s;
 	transition: all 0.4s ease 0s;
-	/*padding: 0 20px;*/
+	padding: 0 20px;
 }
 
 .advertisement-content li{
@@ -148,6 +149,8 @@ width: 100%;
 .fjn-footer-area {
 	line-height: 16px;
 }
+
+.benifittitle{font-style: italic;}
 
 @media (min-width: 1170px) and (max-width: 1500px) {
 	.padding-left-right-5{

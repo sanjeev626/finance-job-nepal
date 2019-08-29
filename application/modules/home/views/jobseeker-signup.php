@@ -329,16 +329,19 @@
             </div>
             <div class="col-md-12 col-lg-4 ">
                 <div class="dashboard-left">
-                    <div class="candidate-single-profile-info earnings-page-box manage-jobs">
-                        <h3>Great Benifits only on financejobnepal.com</h3>
-                        <ol class="dashboard-menu">
-                            <li><a href="javscript:void(0);">1. Finance Job Nepal keep all your information confidential.</a></li>
-                            <li><a href="javscript:void(0);">2. Finance Job Nepal is 100% free. It doesnot charge any fees from Candidates for recruitment service.</a></li>
-                            <li><a href="javscript:void(0);">3. First & Only Finance & Accounts JobPortal in Nepal.</a></li>
-                            <li><a href="javscript:void(0);">4. Immediate Response and Free Professional Assesment of Your CV.</a></li>
-                            <li><a href="javscript:void(0);">5. Access to all Accounts & Finance Jobs at One Place</a></li>
-                        </ol>
-                    </div>
+                    
+                    <ul class="dashboard-menu">
+                        <li>
+                            <a href="javscript:void(0);">
+                                <h3 class="benifittitle">Great Benifits only on financejobnepal.com</h3>
+                            </a>
+                        </li>
+                        <li><a href="javscript:void(0);">1. Finance Job Nepal keep all your information confidential.</a></li>
+                        <li><a href="javscript:void(0);">2. Finance Job Nepal is 100% free. It doesnot charge any fees from Candidates for recruitment service.</a></li>
+                        <li><a href="javscript:void(0);">3. First & Only Finance & Accounts JobPortal in Nepal.</a></li>
+                        <li><a href="javscript:void(0);">4. Immediate Response and Free Professional Assesment of Your CV.</a></li>
+                        <li><a href="javscript:void(0);">5. Access to all Accounts & Finance Jobs at One Place</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

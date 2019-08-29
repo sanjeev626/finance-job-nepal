@@ -71,7 +71,11 @@
                 <div class="dashboard-left">
 
                     <ul class="dashboard-menu">
-                        <li><a href="javscript:void(0);"><h3>Great Benifits only on financejobnepal.com</h3></a></li>
+                        <li>
+                            <a href="javscript:void(0);">
+                                <h3 class="benifittitle">Great Benifits only on financejobnepal.com</h3>
+                            </a>
+                        </li>
                         <li><a href="javscript:void(0);">1.Hightest Candidates flow</a></li>
                         <li><a href="javscript:void(0);">2.Save Your Time, Money and Effort, Focus more on Core Business</a></li>
                         <li><a href="javscript:void(0);">3. First & only finance & Accounts Job Portal in Nepal.</a></li>

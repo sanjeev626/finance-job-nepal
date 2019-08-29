@@ -31,7 +31,7 @@ class Service_model extends CI_Model {
         $data = array(
             'urlcode' => $this->general_model->get_urlcode($title),
             'title' => $this->input->post('title'),
-            'short_description' => $this->input->post('short_description'),
+            //'short_description' => $this->input->post('short_description'),
             'content' => $this->input->post('content')
             );
         if($image){
@@ -56,7 +56,7 @@ class Service_model extends CI_Model {
     	$data = array(
             'urlcode' => $this->general_model->get_urlcode($title),
             'title' => $this->input->post('title'),
-            'short_description' => $this->input->post('short_description'),
+            //'short_description' => $this->input->post('short_description'),
             'content' => $this->input->post('content')
     		);
         if($image){

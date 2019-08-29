@@ -68,9 +68,9 @@
                     <div class="header-menu">
                         <nav id="navigation">
                             <ul id="fjn_navigation">
-                                <li class="active">
+                                <!-- <li class="active">
                                     <a href="<?php echo base_url();?>">HOME</a>
-                                </li>
+                                </li> -->
 
                                 <li class="has-children">
                                     <a href="#">SERVICES</a>
@@ -130,10 +130,10 @@
                             else{?>
 
                                 <li class="has-children">
-                                    <a href="#"><i class="fa fa-user"></i>sign up</a>
+                                    <a href="#"><i class="fa fa-user"></i>Register</a>
                                     <ul>
-                                        <li><a href="<?php echo base_url();?>employer/signup">Employer Signup</a></li>
-                                        <li><a href="<?php echo base_url();?>jobseeker/signup">Job Seeker Signup</a></li>
+                                        <li><a href="<?php echo base_url();?>employer/signup">Employer Register</a></li>
+                                        <li><a href="<?php echo base_url();?>jobseeker/signup">Job Seeker Register</a></li>
                                     </ul>
                                 </li>
                                 <li class="has-children">

@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="site-heading">
-                                    <h2>Our <span>Clients</span></h2>
+                                    <h2>Top <span>Clients</span></h2>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="site-heading">
-                                    <h2>Companies & <span>job offers</span></h2>
+                                    <h2>Browse <span>jobs</span></h2>
 
                                     <p>It's easy. Simply post a job you need completed and receive competitive bids from
                                         freelancers within minutes</p>

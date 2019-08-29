@@ -1,4 +1,4 @@
-<!-- Banner Area Start -->
+<!--Banner Area Start -->
 <section class="fjn-banner-area">
     <div class="banner-slider owl-carousel">
         <div class="banner-single-slider slider-item-1">
@@ -55,7 +55,7 @@
 
 
 <!-- Categories Area Start -->
-<section class="fjn-categories-area section_70">
+<!-- <section class="fjn-categories-area section_70">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -90,20 +90,20 @@
             <?php  }
             ?>
         </div>
-        <!--<div class="row">
+        <div class="row">
             <div class="col-md-12">
                 <div class="load-more">
                     <a href="#" class="fjn-btn">browse all categories</a>
                 </div>
             </div>
-        </div>-->
+        </div>
     </div>
-</section>
+</section> -->
 <!-- Categories Area End -->
 
 
 <!-- Inner Hire Area Start -->
-<section class="fjn-inner-hire-area section_100">
+<!-- <section class="fjn-inner-hire-area section_100">
     <div class="hire_circle"></div>
     <div class="container">
         <div class="row">
@@ -116,7 +116,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Inner Hire Area End -->
 
 
@@ -145,7 +145,7 @@
 
 
 <!-- How Works Area Start -->
-<section class="how-works-area section_70">
+<!-- <section class="how-works-area section_70">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -190,10 +190,10 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- How Works Area End -->
 
 
 <!-- Blog Area Start -->
 <?php include('includes/home-blog-section.php');?>
-<!-- Blog Area End -->
+<!-- Blog Area End
