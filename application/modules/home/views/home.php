@@ -55,7 +55,7 @@
 
 
 <!-- Categories Area Start -->
-<!-- <section class="fjn-categories-area section_70">
+<section class="fjn-categories-area section_70">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -90,15 +90,15 @@
             <?php  }
             ?>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12">
                 <div class="load-more">
                     <a href="#" class="fjn-btn">browse all categories</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
-</section> -->
+</section>
 <!-- Categories Area End -->
 
 

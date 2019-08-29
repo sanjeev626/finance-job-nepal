@@ -1513,6 +1513,18 @@ class Home extends View_Controller {
         $data['main'] = 'employer-services-details';
         $this->load->view('main',$data);
     }
+
+
+    public function trainging(){
+            $data['menu'] = 'training';
+        $data['page_title'] = 'Finance Job Nepal.';
+        //$this->general_model->getById('financejob_service','urlcode',$urlcode);
+
+        $data['title'] = 'Training';
+        
+        $data['main'] = 'training/training-detail';
+        $this->load->view('main',$data);
+    }
 }
 
 /* End of file Home.php

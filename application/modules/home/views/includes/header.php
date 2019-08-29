@@ -91,7 +91,7 @@
                                     </ul>
                                 </li>
                                 <li class="">
-                                    <a href="#">TRAINING & CONSULTING </a>
+                                    <a href="<?php echo base_url().'trainging'?>">TRAINING & CONSULTING </a>
                                 </li>
                                 <!--<li class="">
                                     <?php
