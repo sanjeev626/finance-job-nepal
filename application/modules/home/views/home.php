@@ -13,25 +13,31 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="banner-search">
-                        <h2>Hire expert freelancers.</h2>
-                        <h4>We have 1542 job offers for you! </h4>
-                        <form>
+                        <h2>WE RECRUIT</h2>
+                        <h4>Finance & Accounts Head | CFO | FC | Finance Manager | Accountants | Management </h4>
+
+                        <h2>Trainee | Executives | Assistants | Interns</h2>
+                        <h4>Qualifications: CA | CFA | ACCA | MBA | MBS | SEMI-CA | BBA | BBS | AT | +2 MANAGEMENT</h4>
+                        <form action="<?php echo base_url().'search/job'?>" method="POST">
                             <div class="banner-form-box">
                                 <div class="banner-form-input">
-                                    <input type="text" placeholder="Job Title, Keywords, or Phrase">
+                                    <input type="text" name="job_title" placeholder="Job Title, Keywords, or Phrase">
                                 </div>
                                 <div class="banner-form-input">
-                                    <input type="text" placeholder="City, State or ZIP">
+                                    
+                                    <select class="banner-select" name="location">
+                                        <option value="" selected>Select Location</option>
+                                        <?php foreach ($joblocation as $key => $value) {?>
+                                          <option value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
+                                          <?php  } ?>
+                                    </select>
                                 </div>
                                 <div class="banner-form-input">
-                                    <select class="banner-select">
-                                        <option selected>Select Sector</option>
-                                        <option value="1">Design & multimedia</option>
-                                        <option value="2">Programming & tech</option>
-                                        <option value="3">Accounting/finance</option>
-                                        <option value="4">content writting</option>
-                                        <option value="5">Training</option>
-                                        <option value="6">Digital Marketing</option>
+                                    <select class="banner-select" name="job_category">
+                                        <option selected>Select Category</option>
+                                        <?php foreach ($job_category as $key => $value) {?>
+                                          <option value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
+                                          <?php  } ?>
                                     </select>
                                 </div>
                                 <div class="banner-form-input">

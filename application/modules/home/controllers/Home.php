@@ -45,7 +45,11 @@ class Home extends View_Controller {
         $data['fjn_job'] = $this->home_model->get_job_by_type('FJNJob',12);
         $data['recent_job'] = $this->home_model->get_recent_job('RJob',12);
 
-        $data['location'] = $this->general_model->getAll('dropdown','fid = 2','dropvalue ASC','id,dropvalue','',200);
+        
+
+        $data['joblocation'] = $this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');
+
+
         $data['type'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue','',6);        
         $data['job_display_in'] = $this->general_model->getAll('dropdown','fid = 16','ordering','id,dropvalue');
 
@@ -1458,9 +1462,10 @@ class Home extends View_Controller {
     public function clients(){
         $data['menu'] = 'clients';
         $data['page_title'] = 'Finance Job Nepal.';
-        //$data['client_list'] = $this->general_model->getAll('clients','','','id,clientname,image');
-        
-        $this->load->view('client-list',$data);
+        $data['client_list'] = $this->general_model->getAll('clients','','','*','');
+        $data['title'] = 'Top Clients';
+        $data['main'] = 'clients/client-list';
+        $this->load->view('main',$data);
     }
     
     public function testimonial_list(){

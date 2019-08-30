@@ -1,3 +1,6 @@
+<style type="text/css">
+    .job-content{margin-bottom: 15px}
+</style>
 <section class="fjn-job-tab-area section_15">
     <div class="container">
 
@@ -27,7 +30,11 @@
                                 }
                                 ?>
 
-
+                                <li>
+                                    <a href="<?php echo base_url().'clients'?>">
+                                    View More
+                                    </a>
+                                </li>    
                             </ul>
                         </div>
                     </div>
@@ -107,7 +114,7 @@
                                                                     <p>
                                                                         <i class="fa fa-building"></i>
                                                                         <a href="javascript:void(0)" data-toggle="tooltip" title="<?php echo $orgname?>">
-                                                                            <?php echo substr($orgname, 0, 20).'...'?>
+                                                                            <?php echo substr($orgname, 0, 20).''?>
                                                                         </a>
 
                                                                     </p>
@@ -115,7 +122,7 @@
                                                                     <p class="company-state">
                                                                         <i class="fa fa-map-marker"></i>
                                                                         <a href="javascript:void(0)" data-toggle="tooltip" title="<?php echo $empInfo->organization_address?>">
-                                                                            <?php echo substr($empInfo->organization_address, 0, 20).'...'?>
+                                                                            <?php echo substr($empInfo->organization_address, 0, 20).''?>
                                                                         </a>
 
                                                                     </p>
@@ -192,7 +199,7 @@
                                                                     <p>
                                                                         <i class="fa fa-building"></i>
                                                                         <a href="javascript:void(0)" data-toggle="tooltip" title="<?php echo $orgname?>">
-                                                                            <?php echo substr($orgname, 0, 20).'...'?>
+                                                                            <?php echo substr($orgname, 0, 20).''?>
                                                                         </a>
 
                                                                     </p>
@@ -200,7 +207,7 @@
                                                                     <p class="company-state">
                                                                         <i class="fa fa-map-marker"></i>
                                                                         <a href="javascript:void(0)" data-toggle="tooltip" title="<?php echo $empInfo->organization_address?>">
-                                                                            <?php echo substr($empInfo->organization_address, 0, 20).'...'?>
+                                                                            <?php echo substr($empInfo->organization_address, 0, 20).''?>
                                                                         </a>
 
                                                                     </p>
@@ -276,7 +283,7 @@
                                                                     <p>
                                                                         <i class="fa fa-building"></i>
                                                                         <a href="javascript:void(0)" data-toggle="tooltip" title="<?php echo $orgname?>">
-                                                                            <?php echo substr($orgname, 0, 20).'...'?>
+                                                                            <?php echo substr($orgname, 0, 20).''?>
                                                                         </a>
 
                                                                     </p>
@@ -284,7 +291,7 @@
                                                                     <p class="company-state">
                                                                         <i class="fa fa-map-marker"></i>
                                                                         <a href="javascript:void(0)" data-toggle="tooltip" title="<?php echo $empInfo->organization_address?>">
-                                                                            <?php echo substr($empInfo->organization_address, 0, 20).'...'?>
+                                                                            <?php echo substr($empInfo->organization_address, 0, 20).''?>
                                                                         </a>
 
                                                                     </p>

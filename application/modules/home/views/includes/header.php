@@ -103,9 +103,7 @@
                                 <li class="">
                                     <a href="<?php echo base_url().'contactus'?>">CONTACT US</a>
                                 </li>
-                                <li>
-                                    <a href="#">+015139273</a>
-                                </li>
+                                
                             </ul>
                         </nav>
                     </div>
@@ -147,6 +145,10 @@
                             <!--<li><a href="<?php /*echo base_url();*/?>Employer/signup"><i class="fa fa-user"></i>sign up</a></li>-->
                             <!--<li><a href="<?php /*echo base_url();*/?>Employer/login"><i class="fa fa-lock"></i>login</a></li>-->
                             <?php }?>
+
+                            <li>
+                                    <a href="#">+01-6201360</a>
+                                </li>
 
                         </ul>
                         </nav>

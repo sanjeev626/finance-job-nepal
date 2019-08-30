@@ -63,15 +63,50 @@ class Search extends View_Controller {
                     Job Search  Page
     ---------------------------------------------------------*/
     public function job(){
+        
+
+        /* Bootstrap Pagination  */
+
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+
+        /* End of Bootstrap Pagination */
+
+        $config['uri_segment'] = 4;
+        $config['per_page'] = 25;
+
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+        $config['base_url'] = base_url() . 'search/job';
+        $config['total_rows'] = $this->home_model->get_search_job_by_parameter('', $page,'total');
+        $config["cur_page"] = $page;
+        $this->pagination->initialize($config);
+
         $data['menu'] = 'searchjob';
         $data['page_title'] = 'Finance Job Nepal';
         $data['title'] ='Search Job';
+
         $data['job_category'] = $this->general_model->getAll('dropdown','fid = 1','','id,dropvalue');
         $data['job_location'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue');
         $data['job_education'] = $this->general_model->getAll('dropdown','fid = 3','','id,dropvalue');
         $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','','id,dropvalue');
         $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
-        $data['job_result']= '';
+        
+
+        $data['joblists']= $this->home_model->get_search_job_by_parameter($config['per_page'], $page);
+
         $data['main'] = 'job-search';
         $this->load->view('main',$data);
     }

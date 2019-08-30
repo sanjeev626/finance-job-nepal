@@ -492,13 +492,13 @@ class Home_model extends CI_Model {
 
         if($job_category)
         {
-            $this->db->where('jobcategory',$job_category);
+            $this->db->or_where('jobcategory',$job_category);
             $this->db->order_by("jobcategory", "asc");
         }
 
         if($location)
         {
-            $this->db->where('joblocation',$location);
+            $this->db->or_where('`joblocation` REGEXP','.*;s:[0-9]+:"'.$location.'".*');
             $this->db->order_by("joblocation", "asc");
         }
 
