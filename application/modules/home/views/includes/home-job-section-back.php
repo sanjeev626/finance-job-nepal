@@ -51,7 +51,7 @@
                                     <a class="nav-link" id="pills-newspaper-tab" data-toggle="pill" href="#pills-newspaper" role="tab" aria-controls="pills-newspaper" aria-selected="false">News PaperJobs</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="pills-fjn-tab" data-toggle="pill" href="#pills-fjn" role="tab" aria-controls="pills-fjn" aria-selected="false">FJN Jobs</a>
+                                    <a class="nav-link" id="pills-fjn-tab" data-toggle="pill" href="#pills-fjn" role="tab" aria-controls="pills-fjn" aria-selected="false">Hot Jobs</a>
                                 </li>
                             </ul>
                         </div>

@@ -107,6 +107,24 @@
 </section>
 <!-- Categories Area End -->
 
+<!-- Training & Consulting  Start -->
+<section class="fjn-video-area section_100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="video-container">
+                    
+                    <div class="video-btn">
+                        <a href="<?php echo base_url().'trainging'?>">
+                            <h2>Training & Consulting.</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Training & Consulting End -->
 
 <!-- Inner Hire Area Start -->
 <!-- <section class="fjn-inner-hire-area section_100">

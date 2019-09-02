@@ -117,7 +117,7 @@
                             $employer_profile = $this->session->userdata('employer_profile');
                             $jobseeker_profile = $this->session->userdata('jobseeker_profile');
                             if(!empty($employer_profile)){ ?>
-                                <li><a href="<?php echo base_url() . 'employer/postJob' ?>" class="post-jobs">Post jobs</a></li>
+                                <li><a href="<?php echo base_url() . 'employer/postjob' ?>" class="post-jobs">Post jobs</a></li>
                                 <li><a href="<?php echo base_url();?>employer/dashboard"><i class="fa fa-tachometer"></i>Dashboard</a></li>
                                 <li><a href="<?php echo base_url();?>employer/logout"><i class="fa fa-power-off"></i>logout</a></li>
                             <?php }
