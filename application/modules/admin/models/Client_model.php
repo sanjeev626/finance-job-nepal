@@ -31,6 +31,7 @@ class Client_model extends CI_Model {
         $data = array(
             'clientname' => $this->input->post('clientname'),
             'url' => $this->input->post('website'),
+            'orderno' => $this->input->post('orderno'),
             'image' => $logoimage
             );
         $this->db->insert($this->table_clients,$data);
@@ -51,6 +52,7 @@ class Client_model extends CI_Model {
     	$data = array(
     		'clientname' => $this->input->post('clientname'),
             'url' => $this->input->post('website'),
+            'orderno' => $this->input->post('orderno'),
     		);
         if($logoimage){
             $data['image'] = $logoimage;
@@ -62,6 +64,15 @@ class Client_model extends CI_Model {
     public function delete_client($id){
         $this->db->where('id',$id);
         $this->db->delete($this->table_clients);
+    }
+
+
+    public function editorderno($id,$orderno){
+        $data = array(
+            'orderno' => $orderno,
+            );
+        $this->db->where('id',$id);
+        $this->db->update($this->table_clients,$data);
     }
 
 }

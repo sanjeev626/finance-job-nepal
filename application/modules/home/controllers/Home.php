@@ -58,7 +58,7 @@ class Home extends View_Controller {
         $data['home_blog'] =  $this->general_model->getAll('blog','stat = "Y"','id ASC','*','',3);
 
         $data['advetisements'] = $this->home_model->get_all_advertisment();
-        $data['client_list'] = $this->general_model->getAll('clients','','','*','',7);
+        $data['client_list'] = $this->general_model->getAll('clients','','orderno ASC','*','',7);
         $data['main'] = 'home';
         $this->load->view('main',$data);
     }
@@ -1462,7 +1462,7 @@ class Home extends View_Controller {
     public function clients(){
         $data['menu'] = 'clients';
         $data['page_title'] = 'Finance Job Nepal.';
-        $data['client_list'] = $this->general_model->getAll('clients','','','*','');
+        $data['client_list'] = $this->general_model->getAll('clients','','orderno ASC','*','');
         $data['title'] = 'Top Clients';
         $data['main'] = 'clients/client-list';
         $this->load->view('main',$data);

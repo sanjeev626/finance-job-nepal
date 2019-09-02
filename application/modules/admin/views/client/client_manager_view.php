@@ -15,7 +15,8 @@
               <thead>
                 <tr>
                   <th width="5%">SN.</th>
-                  <th width="20%">Client Name </th>
+                  <th width="40%">Client Name </th>
+                  <th width="20%">Order Number </th>
                   <th width="10%" class="table-action">Action</th>
                 </tr>
               </thead>
@@ -32,7 +33,9 @@
                   <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $key->clientname; ?></td>
-                    
+                    <td>
+                      <input type="text" id="orderno_<?php echo $key->id?>" name="orderno" value="<?php echo $key->orderno; ?>" onchange="changeorder(<?php echo $key->id?>)">
+                     </td>
                     <td class="table-action">
                       <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/client/edit/<?php echo $key->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Client"></i> Edit</a>
                       |
@@ -96,4 +99,17 @@
 
       });
     });
+
+    function changeorder(id){
+       var orderno = $('#orderno_'+id).val();
+      
+       $.ajax({
+        type:'POST',
+         data: {id:id , orderno: orderno} ,
+        url:'<?php echo base_url() . "admin/client/changeorderno/"?>',
+        success: function(data){
+          console.log('sucessfully update');
+        }
+       })
+    };
   </script>

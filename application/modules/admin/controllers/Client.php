@@ -182,6 +182,13 @@ class Client extends MY_Controller {
         redirect(base_url() . 'admin/client', 'refresh');
     }
 
+    public function changeorderno(){
+        $id = $_POST['id'];
+        $orderno = $_POST['orderno'];
+        $this->client_model->editorderno($id,$orderno);
+        exit;
+    }
+
 }
 
 /* End of file Client.php

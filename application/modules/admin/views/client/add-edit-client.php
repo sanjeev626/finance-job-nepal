@@ -47,6 +47,13 @@ if (!empty($client_detail)) {
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Order :</label>
+            <div class="col-sm-7">
+                <input type="number"  name="orderno" id='orderno' class="form-control" min="0" value='<?php if (!empty($client_detail)) echo $client_detail->orderno;else echo '0' ?>' />
+            </div>
+        </div>
+
         <div class="panel-footer">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-5">
