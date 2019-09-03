@@ -10,10 +10,9 @@
     .services .serviceimg{margin-bottom: 10px;}
     .services .serviceimg img
     {
-        border: 1px solid #ccc;
-        border-radius: 128px;
         width: 200px;
         height: 200px; 
+        object-fit: contain;
     }
 </style>
 <!-- Breadcromb Area Start -->

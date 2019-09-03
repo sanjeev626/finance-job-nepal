@@ -9,7 +9,7 @@
             <p>Our unique, ethically led approach to Accounts &amp; Finance recruitment, meets the Industry expectations &amp; requirement for a truly sustainable recruitment solution.</p>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <h3>Job Seeker</h3>
             <ul>
@@ -21,7 +21,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <h3>Employer</h3>
             <ul>
@@ -38,7 +38,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <h3>Services we offer</h3>
             <ul>
@@ -60,7 +60,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 col-sm-6">
             <ul class="footer-social">
               <li><a href="https://www.facebook.com/financejobnepal/" class="fb" target="_blank"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
@@ -69,19 +69,19 @@
               <li><a href="#" class="skype"><i class="fa fa-skype"></i></a></li>
             </ul>         
         </div>
-        <div class="col-lg-9 col-md-12"><div class="need_help">Need Help? <a href="tel:015139273">Dial 01-5139273</a></div></div>
+        <div class="col-lg-9 col-md-12 col-sm-12"><div class="need_help">Need Help? <a href="tel:015139273">Dial 01-5139273</a></div></div>
       </div>
     </div>
   </div>
   <div class="footer-copyright">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-6 col-md-12 col-sm-8">
           <div class="copyright-left">
             <p class="align-left">Copyright &copy; 2019 Finance Job Nepal. All Rights Reserved</p>
           </div>
         </div>
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-6 col-md-12 col-sm-4">
           <div class="powered-right">
             <p class="align-right"> Powered By : <a href="http://digitalagencycatmandu.com/" target="_blank"><img src="https://www.digitalagencycatmandu.com/images/dac-footer-icon.png" alt="DAC" class="img-responsive"> DAC </a></p>
           </div>

@@ -45,7 +45,10 @@
 		background: transparent
 	}
 	.banner-search h2 {
-		font-size: 40px
+		font-size: 24px
+	}
+	.banner-search h4 {
+		font-size: 16px
 	}
 	.single-candidate-widget-2 a.fjn-btn-2 {
 		padding: 10px
@@ -182,6 +185,58 @@
 	}
 	.footer-top::after {
 		width: 100%
+	}
+
+	.client-content img{
+		width: 100%
+	}
+	.client-content li:last-child {
+	    font-size: 16px;
+	}
+
+
+	.job-tab .job-tab-switch {	    
+	    display: flex;
+	}
+
+	.job-tab-switch li>a {    
+	    padding: 10px 18px !important;    
+	}
+	.job-tab-switch li>a.active {	    
+	    padding: 10px 18px !important;
+	}
+
+	.job-content {
+	    height: 130px;
+	    overflow: hidden;
+	}
+
+	.top-company-list {
+	    padding: 5px;
+	}
+	.top-company-list .company-list-details {
+	    
+	    padding-top: 0px;
+	}
+	.top-company-list .company-list-logo {
+	    
+	    top: -35px;
+	}
+	.company-list-details p {
+	   font-size: 12px;
+	}
+
+	.resumeupload button, .homejobalert a{padding: 10px !important}
+
+	.section_100 {
+	    padding: 70px 0;
+	}
+
+	.copyright-left {
+	    text-align: center !important;
+	}
+	.powered-right {
+	    text-align: center !important;
 	}
 }
 
@@ -988,3 +1043,24 @@
 	
 }
 
+@media only screen and (min-width: 360px) and (max-width: 640px){
+	.need_help {	    
+	    width: 100%;
+	}
+	.single-footer-widget {
+	    margin: 16px 0;
+	}
+	.copyright-left {
+	    text-align: center !important;
+	}
+	.copyright-left>p {
+	    
+	    font-size: 12px;
+	}
+	.powered-right {
+	    text-align: center !important;
+	}
+	.powered-right p {	   
+	    font-size: 12px;
+	}
+}
