@@ -112,6 +112,7 @@ class Vacancy_model extends CI_Model {
         $data = array(
             'isNewspaperJob' => serialize($isNewspaperJob),
             'eid' => $eid,
+            'displayname' => $this->input->post('displayname'),
             'jobtitle' => $jobtitle,
             'slug' => $slug,
             'jobcategory' => $this->input->post('jobcategory'),
@@ -206,6 +207,7 @@ class Vacancy_model extends CI_Model {
         $data = array(
             'isNewspaperJob' => serialize($isNewspaperJob),
             'eid' => $eid,
+            'displayname' => $this->input->post('displayname'),
             'jobtitle' => $jobtitle,
             'slug' => $slug,
             'jobcategory' => $this->input->post('jobcategory'),

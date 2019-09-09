@@ -107,6 +107,15 @@ if (!empty($job_detail)) {
                 </select>
             </div>
         </div>
+        <!--Employer Name-->
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Employer Name :</label>
+
+            <div class="col-sm-7">
+                <input type="text" required name="displayname" id='displayname' class="form-control"
+                       value='<?php if (!empty($job_detail)) echo $job_detail->displayname; ?>'/>
+            </div>
+        </div>
 
         <!--Company Logo-->
         <div class="form-group">

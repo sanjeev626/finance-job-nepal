@@ -20,6 +20,15 @@
                                 $orgcode = $empInfo->organization_code;
                                 $orgname = $empInfo->orgname;
                                 $url = base_url().'job/'.$orgcode.'/'.$jl->slug.'/'.$jl->id;
+
+                                if (empty($jl->displayname)){
+                                    $url = base_url().'job/'.$orgcode.'/'.$jl->slug.'/'.$jl->id;
+                                }
+                                else{
+                                    $url = base_url().'job/'.$jl->slug.'/'.$jl->id;
+                                } 
+
+
                                 ?>
 
                                 <div class="sidebar-list-single">
@@ -41,9 +50,11 @@
                                             <p class="company-state"><i class="fa fa-map-marker"></i> <?php echo $empInfo->organization_address; ?></p>
                                             <p class="company-state" title="Posted On"><i class="fa fa-calendar"></i> <?php echo date("M d, Y", strtotime($jl->post_date)) ?></p>
                                             <p class="open-icon"  title="Apply Before"><i class="fa fa-calendar"></i><?php echo date("M d, Y", strtotime($jl->applybefore)) ?></p>
-                                            <p class="varify"><i class="fa fa-check"></i>
+                                            
                                                 <?php
-                                                if(!empty($jl->jobtype && is_array($jl->jobtype))){
+                                                
+                                                if(!empty($jl->jobtype) ){
+                                                    echo '<p class="varify"><i class="fa fa-check"></i>';
                                                     $jobtype_arr = unserialize($jl->jobtype);
                                                     if($jobtype_arr!=''){
                                                         for($i=0;$i<count($jobtype_arr);$i++)
@@ -52,9 +63,10 @@
                                                             if(count($jobtype_arr)>0 && $i<(count($jobtype_arr)-1)) echo ', ';
                                                         }
                                                     }
+                                                    echo '</p>';
                                                 }
                                                 ?>
-                                            </p>
+                                            
                                         </div>
                                         <div class="company-list-btn">
                                             <a href="<?php echo $url?>" class="fjn-btn">View Details</a>

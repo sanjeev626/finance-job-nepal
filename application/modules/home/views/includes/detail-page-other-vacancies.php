@@ -12,7 +12,13 @@
         <?php
             if($related_job !=''){
                 foreach($related_job as $rj){
-                    $url = base_url().'job/'.$employer_info->organization_code.'/'.$rj->slug.'/'.$rj->id
+                    
+                    if (empty($rj->displayname)){
+                        $url = base_url().'job/'.$employer_info->organization_code.'/'.$rj->slug.'/'.$rj->id;
+                    }
+                    else{
+                        $url = base_url().'job/'.$rj->slug.'/'.$rj->id;
+                    } 
                     ?>
                     <div class="sigle-top-job margin_top_15">
                         <div class="top-job-company-image">

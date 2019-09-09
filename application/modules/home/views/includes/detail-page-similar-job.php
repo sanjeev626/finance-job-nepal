@@ -6,8 +6,15 @@
         foreach ($similar_job as $key => $sj) {
             $comId = $sj->eid;
             $employerinfo = $this->general_model->getById('employer','id',$comId);
+            
+            if (empty($sj->displayname)){
+                $url = base_url().'job/'.$employerinfo->organization_code.'/'.$sj->slug.'/'.$sj->id;
+            }
+            else{
+                $url = base_url().'job/'.$sj->slug.'/'.$sj->id;
+            } 
 
-            $url = base_url().'job/'.$employerinfo->organization_code.'/'.$sj->slug.'/'.$sj->id;
+
             ?>
             <div class="sidebar-list-single">
                 <div class="top-company-list">
@@ -33,7 +40,8 @@
                         <?php
                         if(!empty($sj->jobtype)){
                             echo '<p class="varify"><i class="fa fa-check"></i>';
-                            $sjjobtype_arr = explode(',',$sj->jobtype);
+
+                            $sjjobtype_arr = unserialize($sj->jobtype);
                             for($i=0;$i<count($sjjobtype_arr);$i++)
                             {
                                 echo $this->general_model->getById('dropdown','id',$sjjobtype_arr[$i])->dropvalue;

@@ -85,23 +85,27 @@
                                                     $empInfo = $this->general_model->getById('employer', 'id', $eid, '*');
                                                     $orgname = $empInfo->orgname;
                                                     $orgcode = $empInfo->organization_code;
-                                                    if (empty($rj->displayname))
+                                                    if (empty($rj->displayname)){
                                                         $orgname = $empInfo->orgname;
-                                                    else
-                                                        $orgname = $npj->displayname;
+                                                        $url = base_url().'job/'.$orgcode.'/'.$rj->slug.'/'.$rj->id;
+                                                    }
+                                                    else{
+                                                        $orgname = $rj->displayname;
+                                                        $url = base_url().'job/'.$rj->slug.'/'.$rj->id; 
+                                                    }                                                
 
                                                     ?>
                                                     <div class="col-md-6 col-sm-12 padding-left-right-5">
                                                         <div class="job-content">
                                                             <div class="top-company-list">
                                                                 <h3>
-                                                                    <a href="<?php echo base_url(); ?>job/<?php echo $orgcode; ?>/<?php echo $rj->slug; ?>/<?php echo $rj->id; ?>">
+                                                                    <a href="<?php echo $url?>">
                                                                         <?php echo $rj->jobtitle ?>
                                                                     </a>
                                                                 </h3>
 
                                                                 <div class="company-list-logo">
-                                                                    <a href="<?php echo base_url(); ?>job/<?php echo $orgcode; ?>/<?php echo $rj->slug; ?>/<?php echo $rj->id; ?>">
+                                                                    <a href="<?php echo $url?>">
                                                                         <?php
                                                                         if (!empty($empInfo->organization_logo)) {
                                                                             $img = 'uploads/employer/' . $empInfo->organization_logo;
@@ -167,25 +171,29 @@
 
                                             <?php
                                             if($newspaper_job) {
-                                                foreach ($newspaper_job as $npj) {
+                                                foreach ($newspaper_job as $npj) {                                                
                                                     $eid = $npj->eid;
                                                     $empInfo = $this->general_model->getById('employer', 'id', $eid, '*');
                                                     $orgcode = $empInfo->organization_code;
-                                                    if (empty($npj->displayname))
+                                                    if (empty($npj->displayname)){
                                                         $orgname = $empInfo->orgname;
-                                                    else
+                                                        $url = base_url().'job/'.$orgcode.'/'.$npj->slug.'/'.$npj->id; 
+                                                    }
+                                                    else{
                                                         $orgname = $npj->displayname;
+                                                        $url = base_url().'job/'.$npj->slug.'/'.$npj->id; 
+                                                    }                                                    
                                                     ?>
                                                     <div class="col-md-6 col-sm-12 padding-left-right-5">
                                                         <div class="job-content">
                                                             <div class="top-company-list">
                                                                 <div class="job-title">
                                                                     <h3>
-                                                                        <a href="<?php echo base_url(); ?>job/<?php echo $orgcode; ?>/<?php echo $npj->slug; ?>/<?php echo $npj->id; ?>"><?php echo $rj->jobtitle ?></a>
+                                                                        <a href="<?php echo $url?>"><?php echo $npj->jobtitle ?></a>
                                                                     </h3>
                                                                 </div>
                                                                 <div class="company-list-logo">
-                                                                    <a href="<?php echo base_url(); ?>job/<?php echo $orgcode; ?>/<?php echo $npj->slug; ?>/<?php echo $npj->id; ?>">
+                                                                    <a href="<?php echo $url?>">
                                                                         <?php
                                                                         if (!empty($empInfo->organization_logo)) {
                                                                             $img = 'uploads/employer/' . $empInfo->organization_logo;
@@ -254,21 +262,25 @@
                                                     $eid = $fjnj->eid;
                                                     $empInfo = $this->general_model->getById('employer', 'id', $eid, '*');
                                                     $orgcode = $empInfo->organization_code;
-                                                    if (empty($npj->displayname))
+                                                    if (empty($fjnj->displayname)){
                                                         $orgname = $empInfo->orgname;
-                                                    else
-                                                        $orgname = $npj->displayname;
+                                                        $url = base_url().'job/'.$orgcode.'/'.$fjnj->slug.'/'.$fjnj->id; 
+                                                    }
+                                                    else{
+                                                        $orgname = $fjnj->displayname;
+                                                        $url = base_url().'job/'.$fjnj->slug.'/'.$fjnj->id; 
+                                                    }                                        
                                                     ?>
                                                     <div class="col-md-6 col-sm-12 padding-left-right-5">
                                                         <div class="job-content">
                                                             <div class="top-company-list">
                                                                 <div class="job-title">
                                                                     <h3>
-                                                                        <a href="<?php echo base_url(); ?>job/<?php echo $orgcode; ?>/<?php echo $fjnj->slug; ?>/<?php echo $fjnj->id; ?>"><?php echo $fjnj->jobtitle ?></a>
+                                                                        <a href="<?php echo $url?>"><?php echo $fjnj->jobtitle ?></a>
                                                                     </h3>
                                                                 </div>
                                                                 <div class="company-list-logo">
-                                                                    <a href="<?php echo base_url(); ?>job/<?php echo $orgcode; ?>/<?php echo $fjnj->slug; ?>/<?php echo $fjnj->id; ?>">
+                                                                    <a href="<?php echo $url?>/<?php echo $fjnj->id; ?>">
                                                                         <?php
                                                                         if (!empty($empInfo->organization_logo)) {
                                                                             $img = 'uploads/employer/' . $empInfo->organization_logo;

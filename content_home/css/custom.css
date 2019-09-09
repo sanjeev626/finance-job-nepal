@@ -180,4 +180,9 @@ width: 100%;
 		padding-left: 8px;
 	}
 	.resumeupload button, .homejobalert a{width:100%}
+
+	.job-tab .job-tab-switch{display: inline-flex}
+	.job-tab-switch li>a{padding: 10px 10px !important}
+	.job-tab-switch li>a.active{padding: 10px 10px !important}
+
 }
