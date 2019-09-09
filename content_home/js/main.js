@@ -149,7 +149,11 @@ JS INDEX
 		07 - Responsive Menu
 		=================================================================	
 		*/
-		$("ul#fjn_navigation").slicknav({
+		/*$("ul#fjn_navigation").slicknav({
+			prependTo: ".fjn-responsive-menu"
+		});*/
+
+		$(".mobilenav ul#fjn_mob_navigation").slicknav({
 			prependTo: ".fjn-responsive-menu"
 		});
 
