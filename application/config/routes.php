@@ -115,6 +115,7 @@ $route['viewjobstype/(:any)/([0-9]+)'] = 'home/Search/searchByJobType/$1';
 $route['viewjobs/(:any)/([0-9]+)'] = 'home/Search/getBydisplayIn/$1';
 $route['viewjobs/(:any)/([0-9]+)/([0-9]+)'] = 'home/Search/getBydisplayIn/$1/$2';
 
+$route['blog'] = 'home/Blog';
 $route['blog/(:any)'] = 'home/Blog/singlepage/$1';
 /*$route['premium_jobs'] = 'home/premium_jobs';
 $route['top_jobs'] = 'home/top_jobs';*/

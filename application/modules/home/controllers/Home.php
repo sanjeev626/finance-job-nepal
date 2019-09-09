@@ -55,7 +55,9 @@ class Home extends View_Controller {
 
         $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','',8);
 
-        $data['home_blog'] =  $this->general_model->getAll('blog','stat = "Y"','id ASC','*','',3);
+
+        $data['blogcount'] =  $this->general_model->countTotal('blog',array('stat' => 'Y'));
+        $data['home_blog'] =  $this->general_model->getAll('blog','stat = "Y"','id DESC','*','',3);
 
         $data['advetisements'] = $this->home_model->get_all_advertisment();
         $data['client_list'] = $this->general_model->getAll('clients','','orderno ASC','*','',7);

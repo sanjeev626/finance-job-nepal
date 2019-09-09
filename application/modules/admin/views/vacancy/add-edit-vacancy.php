@@ -112,7 +112,7 @@ if (!empty($job_detail)) {
             <label class="col-sm-3 control-label">Employer Name :</label>
 
             <div class="col-sm-7">
-                <input type="text" required name="displayname" id='displayname' class="form-control"
+                <input type="text" name="displayname" id='displayname' class="form-control"
                        value='<?php if (!empty($job_detail)) echo $job_detail->displayname; ?>'/>
             </div>
         </div>
@@ -189,14 +189,13 @@ if (!empty($job_detail)) {
                         $joblocation_arr = unserialize($job_detail->joblocation);
                     else
                         $joblocation_arr = array();
-
                 ?>
                 <select class="form-control chosen-select" name='joblocation[]' multiple
                         data-placeholder="Choose a Job Location">
                     <?php foreach ($job_location as $key => $value) {
                         if(!empty($job_detail)){
                             if(!empty($joblocation_arr)&& in_array($value->id, $joblocation_arr)){
-                                $checked = "selected='selected";
+                                $checked = "selected='selected'";
                             }
                             else{
                                 $checked ='';

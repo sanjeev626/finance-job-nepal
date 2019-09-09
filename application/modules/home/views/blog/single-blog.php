@@ -18,7 +18,7 @@
                     <div class="breadcromb-box-pagin">
                         <ul>
                             <li><a href="#">home</a></li>
-                            <li><a href="#">pages</a></li>
+                            <li><a href="#">Blog</a></li>
                             <li class="active-breadcromb"><a href="#"><?php echo $blogdetail->title?></a></li>
                         </ul>
                     </div>

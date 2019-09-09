@@ -34,6 +34,13 @@
             ?>
 
         </div>
+        <?php if($blogcount>3){?>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                   <a href="<?php echo base_url().'blog'?>" class="btn btn-success">View More +</a> 
+                </div>
+            </div>
+        <?php }?>
     </div>
 </section>
 <?php endif;?>

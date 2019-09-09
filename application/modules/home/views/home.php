@@ -14,10 +14,9 @@
                 <div class="col-md-12">
                     <div class="banner-search">
                         <h2>WE RECRUIT</h2>
-                        <h4>Finance & Accounts Head | CFO | FC | Finance Manager | Accountants | Management </h4>
+                        <h4>CFO | Finance Controller | Finance Manager | Accountants | Executives</h4>
 
-                        <h2>Trainee | Executives | Assistants | Interns</h2>
-                        <h4>Qualifications: CA | CFA | ACCA | MBA | MBS | SEMI-CA | BBA | BBS | AT | +2 MANAGEMENT</h4>
+                        
                         <form action="<?php echo base_url().'search/job'?>" method="POST">
                             <div class="banner-form-box">
                                 <div class="banner-form-input">

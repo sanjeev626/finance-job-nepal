@@ -12,14 +12,14 @@
                 <div class="contact-left">
                     <h3>Contact information</h3>
                     <div class="contact-details">
-                        <p><i class="fa fa-map-marker"></i> 4th Floor, Everest Bank Building, Bagdole, Lalitpur, Nepal</p>
+                        <p><i class="fa fa-map-marker"></i> Tanka Prasad Ghumti Sadak, Purbi Gate, Anamnagar-29, Behind Labour Court</p>
                         <div class="single-contact-btn">
                             <h4>Email Us</h4>
                             <a href="mailto:info@financejobnepal.com" class="fjn-btn-2">info@financejobnepal.com</a>
                         </div>
                         <div class="single-contact-btn">
                             <h4>Call Us</h4>
-                            <a href="tel:016226783" class="fjn-btn-2">977 1 6226783</a>
+                            <a href="tel:016226783" class="fjn-btn-2">977 01-6201360</a>
                         </div>
                         <div class="social-links-contact">
                             <h4>Follow Us:</h4>

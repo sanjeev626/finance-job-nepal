@@ -17,6 +17,18 @@ class Blog_model extends CI_Model
 
     }
 
+    public function get_all_blog(){
+        $this->db->select('*');
+        $this->db->where('stat','Y');
+        $this->db->order_by('cr_date','DESC');
+        $query =  $this->db->get($this->table_blog);
+        if ($query->num_rows() == 0) {
+            return FALSE;
+        } else {
+            return $query->result();
+        }
+    }
+
     public function get_blog_by_slug($slug)
     {
         $this->db->select();
