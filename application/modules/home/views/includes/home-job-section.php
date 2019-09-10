@@ -1,7 +1,11 @@
 <style type="text/css">
     .job-content{margin-bottom: 15px}
-    .homejobalert{margin-bottom: 10px;}
-    .homejobalert a{padding: 10px 30px;}
+    .homejobalert{margin: 10px 0px;}
+    /*.homejobalert a{padding: 10px 30px;}*/
+    .resumeupload a img, .homejobalert a img{width: 100%}
+    #cvModal .modal-dialog{top:42px;}
+    #cvModal .modal-dialog .form-group{margin-bottom: 5px}
+    #cvModal .modal-dialog .form-group .control-label{margin-bottom: 0px}
 </style>
 <section class="fjn-job-tab-area section_15">
     <div class="container">
@@ -354,8 +358,11 @@
             </div>
 
             <div class="col-md-3">
-                <div class="resumeupload single-login-field">
-                    <button class="btn" data-toggle="modal" data-target="#cvModal">Upload Your CV</button>
+                <div class="resumeupload">
+                    <a href="#" data-toggle="modal" data-target="#cvModal">                   
+                         <img src="<?php echo base_url(); ?>content_home/img/upload-your-resume.jpg">
+                     </a>
+                    <!-- <button class="btn" data-toggle="modal" data-target="#cvModal">Upload Your CV</button> -->
                 </div>
 
                 <div class="homejobalert">
@@ -368,7 +375,9 @@
                             $url = base_url().'employer/login';
                         }    
                     ?>
-                    <a href="<?php echo $url?>" class="btn btn-primary">Create a Job Alert</a>
+                    <a href="<?php echo $url?>">
+                        <img src="<?php echo base_url(); ?>content_home/img/create-a-job-alert.jpg">
+                    </a>
                 </div>
 
 
