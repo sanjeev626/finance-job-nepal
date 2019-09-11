@@ -74,7 +74,7 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
 
             <div class="col-sm-7">
                 <input type="text" required name="orgname" id='orgname' class="form-control"
-                       value='<?php if (!empty($employer_detail->orgname)) echo $employer_detail->orgname;else echo set_value('orgname') ?>'/>
+                       value='<?php if (!empty($employer_detail->organization_name)) echo $employer_detail->organization_name;else echo set_value('orgname') ?>'/>
                 <?php echo form_error('orgname'); ?>
             </div>
         </div>
@@ -129,7 +129,7 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
             <label class="col-sm-3 control-label">Phone :<span class="asterisk">*</span></label>
 
             <div class="col-sm-7">
-                <input type="text"  name="phone" id='phone' class="form-control"
+                <input type="text" required  name="phone" id='phone' class="form-control"
                        value='<?php if (!empty($employer_detail->organization_phone)) echo $employer_detail->organization_phone;else echo set_value('phone') ?>'/>
                 <?php echo form_error('phone'); ?>
             </div>
@@ -178,7 +178,7 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
             <label class="col-sm-3 control-label">Organization Address : <span class="asterisk">*</span></label>
 
             <div class="col-sm-7">
-                <input type="text"  name="address" id='address' class="form-control"
+                <input type="text" required name="address" id='address' class="form-control"
                        value='<?php if (!empty($employer_detail->organization_address)) echo $employer_detail->organization_address; else echo set_value('address') ?>'/>
                 <?php echo form_error('address'); ?>
             </div>
@@ -267,7 +267,7 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
             <label class="col-sm-3 control-label">Contact Person :<span class="asterisk">*</span></label>
 
             <div class="col-sm-7">
-                <input type="text"  name="contactperson" id='contactperson' class="form-control"
+                <input type="text" required  name="contactperson" id='contactperson' class="form-control"
                        value='<?php if (!empty($employer_detail->contact_name)) echo $employer_detail->contact_name;else echo set_value('contactperson') ?>'/>
                 <?php echo form_error('contactperson'); ?>
             </div>
@@ -278,7 +278,7 @@ $action = base_url() . 'admin/employer/editemployer/' . $employer_detail->id;
             <label class="col-sm-3 control-label">Designation :<span class="asterisk">*</span></label>
 
             <div class="col-sm-7">
-                <input type="text"   name="designation" id='designation' class="form-control"
+                <input type="text" required   name="designation" id='designation' class="form-control"
                        value='<?php if (!empty($employer_detail->contact_designation)) echo $employer_detail->contact_designation;else echo set_value('designation') ?>'/>
                 <?php echo form_error('designation'); ?>
             </div>

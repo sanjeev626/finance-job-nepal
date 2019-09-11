@@ -440,7 +440,10 @@ class Jobseeker extends View_Controller {
                 'lname' =>$last_name,
                 'user_type' => 'cv_only',
                 'date_modified' => date("Y-m-d H:i:s"),
+                'isActivated' => '1',
             );
+
+
 
             $this->general_model->insert('seeker',$cv_data);
         }

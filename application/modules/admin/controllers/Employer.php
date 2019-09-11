@@ -58,7 +58,7 @@ class Employer extends MY_Controller {
         $data['nav'] = 'employer';
         $data['panel_title'] = 'Employer List';
         $data['main'] = 'employer/employer_manager_view';
-        $data['organisation_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
+        $data['organisation_type'] =$this->general_model->getAll('dropdown','fid = 9','','id,dropvalue');
 
         $this->load->view('admin/home', $data);
     }
@@ -381,7 +381,7 @@ class Employer extends MY_Controller {
         $data['nav'] = 'employer';
         $data['panel_title'] = 'Edit Employer ';
         $data['employer_detail'] = $this->general_model->getById('employer','id',$id);
-        $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue'); 
+        $data['org_type'] =$this->general_model->getAll('dropdown','fid = 9','','id,dropvalue'); 
         $data['org_size'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
         //$data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue');
         //$data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
@@ -413,7 +413,7 @@ class Employer extends MY_Controller {
             $data['nav'] = 'employer';
             $data['panel_title'] = 'Edit Employer ';
             $data['employer_detail'] = $this->general_model->getById('employer','id',$e_id);
-            $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue'); 
+            $data['org_type'] =$this->general_model->getAll('dropdown','fid = 9','','id,dropvalue'); 
             $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue'); 
             $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
             $data['main'] = 'employer/edit-employer';
@@ -510,7 +510,7 @@ class Employer extends MY_Controller {
              $data['address'] = $this->input->post('address');
 
 
-             $data['organisation_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
+             $data['organisation_type'] =$this->general_model->getAll('dropdown','fid = 9','','id,dropvalue');
              $this->load->view('home', $data);
          }
 

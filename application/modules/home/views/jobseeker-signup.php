@@ -280,7 +280,7 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <form action="<?php echo base_url().'Jobseeker/jobseekercv'?>" method="post" enctype='multipart/form-data'>
+                                        <form action="<?php echo base_url().'jobseeker/jobseekercv'?>" method="post" enctype='multipart/form-data'>
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label class="control-label">First Name*</label>
