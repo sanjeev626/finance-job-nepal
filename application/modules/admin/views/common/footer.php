@@ -125,10 +125,16 @@
                 "searchreplace visualblocks code fullscreen",
                 "insertdatetime media table contextmenu paste"
             ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+           /* toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | link image",
+         toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",*/
+
+
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview code",
             image_caption: true,
             image_advtab: true,
             relative_urls: false,
+            remove_script_host: false,
+            document_base_url : "<?php echo base_url();?>",
             external_filemanager_path: "<?php echo base_url();?>" + "tinymce/file_manager/filemanager/",
             filemanager_title: "Responsive Filemanager",
             external_plugins: {"filemanager": "<?php echo base_url();?>" + "tinymce/file_manager/filemanager/plugin.min.js"}

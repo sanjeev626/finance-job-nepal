@@ -434,6 +434,7 @@ class Jobseeker extends View_Controller {
             $cv_data = array(
                 'username' =>$email,
                 'password' =>md5($contact_number),
+                'phone_cell' => $contact_number,
                 'email' =>$email,
                 'resume' =>$cv_file,
                 'fname' =>$first_name,

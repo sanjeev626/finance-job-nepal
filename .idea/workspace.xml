@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="541cec99-7595-46a6-93cc-4c8278930a92" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/includes/home-job-section.php" afterPath="$PROJECT_DIR$/application/modules/home/views/includes/home-job-section.php" />
+      <change type="DELETED" beforePath="D:\xampp\htdocs\financejobnepal\tinymce\file_manager\source\dhulikhel.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" afterPath="$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tinymce/file_manager/filemanager/config/config.php" afterPath="$PROJECT_DIR$/tinymce/file_manager/filemanager/config/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/common/footer.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/common/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="finance-job-nepal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,21 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/content_home/css/custom.css">
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tinymce/file_manager/filemanager/config/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="186" column="0" selection-start-line="181" selection-start-column="4" selection-end-line="181" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="responsive.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/content_home/css/responsive.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="637" column="28" selection-start-line="636" selection-start-column="8" selection-end-line="637" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.31768954">
+              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -65,7 +59,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/modules/home/views/employer-login.php" />
         <option value="$PROJECT_DIR$/application/modules/home/controllers/Employer.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/employer-signup.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/job-by-category.php" />
@@ -116,6 +109,7 @@
         <option value="$PROJECT_DIR$/content_home/js/main.js" />
         <option value="$PROJECT_DIR$/content_home/css/custom.css" />
         <option value="$PROJECT_DIR$/content_home/css/responsive.css" />
+        <option value="$PROJECT_DIR$/tinymce/file_manager/filemanager/config/config.php" />
       </list>
     </option>
   </component>
@@ -160,6 +154,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -224,110 +219,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finance-job-nepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financejobnepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finance-job-nepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financejobnepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finance-job-nepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financejobnepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finance-job-nepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="financejobnepal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../xerafyorg" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/xampp/htdocs/financejobnepal/application/libraries/linkedin-oauth-client/oauth_client.php" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
@@ -399,9 +297,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23298033" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24054463" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -457,7 +355,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php</url>
-          <line>1324</line>
+          <line>1328</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/modules/home/controllers/Employer.php</url>
@@ -470,13 +368,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/Advertisement_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4440433">
-          <caret line="66" column="40" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/theme/assets/css/developer.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.1213675">
@@ -728,44 +619,43 @@
             <element signature="e#5872#21553#0#PHP" expanded="false" />
             <element signature="e#7074#21553#0#PHP" expanded="false" />
             <element signature="e#9269#10025#0#PHP" expanded="false" />
-            <element signature="e#21565#25203#0#PHP" expanded="false" />
-            <element signature="e#25213#27696#0#PHP" expanded="false" />
-            <element signature="e#27702#28943#0#PHP" expanded="false" />
-            <element signature="e#28953#31350#0#PHP" expanded="false" />
-            <element signature="e#31356#32055#0#PHP" expanded="false" />
-            <element signature="e#32061#33586#0#PHP" expanded="false" />
-            <element signature="e#33795#34653#0#PHP" expanded="false" />
-            <element signature="e#34659#35205#0#PHP" expanded="false" />
-            <element signature="e#35215#36895#0#PHP" expanded="false" />
-            <element signature="e#37100#37691#0#PHP" expanded="false" />
-            <element signature="e#37697#39707#0#PHP" expanded="false" />
-            <element signature="e#39713#40416#0#PHP" expanded="false" />
-            <element signature="e#40422#40920#0#PHP" expanded="false" />
-            <element signature="e#40926#41447#0#PHP" expanded="false" />
-            <element signature="e#41453#41951#0#PHP" expanded="false" />
-            <element signature="e#41957#42460#0#PHP" expanded="false" />
-            <element signature="e#42667#44676#0#PHP" expanded="false" />
-            <element signature="e#44682#53511#0#PHP" expanded="false" />
-            <element signature="e#53517#56875#0#PHP" expanded="false" />
-            <element signature="e#56881#59002#0#PHP" expanded="false" />
-            <element signature="e#59008#60634#0#PHP" expanded="false" />
-            <element signature="e#60640#62184#0#PHP" expanded="false" />
-            <element signature="e#62191#63877#0#PHP" expanded="false" />
-            <element signature="e#63883#64891#0#PHP" expanded="false" />
-            <element signature="e#64897#65448#0#PHP" expanded="false" />
-            <element signature="e#65455#65874#0#PHP" expanded="false" />
-            <element signature="e#65881#66057#0#PHP" expanded="false" />
-            <element signature="e#66260#66697#0#PHP" expanded="false" />
-            <element signature="e#66703#75883#0#PHP" expanded="false" />
-            <element signature="e#75889#81041#0#PHP" expanded="false" />
-            <element signature="e#81047#84770#0#PHP" expanded="false" />
-            <element signature="e#84776#87758#0#PHP" expanded="false" />
-            <element signature="e#87764#95354#0#PHP" expanded="false" />
-            <element signature="e#95536#97537#0#PHP" expanded="false" />
-            <element signature="e#97543#101161#0#PHP" expanded="false" />
-            <element signature="e#101167#103814#0#PHP" expanded="false" />
-            <element signature="e#103998#105724#0#PHP" expanded="false" />
-            <element signature="e#105730#106655#0#PHP" expanded="false" />
+            <element signature="e#25295#27778#0#PHP" expanded="false" />
+            <element signature="e#27784#29025#0#PHP" expanded="false" />
+            <element signature="e#29035#31432#0#PHP" expanded="false" />
+            <element signature="e#31438#32137#0#PHP" expanded="false" />
+            <element signature="e#32143#33668#0#PHP" expanded="false" />
+            <element signature="e#33877#34735#0#PHP" expanded="false" />
+            <element signature="e#34741#35287#0#PHP" expanded="false" />
+            <element signature="e#35297#36977#0#PHP" expanded="false" />
+            <element signature="e#37182#37773#0#PHP" expanded="false" />
+            <element signature="e#37779#39789#0#PHP" expanded="false" />
+            <element signature="e#39795#40498#0#PHP" expanded="false" />
+            <element signature="e#40504#41002#0#PHP" expanded="false" />
+            <element signature="e#41008#41529#0#PHP" expanded="false" />
+            <element signature="e#41535#42033#0#PHP" expanded="false" />
+            <element signature="e#42039#42542#0#PHP" expanded="false" />
+            <element signature="e#42749#44758#0#PHP" expanded="false" />
+            <element signature="e#44764#53593#0#PHP" expanded="false" />
+            <element signature="e#53599#56957#0#PHP" expanded="false" />
+            <element signature="e#56963#59084#0#PHP" expanded="false" />
+            <element signature="e#59090#60716#0#PHP" expanded="false" />
+            <element signature="e#60722#62266#0#PHP" expanded="false" />
+            <element signature="e#62273#63959#0#PHP" expanded="false" />
+            <element signature="e#63965#64973#0#PHP" expanded="false" />
+            <element signature="e#64979#65530#0#PHP" expanded="false" />
+            <element signature="e#65537#65956#0#PHP" expanded="false" />
+            <element signature="e#65963#66139#0#PHP" expanded="false" />
+            <element signature="e#66342#66779#0#PHP" expanded="false" />
+            <element signature="e#66785#75965#0#PHP" expanded="false" />
+            <element signature="e#75971#81123#0#PHP" expanded="false" />
+            <element signature="e#81129#84852#0#PHP" expanded="false" />
+            <element signature="e#84858#87840#0#PHP" expanded="false" />
+            <element signature="e#87846#95436#0#PHP" expanded="false" />
+            <element signature="e#95618#97619#0#PHP" expanded="false" />
+            <element signature="e#97625#101243#0#PHP" expanded="false" />
+            <element signature="e#101249#103896#0#PHP" expanded="false" />
+            <element signature="e#104080#105806#0#PHP" expanded="false" />
+            <element signature="e#105812#106737#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -865,14 +755,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="186" column="0" selection-start-line="181" selection-start-column="4" selection-end-line="181" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/content_home/css/responsive.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="637" column="28" selection-start-line="636" selection-start-column="8" selection-end-line="637" selection-end-column="28" />
+          <caret line="644" column="37" selection-start-line="644" selection-start-column="37" selection-end-line="644" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tinymce/file_manager/filemanager/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31768954">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding />
         </state>
       </provider>
