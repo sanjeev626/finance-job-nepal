@@ -30,8 +30,18 @@ class Blog_model extends CI_Model
     public function save_blog($image){
         $up_date = date('Y-m-d h:i:s');
         $title = $this->input->post('title');
+
+        if(empty($this->input->post('slug')))
+            $slug = $this->general_model->get_urlcode($title);
+        else
+        {
+            $replace = $this->input->post('slug');
+            $slug = str_replace(' ','',$replace);
+        }
+
+
         $data = array(
-            'slug' => $this->general_model->get_urlcode($title),
+            'slug' => $slug,
             'title' => $this->input->post('title'),
             'cat_id' => $this->input->post('category'),
             'articles' => $this->input->post('articles'),
@@ -46,8 +56,17 @@ class Blog_model extends CI_Model
     public function update_blog($id,$image){
         $up_date = date('Y-m-d h:i:s');
         $title = $this->input->post('title');
+
+        if(empty($this->input->post('slug')))
+            $slug = $this->general_model->get_urlcode($title);
+        else
+        {
+            $replace = $this->input->post('slug');
+            $slug = str_replace(' ','',$replace);
+        }
+
         $data = array(
-            'slug' => $this->general_model->get_urlcode($title),
+            'slug' => $slug,
             'title' => $this->input->post('title'),
             'articles' => $this->input->post('articles'),
             'cat_id' => $this->input->post('category'),
@@ -139,6 +158,36 @@ class Blog_model extends CI_Model
     public function delete_category($id){
         $this->db->where('id',$id);
         $this->db->delete($this->table_category);
+    }
+
+
+    public function generateSeoURL($string, $wordLimit = 0)
+    {
+        $separator = '-';
+
+        if($wordLimit != 0){
+            $wordArr = explode(' ', $string);
+            $string = implode(' ', array_slice($wordArr, 0, $wordLimit));
+        }
+
+        $quoteSeparator = preg_quote($separator, '#');
+
+        $trans = array(
+            '&.+?;'                    => '',
+            '[^\w\d _-]'            => '',
+            '\s+'                    => $separator,
+            '('.$quoteSeparator.')+'=> $separator
+        );
+
+        $string = strip_tags($string);
+        foreach ($trans as $key => $val){
+            //$string = preg_replace('#'.$key.'#i'.(UTF8_ENABLED ? 'u' : ''), $val, $string);
+            $string = preg_replace('#'.$key.'#i', $val, $string);
+        }
+
+        $string = strtolower($string);
+
+        return trim(trim($string, $separator));
     }
 
     //    blog category section

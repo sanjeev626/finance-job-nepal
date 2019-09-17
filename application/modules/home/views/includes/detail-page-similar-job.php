@@ -21,7 +21,10 @@
                     <div class="company-list-logo">
                         <a href="<?php echo $url;?>">
                             <?php
-                            if(!empty($employerinfo->organization_logo)){
+                            if(!empty($sj->complogo)){
+                                $img = 'uploads/employer/'.$sj->complogo;
+                            }
+                            elseif(!empty($employerinfo->organization_logo)){
                                 $img = 'uploads/employer/'.$employerinfo->organization_logo;
                             }
                             else{
