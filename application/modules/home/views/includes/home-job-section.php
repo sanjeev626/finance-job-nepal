@@ -99,7 +99,7 @@
                                                     }                                                
 
                                                     ?>
-                                                    <div class="col-md-6 col-sm-12 padding-left-right-5">
+                                                    <div class="col-md-4 col-sm-12 padding-left-right-0">
                                                         <div class="job-content">
                                                             <div class="top-company-list">
                                                                 <h3>
@@ -191,7 +191,7 @@
                                                         $url = base_url().'job/'.$npj->slug.'/'.$npj->id; 
                                                     }                                                    
                                                     ?>
-                                                    <div class="col-md-6 col-sm-12 padding-left-right-5">
+                                                    <div class="col-md-4 col-sm-12 padding-left-right-0">
                                                         <div class="job-content">
                                                             <div class="top-company-list">
                                                                 <div class="job-title">
@@ -281,7 +281,7 @@
                                                         $url = base_url().'job/'.$fjnj->slug.'/'.$fjnj->id; 
                                                     }                                        
                                                     ?>
-                                                    <div class="col-md-6 col-sm-12 padding-left-right-5">
+                                                    <div class="col-md-4 col-sm-12 padding-left-right-0">
                                                         <div class="job-content">
                                                             <div class="top-company-list">
                                                                 <div class="job-title">
