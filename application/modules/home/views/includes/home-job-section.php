@@ -180,7 +180,7 @@
                                                     </div>
                                                 <?php }
 
-                                                echo '<div class="col-sm-12" style="text-align:center">
+                                                echo '<div class="col-sm-12" style="text-align:center; margin-top: 9px;">
                                                    <a href="'.base_url().'recentjob'.'" class="btn btn-success">View More +</a> 
                                                 </div>';
                                             } else {
@@ -289,7 +289,7 @@
                                                         </div>
                                                     </div>
                                                 <?php }
-                                                echo '<div class="col-sm-12" style="text-align:center">
+                                                echo '<div class="col-sm-12" style="text-align:center; margin-top: 9px;">
                                                    <a href="'.base_url().'newspaperjob'.'" class="btn btn-success">View More +</a> 
                                                 </div>';
                                             } else {
@@ -400,7 +400,7 @@
                                                         </div>
                                                     </div>
                                                 <?php }
-                                                echo '<div class="col-sm-12" style="text-align:center">
+                                                echo '<div class="col-sm-12" style="text-align:center; margin-top: 9px;">
                                                    <a href="'.base_url().'hotjob'.'" class="btn btn-success">View More +</a> 
                                                 </div>';
                                             } else {

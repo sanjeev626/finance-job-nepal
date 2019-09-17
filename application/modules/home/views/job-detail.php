@@ -115,7 +115,7 @@ $jobDetail = $job_detail[0];
                     </div>
 
                     <div class="single-candidate-widget clearfix">
-                        <h3>share this post</h3>
+                        <h3>Share This Vacancy</h3>
                         <ul class="share-job">
                             <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php  echo $ogurl?>" target="popup" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php  echo $ogurl?>','popup','width=600,height=600,scrollbars=no,resizable=no'); return false;">
                             <i class="fa fa-facebook" aria-hidden="true"></i>
