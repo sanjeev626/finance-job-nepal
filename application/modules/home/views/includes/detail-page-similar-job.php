@@ -36,7 +36,22 @@
                     </div>
                     <div class="company-list-details">
                         <h3><a href="<?php echo $url;?>"><?php echo $sj->jobtitle?></a></h3>
-                        <p class="company-state"><i class="fa fa-map-marker"></i> <?php echo $employerinfo->organization_address?></p>
+                        <p class="company-state"><i class="fa fa-map-marker"></i> 
+                            <?php
+                                if(!empty($sj->joblocation)){
+                                $joblocation_arr = unserialize($sj->joblocation);
+                                $location = '';
+                                if($joblocation_arr !=''){
+                                    for($i=0;$i<count($joblocation_arr);$i++)
+                                    {
+                                        $location .= $this->general_model->getById('dropdown','id',$joblocation_arr[$i])->dropvalue;
+                                        if(count($joblocation_arr)>0 && $i<(count($joblocation_arr)-1)) $location .= ', ';
+                                    }
+                                }
+                            }                            
+                            ?>
+
+                            <?php echo $location?></p>
                         <p class="company-state" title="Posted On"><i class="fa fa-calendar"></i> <?php echo date("M d, Y", strtotime($sj->post_date))?></p>
                         <p class="open-icon"  title="Apply Before"><i class="fa fa-calendar"></i><?php echo date("M d, Y", strtotime($sj->applybefore))?></p>
 
