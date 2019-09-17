@@ -179,6 +179,10 @@
                                                         </div>
                                                     </div>
                                                 <?php }
+
+                                                echo '<div class="col-sm-12" style="text-align:center">
+                                                   <a href="'.base_url().'recentjob'.'" class="btn btn-success">View More +</a> 
+                                                </div>';
                                             } else {
                                                 ?>
                                                 <div class="col-md-12 col-sm-12 padding-left-right-5">
@@ -285,6 +289,9 @@
                                                         </div>
                                                     </div>
                                                 <?php }
+                                                echo '<div class="col-sm-12" style="text-align:center">
+                                                   <a href="'.base_url().'newspaperjob'.'" class="btn btn-success">View More +</a> 
+                                                </div>';
                                             } else {
                                                 ?>
                                                 <div class="col-md-12 col-sm-12 padding-left-right-5">
@@ -393,6 +400,9 @@
                                                         </div>
                                                     </div>
                                                 <?php }
+                                                echo '<div class="col-sm-12" style="text-align:center">
+                                                   <a href="'.base_url().'hotjob'.'" class="btn btn-success">View More +</a> 
+                                                </div>';
                                             } else {
                                                 ?>
                                                 <div class="col-md-12 col-sm-12 padding-left-right-5">

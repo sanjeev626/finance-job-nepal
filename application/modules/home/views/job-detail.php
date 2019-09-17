@@ -1,4 +1,3 @@
-<!-- Single Candidate Start -->
 <?php
 $jobseeker_profile = $this->session->userdata('jobseeker_profile');
 if(!empty($jobseeker_profile)){
@@ -118,10 +117,16 @@ $jobDetail = $job_detail[0];
                     <div class="single-candidate-widget clearfix">
                         <h3>share this post</h3>
                         <ul class="share-job">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php  echo $ogurl?>" target="popup" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php  echo $ogurl?>','popup','width=600,height=600,scrollbars=no,resizable=no'); return false;">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            </li>
+                            <li><a href="https://twitter.com/share?url=<?php echo $ogurl?>" target="popup"
+                            onclick="window.open('https://twitter.com/share?url=<?php echo $ogurl?>','popup','width=600,height=600,scrollbars=no,resizable=no'); return false;">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a></li>
+                            <!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li> -->
                         </ul>
                     </div>
                     <div class="single-candidate-widget-2">
@@ -158,4 +163,4 @@ $jobDetail = $job_detail[0];
         </div>
     </div>
 </section>
-<!-- Single Candidate Bottom End -->
+<!-- Single Candidate Bottom End
