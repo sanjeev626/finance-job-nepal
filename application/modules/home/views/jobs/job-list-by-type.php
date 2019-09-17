@@ -60,7 +60,7 @@
 								$url = base_url() . 'job/' . $rj->slug . '/' . $rj->id;
 								}
 								?>
-								<div class="col-md-3 col-sm-12 padding-left-right-5">
+								<div class="col-md-3 col-sm-12 padding-left-right-0">
 									<div class="job-content">
 										<div class="top-company-list">
 											<h3>
@@ -123,14 +123,7 @@
                 </div>
             </div>
 
-            <div class="row">
-            	<div class="col-md-12">
-            		<div class="pagination-box-row">
 
-                        <?php echo $this->pagination->create_links();?>
-                    </div>
-            	</div>
-            </div>
 
         </div>
     </div>
