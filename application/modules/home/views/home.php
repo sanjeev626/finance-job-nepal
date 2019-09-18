@@ -219,4 +219,4 @@
 
 <!-- Blog Area Start -->
 <?php include('blog/home-blog-section.php');?>
-<!-- Blog Area End
+<!-- Blog Area End-->

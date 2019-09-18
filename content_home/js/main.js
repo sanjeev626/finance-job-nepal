@@ -259,6 +259,26 @@ JS INDEX
             });
         }
 
+        /* 
+		=================================================================
+		13 - sticky footer
+		=================================================================	
+		*/
+        $(window).on('scroll', function () {
+            var scroll = $(window).scrollTop();
+           
+            if(scroll + $(window).height() > $(document).height()-220){
+		            $(".stickyfooter").removeClass('sticky');
+		            $(".stickyfooter").addClass('hide');
+		        }else if(scroll >= 50){
+		            $(".stickyfooter").addClass('sticky');
+		            $(".stickyfooter").removeClass('hide');
+		        }else{
+		            $(".stickyfooter").removeClass('sticky');
+		            $(".stickyfooter").addClass('hide');
+		        }
+        });
+
 
 }(jQuery));
 

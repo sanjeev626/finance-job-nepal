@@ -291,6 +291,44 @@ width: 100%;
 	}
 	.letstalk p{font-style: italic;font-weight: 700;}
 /*right sidebar */
+
+/*sticky footer*/
+.hide{display: none;}
+  .stickyfooter
+  {
+    width: 100%;
+    background-color: #f3eeee;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  }
+  .stickyfooter.sticky{
+    position: fixed;
+    bottom: 0px;
+    z-index: 99999;
+}
+  .stickyfooter .container{
+    padding: 10px
+  }
+  .stickyfooter .footersign {text-align: center;} 
+  .stickyfooter .footersign  ul{display: inline-flex;}
+  .stickyfooter .footersign  ul li{margin-right: 10px}
+  .stickyfooter .footersign  ul .stickyfootertitle{font-size: 18px;padding: 5px 10px;}
+  .stickyfooter .footersign  ul .seekerregister
+    { 
+      padding: 5px 10px;
+      border: 1px solid #F4B183;
+      background:#F4B183;
+      
+    }
+  .stickyfooter .footersign  ul .seekerlogin
+    {
+      padding: 5px 10px; 
+      border: 1px solid #9DC3E6;
+      background:#9DC3E6;
+      
+    }
+   .stickyfooter .footersign  ul .seekerregister a, .stickyfooter .footersign  ul .seekerlogin a{color: #000
+   }
+/*sticky footer*/
 @media (min-width: 1170px) and (max-width: 1500px) {
 	.padding-left-right-5{
 		padding: 5px;

@@ -1,4 +1,17 @@
 <!-- Footer Area Start -->
+<section class="stickyfooter hide">
+  <div class="container">    
+      <div class="footersign">
+        <ul>
+          <li class="stickyfootertitle">Search, Apply & Get Job</li>
+          <li class="seekerregister"><a href="<?php echo base_url(); ?>jobseeker/signup"><i class="fa fa-user"></i> Register</a></li>
+          <li class="seekerlogin"><a href="<?php echo base_url(); ?>jobseeker/login"><i class="fa fa-lock"></i> Login</a></li>
+        </ul>
+      </div>              
+  </div>
+</section>
+
+
 <footer class="fjn-footer-area">
   <div class="footer-top section_15">
     <div class="container">
