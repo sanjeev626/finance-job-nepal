@@ -14,7 +14,7 @@ if (!empty($jobpost_detail)) {
 
     $post_date = date('Y-m-d');
 
-    $applybefore = date('Y-m-d', strtotime("+30 days"));
+    $applybefore = date('Y-m-d', strtotime("+15 days"));
 
 }
 
@@ -159,6 +159,7 @@ if (!empty($jobpost_detail)) {
                       <option value="Male" <?php if(!empty($jobpost_detail) && $jobpost_detail->preferredgender == 'Male'){ echo "selected='selected'"; } ?>>Male</option>
                       <option value="Female" <?php if(!empty($jobpost_detail) && $jobpost_detail->preferredgender == 'Female'){ echo "selected='selected'"; } ?>>Female</option>
                       <option value="Male/Female" <?php if(!empty($jobpost_detail) && $jobpost_detail->preferredgender == 'Male/Female'){ echo "selected='selected'"; } ?>>Male/Female</option>
+                      <option value="Others" <?php if(!empty($jobpost_detail) && $jobpost_detail->preferredgender == 'Others'){ echo "selected='selected'"; } ?>>Others</option>
                     </select>
                   </div>
                   <div class="single-input">
@@ -189,12 +190,14 @@ if (!empty($jobpost_detail)) {
                     <label for="Location">Preferred Education:</label>
                     <select class="form-control" name="required_education" id="required_education">
                       <option value="">Select One</option>
-                      <option value="Not Required" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'Not Required'){ echo "selected='selected'"; } ?>>Not Required</option>
-                      <option value="intermediate" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'intermediate'){ echo "selected='selected'"; } ?>>Intermediate</option>
-                      <option value="bachelor" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'bachelor'){ echo "selected='selected'"; } ?>>Bachelor</option>
-                      <option value="master" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'master'){ echo "selected='selected'"; } ?>>Master</option>
-                      <option value="phd" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'phd'){ echo "selected='selected'"; } ?>>PHD</option>
-                      <option value="other" <?php if(!empty($jobpost_detail) && $jobpost_detail->required_education == 'other'){ echo "selected='selected'"; } ?>>Other</option>
+                      <?php 
+                          foreach ($education as $key => $value) {?>
+                                 <option value="<?php echo $value->dropvalue?>" 
+                                  <?php if(!empty($jobpost_detail)&& $jobpost_detail->required_education==$value->dropvalue) echo "selected='selected'";?>>
+                                  <?php echo $value->dropvalue?> </option> 
+
+                          <?php }
+                      ?>
                     </select>
                   </div>
                   <div class="single-input">                     
@@ -232,13 +235,13 @@ if (!empty($jobpost_detail)) {
                 </div>
                 <div class="single-resume-feild">
                   <div class="single-input">
-                    <label for="j_desc">Job Specification:</label>
+                    <label for="j_desc">Job Specification (Candidate Profile):</label>
                     <textarea class="textarea" id="j_desc" name="specification"><?php if (!empty($jobpost_detail)) echo $jobpost_detail->specification; ?></textarea>
                   </div>
                 </div>
                 <div class="single-resume-feild">
                   <div class="single-input">
-                    <label for="j_desc">Job Description:</label>
+                    <label for="j_desc">Job Description(JD):</label>
                     <textarea class="textarea" id="j_desc" name="requirements"><?php if (!empty($jobpost_detail)) echo $jobpost_detail->requirements; ?></textarea>
                   </div>
                 </div>
@@ -255,7 +258,7 @@ if (!empty($jobpost_detail)) {
                     <select class="form-control" name="post_status">
                       <option value="private" <?php if (!empty($jobpost_detail) && $jobpost_detail->post_status == 'private') {
                         echo "selected='selected'"; } ?>>Private </option>
-                      <option value="public" <?php if (!empty($jobpost_detail) && $jobpost_detail->post_status == 'public') { echo "selected='selected'"; } ?>>Public </option>
+                      <option value="public" <?php if (!empty($jobpost_detail) && $jobpost_detail->post_status == 'public') { echo "selected='selected'"; } else { echo "selected='selected'"; } ?>>Public </option>
                     </select>
                   <?php } ?>
                 </div>

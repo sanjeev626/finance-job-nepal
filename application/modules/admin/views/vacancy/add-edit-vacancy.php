@@ -6,7 +6,7 @@ if (!empty($job_detail)) {
 } else {
     $action = base_url() . 'admin/vacancy/addvacancy';
     $post_date = date('Y-m-d');
-    $applybefore = date('Y-m-d', strtotime("+30 days"));
+    $applybefore = date('Y-m-d', strtotime("+15 days"));
 }
 ?>
 
@@ -300,6 +300,15 @@ if (!empty($job_detail)) {
                         } ?>>
                         Male/Female
                     </label>
+
+                    &nbsp;&nbsp;
+                    <label>
+                        <input type="radio" name="preferredgender" id="preferredgender"
+                               value="Others" <?php if (!empty($job_detail) && $job_detail->preferredgender == 'Others') {
+                            echo "checked='checked'";
+                        } ?>>
+                        Others
+                    </label>
                 </div>
             </div>
         </div>
@@ -424,41 +433,25 @@ if (!empty($job_detail)) {
                     <div class="col-sm-12">
                         <select class="form-control" name="required_education" id="required_education">
                             <option value="">Select One</option>
-                            <option
-                                value="Not Required" <?php if (!empty($job_detail) && $job_detail->required_education == 'Not Required') {
-                                echo "selected='selected'";
-                            } ?>>Not Required
-                            </option>
-                            <option
-                                value="intermediate" <?php if (!empty($job_detail) && $job_detail->required_education == 'intermediate') {
-                                echo "selected='selected'";
-                            } ?>>Intermediate
-                            </option>
-                            <option
-                                value="bachelor" <?php if (!empty($job_detail) && $job_detail->required_education == 'bachelor') {
-                                echo "selected='selected'";
-                            } ?>>Bachelor
-                            </option>
-                            <option
-                                value="master" <?php if (!empty($job_detail) && $job_detail->required_education == 'master') {
-                                echo "selected='selected'";
-                            } ?>>Master
-                            </option>
-                            <option
-                                value="other" <?php if (!empty($job_detail) && $job_detail->required_education == 'other') {
-                                echo "selected='selected'";
-                            } ?>>Other
-                            </option>
+                            <?php 
+                                foreach ($education as $key => $value) {?>
+                                       <option value="<?php echo $value->dropvalue?>" 
+                                        <?php if(!empty($job_detail)&& $job_detail->required_education==$value->dropvalue) echo "selected='selected'";?>>
+                                        <?php echo $value->dropvalue?> </option> 
+
+                                <?php }
+                            ?>
+                            
                         </select>
 
-                        <div
+                        <!-- <div
                             id="other_faculty_section" <?php if (!empty($job_detail) && $job_detail->required_education == 'other') { /* do nothing */
                         } else  echo 'style="display:none;"'; ?>>
                             <br>
                             <input type="text" id="other_faculty" name="other_faculty"
                                    value="<?php if (!empty($job_detail)) echo $job_detail->other_faculty; ?>"
                                    class="form-control" placeholder="Other Faculty">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -466,7 +459,7 @@ if (!empty($job_detail)) {
 
         <!--Expeted Faculty-->
         <div class="form-group">
-            <label class="col-sm-3 control-label">Expected Faculty :</label>
+            <label class="col-sm-3 control-label">Specialization :</label>
 
             <div class="col-sm-7">
                 <input type="text" name="expected_faculty" id='expected_faculty' class="form-control"
@@ -491,7 +484,7 @@ if (!empty($job_detail)) {
 
         <!--Job specification-->
         <div class="form-group">
-            <label class="col-sm-3 control-label">Job Specification:</label>
+            <label class="col-sm-3 control-label">Job Specification (Candidate Profile):</label>
             <div class="col-sm-7">
                 <textarea rows="5" name="specification" class="form-control" id="specification"><?php
                     if (!empty($job_detail)) {
@@ -503,7 +496,7 @@ if (!empty($job_detail)) {
 
         <!--Job Description-->
         <div class="form-group">
-            <label class="col-sm-3 control-label">Job Description:</label>
+            <label class="col-sm-3 control-label"> Job Description(JD):</label>
 
             <div class="col-sm-7">
                 <textarea rows="5" name="requirements" class="form-control" id="requirements"><?php
@@ -530,7 +523,7 @@ if (!empty($job_detail)) {
                             <option
                                 value="public" <?php if (!empty($job_detail) && $job_detail->post_status == 'public') {
                                 echo "selected='selected'";
-                            } ?>>Public
+                            } else {echo "selected='selected'";} ?>>Public
                             </option>
                             <option
                                 value="disapproved" <?php if (!empty($job_detail) && $job_detail->post_status == 'disapproved') {
