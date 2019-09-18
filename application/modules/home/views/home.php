@@ -14,7 +14,7 @@
                 <div class="col-md-12">
                     <div class="banner-search">
                         <h2>WE RECRUIT</h2>
-                        <h4>CFO | Finance Controller | Finance Manager | Accountants | Executives</h4>
+                        <h4>CFO | Finance Controller | Accounts & Finance Manager | Accountants | Accounts & Finance Executives</h4>
 
                         
                         <form action="<?php echo base_url().'search/job'?>" method="POST">
@@ -54,7 +54,7 @@
 
 <!-- Job Tab Area Start -->
 
-<?php include('includes/home-job-section.php');?>
+<?php include('jobs/home-job-section.php');?>
 
 <!-- Job Tab Area End -->
 
@@ -66,18 +66,18 @@
             <div class="col-md-12">
                 <div class="site-heading">
                     <h2>top Trending <span>Categories</span></h2>
-                    <p>A better career is out there. We'll help you find it. We're your first step to becoming everything you want to be.</p>
+                    <!-- <p>A better career is out there. We'll help you find it. We're your first step to becoming everything you want to be.</p> -->
                 </div>
             </div>
         </div>
         <div class="row">
             <?php
             foreach($job_category as $jc){?>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-2 col-md-6 col-sm-6">
                     <a href="<?php echo base_url().'category/'.$jc->slug;?>" class="single-category-holder account_cat">
-                        <div class="category-holder-icon">
+                        <!-- <div class="category-holder-icon">
                             <i class="fa fa-briefcase"></i>
-                        </div>
+                        </div> -->
                         <div class="category-holder-text">
                             <h3><?php echo $jc->dropvalue;?></h3>
                         </div>
@@ -218,5 +218,5 @@
 
 
 <!-- Blog Area Start -->
-<?php include('includes/home-blog-section.php');?>
+<?php include('blog/home-blog-section.php');?>
 <!-- Blog Area End

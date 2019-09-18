@@ -89,6 +89,11 @@ $jobDetail = $job_detail[0];
                         <div class="col-md-12 col-lg-6 job_overview">
                             <p><i class="fa fa-black-tie"></i> <strong>Experience :</strong><?php echo ($jobDetail->noexperience=='Not Required'?$jobDetail->noexperience:$jobDetail->noexperience.' years');?></p>
                         </div>
+
+                        <div class="col-md-12 col-lg-6 job_overview">
+                            <p><i class="fa fa-book"></i> <strong>Education :</strong><?php echo ucwords($jobDetail->required_education);?></p>
+                        </div>
+
                         <div class="col-md-12 col-lg-6 job_overview">
                             <p>
                                 <i class="fa fa-money"></i> <strong>Salary :</strong>
@@ -110,7 +115,7 @@ $jobDetail = $job_detail[0];
                         <?php echo $jobDetail->specification?>
                     </div>
                     <div class="single-candidate-widget job-required">
-                        <h3>Job Specification (Skills, and Abilities)</h3>
+                        <h3>Job Specification (Skills and Abilities)</h3>
                         <?php echo $jobDetail->requirements?>
                     </div>
 

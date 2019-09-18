@@ -51,6 +51,14 @@ if (!empty($advertisement_detail)) {
         </div>
 
         <div class="form-group">
+            <label class="col-sm-3 control-label">Background Color :</label>
+            <div class="col-sm-1">
+                <input type="color"  name="background_color" id='background_color' class="" value='<?php if (!empty($advertisement_detail->background_color)) echo $advertisement_detail->background_color; else echo '#ff0000' ?>'/>
+            </div>
+            <div class="col-sm-8"><span class="green">(If not selected image, select background color)</span></div>
+        </div>
+
+        <div class="form-group">
             <label class="col-sm-3 control-label">Publish/Unpublish:</label>
             <div class="col-sm-2">
                 <select class="form-control chosen-select" name='addstatus' data-placeholder="Choose a Status...">

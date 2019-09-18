@@ -14,14 +14,15 @@
 <section class="fjn-blog-page-area candidate-dashboard-area section_15">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+            <div class="col-lg-9 col-md-12 col-sm-12 col-12">
                 <div class="blog-content margin_top_0">
                     <h3 class="margin_bottom_15"><?php echo $content->title?></h3>
                     <?php echo $content->content?>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 col-12">
-                <div class="blog-page-right blog-content margin_top_0">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+                <?php $this->load->view('includes/right-sidebar');?>
+                <!-- <div class="blog-page-right blog-content margin_top_0">
                     <div class="blog-sidebar-widget">
                         <h3>Our Services</h3>
                         <ul class="blog-categories">
@@ -34,7 +35,7 @@
                             ?>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

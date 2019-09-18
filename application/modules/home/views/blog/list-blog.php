@@ -49,7 +49,7 @@
                             <div class="single-blog">
                                 <div class="blog-image">
                                     <img src="<?php echo base_url().'uploads/blog/'.$hb->image;?>" alt="<?php echo $hb->title?>" />
-                                    <p><span> <?php echo $day;?></span> <?php echo $month;?></p>
+                                    <!-- <p><span> <?php echo $day;?></span> <?php echo $month;?></p> -->
                                 </div>
                                 <div class="blog-text">
                                     <h3><?php echo $hb->title?></h3>

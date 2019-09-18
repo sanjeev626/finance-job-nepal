@@ -32,6 +32,7 @@ class Advertisement_model extends CI_Model {
             'addtitle' => $this->input->post('addtitle'),
             'addstatus' => $this->input->post('addstatus'),
             'website' => $this->input->post('website'),
+            'background_color'  => $this->input->post('background_color'),
             );
         if($advimage){
             $data['image'] = $advimage;
@@ -55,7 +56,8 @@ class Advertisement_model extends CI_Model {
     	$data = array(
     		'addtitle' => $this->input->post('addtitle'),
             'addstatus' => $this->input->post('addstatus'),
-            'website' => $this->input->post('website')
+            'website' => $this->input->post('website'),
+            'background_color'  => $this->input->post('background_color'),
     		);
         if($advimage){
             $data['image'] = $advimage;

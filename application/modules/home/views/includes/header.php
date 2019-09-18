@@ -88,7 +88,7 @@
                                     <a href="<?php echo base_url(); ?>">HOME</a>
                                 </li> -->
 
-                                <li class="has-children">
+                                <!-- <li class="has-children">
                                     <a href="#">SERVICES</a>
                                     <ul>
                                         <?php
@@ -99,13 +99,14 @@
                                             echo '<li><a href="' . base_url() . 'services/' . $service->urlcode . '">' . $service->title . '</a></li>';
                                         }
                                         ?>
-                                        <!--<li><a href="<?php /*echo base_url().'services/recruitment'*/ ?>">Recruitment</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/recruitment'*/ ?>">Recruitment</a></li>
                                         <li><a href="<?php /*echo base_url().'services/staff-outsourcing'*/ ?>">Staff Outsourcing</a></li>
                                         <li><a href="<?php /*echo base_url().'services/hr-audit-consulting'*/ ?>">HR Audit &amp; Consulting</a></li>
                                         <li><a href="<?php /*echo base_url().'services/payroll-management'*/ ?>">Payroll Management</a></li>
-                                        <li><a href="<?php /*echo base_url().'services/corporate-training'*/ ?>">Corporate Training</a></li>-->
+                                        <li><a href="<?php /*echo base_url().'services/corporate-training'*/ ?>">Corporate Training</a></li>
                                     </ul>
-                                </li>
+                                </li> -->
+                                <li><a href="<?php echo base_url().'services/recruitment' ?>">RECRUITMENT</a></li>
                                 <li class="">
                                     <a href="<?php echo base_url() . 'trainging' ?>">TRAINING & CONSULTING </a>
                                 </li>
@@ -174,7 +175,7 @@
                                 <?php } ?>
 
                                 <li>
-                                    <a href="#">+01-6201360</a>
+                                    <a href="tel:+977016201360" title="+977-1-6201360">+977-1-6201360</a>
                                 </li>
 
                             </ul>
@@ -188,7 +189,7 @@
                     <nav id="navigation">
                         <ul id="fjn_mob_navigation">
 
-                            <li class="has-children">
+                            <!-- <li class="has-children">
                                 <a href="#">SERVICES</a>
                                 <ul>
                                     <?php
@@ -199,13 +200,14 @@
                                         echo '<li><a href="' . base_url() . 'services/' . $service->urlcode . '">' . $service->title . '</a></li>';
                                     }
                                     ?>
-                                    <!--<li><a href="<?php /*echo base_url().'services/recruitment'*/ ?>">Recruitment</a></li>
+                                    <li><a href="<?php /*echo base_url().'services/recruitment'*/ ?>">Recruitment</a></li>
                                         <li><a href="<?php /*echo base_url().'services/staff-outsourcing'*/ ?>">Staff Outsourcing</a></li>
                                         <li><a href="<?php /*echo base_url().'services/hr-audit-consulting'*/ ?>">HR Audit &amp; Consulting</a></li>
                                         <li><a href="<?php /*echo base_url().'services/payroll-management'*/ ?>">Payroll Management</a></li>
-                                        <li><a href="<?php /*echo base_url().'services/corporate-training'*/ ?>">Corporate Training</a></li>-->
+                                        <li><a href="<?php /*echo base_url().'services/corporate-training'*/ ?>">Corporate Training</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
+                            <li><a href="<?php echo base_url().'services/recruitment' ?>">RECRUITMENT</a></li>
                             <li class="">
                                 <a href="<?php echo base_url() . 'trainging' ?>">TRAINING & CONSULTING </a>
                             </li>
@@ -252,7 +254,7 @@
                             <?php } ?>
 
                             <li>
-                                <a href="#">+01-6201360</a>
+                                <a href="tel:+977016201360" title="+977-1-6201360">+977-1-6201360</a>
                             </li>
 
                         </ul>

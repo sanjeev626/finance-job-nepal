@@ -18,6 +18,7 @@
               <!--<li><a href="#"><i class="fa fa-angle-double-right "></i>Online CV</a></li>-->
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Search Job</a></li>
               <li><a href="<?php echo base_url().'content/seeker-terms-conditions'?>"><i class="fa fa-angle-double-right "></i>Terms &amp; Conditions</a></li>
+              <li><a href="<?php //echo base_url().'content/seeker-terms-conditions'?>"><i class="fa fa-angle-double-right "></i>Create CV</a></li>
             </ul>
           </div>
         </div>
@@ -42,7 +43,7 @@
           <div class="single-footer-widget">
             <h3>Services we offer</h3>
             <ul>
-                <li class="">
+                <!-- <li class="">
                     <?php
                     $this->load->model('../../admin/models/content_model');
                     $aboutus = $this->content_model->get_content_by_id(2)->slug;
@@ -55,7 +56,15 @@
                 foreach($services as $service){
                     echo '<li><a href="'.base_url().'services/'.$service->urlcode.'"><i class="fa fa-angle-double-right "></i>'.$service->title.'</a></li>';
                 }
-                ?>
+                ?> -->
+                <li class="">
+                  <a href="<?php echo base_url() . 'services/recruitment'?>" ><i class="fa fa-angle-double-right "></i>Recruitment</a>
+                </li>
+                <li class="">
+                  <a href="<?php echo base_url().'trainging'?>"><i class="fa fa-angle-double-right "></i>Training & Consulting</a>
+                </li>
+                <li class=""><a href=""><i class="fa fa-angle-double-right "></i>Labour Audit</a></li>
+
 
             </ul>
           </div>
@@ -69,7 +78,7 @@
               <li><a href="#" class="skype"><i class="fa fa-skype"></i></a></li>
             </ul>         
         </div>
-        <div class="col-lg-9 col-md-12 col-sm-12"><div class="need_help">Need Help? <a href="tel:015139273">Dial 01-6201360</a></div></div>
+        <div class="col-lg-9 col-md-12 col-sm-12"><div class="need_help">Need Help? <a href="tel:+977-1-6201360">Dial +977-1-6201360</a></div></div>
       </div>
     </div>
   </div>

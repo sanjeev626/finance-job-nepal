@@ -538,3 +538,19 @@
         </div>
     </div>
 </div>
+
+
+
+<?php 
+$chunkarray = array_chunk($recent_job, 2);
+
+foreach ($chunkarray as $key => $value) {
+    echo '<div class="row">';
+        foreach ($value as $key => $v) {
+            echo '<div class="col-md-6">';
+                echo $v->jobtitle;
+            echo '</div>';
+        }
+    echo '</div>';
+}
+?>

@@ -32,7 +32,7 @@ if (!empty($blog_detail)) {
             <label class="col-sm-3 control-label">Slug :</label>
             <div class="col-sm-8">
                 <input type="text" name="slug" id='slug' class="form-control" value='<?php if (!empty($blog_detail)) echo $blog_detail->slug; ?>' />
-                <span class="green">Note: For Nepali title please add slug seperated by '-' </span>
+                <span class="green">Note: For Nepali title please add slug seperated by '-' . Slug must be in english. </span>
             </div>
         </div>
 
@@ -67,7 +67,7 @@ if (!empty($blog_detail)) {
             <label class="col-sm-3 control-label">Image :</label>
             <div class="col-sm-7">
                 <input type="file" name="blogImage" id='blogImage' class="form-control" value='' />
-                <span class="green">(Image resolution must be 800 X 800 for better view)</span>
+                <span class="green">(Image resolution must be 700 X 400 for better view)</span>
 
                 <?php if (!empty($blog_detail->image) && isset($blog_detail->image)) { ?>
                     <!--<input type="hidden" value="<?php /*echo $blog_detail->image; */?>" name="blogImage">-->

@@ -76,7 +76,7 @@ This files contents are outlined below >>>>
 
 body {
 	background-color: #fff;
-	color: #6b739c;
+	/*color: #6b739c;*/
 	font-family: "Open Sans", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
@@ -913,7 +913,7 @@ header,
 	background-position: center center !important;
 	background-size: cover !important;
 	background-repeat: no-repeat !important;
-	height: 330px;
+	height: 246px;
 }
 
 .slider-item-1 {
@@ -936,7 +936,7 @@ header,
 
 .banner-text {
 	position: absolute;
-	top: 22%;
+	top: 30%;
 	z-index: 1;
 	width: 100%;
 	text-align: center
@@ -947,13 +947,13 @@ header,
 	text-transform: capitalize;
 	font-family: 'Raleway', sans-serif;
 	font-weight: 600;
-	font-size: 30px;
+	font-size: 26px;
 	margin-bottom: 6px;
 }
 
 .banner-search h4 {
 	font-family: 'Raleway', sans-serif;
-	font-size: 20px;
+	font-size: 18px;
 	color: #fff;
 	font-weight: 500;
 	margin-bottom: 10px;
@@ -1079,13 +1079,13 @@ header,
 ==================================================*/
 
 .single-category-holder {
-	padding: 60px 20px;
+	padding: 40px 20px;
 	text-align: center;
 	background: #f7f7f7 none repeat scroll 0 0;
 	display: block;
 	margin-top: 14px;
 	border-radius: 5px;
-	min-height: 200px;
+	min-height: 145px;
 	position: relative;
 	z-index: 1;
 	-webkit-transition: all 0.2s ease 0s;
@@ -1157,11 +1157,11 @@ header,
 }
 
 .category-holder-text h3 {
-	font-size: 17px;
+	font-size: 15px;
 	text-transform: capitalize;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
-	line-height: 30px;
+	line-height: 24px;
 	color: #111;
 }
 
