@@ -80,7 +80,7 @@
                     <!-- Responsive Menu Start -->
                 </div>
                 <!-- For Desktop view-->
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <div class="header-menu">
                         <nav id="navigation">
                             <ul id="fjn_navigation">
@@ -125,7 +125,7 @@
                         </nav>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-5">
                     <div class="header-right-menu header-menu">
                         <nav id="navigation">
                             <ul id="fjn_navigation">
