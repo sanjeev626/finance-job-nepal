@@ -56,7 +56,7 @@ else
         <?php } ?>
 <!--         <li class ="<?php if($nav == 'seeker'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Seeker/check_login"><i class="fa fa-user"></i><span>JOB SEEKER test</span></a></li>
  -->
-         <li class ="<?php if($nav == 'advertisement'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/advertisement"><i class="fa fa-hand-o-right"></i><span>ADVERTISEMENT</span></a></li>
+         <li class ="<?php if($nav == 'advertisement'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/advertisement"><i class="fa fa-hand-o-right"></i><span>ADVERTISEMENT (Right Side)</span></a></li>
         <li class ="<?php if($nav == 'dropdown'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/dropdown"><i class="fa fa-caret-square-o-down"></i><span>DROP DOWN</span></a></li>
         <!-- <li class ="<?php if($nav == 'newsletter'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Newsletter"><i class="fa fa-envelope-o"></i><span>NEWSLETTER</span></a></li> -->
         <!--<li class ="<?php if($nav == 'banner'){ echo 'active'; } ?>"><a href="<?php echo base_url(); ?>admin/Banner"><i class="fa fa-image"></i><span>BANNER</span></a></li>-->

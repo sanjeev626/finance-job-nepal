@@ -53,7 +53,7 @@ class Advertisement extends MY_Controller {
         $this->pagination->initialize($config);
 
         $data['title'] = 'ADVERTISEMENT';
-        $data['page_header'] = 'Advertisement';
+        $data['page_header'] = 'Advertisement (Right Side)';
         $data['page_header_icone'] = 'fa-hand-o-right';
         $data['nav'] = 'advertisement';
         $data['panel_title'] = 'Advertisement Manager';
@@ -64,7 +64,7 @@ class Advertisement extends MY_Controller {
 
     public function add(){
         $data['title'] = 'ADD ADVERTISEMENT';
-        $data['page_header'] = 'Advertisement';
+        $data['page_header'] = 'Advertisement (Right Side)';
         $data['page_header_icone'] = 'fa-hand-o-right';
         $data['nav'] = 'advertisement';
         $data['panel_title'] = 'Add Advertisement ';
@@ -78,7 +78,7 @@ class Advertisement extends MY_Controller {
 
         if (FALSE == $this->form_validation->run()) {
             $data['title'] = 'ADD ADVERTISEMENT';
-            $data['page_header'] = 'Advertisement';
+            $data['page_header'] = 'Advertisement (Right Side)';
             $data['page_header_icone'] = 'fa-hand-o-right';
             $data['nav'] = 'advertisement';
             $data['panel_title'] = 'Add Advertisement ';
@@ -119,7 +119,7 @@ class Advertisement extends MY_Controller {
             redirect(base_url() . 'admin/advertisement');
 
         $data['title'] = 'EDIT ADVERTISEMENT';
-        $data['page_header'] = 'Advertisement';
+        $data['page_header'] = 'Advertisement (Right Side)';
         $data['page_header_icone'] = 'fa-hand-o-right';
         $data['nav'] = 'advertisement';
         $data['panel_title'] = 'Edit Advertisement ';
@@ -140,7 +140,7 @@ class Advertisement extends MY_Controller {
          $this->form_validation->set_rules('addtitle', 'addtitle', 'required');
         if (FALSE == $this->form_validation->run()) {
             $data['title'] = 'EDIT ADVERTISEMENT';
-            $data['page_header'] = 'Advertisement';
+            $data['page_header'] = 'Advertisement (Right Side)';
             $data['page_header_icone'] = 'fa-hand-o-right';
             $data['nav'] = 'advertisement';
             $data['panel_title'] = 'Edit Advertisement ';

@@ -1054,8 +1054,7 @@
 	.copyright-left {
 	    text-align: center !important;
 	}
-	.copyright-left>p {
-	    
+	.copyright-left>p {	    
 	    font-size: 12px;
 	}
 	.powered-right {
@@ -1064,4 +1063,18 @@
 	.powered-right p {	   
 	    font-size: 12px;
 	}
+	.banner-text {	   
+	    top: 15%;	 
+	}
+	.stickyfooter .footersign ul .stickyfootertitle {
+	    font-size: 12px;
+	}
+	.seekerpart {
+	    margin-top: 20px;
+	}
+	.btntoTop {	    
+	    height: 50px;
+	    line-height: 46px;	   
+	    width: 50px;
+	}	
 }

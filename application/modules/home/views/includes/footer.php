@@ -76,7 +76,8 @@
                 <li class="">
                   <a href="<?php echo base_url().'trainging'?>"><i class="fa fa-angle-double-right "></i>Training & Consulting</a>
                 </li>
-                <li class=""><a href=""><i class="fa fa-angle-double-right "></i>Labour Audit</a></li>
+                <li class=""><a href="<?php echo base_url() . 'services/labour-audit' ?>"><i class="fa fa-angle-double-right "></i>Labour Audit</a></li>
+                
 
 
             </ul>

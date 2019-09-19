@@ -117,10 +117,12 @@
                                                                     */ ?>
                                     <a href="<?php /*echo base_url().'content/'.$aboutus*/ ?>">ABOUT US</a>
                                 </li>-->
-                                <li class="">
+                                <!-- <li class="">
                                     <a href="<?php echo base_url() . 'contactus' ?>">CONTACT US</a>
+                                </li> -->
+                                <li class="">
+                                    <a href="<?php echo base_url() . 'services/labour-audit' ?>">LABOUR AUDIT</a>
                                 </li>
-
                             </ul>
                         </nav>
                     </div>
@@ -211,9 +213,12 @@
                             <li class="">
                                 <a href="<?php echo base_url() . 'trainging' ?>">TRAINING & CONSULTING </a>
                             </li>
-                            <li class="">
+                            <!-- <li class="">
                                 <a href="<?php echo base_url() . 'contactus' ?>">CONTACT US</a>
-                            </li>
+                            </li> -->
+                            <li class="">
+                                    <a href="<?php echo base_url() . 'services/labour-audit' ?>">LABOUR AUDIT</a>
+                                </li>
 
                             <?php
                             $employer_profile = $this->session->userdata('employer_profile');
