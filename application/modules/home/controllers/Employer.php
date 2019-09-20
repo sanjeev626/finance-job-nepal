@@ -62,7 +62,7 @@ class Employer extends View_Controller {
     public function signup(){
         $data['menu'] = 'employer';
         $data['page_title'] = 'Employer Registration - Finance Job Nepal';
-        $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue'); 
+        $data['org_type'] =$this->general_model->getAll('dropdown','fid = 9','','id,dropvalue'); 
         $data['ownship'] =$this->general_model->getAll('dropdown','fid = 5','','id,dropvalue'); 
         $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
         $data['nature_of_organisation'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');

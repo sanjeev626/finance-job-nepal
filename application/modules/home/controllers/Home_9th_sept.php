@@ -40,10 +40,10 @@ class Home extends View_Controller {
         //$countRecord = $this->general_model->countTotal('employer',array('email' => $email));
         $data['hot_job'] = $this->home_model->get_hot_job($no_of_hot_job);
         //echo $this->db->last_query();exit();
-        $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',24);
+        $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',12);
 
-        $data['fjn_job'] = $this->home_model->get_job_by_type('FJNJob',24);
-        $data['recent_job'] = $this->home_model->get_recent_job('RJob',24);
+        $data['fjn_job'] = $this->home_model->get_job_by_type('FJNJob',12);
+        $data['recent_job'] = $this->home_model->get_recent_job('RJob',12);
 
         
 
@@ -55,9 +55,7 @@ class Home extends View_Controller {
 
         $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','',8);
 
-
-        $data['blogcount'] =  $this->general_model->countTotal('blog',array('stat' => 'Y'));
-        $data['home_blog'] =  $this->general_model->getAll('blog','stat = "Y"','id DESC','*','',3);
+        $data['home_blog'] =  $this->general_model->getAll('blog','stat = "Y"','id ASC','*','',3);
 
         $data['advetisements'] = $this->home_model->get_all_advertisment();
         $data['client_list'] = $this->general_model->getAll('clients','','orderno ASC','*','',7);

@@ -191,6 +191,7 @@ p {
 	text-transform: capitalize;
 	font-weight: 600;
 	margin-bottom: 10px;
+	font-size: 28px;
 }
 
 .site-heading h2 span {
@@ -912,7 +913,7 @@ header,
 	background-position: center center !important;
 	background-size: cover !important;
 	background-repeat: no-repeat !important;
-	height: 500px;
+	height: 330px;
 }
 
 .slider-item-1 {
@@ -935,7 +936,7 @@ header,
 
 .banner-text {
 	position: absolute;
-	top: 35%;
+	top: 22%;
 	z-index: 1;
 	width: 100%;
 	text-align: center
@@ -946,15 +947,16 @@ header,
 	text-transform: capitalize;
 	font-family: 'Raleway', sans-serif;
 	font-weight: 600;
-	font-size: 50px;
-	margin-bottom: 15px;
+	font-size: 30px;
+	margin-bottom: 6px;
 }
 
 .banner-search h4 {
 	font-family: 'Raleway', sans-serif;
-	font-size: 22px;
+	font-size: 20px;
 	color: #fff;
 	font-weight: 500;
+	margin-bottom: 10px;
 }
 
 .banner-form-box {

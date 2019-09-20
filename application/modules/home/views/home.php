@@ -1,4 +1,4 @@
-<!-- Banner Area Start -->
+<!--Banner Area Start -->
 <section class="fjn-banner-area">
     <div class="banner-slider owl-carousel">
         <div class="banner-single-slider slider-item-1">
@@ -13,25 +13,28 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="banner-search">
-                        <h2>Hire expert freelancers.</h2>
-                        <h4>We have 1542 job offers for you! </h4>
-                        <form>
+                        <h2>WE RECRUIT</h2>
+                        <h4>CFO | Finance Controller | Accounts& Finance Manager | Accountants | Accounts & Finance Executives</h4>
+                        <form action="<?php echo base_url().'search/job'?>" method="POST">
                             <div class="banner-form-box">
                                 <div class="banner-form-input">
-                                    <input type="text" placeholder="Job Title, Keywords, or Phrase">
+                                    <input type="text" name="job_title" placeholder="Job Title, Keywords, or Phrase">
                                 </div>
                                 <div class="banner-form-input">
-                                    <input type="text" placeholder="City, State or ZIP">
+                                    
+                                    <select class="banner-select" name="location">
+                                        <option value="" selected>Select Location</option>
+                                        <?php foreach ($joblocation as $key => $value) {?>
+                                          <option value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
+                                          <?php  } ?>
+                                    </select>
                                 </div>
                                 <div class="banner-form-input">
-                                    <select class="banner-select">
-                                        <option selected>Select Sector</option>
-                                        <option value="1">Design & multimedia</option>
-                                        <option value="2">Programming & tech</option>
-                                        <option value="3">Accounting/finance</option>
-                                        <option value="4">content writting</option>
-                                        <option value="5">Training</option>
-                                        <option value="6">Digital Marketing</option>
+                                    <select class="banner-select" name="job_category">
+                                        <option selected>Select Category</option>
+                                        <?php foreach ($job_category as $key => $value) {?>
+                                          <option value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
+                                          <?php  } ?>
                                     </select>
                                 </div>
                                 <div class="banner-form-input">
@@ -46,6 +49,12 @@
     </div>
 </section>
 <!-- Banner Area End -->
+
+<!-- Job Tab Area Start -->
+
+<?php include('includes/home-job-section.php');?>
+
+<!-- Job Tab Area End -->
 
 
 <!-- Categories Area Start -->
@@ -84,20 +93,38 @@
             <?php  }
             ?>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12">
                 <div class="load-more">
                     <a href="#" class="fjn-btn">browse all categories</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 <!-- Categories Area End -->
 
+<!-- Training & Consulting  Start -->
+<section class="fjn-video-area section_100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="video-container">
+                    
+                    <div class="video-btn">
+                        <a href="<?php echo base_url().'trainging'?>">
+                            <h2>Training & Consulting.</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Training & Consulting End -->
 
 <!-- Inner Hire Area Start -->
-<section class="fjn-inner-hire-area section_100">
+<!-- <section class="fjn-inner-hire-area section_100">
     <div class="hire_circle"></div>
     <div class="container">
         <div class="row">
@@ -110,19 +137,15 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- Inner Hire Area End -->
 
 
-<!-- Job Tab Area Start -->
 
-<?php include('includes/home-job-section.php');?>
-
-<!-- Job Tab Area End -->
 
 
 <!-- Video Area Start -->
-<section class="fjn-video-area section_100">
+<!--<section class="fjn-video-area section_100">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -138,12 +161,12 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 <!-- Video Area End -->
 
 
 <!-- How Works Area Start -->
-<section class="how-works-area section_70">
+<!-- <section class="how-works-area section_70">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -188,10 +211,10 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- How Works Area End -->
 
 
 <!-- Blog Area Start -->
 <?php include('includes/home-blog-section.php');?>
-<!-- Blog Area End -->
+<!-- Blog Area End

@@ -1,6 +1,6 @@
 <!-- Footer Area Start -->
 <footer class="fjn-footer-area">
-  <div class="footer-top section_50">
+  <div class="footer-top section_15">
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-6">
@@ -9,19 +9,19 @@
             <p>Our unique, ethically led approach to Accounts &amp; Finance recruitment, meets the Industry expectations &amp; requirement for a truly sustainable recruitment solution.</p>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <h3>Job Seeker</h3>
             <ul>
               <li><a href="<?php echo base_url().'jobseeker/signup'?>"><i class="fa fa-angle-double-right "></i>Create Account</a></li>
               <li><a href="<?php echo base_url().'jobseeker/signup#uploadcv'?>"><i class="fa fa-angle-double-right "></i>Direct CV Upload</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>Online CV</a></li>
+              <!--<li><a href="#"><i class="fa fa-angle-double-right "></i>Online CV</a></li>-->
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Search Job</a></li>
               <li><a href="<?php echo base_url().'content/seeker-terms-conditions'?>"><i class="fa fa-angle-double-right "></i>Terms &amp; Conditions</a></li>
             </ul>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <h3>Employer</h3>
             <ul>
@@ -38,43 +38,58 @@
             </ul>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
             <h3>Services we offer</h3>
             <ul>
+                <?php /* ?>
+                <li class="">
+                    <?php
+                    $this->load->model('../../admin/models/content_model');
+                    $aboutus = $this->content_model->get_content_by_id(2)->slug;
+                    ?>
+                    <a href="<?php echo base_url().'content/'.$aboutus?>"><i class="fa fa-angle-double-right "></i>About Us</a>
+                </li>
                 <?php
+                */
                 $this->load->model('../../admin/models/service_model');
                 $services = $this->service_model->get_all_service();
                 foreach($services as $service){
+                  if($service->id=="2" || $service->id=="4"){
                     echo '<li><a href="'.base_url().'services/'.$service->urlcode.'"><i class="fa fa-angle-double-right "></i>'.$service->title.'</a></li>';
+                  }
                 }
                 ?>
+                <li class="">
+                  <a href="<?php echo base_url().'training'?>"><i class="fa fa-angle-double-right "></i>Training & Consulting</a>
+                </li>
 
             </ul>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6 col-sm-6">
             <ul class="footer-social">
               <li><a href="https://www.facebook.com/financejobnepal/" class="fb" target="_blank"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+              <!-- <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li> -->
+              <li><a href="https://www.linkedin.com/company/finance-job-nepal/" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+              <!-- <li><a href="javascript:void(0);" class="linkedin"><i class="fa fa-viber"></i></a></li>
               <li><a href="#" class="gp"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#" class="skype"><i class="fa fa-skype"></i></a></li>
+              <li><a href="#" class="skype"><i class="fa fa-skype"></i></a></li> -->
             </ul>         
         </div>
-        <div class="col-lg-9 col-md-12"><div class="need_help">Need Help? <a href="tel:015139273">Dial 01-5139273</a></div></div>
+        <div class="col-lg-9 col-md-12 col-sm-12"><div class="need_help">Need Help? <a href="tel:016201360">Dial 01-6201360</a></div></div>
       </div>
     </div>
   </div>
   <div class="footer-copyright">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-6 col-md-12 col-sm-8">
           <div class="copyright-left">
             <p class="align-left">Copyright &copy; 2019 Finance Job Nepal. All Rights Reserved</p>
           </div>
         </div>
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-6 col-md-12 col-sm-4">
           <div class="powered-right">
             <p class="align-right"> Powered By : <a href="http://digitalagencycatmandu.com/" target="_blank"><img src="https://www.digitalagencycatmandu.com/images/dac-footer-icon.png" alt="DAC" class="img-responsive"> DAC </a></p>
           </div>
@@ -148,9 +163,14 @@
         } else {
 
         }
+
+
+        $('[data-toggle="tooltip"]').tooltip();
     });
 
 </script>
+
+
 
 </body>
 </html>

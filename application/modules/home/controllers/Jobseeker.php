@@ -433,13 +433,15 @@ class Jobseeker extends View_Controller {
         else{
             $cv_data = array(
                 'username' =>$email,
-                'password' =>md5($first_name.$last_name),
+                'password' =>md5($contact_number),
+                'phone_cell' => $contact_number,
                 'email' =>$email,
                 'resume' =>$cv_file,
                 'fname' =>$first_name,
                 'lname' =>$last_name,
                 'user_type' => 'cv_only',
                 'date_modified' => date("Y-m-d H:i:s"),
+                'isActivated' => '1',
             );
 
             $this->general_model->insert('seeker',$cv_data);
@@ -449,8 +451,8 @@ class Jobseeker extends View_Controller {
 
         //$attachment = $upload_data['full_path'];
         $fromName = $first_name.' '.$last_name;
-        //$toemail = 'info@financejobnepal.com';
-        $toemail = 'binaya619@gmail.com';
+        $toemail = 'info@financejobnepal.com';
+        //$toemail = 'binaya619@gmail.com';
         // subject
         $subject = 'CV Received';
 
@@ -1975,6 +1977,71 @@ class Jobseeker extends View_Controller {
     /*-----------------------------------------------------------------
             Social Media Login
     ------------------------------------------------------------------*/
+
+
+    public function downloadresume(){
+        $this->jobSeekerSessionCheck();
+        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
+        $sid = $jobseeker_profile->id;
+
+
+
+
+
+        //now pass the data//
+        $data['title']=$jobseeker_profile->fname.'_'.$jobseeker_profile->lname;
+
+        //$this->data['description']=$this->official_copies;
+        //now pass the data //
+
+        $data['basicInfo'] = $this->general_model->getById('seeker','id',$sid);
+
+        $data['education_detail'] = $this->general_model->getAll('seeker_education',array('sid'=>$sid));
+        $data['experience_detail'] = $this->general_model->getAll('seeker_experience',array('sid'=>$sid));
+        $data['training_detail'] = $this->general_model->getAll('seeker_training',array('sid'=>$sid));
+        $data['language_detail'] = $this->general_model->getAll('seeker_language',array('sid'=>$sid));
+        $data['reference_detail'] = $this->general_model->getAll('seeker_reference',array('sid'=>$sid));
+
+
+        $html =  $this->load->view('resume/pdf_download',$data, true); //load the pdf_output.php by passing our data and get all data in $html varriable.
+
+        //this the the PDF filename that user will get to download
+
+        $pdfFilePath =$jobseeker_profile->fname.'_'.$jobseeker_profile->lname.'_'.time().'_resume.pdf';
+
+
+        //actually, you can pass mPDF parameter on this load() function
+
+        //load mPDF library
+        $this->load->library('m_pdf');
+        //load mPDF library
+        //generate the PDF!
+        $this->m_pdf->pdf->WriteHTML($html);
+        //offer it to user via browser download! (The PDF won't be saved on your server HDD)
+        $this->m_pdf->pdf->Output($pdfFilePath, "D");
+    }
+
+    public  function resume(){
+
+        $this->jobSeekerSessionCheck();
+        $jobseeker_profile = $this->session->userdata('jobseeker_profile');
+        $sid = $jobseeker_profile->id;
+
+
+        $data['title']=$jobseeker_profile->fname.' '.$jobseeker_profile->lname;
+
+        $data['basicInfo'] = $this->general_model->getById('seeker','id',$sid);
+
+        $data['education_detail'] = $this->general_model->getAll('seeker_education',array('sid'=>$sid));
+        $data['experience_detail'] = $this->general_model->getAll('seeker_experience',array('sid'=>$sid));
+        $data['training_detail'] = $this->general_model->getAll('seeker_training',array('sid'=>$sid));
+        $data['language_detail'] = $this->general_model->getAll('seeker_language',array('sid'=>$sid));
+        $data['reference_detail'] = $this->general_model->getAll('seeker_reference',array('sid'=>$sid));
+
+
+
+        $this->load->view('resume/pdf',$data);
+    }
 
 }
 

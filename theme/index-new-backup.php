@@ -6,24 +6,6 @@
       <!-- Banner Area End -->
        
        
-      <!-- Job Tab Area Start -->
-      <section class="fjn-job-tab-area section_15">
-         <div class="container">
-            <div class="row">
-            <div class="col-md-2">
-               <?php include('includes/clients.php');?>
-            </div>
-            <div class="col-md-7">
-               <?php include('includes/job-section.php');?>
-            </div>
-            <div class="col-md-3">
-               <?php include('includes/advertisement.php');?>
-            </div>
-         </div>
-      </section>
-      <!-- Job Tab Area End -->
-       
-       
       <!-- Categories Area Start -->
       <section class="fjn-categories-area section_70">
          <div class="container">
@@ -155,6 +137,23 @@
          </div>
       </section>
       <!-- Inner Hire Area End -->
+       
+       
+      <!-- Job Tab Area Start -->
+      <section class="fjn-job-tab-area section_70">
+         <div class="row">
+            <div class="col-md-2">
+              <?php include('includes/clients.php');?>
+            </div>
+            <div class="col-md-7">
+              <?php include('includes/job-section.php');?>
+            </div>
+
+               <div class="col-md-3">
+               </div>
+            </div>
+      </section>
+      <!-- Job Tab Area End -->
        
        
       <?php /* ?>

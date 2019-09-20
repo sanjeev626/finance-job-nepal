@@ -26,4 +26,16 @@ class Blog extends View_Controller
         $data['main'] = 'blog/single-blog';
         $this->load->view('main',$data);
     }
+
+    public function index(){
+        $bloglists = $this->blog_model->get_all_blog();
+
+        $data['bloglists'] = $bloglists;
+
+
+        $data['menu'] = 'blog';
+        $data['page_title'] = 'Blog - Finance Job Nepal ';
+        $data['main'] = 'blog/list-blog';
+        $this->load->view('main',$data);
+    }
 }
