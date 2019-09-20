@@ -40,10 +40,10 @@ class Home extends View_Controller {
         //$countRecord = $this->general_model->countTotal('employer',array('email' => $email));
         $data['hot_job'] = $this->home_model->get_hot_job($no_of_hot_job);
         //echo $this->db->last_query();exit();
-        $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',12);
+        $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',30);
 
-        $data['fjn_job'] = $this->home_model->get_job_by_type('FJNJob',12);
-        $data['recent_job'] = $this->home_model->get_recent_job('RJob',12);
+        $data['fjn_job'] = $this->home_model->get_job_by_type('FJNJob',30);
+        $data['recent_job'] = $this->home_model->get_recent_job('RJob',30);
 
         
 
@@ -53,7 +53,7 @@ class Home extends View_Controller {
         $data['type'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue','',6);        
         $data['job_display_in'] = $this->general_model->getAll('dropdown','fid = 16','ordering','id,dropvalue');
 
-        $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','',8);
+        $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','',18);
 
 
         $data['blogcount'] =  $this->general_model->countTotal('blog',array('stat' => 'Y'));

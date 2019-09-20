@@ -78,8 +78,11 @@
                         <!-- <div class="category-holder-icon">
                             <i class="fa fa-briefcase"></i>
                         </div> -->
+                        <?php 
+                            $totaljobs = $this->general_model->countTotal('jobs',array('jobcategory' => $jc->id));
+                        ?>
                         <div class="category-holder-text">
-                            <h3><?php echo $jc->dropvalue;?></h3>
+                            <h3><?php echo $jc->dropvalue .' ('.$totaljobs.')';?></h3>
                         </div>
                         <?php
                             if(!empty($jc->image)){

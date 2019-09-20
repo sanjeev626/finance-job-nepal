@@ -1,6 +1,9 @@
+<style type="text/css">
+    .blogpage .breadcromb-box{text-align: left}
+</style>
 <!-- Breadcromb Area Start -->
-<section class="fjn-breadcromb-area">
-    <div class="breadcromb-top section_100">
+<section class="fjn-breadcromb-area blogpage">
+    <div class="breadcromb-top section_15">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -11,7 +14,7 @@
             </div>
         </div>
     </div>
-    <div class="breadcromb-bottom">
+    <!-- <div class="breadcromb-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -25,13 +28,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 <!-- Breadcromb Area End -->
 
 
 <!-- Blog Page Area Start -->
-<section class="fjn-blog-page-area section_70">
+<section class="fjn-blog-page-area section_15">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12 col-12">
@@ -39,7 +42,7 @@
                     <div class="single-blog-item-img">
                         <img src="<?php echo base_url().'uploads/blog/'.$blogdetail->image?>" alt="blog">
                     </div>
-                    <div class="single-blog-item-date">
+                    <!-- <div class="single-blog-item-date">
                         <?php
                         $day = date("d",strtotime($blogdetail->cr_date));
                         $month = date("M",strtotime($blogdetail->cr_date));
@@ -47,7 +50,7 @@
                         $url = base_url().'blog/'.$blogdetail->slug;
                         ?>
                         <h4><?php echo $day?><span><?php echo $month;?></span></h4>
-                    </div>
+                    </div> 
                     <div class="blog-title">
                         <h3>If you're having trouble coming up with</h3>
                         <p>
@@ -64,7 +67,7 @@
                                 (21)
                             </a>
                         </p>
-                    </div>
+                    </div> -->
                     <div class="blog-content">
                         <?php echo $blogdetail->articles?>
                     </div>
@@ -77,4 +80,4 @@
         </div>
     </div>
 </section>
-<!-- Blog Page Area End -->
+<!-- Blog Page Area End

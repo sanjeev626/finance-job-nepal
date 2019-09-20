@@ -111,7 +111,7 @@ $jobDetail = $job_detail[0];
                         </div>
                     </div>
                     <div class="single-candidate-widget">
-                        <h3>job Description</h3>
+                        <h3>Job Description</h3>
                         <?php echo $jobDetail->specification?>
                     </div>
                     <div class="single-candidate-widget job-required">
@@ -130,6 +130,11 @@ $jobDetail = $job_detail[0];
                             onclick="window.open('https://twitter.com/share?url=<?php echo $ogurl?>','popup','width=600,height=600,scrollbars=no,resizable=no'); return false;">
                             <i class="fa fa-twitter" aria-hidden="true"></i>
                             </a></li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="window.open( 'http://www.linkedin.com/shareArticle?mini=true&url=<?php echo $ogurl; ?>', 'sharer', 'toolbar=0, status=0, width=600, height=600');return false;" title="Linkedin">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                            </li>
                             <!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                             <li><a href="#"><i class="fa fa-pinterest"></i></a></li> -->
                         </ul>
