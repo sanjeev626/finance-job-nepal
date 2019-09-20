@@ -14,8 +14,6 @@ if(!empty($jobseeker_profile)){
 else{
    $percent = '';
 }
-
-
 $jobDetail = $job_detail[0];
 
 ?>
@@ -111,7 +109,7 @@ $jobDetail = $job_detail[0];
                         </div>
                     </div>
                     <div class="single-candidate-widget">
-                        <h3>Job Description</h3>
+                        <h3>job Description</h3>
                         <?php echo $jobDetail->specification?>
                     </div>
                     <div class="single-candidate-widget job-required">

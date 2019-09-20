@@ -444,8 +444,6 @@ class Jobseeker extends View_Controller {
                 'isActivated' => '1',
             );
 
-
-
             $this->general_model->insert('seeker',$cv_data);
         }
 
@@ -453,8 +451,8 @@ class Jobseeker extends View_Controller {
 
         //$attachment = $upload_data['full_path'];
         $fromName = $first_name.' '.$last_name;
-        //$toemail = 'info@financejobnepal.com';
-        $toemail = 'binaya619@gmail.com';
+        $toemail = 'info@financejobnepal.com';
+        //$toemail = 'binaya619@gmail.com';
         // subject
         $subject = 'CV Received';
 

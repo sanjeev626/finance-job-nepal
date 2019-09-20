@@ -4,15 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta property="og:url"           content="<?php if (isset($ogurl)) echo $ogurl; ?>" />
     <meta property="og:type"          content="<?php if (isset($ogwebsite)) echo $ogwebsite; ?>" />
     <meta property="og:title"         content="<?php if (isset($ogtitle)) echo $ogtitle; ?>" />
     <meta property="og:description"   content="<?php if (isset($ogdescription)) echo $ogdescription; else echo 'Finance Job Nepal | Job Portal'; ?>" />
     <meta property="og:image"         content="<?php if (isset($ogimage)) echo $ogimage; ?>" />
-
-
-
     <meta name="description"
           content="<?php if (isset($meta_description)) echo $meta_description; else echo 'Finance Job Nepal | Job Portal'; ?>">
     <meta name="keyword"
@@ -59,8 +55,6 @@
     </style>
 </head>
 <body>
-
-
 <!-- Header Area Start -->
 <header class="fjn-header-area stick-top forsticky <?php echo($menu != 'home' ? 'page-header' : ''); ?>">
     <div class="menu-animation">
@@ -123,6 +117,7 @@
                                 <li class="">
                                     <a href="<?php echo base_url() . 'services/labour-audit' ?>">LABOUR AUDIT</a>
                                 </li>
+
                             </ul>
                         </nav>
                     </div>
@@ -266,8 +261,6 @@
                     </nav>
                 </div>
                 <!--For Mobile view -->
-
-
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 <style type="text/css">
     .blogpage .breadcromb-box{text-align: left}
 </style>
+
 <!-- Breadcromb Area Start -->
 <section class="fjn-breadcromb-area blogpage">
     <div class="breadcromb-top section_15">
@@ -50,7 +51,7 @@
                         $url = base_url().'blog/'.$blogdetail->slug;
                         ?>
                         <h4><?php echo $day?><span><?php echo $month;?></span></h4>
-                    </div> 
+                    </div>
                     <div class="blog-title">
                         <h3>If you're having trouble coming up with</h3>
                         <p>

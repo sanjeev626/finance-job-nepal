@@ -11,7 +11,6 @@
   </div>
 </section>
 
-
 <footer class="fjn-footer-area">
   <div class="footer-top section_15">
     <div class="container">
@@ -77,9 +76,6 @@
                   <a href="<?php echo base_url().'trainging'?>"><i class="fa fa-angle-double-right "></i>Training & Consulting</a>
                 </li>
                 <li class=""><a href="<?php echo base_url() . 'services/labour-audit' ?>"><i class="fa fa-angle-double-right "></i>Labour Audit</a></li>
-                
-
-
             </ul>
           </div>
         </div>
@@ -114,8 +110,6 @@
   </div>
 </footer>
 <!-- Footer Area End -->
-
-
 <!--Popper js-->
 <script src="<?php echo base_url(); ?>content_home/js/popper.min.js"></script>
 <!--Bootstrap js-->
@@ -178,14 +172,9 @@
         } else {
 
         }
-
-
         $('[data-toggle="tooltip"]').tooltip();
     });
 
 </script>
-
-
-
 </body>
 </html>

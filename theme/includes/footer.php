@@ -1,6 +1,6 @@
 <!-- Footer Area Start -->
 <footer class="fjn-footer-area">
-  <div class="footer-top section_50">
+  <div class="footer-top section_15">
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-6">
@@ -15,7 +15,7 @@
             <ul>
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Create Account</a></li>
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Direct CV Upload</a></li>
-              <li><a href="#"><i class="fa fa-angle-double-right "></i>Online CV</a></li>
+              <!-- <li><a href="#"><i class="fa fa-angle-double-right "></i>Online CV</a></li> -->
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Search Job</a></li>
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Terms &amp; Conditions</a></li>
             </ul>
@@ -48,8 +48,8 @@
               <li><a href="https://www.facebook.com/financejobnepal/" class="fb" target="_blank"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
               <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#" class="gp"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#" class="skype"><i class="fa fa-skype"></i></a></li>
+              <!--<li><a href="#" class="gp"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="#" class="skype"><i class="fa fa-skype"></i></a></li>-->            
             </ul>         
         </div>
         <div class="col-lg-9 col-md-12"><div class="need_help">Need Help? <a href="tel:015139273">Dial 01-5139273</a></div></div>

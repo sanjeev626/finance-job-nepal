@@ -6,11 +6,9 @@ width: 100%;
 .footer-copyright {
 	padding: 10px 0 !important;
 }
-
 .copyright-left {
 	text-align: left !important;
 }
-
 .powered-right{
 	text-align: right !important;
 }
@@ -32,7 +30,6 @@ width: 100%;
 	margin: 0 auto;
 	margin-top: 10px;
 }
-
 .blog-content {
 	background: #fff none repeat scroll 0 0;
 	border-radius:5px;
@@ -44,7 +41,6 @@ width: 100%;
 .blog-content ul{
 	padding-left: 20px !important;
 }
-
 .blog-content ul li{
 	list-style-type: disc;
 	color: #000000;
@@ -59,14 +55,12 @@ width: 100%;
 .margin_bottom_15{
 	margin-bottom: 15px;
 }
-
 .site-heading{
 	width:100%;
 }
 .padding-15{
 	padding: 15px;
 }
-
 .padding-10{
 	padding: 10px;
 }
@@ -94,7 +88,6 @@ width: 100%;
 	color: #000000;
 	font-weight: bold;
 }
-
 .company-name a{
 	font-size: 16px;
 	padding: 10px;
@@ -150,16 +143,13 @@ width: 100%;
 	-webkit-transition: all 0.4s ease 0s;
 	transition: all 0.4s ease 0s;
 }
-
 .fjn-job-tab-area .tab-content li{
 	float: left;
 	padding: 10px;
 }
-
 .fjn-footer-area {
 	line-height: 16px;
 }
-
 .benifittitle{font-style: italic;}
 
 .client-content li:last-child {
@@ -169,7 +159,6 @@ width: 100%;
 	}
 .single-blog{height: 250px; overflow: hidden;}
 .blog-image img {width: 100%; height: 250px; object-fit: cover;}
-
 /*home job section*/
 .job-content {
         margin-bottom: 15px
@@ -200,7 +189,6 @@ width: 100%;
     	background: #f9f7f7;
     }
 /*home job section*/
-
 /*right sidebar */
 .seekerpart, .employerpart{padding: 10px 48px ; text-align: center; border: 1px solid #000; margin-bottom: 20px}
 	.seekerpart .title{}
@@ -225,17 +213,15 @@ width: 100%;
   vertical-align: middle;
   width: 40%;
 }
-
 .seekerpart .or:before {
   right: 0.5em;
   margin-left: -50%;
 }
-
 .seekerpart .or:after {
   left: 0.5em;
   margin-right: -50%;
 }
-	.seekerpart .resumeupload
+.seekerpart .resumeupload
 	{ 
 		background-color: #9DC3E6; 
 		padding: 5px 8px; 
@@ -245,9 +231,8 @@ width: 100%;
 		border: 1px solid #000;
 		display: block;
 	}
-	.seekerpart p,.employerpart p {font-size: 13px;}
-
-	.employerpart .employerpostjob{
+.seekerpart p,.employerpart p {font-size: 13px;}
+.employerpart .employerpostjob{
 		background-color: #0070C0; 
 		padding: 5px 8px; 
 		text-align: center; 
@@ -256,7 +241,7 @@ width: 100%;
 		border: 1px solid #000;
 		display: block;
 	}
-	.advetisements .advertlists{
+.advetisements .advertlists{
 		padding: 5px 8px; 
 		text-align: center; 
 		color: #fff; 
@@ -265,70 +250,69 @@ width: 100%;
 		display: block;
 		margin-bottom: 20px
 	}
-	.advetisements .advertlists a{color: #fff;}
-	.upcoming{margin-bottom: 20px}
-	.upcoming .upcomingtitle
+.advetisements .advertlists a{color: #fff;}
+.upcoming{margin-bottom: 20px}
+.upcoming .upcomingtitle
 		{
 			padding: 10px ; 
 			text-align: center; 
 			border: 1px solid #A3CA89; 
 			color: #000; font-weight: 600
 		}
-	.upcoming .upcomingcontent	
+.upcoming .upcomingcontent	
 		{
 			border: 1px solid #EF9050; 
 			height: 100px;
 		}
-	.letstalk{
+.letstalk{
 		padding: 10px 48px ; 
 		text-align: center; 
 		border: 1px solid #EF9050; 
 		margin-bottom: 20px
 	}	
-	.letstalk .letstalktitle{
+.letstalk .letstalktitle{
 		margin-top: 20px;
 		color: #000;
 		font-size: 20px;
 		font-weight: 700;
 	}
-	.letstalk p{font-style: italic;font-weight: 700;}
+.letstalk p{font-style: italic;font-weight: 700;}
 /*right sidebar */
-
 /*sticky footer*/
 .hide{display: none;}
-  .stickyfooter
+.stickyfooter
   {
     width: 100%;
     background-color: #f3eeee;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
   }
-  .stickyfooter.sticky{
+.stickyfooter.sticky{
     position: fixed;
     bottom: 0px;
     z-index: 99999;
 }
-  .stickyfooter .container{
+.stickyfooter .container{
     padding: 10px
   }
-  .stickyfooter .footersign {text-align: center;} 
-  .stickyfooter .footersign  ul{display: inline-flex;}
-  .stickyfooter .footersign  ul li{margin-right: 10px}
-  .stickyfooter .footersign  ul .stickyfootertitle{font-size: 18px;padding: 5px 10px;}
-  .stickyfooter .footersign  ul .seekerregister
+.stickyfooter .footersign {text-align: center;} 
+.stickyfooter .footersign  ul{display: inline-flex;}
+.stickyfooter .footersign  ul li{margin-right: 10px}
+.stickyfooter .footersign  ul .stickyfootertitle{font-size: 18px;padding: 5px 10px;}
+.stickyfooter .footersign  ul .seekerregister
     { 
       padding: 5px 10px;
       border: 1px solid #F4B183;
       background:#F4B183;
       
     }
-  .stickyfooter .footersign  ul .seekerlogin
+.stickyfooter .footersign  ul .seekerlogin
     {
       padding: 5px 10px; 
       border: 1px solid #9DC3E6;
       background:#9DC3E6;
       
     }
-   .stickyfooter .footersign  ul .seekerregister a, .stickyfooter .footersign  ul .seekerlogin a{color: #000
+.stickyfooter .footersign  ul .seekerregister a, .stickyfooter .footersign  ul .seekerlogin a{color: #000
    }
 /*sticky footer*/
 @media (min-width: 1170px) and (max-width: 1500px) {
@@ -363,11 +347,9 @@ width: 100%;
 	.job-tab .job-tab-switch{display: inline-flex}
 	.job-tab-switch li>a{padding: 10px 10px !important; font-size: 12px !important;}
 	.job-tab-switch li>a.active{padding: 10px 10px !important}
-
 	.job-content h3 a {
 		font-size: 16px;
 	}
-
 	.job-content {
     	margin-bottom: 15px;
 	}

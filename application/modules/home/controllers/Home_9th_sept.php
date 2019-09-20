@@ -40,15 +40,23 @@ class Home extends View_Controller {
         //$countRecord = $this->general_model->countTotal('employer',array('email' => $email));
         $data['hot_job'] = $this->home_model->get_hot_job($no_of_hot_job);
         //echo $this->db->last_query();exit();
-        $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',30);
-        $data['fjn_job'] = $this->home_model->get_job_by_type('FJNJob',30);
-        $data['recent_job'] = $this->home_model->get_recent_job('RJob',30);
+        $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',12);
+
+        $data['fjn_job'] = $this->home_model->get_job_by_type('FJNJob',12);
+        $data['recent_job'] = $this->home_model->get_recent_job('RJob',12);
+
+        
+
         $data['joblocation'] = $this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');
+
+
         $data['type'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue','',6);        
         $data['job_display_in'] = $this->general_model->getAll('dropdown','fid = 16','ordering','id,dropvalue');
-        $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','',18);
-        $data['blogcount'] =  $this->general_model->countTotal('blog',array('stat' => 'Y'));
-        $data['home_blog'] =  $this->general_model->getAll('blog','stat = "Y"','id DESC','*','',3);
+
+        $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','',8);
+
+        $data['home_blog'] =  $this->general_model->getAll('blog','stat = "Y"','id ASC','*','',3);
+
         $data['advetisements'] = $this->home_model->get_all_advertisment();
         $data['client_list'] = $this->general_model->getAll('clients','','orderno ASC','*','',7);
         $data['main'] = 'home';
@@ -60,9 +68,12 @@ class Home extends View_Controller {
             'name' => $this->input->post('name'),
             'email'=> $this->input->post('email')
         );
+
         $this->general_model->insert('subscribe',$subscribe_data);
+
         $this->session->set_flashdata('success', 'Your Information has been Saved. ');
         redirect(base_url());
+
     }
 
     /*---------------------------------------------------------
@@ -103,7 +114,7 @@ class Home extends View_Controller {
         
         //og tags here 
         //print_r($jobInfo);   
-        if(empty($jobInfo['0']->displayname))
+        if(!empty($employer_info))
             $ogurl = base_url().'job/'.$employer_info->organization_code.'/'.$jobInfo['0']->slug.'/'.$jobInfo['0']->id;
         else
             $ogurl = base_url().'job/'.$jobInfo['0']->slug.'/'.$jobInfo['0']->id;
@@ -126,6 +137,8 @@ class Home extends View_Controller {
         $data['ogtitle'] = $ogtitle;
         $data['ogdescription'] = $ogdescription;
         $data['ogimage'] = $ogimage;
+
+        
         //$banner_image = $employer_info->organization_banner;
         $data['banner_image'] = $employer_info->organization_banner;
         //$banner_image = "";
@@ -189,6 +202,9 @@ class Home extends View_Controller {
         $data['main'] = 'premium-job-list';
         $this->load->view('main',$data);
     }
+
+
+
     public function viewjobs(){
         $id = $this->uri->segment(3);
         $title = $this->uri->segment(2);
@@ -281,6 +297,7 @@ class Home extends View_Controller {
         $data['main'] = 'top-job-list';
         $this->load->view('main',$data);
     }
+
     public function corporate_jobs(){
         $type = "CJob";
         $data['top_job_all'] = $this->home_model->get_all_corporate_jobs(100);
@@ -1511,31 +1528,6 @@ class Home extends View_Controller {
         $data['title'] = 'Training';
         
         $data['main'] = 'training/training-detail';
-        $this->load->view('main',$data);
-    }
-
-    public function recentjob(){
-        $data['menu'] = 'recentjob';
-        $data['title'] = 'Recent Job';
-        $data['page_title'] = 'Recent Job | Finance Job Nepal.';
-        $data['joblists'] = $this->home_model->get_recent_job('RJob','');
-        $data['main'] = 'jobs/job-list-by-type';
-        $this->load->view('main',$data);
-    }
-    public function newspaperjob(){
-        $data['menu'] = 'newspaperjob';
-        $data['title'] = 'News Paper Job';
-        $data['page_title'] = 'News Paper Job | Finance Job Nepal.';
-       $data['joblists'] = $this->home_model->get_job_by_type('NJob','');
-       $data['main'] = 'jobs/job-list-by-type';
-       $this->load->view('main',$data);
-    }
-    public function hotjob(){
-        $data['menu'] = 'hotjob';
-        $data['title'] = 'Hot Job';
-        $data['page_title'] = 'Hot Job | Finance Job Nepal.';
-        $data['joblists'] = $this->home_model->get_job_by_type('FJNJob','');
-        $data['main'] = 'jobs/job-list-by-type';
         $this->load->view('main',$data);
     }
 }
