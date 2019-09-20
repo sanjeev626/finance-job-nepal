@@ -1,4 +1,17 @@
 <!-- Footer Area Start -->
+<section class="stickyfooter hide">
+  <div class="container">    
+      <div class="footersign">
+        <ul>
+          <li class="stickyfootertitle">Search, Apply & Get Job</li>
+          <li class="seekerregister"><a href="<?php echo base_url(); ?>jobseeker/signup"><i class="fa fa-user"></i> Register</a></li>
+          <li class="seekerlogin"><a href="<?php echo base_url(); ?>jobseeker/login"><i class="fa fa-lock"></i> Login</a></li>
+        </ul>
+      </div>              
+  </div>
+</section>
+
+
 <footer class="fjn-footer-area">
   <div class="footer-top section_15">
     <div class="container">
@@ -18,6 +31,7 @@
               <!--<li><a href="#"><i class="fa fa-angle-double-right "></i>Online CV</a></li>-->
               <li><a href="#"><i class="fa fa-angle-double-right "></i>Search Job</a></li>
               <li><a href="<?php echo base_url().'content/seeker-terms-conditions'?>"><i class="fa fa-angle-double-right "></i>Terms &amp; Conditions</a></li>
+              <li><a href="<?php //echo base_url().'content/seeker-terms-conditions'?>"><i class="fa fa-angle-double-right "></i>Create CV</a></li>
             </ul>
           </div>
         </div>
@@ -42,8 +56,12 @@
           <div class="single-footer-widget">
             <h3>Services we offer</h3>
             <ul>
+<<<<<<< HEAD
                 <?php /* ?>
                 <li class="">
+=======
+                <!-- <li class="">
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
                     <?php
                     $this->load->model('../../admin/models/content_model');
                     $aboutus = $this->content_model->get_content_by_id(2)->slug;
@@ -59,10 +77,23 @@
                     echo '<li><a href="'.base_url().'services/'.$service->urlcode.'"><i class="fa fa-angle-double-right "></i>'.$service->title.'</a></li>';
                   }
                 }
+<<<<<<< HEAD
                 ?>
                 <li class="">
                   <a href="<?php echo base_url().'training'?>"><i class="fa fa-angle-double-right "></i>Training & Consulting</a>
                 </li>
+=======
+                ?> -->
+                <li class="">
+                  <a href="<?php echo base_url() . 'services/recruitment'?>" ><i class="fa fa-angle-double-right "></i>Recruitment</a>
+                </li>
+                <li class="">
+                  <a href="<?php echo base_url().'trainging'?>"><i class="fa fa-angle-double-right "></i>Training & Consulting</a>
+                </li>
+                <li class=""><a href="<?php echo base_url() . 'services/labour-audit' ?>"><i class="fa fa-angle-double-right "></i>Labour Audit</a></li>
+                
+
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
 
             </ul>
           </div>
@@ -77,7 +108,11 @@
               <li><a href="#" class="skype"><i class="fa fa-skype"></i></a></li> -->
             </ul>         
         </div>
+<<<<<<< HEAD
         <div class="col-lg-9 col-md-12 col-sm-12"><div class="need_help">Need Help? <a href="tel:016201360">Dial 01-6201360</a></div></div>
+=======
+        <div class="col-lg-9 col-md-12 col-sm-12"><div class="need_help">Need Help? <a href="tel:+977-1-6201360">Dial +977-1-6201360</a></div></div>
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
       </div>
     </div>
   </div>

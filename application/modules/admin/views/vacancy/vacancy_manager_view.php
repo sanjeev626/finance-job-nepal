@@ -43,6 +43,7 @@
                     <th width="5%">SN.</th>
                     <th width="20%">Job Title </th>
                     <th width="20%">Organisation </th>
+                    <th width="20%">Employer Name </th>
                     <th width="10%">Updated On </th>
                     <th width="10%">Apply Before </th>
                     <th width="8%">Job Level </th>
@@ -71,6 +72,7 @@
                     <td><?php echo $i; ?></td>
                     <td><?php echo $val->jobtitle; ?></td>
                     <td><?php echo $organiation; ?></td>
+                    <td><?php echo $val->displayname; ?></td>
                     <td><?php echo date("d-m-Y", strtotime($addeddate)); ?></td>
                     <td <?php if($applybefore < $cdate){ ?> style="color:#FF0000;"<?php } ?>> <?php echo date("d-m-Y", strtotime($applybefore)); ?></td>
                     <td>

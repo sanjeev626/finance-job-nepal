@@ -3,7 +3,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-3 text-center">
+                    <?php if(!empty($jobseekerInfo->profile_picture)){?>
+                            <img src="<?php echo base_url().'uploads/jobseeker/'.$jobseekerInfo->profile_picture;?>" alt="">
+                    <?php }else{?>
                     <img src="<?php echo base_url()?>content_home/img/boy.png"/>
+                    <?php } ?>
                 </div>
                 <div class="col-md-12 col-lg-9">
                     <h4><?php echo $jobseekerInfo->fname.' '.$jobseekerInfo->mname. ' '.$jobseekerInfo->lname;?></h4>
@@ -46,7 +50,7 @@
                     <a href="<?php echo base_url().'jobseeker/workexperience'?>"><i class="fa fa-building"></i> Work Experience</a>
                 </div>
                 <div class="col-md-6 col-lg-6 cv-box">
-                    <a href="<?php echo base_url().'Jobseeker/language'?>"><i class="fa fa-language"></i> Language</a>
+                    <a href="<?php echo base_url().'jobseeker/language'?>"><i class="fa fa-language"></i> Language</a>
                 </div>
                 <div class="col-md-6 col-lg-6 cv-box">
                     <a href="<?php echo base_url().'jobseeker/reference'?>"><i class="fa fa-address-card"></i> References</a>
@@ -54,6 +58,20 @@
             </div>
         </div>
     </div>
+    <section class="candidate-dashboard-area section_15">
+        <div class="dashboard-left">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="submit-resume">
+                            <!--<a href="<?php /*echo base_url().'jobseeker/resume'*/?>">Download your cv</a>-->
+                            <button type="submit" onclick="downloadcv()">Download your CV</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="candidate-dashboard-area section_15">
         <div class="dashboard-left">
             <div class="container">
@@ -88,3 +106,10 @@
         </div>
     </section>
 </div>
+
+<script>
+    function downloadcv(){
+        window.location.href = "<?php echo base_url('jobseeker/downloadresume')?>";
+
+    }
+</script>

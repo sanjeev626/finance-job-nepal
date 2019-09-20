@@ -448,69 +448,130 @@ class Seeker extends MY_Controller {
     }
 
      public function search(){
+         if(!empty($_POST['search'])){
+             $data['total_job_seeker'] = $this->seeker_model->search_seeker_by_param();
 
-        $data['total_job_seeker'] = $this->seeker_model->search_seeker_by_param();
+             $config['base_url'] = base_url() . 'admin/seeker/search';
+             $config['uri_segment'] = 4;
+             //$config['per_page'] = 100;
+             $config['per_page'] = 10;
+             /* Bootstrap Pagination  */
+             $config['full_tag_open'] = "<ul class='pagination'>";
+             $config['full_tag_close'] ="</ul>";
+             $config['num_tag_open'] = '<li>';
+             $config['num_tag_close'] = '</li>';
+             $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+             $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+             $config['next_tag_open'] = "<li>";
+             $config['next_tagl_close'] = "</li>";
+             $config['prev_tag_open'] = "<li>";
+             $config['prev_tagl_close'] = "</li>";
+             $config['first_tag_open'] = "<li>";
+             $config['first_tagl_close'] = "</li>";
+             $config['last_tag_open'] = "<li>";
+             $config['last_tagl_close'] = "</li>";
+             /* End of Bootstrap Pagination */
 
-        $config['base_url'] = base_url() . 'admin/seeker/search';
-        $config['uri_segment'] = 4;
-        //$config['per_page'] = 100;
-        $config['per_page'] = 10;
-        /* Bootstrap Pagination  */
-        $config['full_tag_open'] = "<ul class='pagination'>";
-        $config['full_tag_close'] ="</ul>";
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-        $config['next_tag_open'] = "<li>";
-        $config['next_tagl_close'] = "</li>";
-        $config['prev_tag_open'] = "<li>";
-        $config['prev_tagl_close'] = "</li>";
-        $config['first_tag_open'] = "<li>";
-        $config['first_tagl_close'] = "</li>";
-        $config['last_tag_open'] = "<li>";
-        $config['last_tagl_close'] = "</li>";
-        /* End of Bootstrap Pagination */
+             $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
 
-        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+             $data['seeker'] = $this->seeker_model->search_seeker_by_param($config['per_page'], $page);
+             $config['total_rows'] = $data['total_job_seeker'];
 
-        $data['seeker'] = $this->seeker_model->search_seeker_by_param($config['per_page'], $page);
-        $config['total_rows'] = $data['total_job_seeker'];
-        
-        $this->pagination->initialize($config);
+             $this->pagination->initialize($config);
 
-        $data['title'] = 'SEARCH RESULT JOB SEEKER';
-        $data['page_header'] = 'Search Result Job Seeker';
-        $data['page_header_icone'] = 'fa-user';
-        $data['nav'] = 'seeker';
-        $data['panel_title'] = 'Search Result Job Seeker ';
-         $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
-         $data['functional_area'] =$this->general_model->getAll('dropdown','fid = 9','','id,dropvalue');
-         $data['job_title'] =$this->general_model->getAll('jobs','','jobtitle ASC','id,jobtitle,eid,displayname');
-         $data['location'] =$this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');
-         $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','','id,dropvalue');
-         $data['applied_organisation'] =$this->general_model->getAll('employer','','orgname','id,orgname');
-        $data['main'] = 'seeker/search_result_job_seeker';
+             $data['title'] = 'SEARCH RESULT JOB SEEKER';
+             $data['page_header'] = 'Search Result Job Seeker';
+             $data['page_header_icone'] = 'fa-user';
+             $data['nav'] = 'seeker';
+             $data['panel_title'] = 'Search Result Job Seeker ';
+             $data['salutation'] =$this->general_model->getAll('dropdown','fid = 7','','id,dropvalue');
+             $data['functional_area'] =$this->general_model->getAll('dropdown','fid = 9','','id,dropvalue');
+             $data['job_title'] =$this->general_model->getAll('jobs','','jobtitle ASC','id,jobtitle,eid,displayname');
+             $data['location'] =$this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');
+             $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','','id,dropvalue');
+             $data['applied_organisation'] =$this->general_model->getAll('employer','','orgname','id,orgname');
+             $data['main'] = 'seeker/search_result_job_seeker';
 
-         $data['fname'] = $this->input->post('fname');
-         $data['mname'] = $this->input->post('mname');
-         $data['lname'] = $this->input->post('lname');
-         $data['dobfrom'] = $this->input->post('dobfrom');
-         $data['dobto'] = $this->input->post('dobto');
-         $data['address'] = $this->input->post('address');
-         $data['phone'] = $this->input->post('phone');
-         $data['email'] = $this->input->post('email');
-         $data['gender'] = $this->input->post('gender');
-         $data['keyskills'] = $this->input->post('keyskills');
-         $data['qualification'] = $this->input->post('qualification');
-         $data['expyrs'] = $this->input->post('experience_years');
-         $data['expsal'] = $this->input->post('expsal');
-         $data['apporg'] = $this->input->post('apporg');
-         $data['jid'] = $this->input->post('jid');
-         $data['registeredfrom'] = $this->input->post('registeredfrom');
-         $data['registeredto'] = $this->input->post('registeredto');
+             $data['fname'] = $this->input->post('fname');
+             $data['mname'] = $this->input->post('mname');
+             $data['lname'] = $this->input->post('lname');
+             $data['dobfrom'] = $this->input->post('dobfrom');
+             $data['dobto'] = $this->input->post('dobto');
+             $data['address'] = $this->input->post('address');
+             $data['phone'] = $this->input->post('phone');
+             $data['email'] = $this->input->post('email');
+             $data['gender'] = $this->input->post('gender');
+             $data['keyskills'] = $this->input->post('keyskills');
+             $data['qualification'] = $this->input->post('qualification');
+             $data['expyrs'] = $this->input->post('experience_years');
+             $data['expsal'] = $this->input->post('expsal');
+             $data['apporg'] = $this->input->post('apporg');
+             $data['jid'] = $this->input->post('jid');
+             $data['registeredfrom'] = $this->input->post('registeredfrom');
+             $data['registeredto'] = $this->input->post('registeredto');
 
-        $this->load->view('home', $data);
+             $this->load->view('home', $data);
+         }
+
+         if(!empty($_POST['excel'])){
+             $this->export_to_excel();
+         }
+
+    }
+    public function export_to_excel(){
+        $this->load->library("excel");
+        $object = new PHPExcel();
+
+        $object->setActiveSheetIndex(0);
+        $table_columns = array("Jobseeker Name", "Gender", "DOB",
+            "Mobile Number", "Email Address", "Marital Status", "Current Address",
+            "Work Experience", "Experience Years",
+            "Salary Range", "Job Position",
+            "Faculty", "Latest Education Qualification", "Previous Company Associated With",
+            "Current Company Associated With");
+
+        $column = 0;
+
+        foreach($table_columns as $field)
+        {
+            $object->getActiveSheet()->setCellValueByColumnAndRow($column, 1, $field);
+            $column++;
+        }
+
+        $jobseeker_data = $this->seeker_model->search_seeker_by_param_for_export();
+
+        $excel_row = 2;
+        foreach($jobseeker_data as $row)
+        {
+            $expsal = $this->general_model->getfieldById('dropdown', 'dropvalue', $row->desired_expected_salary);
+            if($expsal==FALSE)
+                $expsal = 'N/A';
+            $fullname = $row->fname.' '.$row->mname.' '.$row->lname;
+            $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $fullname);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->gender);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->dob);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->phone_cell);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->email);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->marital_status);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->address_current);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row->have_work_experience);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row->experience_years);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $expsal);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row->cjobposiiton);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row->faculty);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row->highest_qualification);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row->past_employer);
+            $object->getActiveSheet()->setCellValueByColumnAndRow(14, $excel_row, $row->current_employer);
+            $excel_row++;
+        }
+        /*print_r($object);
+        die();*/
+        $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel5');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="Jobseeker Data exported on '.date('Y-m-d H:i:s').'.xls"');
+        $object_writer->save('php://output');
+
+
 
     }
 

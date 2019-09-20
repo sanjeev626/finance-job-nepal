@@ -27,12 +27,16 @@ class Advertisement_model extends CI_Model {
         }
     }
 
-    public function insert_advertisement(){
+    public function insert_advertisement($advimage){
         $data = array(
             'addtitle' => $this->input->post('addtitle'),
             'addstatus' => $this->input->post('addstatus'),
-            'website' => $this->input->post('website')
+            'website' => $this->input->post('website'),
+            'background_color'  => $this->input->post('background_color'),
             );
+        if($advimage){
+            $data['image'] = $advimage;
+        }
         $this->db->insert($this->table_advertisement,$data);
         return $this->db->insert_id();
     }
@@ -48,12 +52,16 @@ class Advertisement_model extends CI_Model {
     	}
     }
 
-    public function update_advertisement($id){
+    public function update_advertisement($id,$advimage){
     	$data = array(
     		'addtitle' => $this->input->post('addtitle'),
             'addstatus' => $this->input->post('addstatus'),
-            'website' => $this->input->post('website')
+            'website' => $this->input->post('website'),
+            'background_color'  => $this->input->post('background_color'),
     		);
+        if($advimage){
+            $data['image'] = $advimage;
+        }
     	$this->db->where('id',$id);
     	$this->db->update($this->table_advertisement,$data);
     }

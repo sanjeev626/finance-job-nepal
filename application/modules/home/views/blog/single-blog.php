@@ -19,8 +19,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+<<<<<<< HEAD
                     <div class="breadcromb-box">
                         <h3 class="text-left"><?php echo $blogdetail->title?></h3>
+=======
+                    <div class="breadcromb-box-pagin">
+                        <ul>
+                            <li><a href="#">home</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li class="active-breadcromb"><a href="#"><?php echo $blogdetail->title?></a></li>
+                        </ul>
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
                     </div>
                 </div>
             </div>

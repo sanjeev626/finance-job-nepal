@@ -19,7 +19,8 @@ class Blog extends CI_Controller
         $data['page_header_icone'] = 'fa-plus';
         $data['nav'] = 'blog';
         $data['panel_title'] = 'Add Blog ';
-        $data['blog'] = $this->blog_model->get_all_blog();
+        //$data['blog'] = $this->blog_model->get_all_blog();
+        $data['blog'] = $this->general_model->getAll('blog','','id DESC','*','','');
         $data['main'] = 'blog/blog_list_view';
 
         $this->load->view('home', $data);

@@ -1,8 +1,8 @@
 <?php
 if (!empty($advertisement_detail)) {
-    $action = base_url() . 'admin/Advertisement/editAdvertisement/' . $advertisement_detail->id;
+    $action = base_url() . 'admin/advertisement/editadvertisement/' . $advertisement_detail->id;
 } else {
-    $action = base_url() . 'admin/Advertisement/addAdvertisement';
+    $action = base_url() . 'admin/advertisement/addadvertisement';
 }
 ?> 
 
@@ -17,7 +17,7 @@ if (!empty($advertisement_detail)) {
     <div class="panel-body panel-body-nopadding">
         <?php
         $attributes = array('class' => 'form-horizontal form-bordered', 'id' => 'form1');
-        echo form_open($action, $attributes);
+        echo form_open_multipart($action, $attributes);
         ?>
 
         <div class="form-group">
@@ -28,10 +28,34 @@ if (!empty($advertisement_detail)) {
         </div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label">Website URL :<span class="asterisk">*</span></label>
+            <label class="col-sm-3 control-label">Website URL :</label>
             <div class="col-sm-7">
-                <input type="text" required name="website" id='website' class="form-control" value='<?php if (!empty($advertisement_detail)) echo $advertisement_detail->website; ?>' />
+                <input type="text"  name="website" id='website' class="form-control" value='<?php if (!empty($advertisement_detail)) echo $advertisement_detail->website; ?>' />
             </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Image :</label>
+            <div class="col-sm-7">
+                <input type="file" name="image" id='image' class="form-control" value='<?php if (!empty($advertisement_detail)) echo $advertisement_detail->image; ?>' />
+                <span class="green">(Image resolution must be 250 X 100 for better view)</span>
+
+                <?php if (!empty($advertisement_detail) && isset($advertisement_detail->image)) { ?>
+                    <img src="" alt="">
+                    <!--<input type="hidden" value="<?php /*echo $advertisement_detail->image; */?>" name="rightimage">-->
+                    <div style="padding-top:10px;"><img height="30%" width="30%" src="<?php echo base_url().'uploads/advertisement/'.$advertisement_detail->image; ?>"></div>
+
+                <?php } ?>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Background Color :</label>
+            <div class="col-sm-1">
+                <input type="color"  name="background_color" id='background_color' class="" value='<?php if (!empty($advertisement_detail->background_color)) echo $advertisement_detail->background_color; else echo '#ff0000' ?>'/>
+            </div>
+            <div class="col-sm-8"><span class="green">(If not selected image, select background color)</span></div>
         </div>
 
         <div class="form-group">

@@ -10,7 +10,7 @@ $domain_name = $_SERVER['HTTP_HOST'];
 if ($domain_name == 'http://localhost') {
     $root = 'globaljob';
 }  else {
-   $root = 'livedatabase';
+   $root = 'financejobnepal';
 }
 
 /*

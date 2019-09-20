@@ -1,8 +1,8 @@
 <?php
 if (!empty($client_detail)) {
-    $action = base_url() . 'admin/Client/editClient/' . $client_detail->id;
+    $action = base_url() . 'admin/client/editclient/' . $client_detail->id;
 } else {
-    $action = base_url() . 'admin/Client/addClient';
+    $action = base_url() . 'admin/client/addclient';
 }
 ?> 
 
@@ -26,6 +26,12 @@ if (!empty($client_detail)) {
                 <input type="text" required name="clientname" id='clientname' class="form-control" value='<?php if (!empty($client_detail)) echo $client_detail->clientname; ?>' />
             </div>
         </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Website URL :</label>
+            <div class="col-sm-7">
+                <input type="text"  name="website" id='website' class="form-control" value='<?php if (!empty($client_detail)) echo $client_detail->url; ?>' />
+            </div>
+        </div>
         
         <div class="form-group">
             <label class="col-sm-3 control-label">Image :</label>
@@ -34,10 +40,17 @@ if (!empty($client_detail)) {
                     <span class="green">(Image resolution must be 130 X 110 for better view)</span>
 
                 <?php if (!empty($client_detail) && isset($client_detail->image)) { ?>
-                    <input type="hidden" value="<?php echo $client_detail->image; ?>" name="clientImage">
+                    <!--<input type="hidden" value="<?php /*echo $client_detail->image; */?>" name="clientImage">-->
                     <div style="padding-top:10px;"><img height="30%" width="30%" src="<?php echo base_url() . 'uploads/clients/' . $client_detail->image; ?>"></div>
                 <?php } ?>
 
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Order :</label>
+            <div class="col-sm-7">
+                <input type="number"  name="orderno" id='orderno' class="form-control" min="0" value='<?php if (!empty($client_detail)) echo $client_detail->orderno;else echo '0' ?>' />
             </div>
         </div>
 

@@ -4,6 +4,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< HEAD
+=======
+
+    <meta property="og:url"           content="<?php if (isset($ogurl)) echo $ogurl; ?>" />
+    <meta property="og:type"          content="<?php if (isset($ogwebsite)) echo $ogwebsite; ?>" />
+    <meta property="og:title"         content="<?php if (isset($ogtitle)) echo $ogtitle; ?>" />
+    <meta property="og:description"   content="<?php if (isset($ogdescription)) echo $ogdescription; else echo 'Finance Job Nepal | Job Portal'; ?>" />
+    <meta property="og:image"         content="<?php if (isset($ogimage)) echo $ogimage; ?>" />
+
+
+
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
     <meta name="description"
           content="<?php if (isset($meta_description)) echo $meta_description; else echo 'Finance Job Nepal | Job Portal'; ?>">
     <meta name="keyword"
@@ -71,7 +83,11 @@
                     <!-- Responsive Menu Start -->
                 </div>
                 <!-- For Desktop view-->
+<<<<<<< HEAD
                 <div class="col-lg-6">
+=======
+                <div class="col-lg-5">
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
                     <div class="header-menu">
                         <nav id="navigation">
                             <ul id="fjn_navigation">
@@ -79,7 +95,7 @@
                                     <a href="<?php echo base_url(); ?>">HOME</a>
                                 </li> -->
 
-                                <li class="has-children">
+                                <!-- <li class="has-children">
                                     <a href="#">SERVICES</a>
                                     <ul>
                                         <?php
@@ -90,13 +106,22 @@
                                             echo '<li><a href="' . base_url() . 'services/' . $service->urlcode . '">' . $service->title . '</a></li>';
                                         }
                                         ?>
+<<<<<<< HEAD
                                         <!--<li><a href="<?php /*echo base_url().'services/recruitment'*/ ?>">Recruitment</a></li>
                                         <li><a href="<?php /*echo base_url().'services/staff-outsourcing'*/ ?>">Staff Outsourcing</a></li>
                                         <li><a href="<?php /*echo base_url().'services/hr-audit-consulting'*/ ?>">HR Audit &amp; Consulting</a></li>
                                         <li><a href="<?php /*echo base_url().'services/payroll-management'*/ ?>">Payroll Management</a></li>
                                         <li><a href="<?php /*echo base_url().'services/corporate-training'*/ ?>">Corporate Training</a></li>-->
+=======
+                                        <li><a href="<?php /*echo base_url().'services/recruitment'*/ ?>">Recruitment</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/staff-outsourcing'*/ ?>">Staff Outsourcing</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/hr-audit-consulting'*/ ?>">HR Audit &amp; Consulting</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/payroll-management'*/ ?>">Payroll Management</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/corporate-training'*/ ?>">Corporate Training</a></li>
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
                                     </ul>
-                                </li>
+                                </li> -->
+                                <li><a href="<?php echo base_url().'services/recruitment' ?>">RECRUITMENT</a></li>
                                 <li class="">
                                     <a href="<?php echo base_url() . 'trainging' ?>">TRAINING & CONSULTING </a>
                                 </li>
@@ -107,6 +132,12 @@
                                                                     */ ?>
                                     <a href="<?php /*echo base_url().'content/'.$aboutus*/ ?>">ABOUT US</a>
                                 </li>-->
+<<<<<<< HEAD
+=======
+                                <!-- <li class="">
+                                    <a href="<?php echo base_url() . 'contactus' ?>">CONTACT US</a>
+                                </li> -->
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
                                 <li class="">
                                     <a href="<?php echo base_url() . 'services/labour-audit' ?>">LABOUR AUDIT</a>
                                 </li>
@@ -118,7 +149,7 @@
                         </nav>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-5">
                     <div class="header-right-menu header-menu">
                         <nav id="navigation">
                             <ul id="fjn_navigation">
@@ -168,7 +199,11 @@
                                 <?php } ?>
 
                                 <li>
+<<<<<<< HEAD
                                     <a href="tel:+977016201360" title="977-1-6201360">977-1-6201360</a>
+=======
+                                    <a href="tel:+977016201360" title="+977-1-6201360">+977-1-6201360</a>
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
                                 </li>
 
                             </ul>
@@ -182,7 +217,11 @@
                     <nav id="navigation">
                         <ul id="fjn_mob_navigation">
 
+<<<<<<< HEAD
                             <li class="has-children">
+=======
+                            <!-- <li class="has-children">
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
                                 <a href="#">SERVICES</a>
                                 <ul>
                                     <?php
@@ -193,6 +232,7 @@
                                         echo '<li><a href="' . base_url() . 'services/' . $service->urlcode . '">' . $service->title . '</a></li>';
                                     }
                                     ?>
+<<<<<<< HEAD
                                     <!--<li><a href="<?php /*echo base_url().'services/recruitment'*/ ?>">Recruitment</a></li>
                                         <li><a href="<?php /*echo base_url().'services/staff-outsourcing'*/ ?>">Staff Outsourcing</a></li>
                                         <li><a href="<?php /*echo base_url().'services/hr-audit-consulting'*/ ?>">HR Audit &amp; Consulting</a></li>
@@ -210,6 +250,25 @@
                             <!-- <li class="">
                                 <a href="<?php echo base_url() . 'contactus' ?>">CONTACT US</a>
                             </li> -->
+=======
+                                    <li><a href="<?php /*echo base_url().'services/recruitment'*/ ?>">Recruitment</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/staff-outsourcing'*/ ?>">Staff Outsourcing</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/hr-audit-consulting'*/ ?>">HR Audit &amp; Consulting</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/payroll-management'*/ ?>">Payroll Management</a></li>
+                                        <li><a href="<?php /*echo base_url().'services/corporate-training'*/ ?>">Corporate Training</a></li>
+                                </ul>
+                            </li> -->
+                            <li><a href="<?php echo base_url().'services/recruitment' ?>">RECRUITMENT</a></li>
+                            <li class="">
+                                <a href="<?php echo base_url() . 'trainging' ?>">TRAINING & CONSULTING </a>
+                            </li>
+                            <!-- <li class="">
+                                <a href="<?php echo base_url() . 'contactus' ?>">CONTACT US</a>
+                            </li> -->
+                            <li class="">
+                                    <a href="<?php echo base_url() . 'services/labour-audit' ?>">LABOUR AUDIT</a>
+                                </li>
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
 
                             <?php
                             $employer_profile = $this->session->userdata('employer_profile');
@@ -250,7 +309,11 @@
                             <?php } ?>
 
                             <li>
+<<<<<<< HEAD
                                 <a href="#">+01-6201360</a>
+=======
+                                <a href="tel:+977016201360" title="+977-1-6201360">+977-1-6201360</a>
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
                             </li>
 
                         </ul>

@@ -20,7 +20,7 @@ class Client extends MY_Controller {
 
     public function showClient(){
 
-        $config['base_url'] = base_url() . 'admin/Client';
+        $config['base_url'] = base_url() . 'admin/client';
         $config['uri_segment'] = 3;
         $config['per_page'] = 50 ;
 
@@ -52,7 +52,7 @@ class Client extends MY_Controller {
 
         $this->pagination->initialize($config);
 
-        $data['title'] = '.:: CLIENT ::.';
+        $data['title'] = 'CLIENT';
         $data['page_header'] = 'Client';
         $data['page_header_icone'] = 'fa-user-secret';
         $data['nav'] = 'client';
@@ -63,7 +63,7 @@ class Client extends MY_Controller {
     }
 
     public function add(){
-        $data['title'] = '.:: ADD CLIENT ::.';
+        $data['title'] = 'ADD CLIENT';
         $data['page_header'] = 'Client';
         $data['page_header_icone'] = 'fa-user-secret';
         $data['nav'] = 'client';
@@ -76,7 +76,7 @@ class Client extends MY_Controller {
     public function addClient(){
         $this->form_validation->set_rules('clientname', 'clientname', 'required');
         if (FALSE == $this->form_validation->run()) {
-            $data['title'] = '.:: ADD CLIENT ::.';
+            $data['title'] = 'ADD CLIENT';
             $data['page_header'] = 'Client';
             $data['page_header_icone'] = 'fa-user-secret';
             $data['nav'] = 'client';
@@ -104,19 +104,19 @@ class Client extends MY_Controller {
             
             $this->client_model->insert_client($logoimage);
             $this->session->set_flashdata('success', 'Client Added Successfully...');
-            redirect(base_url() . 'admin/Client', 'refresh');
+            redirect(base_url() . 'admin/client', 'refresh');
         }
     }
 
     public function edit($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Client');
+            redirect(base_url() . 'admin/client');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Client');
+            redirect(base_url() . 'admin/client');
 
-        $data['title'] = '.:: EDIT CLIENT ::.';
+        $data['title'] = 'EDIT CLIENT';
         $data['page_header'] = 'Client';
         $data['page_header_icone'] = 'fa-user-secret';
         $data['nav'] = 'client';
@@ -130,14 +130,14 @@ class Client extends MY_Controller {
     public function editClient($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Client');
+            redirect(base_url() . 'admin/client');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Client');
+            redirect(base_url() . 'admin/client');
 
          $this->form_validation->set_rules('clientname', 'clientname', 'required');
         if (FALSE == $this->form_validation->run()) {
-            $data['title'] = '.:: EDIT CLIENT ::.';
+            $data['title'] = 'EDIT CLIENT';
             $data['page_header'] = 'Client';
             $data['page_header_icone'] = 'fa-user-secret';
             $data['nav'] = 'client';
@@ -166,7 +166,7 @@ class Client extends MY_Controller {
             
             $this->client_model->update_client($id,$logoimage);
             $this->session->set_flashdata('success', 'Client Update Successfully...');
-            redirect(base_url() . 'admin/Client', 'refresh');
+            redirect(base_url() . 'admin/client', 'refresh');
         }
     }
 
@@ -179,7 +179,14 @@ class Client extends MY_Controller {
 
         $this->client_model->delete_client($id);
         $this->session->set_flashdata('success', 'Client Deleted Successfully...');
-        redirect(base_url() . 'admin/Client', 'refresh');
+        redirect(base_url() . 'admin/client', 'refresh');
+    }
+
+    public function changeorderno(){
+        $id = $_POST['id'];
+        $orderno = $_POST['orderno'];
+        $this->client_model->editorderno($id,$orderno);
+        exit;
     }
 
 }

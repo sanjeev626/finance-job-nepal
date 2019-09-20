@@ -78,7 +78,11 @@ width: 100%;
 }
 .job-content{
 	/*margin-bottom: 15px;*/
+<<<<<<< HEAD
 	background: #fff none repeat scroll 0 0;
+=======
+	/*background: #fff none repeat scroll 0 0;*/
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
 	border: 1px solid #eee;
 	-webkit-transition: all 0.4s ease 0s;
 	transition: all 0.4s ease 0s;
@@ -129,7 +133,12 @@ width: 100%;
 .company-list-details>h3{
 	margin-bottom: 5px;
 }
+<<<<<<< HEAD
 .company-list-details p{width:100%; font-size: 12px;line-height: 20px; display: block;}
+=======
+.company-list-details p{width:100%; font-size: 12px;line-height: 20px; display: block;height: 18px;
+    overflow: hidden;}
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
 .company-list-details p a{color:#000; font-size: 12px;}
 .client-content li{
 	display: block;
@@ -166,6 +175,173 @@ width: 100%;
 	    text-align: center;
 	    font-size: 20px
 	}
+<<<<<<< HEAD
+=======
+.single-blog{height: 250px; overflow: hidden;}
+.blog-image img {width: 100%; height: 250px; object-fit: cover;}
+
+/*home job section*/
+.job-content {
+        margin-bottom: 15px
+    }
+
+    .homejobalert {
+        margin: 10px 0px;
+    }
+
+    /*.homejobalert a{padding: 10px 30px;}*/
+    .resumeupload a img, .homejobalert a img {
+        width: 100%
+    }
+
+    #cvModal .modal-dialog {
+        top: 42px;
+    }
+
+    #cvModal .modal-dialog .form-group {
+        margin-bottom: 5px
+    }
+
+    #cvModal .modal-dialog .form-group .control-label {
+        margin-bottom: 0px
+    }
+    .homejoblist:nth-child(even){}
+    .homejoblist:nth-child(odd){
+    	background: #f9f7f7;
+    }
+/*home job section*/
+
+/*right sidebar */
+.seekerpart, .employerpart{padding: 10px 48px ; text-align: center; border: 1px solid #000; margin-bottom: 20px}
+	.seekerpart .title{}
+	.seekerpart .seekerregister
+	{ 
+		background-color: #F4B183; 
+		padding: 5px 8px; 
+		text-align: center; 
+		color: #000; 
+		font-weight: 600;
+		border: 1px solid #000;
+		display: block;
+	}
+	.seekerpart .or{margin:  15px 0px 5px 0px}
+	.seekerpart .or:before,
+.seekerpart .or:after {
+  background-color: #70A8DA;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 40%;
+}
+
+.seekerpart .or:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.seekerpart .or:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+	.seekerpart .resumeupload
+	{ 
+		background-color: #9DC3E6; 
+		padding: 5px 8px; 
+		text-align: center; 
+		color: #000; 
+		font-weight: 600;
+		border: 1px solid #000;
+		display: block;
+	}
+	.seekerpart p,.employerpart p {font-size: 13px;}
+
+	.employerpart .employerpostjob{
+		background-color: #0070C0; 
+		padding: 5px 8px; 
+		text-align: center; 
+		color: #fff; 
+		font-weight: 600;
+		border: 1px solid #000;
+		display: block;
+	}
+	.advetisements .advertlists{
+		padding: 5px 8px; 
+		text-align: center; 
+		color: #fff; 
+		font-weight: 600;
+		border: 1px solid #000;
+		display: block;
+		margin-bottom: 20px
+	}
+	.advetisements .advertlists a{color: #fff;}
+	.upcoming{margin-bottom: 20px}
+	.upcoming .upcomingtitle
+		{
+			padding: 10px ; 
+			text-align: center; 
+			border: 1px solid #A3CA89; 
+			color: #000; font-weight: 600
+		}
+	.upcoming .upcomingcontent	
+		{
+			border: 1px solid #EF9050; 
+			height: 100px;
+		}
+	.letstalk{
+		padding: 10px 48px ; 
+		text-align: center; 
+		border: 1px solid #EF9050; 
+		margin-bottom: 20px
+	}	
+	.letstalk .letstalktitle{
+		margin-top: 20px;
+		color: #000;
+		font-size: 20px;
+		font-weight: 700;
+	}
+	.letstalk p{font-style: italic;font-weight: 700;}
+/*right sidebar */
+
+/*sticky footer*/
+.hide{display: none;}
+  .stickyfooter
+  {
+    width: 100%;
+    background-color: #f3eeee;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  }
+  .stickyfooter.sticky{
+    position: fixed;
+    bottom: 0px;
+    z-index: 99999;
+}
+  .stickyfooter .container{
+    padding: 10px
+  }
+  .stickyfooter .footersign {text-align: center;} 
+  .stickyfooter .footersign  ul{display: inline-flex;}
+  .stickyfooter .footersign  ul li{margin-right: 10px}
+  .stickyfooter .footersign  ul .stickyfootertitle{font-size: 18px;padding: 5px 10px;}
+  .stickyfooter .footersign  ul .seekerregister
+    { 
+      padding: 5px 10px;
+      border: 1px solid #F4B183;
+      background:#F4B183;
+      
+    }
+  .stickyfooter .footersign  ul .seekerlogin
+    {
+      padding: 5px 10px; 
+      border: 1px solid #9DC3E6;
+      background:#9DC3E6;
+      
+    }
+   .stickyfooter .footersign  ul .seekerregister a, .stickyfooter .footersign  ul .seekerlogin a{color: #000
+   }
+/*sticky footer*/
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
 @media (min-width: 1170px) and (max-width: 1500px) {
 	.padding-left-right-5{
 		padding: 5px;
@@ -177,9 +353,12 @@ width: 100%;
 		border-radius: 0px;
 	    margin-bottom: 0px !important;
 	}
+<<<<<<< HEAD
 	.iframeheight{
 		height:450px;
 	}
+=======
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
 }
 
 @media (max-width: 640px) {

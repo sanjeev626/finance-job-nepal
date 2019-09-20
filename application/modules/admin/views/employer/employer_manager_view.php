@@ -43,7 +43,7 @@
                                     <tr>
                                         <td><?php echo $i; ?></td>
                                         <td><?php echo $key->contact_name; ?></td>
-                                        <td><?php echo $key->orgname; ?></td>
+                                        <td><?php echo $key->organization_name; ?></td>
                                         <td><?php echo $key->email; ?></td>
                                         <!--<td><?php /*echo $key->isCorporate; */
                                         ?></td>-->

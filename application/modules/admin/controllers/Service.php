@@ -44,7 +44,7 @@ class Service extends MY_Controller {
             $data['main'] = 'service/add-edit-service';
             $this->load->view('home', $data);
         } else {
-            $a = $_FILES['servicelogo']['name'];
+            /*$a = $_FILES['servicelogo']['name'];
 
             if ($a !== "") {
                 $config['upload_path'] = './././uploads/service/';
@@ -58,7 +58,7 @@ class Service extends MY_Controller {
                 $upload_data = $this->upload->data();
                 $serviceimage = $upload_data['file_name'];
             }
-            if(!isset($serviceimage))  $serviceimage = '';
+            if(!isset($serviceimage))*/  $serviceimage = '';
 
             $this->service_model->insert_service($serviceimage);
             $this->session->set_flashdata('success', 'Service Added Successfully...');
@@ -99,7 +99,7 @@ class Service extends MY_Controller {
             $this->load->view('home', $data);
         } else {
 
-            $a = $_FILES['servicelogo']['name'];
+            /*$a = $_FILES['servicelogo']['name'];
 
             if ($a !== "") {
 
@@ -119,7 +119,7 @@ class Service extends MY_Controller {
                 $upload_data = $this->upload->data();
                 $serviceimage = $upload_data['file_name'];
             }
-            if(!isset($serviceimage))  $serviceimage = '';
+            if(!isset($serviceimage)) */ $serviceimage = '';
 
             $this->service_model->update_service($id,$serviceimage);
             $this->session->set_flashdata('success', 'Service Update Successfully...');

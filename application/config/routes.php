@@ -106,7 +106,7 @@ $route['jobseeker/(:any)'] = 'home/Jobseeker/$1';
 $route['jobseeker/(:any)/([0-9]+)'] = 'home/Jobseeker/$1/$2';
 
 $route['employer/jobList/(:any)/([0-9]+)'] = 'home/Employer/jobList/$1/$2';
-$route['category/(:any)/(:any)/([0-9]+)'] = 'home/category/$1/$2';
+$route['category/(:any)/([0-9]+)'] = 'home/category/$1/$2';
 $route['search/jobSearch/([0-9]+)'] = 'home/Search/jobSearch';
 $route['search/job/([0-9]+)'] = 'home/Search/job';
 $route['search/searchResult/([0-9]+)'] = 'home/Search/searchResult';
@@ -115,6 +115,7 @@ $route['viewjobstype/(:any)/([0-9]+)'] = 'home/Search/searchByJobType/$1';
 $route['viewjobs/(:any)/([0-9]+)'] = 'home/Search/getBydisplayIn/$1';
 $route['viewjobs/(:any)/([0-9]+)/([0-9]+)'] = 'home/Search/getBydisplayIn/$1/$2';
 
+$route['blog'] = 'home/Blog';
 $route['blog/(:any)'] = 'home/Blog/singlepage/$1';
 /*$route['premium_jobs'] = 'home/premium_jobs';
 $route['top_jobs'] = 'home/top_jobs';*/

@@ -444,6 +444,8 @@ class Jobseeker extends View_Controller {
                 'isActivated' => '1',
             );
 
+
+
             $this->general_model->insert('seeker',$cv_data);
         }
 

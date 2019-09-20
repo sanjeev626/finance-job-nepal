@@ -8,14 +8,15 @@
       <div class="row">
         <div class="col-md-12">
             <div class="panel-footer">
-            <a class="btn btn-success" href="<?php echo base_url(); ?>admin/Client/add">+ Add Client </a>
+            <a class="btn btn-success" href="<?php echo base_url(); ?>admin/client/add">+ Add Client </a>
         </div>
           <div class="table-responsive">
             <table class="table table-striped mb30" id="table1" cellspacing="0" width="100%">
               <thead>
                 <tr>
                   <th width="5%">SN.</th>
-                  <th width="20%">Client Name </th>
+                  <th width="40%">Client Name </th>
+                  <th width="20%">Order Number </th>
                   <th width="10%" class="table-action">Action</th>
                 </tr>
               </thead>
@@ -32,11 +33,13 @@
                   <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $key->clientname; ?></td>
-                    
+                    <td>
+                      <input type="text" id="orderno_<?php echo $key->id?>" name="orderno" value="<?php echo $key->orderno; ?>" onchange="changeorder(<?php echo $key->id?>)">
+                     </td>
                     <td class="table-action">
-                      <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/Client/edit/<?php echo $key->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Client"></i> Edit</a>
+                      <a class="btn btn-success btn-sm" href="<?php echo base_url(); ?>admin/client/edit/<?php echo $key->id; ?>"><i class="fa fa-edit tooltips" data-original-title="Edit Client"></i> Edit</a>
                       |
-                      <button type="button" class="btn btn-success btn-sm delete_client" link="<?php echo base_url(); ?>admin/Client/deleteClient/<?php echo $key->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Client"></i> Delete</button>
+                      <button type="button" class="btn btn-success btn-sm delete_client" link="<?php echo base_url(); ?>admin/client/deleteclient/<?php echo $key->id; ?>" data-toggle="modal" data-target="#myModalDelete"><i class="fa fa-trash tooltips" data-original-title="Delete Client"></i> Delete</button>
                     </td>
                   </tr>
                   <?php
@@ -96,4 +99,17 @@
 
       });
     });
+
+    function changeorder(id){
+       var orderno = $('#orderno_'+id).val();
+      
+       $.ajax({
+        type:'POST',
+         data: {id:id , orderno: orderno} ,
+        url:'<?php echo base_url() . "admin/client/changeorderno/"?>',
+        success: function(data){
+          console.log('sucessfully update');
+        }
+       })
+    };
   </script>

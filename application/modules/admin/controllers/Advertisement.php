@@ -20,7 +20,7 @@ class Advertisement extends MY_Controller {
 
     public function showAdvertisement(){
 
-        $config['base_url'] = base_url() . 'admin/Advertisement';
+        $config['base_url'] = base_url() . 'admin/advertisement';
         $config['uri_segment'] = 3;
         $config['per_page'] = 50;
 
@@ -52,8 +52,8 @@ class Advertisement extends MY_Controller {
 
         $this->pagination->initialize($config);
 
-        $data['title'] = '.:: ADVERTISEMENT ::.';
-        $data['page_header'] = 'Advertisement';
+        $data['title'] = 'ADVERTISEMENT';
+        $data['page_header'] = 'Advertisement (Right Side)';
         $data['page_header_icone'] = 'fa-hand-o-right';
         $data['nav'] = 'advertisement';
         $data['panel_title'] = 'Advertisement Manager';
@@ -63,8 +63,8 @@ class Advertisement extends MY_Controller {
     }
 
     public function add(){
-        $data['title'] = '.:: ADD ADVERTISEMENT ::.';
-        $data['page_header'] = 'Advertisement';
+        $data['title'] = 'ADD ADVERTISEMENT';
+        $data['page_header'] = 'Advertisement (Right Side)';
         $data['page_header_icone'] = 'fa-hand-o-right';
         $data['nav'] = 'advertisement';
         $data['panel_title'] = 'Add Advertisement ';
@@ -75,31 +75,51 @@ class Advertisement extends MY_Controller {
 
     public function addAdvertisement(){
         $this->form_validation->set_rules('addtitle', 'addtitle', 'required');
+
         if (FALSE == $this->form_validation->run()) {
-            $data['title'] = '.:: ADD ADVERTISEMENT ::.';
-            $data['page_header'] = 'Advertisement';
+            $data['title'] = 'ADD ADVERTISEMENT';
+            $data['page_header'] = 'Advertisement (Right Side)';
             $data['page_header_icone'] = 'fa-hand-o-right';
             $data['nav'] = 'advertisement';
             $data['panel_title'] = 'Add Advertisement ';
             $data['main'] = 'advertisement/add-edit-advertisement';
             $this->load->view('home', $data);
         } else {
-            $this->advertisement_model->insert_advertisement();
+
+            $a = $_FILES['image']['name'];
+
+            if ($a !== "") {
+                $config['upload_path'] = './././uploads/advertisement/';
+                $config['log_threshold'] = 1;
+                $config['allowed_types'] = 'jpg|png|jpeg|gif';
+                $config['max_size'] = '100000'; // 0 = no file size limit
+                $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['image']['name']));
+                $config['overwrite'] = false;
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('image');
+                $upload_data = $this->upload->data();
+                $advimage = $upload_data['file_name'];
+            }
+
+            if(!isset($advimage))  $advimage = '';
+
+
+            $this->advertisement_model->insert_advertisement($advimage);
             $this->session->set_flashdata('success', 'Advertisement Added Successfully...');
-            redirect(base_url() . 'admin/Advertisement', 'refresh');
+            redirect(base_url() . 'admin/advertisement', 'refresh');
         }
     }
 
     public function edit($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Advertisement');
+            redirect(base_url() . 'admin/advertisement');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Advertisement');
+            redirect(base_url() . 'admin/advertisement');
 
-        $data['title'] = '.:: EDIT ADVERTISEMENT ::.';
-        $data['page_header'] = 'Advertisement';
+        $data['title'] = 'EDIT ADVERTISEMENT';
+        $data['page_header'] = 'Advertisement (Right Side)';
         $data['page_header_icone'] = 'fa-hand-o-right';
         $data['nav'] = 'advertisement';
         $data['panel_title'] = 'Edit Advertisement ';
@@ -112,15 +132,15 @@ class Advertisement extends MY_Controller {
     public function editAdvertisement($id){
 
         if (!isset($id))
-            redirect(base_url() . 'admin/Advertisement');
+            redirect(base_url() . 'admin/advertisement');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Advertisement');
+            redirect(base_url() . 'admin/advertisement');
 
          $this->form_validation->set_rules('addtitle', 'addtitle', 'required');
         if (FALSE == $this->form_validation->run()) {
-            $data['title'] = '.:: EDIT ADVERTISEMENT ::.';
-            $data['page_header'] = 'Advertisement';
+            $data['title'] = 'EDIT ADVERTISEMENT';
+            $data['page_header'] = 'Advertisement (Right Side)';
             $data['page_header_icone'] = 'fa-hand-o-right';
             $data['nav'] = 'advertisement';
             $data['panel_title'] = 'Edit Advertisement ';
@@ -128,22 +148,40 @@ class Advertisement extends MY_Controller {
             $data['main'] = 'advertisement/add-edit-advertisement';
             $this->load->view('home', $data);
         } else {
-            $this->advertisement_model->update_advertisement($id);
+
+            $a = $_FILES['image']['name'];
+
+            if ($a !== "") {
+                $config['upload_path'] = './././uploads/advertisement/';
+                $config['log_threshold'] = 1;
+                $config['allowed_types'] = 'jpg|png|jpeg|gif';
+                $config['max_size'] = '100000'; // 0 = no file size limit
+                $config['file_name'] = rand(1111,9999).str_replace(" ","_",strtolower($_FILES['image']['name']));
+                $config['overwrite'] = false;
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('image');
+                $upload_data = $this->upload->data();
+                $advimage = $upload_data['file_name'];
+            }
+
+            if(!isset($advimage))  $advimage = '';
+
+            $this->advertisement_model->update_advertisement($id,$advimage);
             $this->session->set_flashdata('success', 'Advertisement Update Successfully...');
-            redirect(base_url() . 'admin/Advertisement', 'refresh');
+            redirect(base_url() . 'admin/advertisement', 'refresh');
         }
     }
 
     public function deleteAdvertisement($id){
         if (!isset($id))
-            redirect(base_url() . 'admin/Advertisement');
+            redirect(base_url() . 'admin/advertisement');
 
         if (!is_numeric($id))
-            redirect(base_url() . 'admin/Advertisement');
+            redirect(base_url() . 'admin/advertisement');
 
         $this->advertisement_model->delete_advertisement($id);
         $this->session->set_flashdata('success', 'Advertisement Deleted Successfully...');
-        redirect(base_url() . 'admin/Advertisement', 'refresh');
+        redirect(base_url() . 'admin/advertisement', 'refresh');
     }
 
 }

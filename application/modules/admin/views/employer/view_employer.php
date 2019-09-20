@@ -29,7 +29,7 @@
               <tbody>
                 
                   <tr>
-                    <td colspan="3" class="green-bold"><?php echo $employer_info->orgname; ?></td>
+                    <td colspan="3" class="green-bold"><?php echo $employer_info->organization_name; ?></td>
                     <td> <!--<a class="btn btn-success btn-xs" href="<?php /*echo base_url(); */?>admin/Employer/changeCorporate/<?php /*echo $employer_info->id; */?>/<?php /*echo $employer_info->isCorporate; */?>"><?php /*if($employer_info->isCorporate =='No'){ echo "Make Corporate"; } else { echo "Make General"; } */?> </a>--></td>
                   </tr>
 
@@ -53,7 +53,7 @@
 
                   <tr>
                   	<td class="green-bold">Organization Name : </td>
-                  	<td><?php echo $employer_info->orgname; ?></td>
+                  	<td><?php echo $employer_info->organization_name; ?></td>
                   	<td></td>
                   	<td></td>
                   </tr>

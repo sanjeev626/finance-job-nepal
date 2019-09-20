@@ -40,12 +40,11 @@ class Home extends View_Controller {
         //$countRecord = $this->general_model->countTotal('employer',array('email' => $email));
         $data['hot_job'] = $this->home_model->get_hot_job($no_of_hot_job);
         //echo $this->db->last_query();exit();
+
         $data['newspaper_job'] = $this->home_model->get_job_by_type('NJob',24);
 
         $data['fjn_job'] = $this->home_model->get_job_by_type('FJNJob',24);
-        $data['recent_job'] = $this->home_model->get_recent_job('RJob',24);
-
-        
+        $data['recent_job'] = $this->home_model->get_recent_job('RJob',24);       
 
         $data['joblocation'] = $this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');
 
@@ -116,7 +115,7 @@ class Home extends View_Controller {
         
         //og tags here 
         //print_r($jobInfo);   
-        if(!empty($employer_info))
+        if(empty($jobInfo['0']->displayname))
             $ogurl = base_url().'job/'.$employer_info->organization_code.'/'.$jobInfo['0']->slug.'/'.$jobInfo['0']->id;
         else
             $ogurl = base_url().'job/'.$jobInfo['0']->slug.'/'.$jobInfo['0']->id;
@@ -855,8 +854,8 @@ class Home extends View_Controller {
                         Submitting Contact Us
     ---------------------------------------------------------*/
     public function submitcontact(){
-        //$to = "info@financejobnepal.com";
-        $to = "binaya619@gmail.com";
+        $to = "info@financejobnepal.com";
+        //$to = "binaya619@gmail.com";
         $toname = "Finance Job Nepal HR Solution";
         $from = $this->input->post('email');
         $fromname = $this->input->post('name');
@@ -1530,6 +1529,31 @@ class Home extends View_Controller {
         $data['title'] = 'Training';
         
         $data['main'] = 'training/training-detail';
+        $this->load->view('main',$data);
+    }
+
+    public function recentjob(){
+        $data['menu'] = 'recentjob';
+        $data['title'] = 'Recent Job';
+        $data['page_title'] = 'Recent Job | Finance Job Nepal.';
+        $data['joblists'] = $this->home_model->get_recent_job('RJob','');
+        $data['main'] = 'jobs/job-list-by-type';
+        $this->load->view('main',$data);
+    }
+    public function newspaperjob(){
+        $data['menu'] = 'newspaperjob';
+        $data['title'] = 'News Paper Job';
+        $data['page_title'] = 'News Paper Job | Finance Job Nepal.';
+       $data['joblists'] = $this->home_model->get_job_by_type('NJob','');
+       $data['main'] = 'jobs/job-list-by-type';
+       $this->load->view('main',$data);
+    }
+    public function hotjob(){
+        $data['menu'] = 'hotjob';
+        $data['title'] = 'Hot Job';
+        $data['page_title'] = 'Hot Job | Finance Job Nepal.';
+        $data['joblists'] = $this->home_model->get_job_by_type('FJNJob','');
+        $data['main'] = 'jobs/job-list-by-type';
         $this->load->view('main',$data);
     }
 }

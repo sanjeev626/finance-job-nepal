@@ -81,7 +81,10 @@
 }
 .job-content h3{
 	font-size: 20px;
+<<<<<<< HEAD
 	width: 100%;
+=======
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
 }
 
 .company-name a{
@@ -132,10 +135,13 @@
     transition: all 0.4s ease 0s;
 }
 
+<<<<<<< HEAD
 .advertisement-content img{
 	width: 100%;
 }
 
+=======
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
 .fjn-job-tab-area .tab-content li{
 	float: left;
 	padding: 10px;
@@ -150,12 +156,20 @@
 @media (max-width: 640px) {
   .client-content li {
     width: 50%;
+<<<<<<< HEAD
     height:70px;
     float: left;
   }
   .client-content img {
   	max-width: 150px;
     max-height: 70px;
+=======
+    float: left;
+  }
+  .client-content img {
+  	width: 100%;
+  	min-height: 70px;
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
   }
   .padding-right-7{
 	padding-right: 7px;
@@ -163,8 +177,11 @@
   .padding-left-8{
 	padding-left: 8px;
   }
+<<<<<<< HEAD
 }
 
 .fjn-footer-area{
 	line-height: 16px;
+=======
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
 }

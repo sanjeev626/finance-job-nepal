@@ -1054,8 +1054,12 @@
 	.copyright-left {
 	    text-align: center !important;
 	}
+<<<<<<< HEAD
 	.copyright-left>p {
 	    
+=======
+	.copyright-left>p {	    
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
 	    font-size: 12px;
 	}
 	.powered-right {
@@ -1064,4 +1068,21 @@
 	.powered-right p {	   
 	    font-size: 12px;
 	}
+<<<<<<< HEAD
+=======
+	.banner-text {	   
+	    top: 15%;	 
+	}
+	.stickyfooter .footersign ul .stickyfootertitle {
+	    font-size: 12px;
+	}
+	.seekerpart {
+	    margin-top: 20px;
+	}
+	.btntoTop {	    
+	    height: 50px;
+	    line-height: 46px;	   
+	    width: 50px;
+	}	
+>>>>>>> dbe28e6640d84efbd8f7eb1f920d66f438f9dd8b
 }

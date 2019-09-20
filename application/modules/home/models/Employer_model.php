@@ -95,6 +95,7 @@ class Employer_model extends CI_Model {
         $this->db->insert($this->table_employer,$employer_data);
         $insert_id = $this->db->insert_id();
         $data['organization_code'] = $orgcode.'-'.$insert_id;
+        $this->db->where('id',$insert_id);
         $this->db->update($this->table_employer,$data);
 
     }
