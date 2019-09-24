@@ -203,7 +203,7 @@ echo form_open_multipart($action, $attributes);
     <div class="panel-footer">
         <div class="row">
             <div class="left">
-                <input type="submit" class="btn btn-success btn-flat" name="search" value="Search Employer">
+                <input type="submit" class="btn btn-success btn-flat" name="search" value="Search Job Seeker">
                 <!--<button class="btn btn-success btn-flat" type="submit">Search Employer</button>-->
             </div>
 

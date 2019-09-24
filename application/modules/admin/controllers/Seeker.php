@@ -448,7 +448,7 @@ class Seeker extends MY_Controller {
     }
 
      public function search(){
-         if(!empty($_POST['search'])){
+         
              $data['total_job_seeker'] = $this->seeker_model->search_seeker_by_param();
 
              $config['base_url'] = base_url() . 'admin/seeker/search';
@@ -511,7 +511,7 @@ class Seeker extends MY_Controller {
              $data['registeredto'] = $this->input->post('registeredto');
 
              $this->load->view('home', $data);
-         }
+        
 
          if(!empty($_POST['excel'])){
              $this->export_to_excel();

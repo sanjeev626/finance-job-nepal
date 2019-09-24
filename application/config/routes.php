@@ -63,12 +63,12 @@ $route['core/reset_password/(:any)'] = 'admin/auth/reset_password/$1';
 $route['admin/login'] ='admin/auth/login';
 $route['logout'] = 'admin/auth/logout';
 
-$route['admin/Client/([0-9]+)'] = 'admin/Client';
-$route['admin/Advertisement/([0-9]+)'] = 'admin/Advertisement';
-$route['admin/Employer/([0-9]+)'] = 'admin/Employer';
-$route['admin/Employer/searchEmployer/([0-9]+)'] = 'admin/Employer/searchEmployer';
-$route['admin/Seeker/([0-9]+)'] = 'admin/Seeker';
-$route['admin/Seeker/searchSeeker/([0-9]+)'] = 'admin/Seeker/searchSeeker';
+$route['admin/client/([0-9]+)'] = 'admin/Client';
+$route['admin/advertisement/([0-9]+)'] = 'admin/Advertisement';
+$route['admin/employer/([0-9]+)'] = 'admin/Employer';
+$route['admin/employer/searchEmployer/([0-9]+)'] = 'admin/Employer/searchEmployer';
+$route['admin/seeker/([0-9]+)'] = 'admin/Seeker';
+$route['admin/seeker/search/([0-9]+)'] = 'admin/Seeker/search';
 
 $route['admin/blog/add'] = 'admin/Blog/blogadd';
 $route['admin/blog/edit/([0-9]+)'] = 'admin/Blog/blogedit/$1';
