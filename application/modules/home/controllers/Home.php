@@ -46,7 +46,7 @@ class Home extends View_Controller {
         $data['joblocation'] = $this->general_model->getAll('dropdown','fid = 2','dropvalue','id,dropvalue');
         $data['type'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue','',6);        
         $data['job_display_in'] = $this->general_model->getAll('dropdown','fid = 16','ordering','id,dropvalue');
-        $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','',18);
+        $data['job_category'] =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','','');
         $data['blogcount'] =  $this->general_model->countTotal('blog',array('stat' => 'Y'));
         $data['home_blog'] =  $this->general_model->getAll('blog','stat = "Y"','id DESC','*','',3);
         $data['advetisements'] = $this->home_model->get_all_advertisment();
@@ -628,6 +628,7 @@ class Home extends View_Controller {
         $data['menu'] = $slug;
         $data['page_title'] = 'Finance Job Nepal.';
         $data['joblists'] = $this->home_model->get_job_by_category($slug,$config['per_page'], $page);
+         //echo  $this->db->last_query(); 
         $data['title'] ='Job List';
         $data['main'] = 'job-by-category';
 
@@ -1536,6 +1537,124 @@ class Home extends View_Controller {
         $data['page_title'] = 'Hot Job | Finance Job Nepal.';
         $data['joblists'] = $this->home_model->get_job_by_type('FJNJob','');
         $data['main'] = 'jobs/job-list-by-type';
+        $this->load->view('main',$data);
+    }
+
+    public function education($slug){
+        $applydate = date('Y-m-d');
+        $data['job_list'] = '';
+
+        if($slug=='charter-accountant'){
+            $edu = ['CA','ACCA','CFA','CPA','CA/ACCA','CA/ACCA/CFA/CPA/MBA','CA/ACCA/CPA'];
+
+        }elseif($slug=='semi-qualified-ca'){
+            $edu = ['Semi Qualified CA'];
+        }
+        /* Bootstrap Pagination  */
+
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+        /* End of Bootstrap Pagination */
+        $config['uri_segment'] = 4;
+        $config['per_page'] = 10;
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $config['base_url'] = base_url() . 'education/'.$slug;
+        $config['total_rows'] = $this->home_model->get_Total_job_by_educations($edu ,array('applybefore >='=>$applydate),'','*');
+        $config["cur_page"] = $page;
+        $this->pagination->initialize($config);
+
+        $data['menu'] = $slug;
+        $data['page_title'] = 'Finance Job Nepal.';
+        //$data['joblists'] = $this->home_model->get_job_by_category($slug,$config['per_page'], $page);
+
+        $data['joblists'] = $this->home_model->get_job_by_educations($edu,array('applybefore >='=>$applydate),'','*','',$config['per_page'], $page);
+
+        $data['title'] ='Job List';
+        $data['main'] = 'job-by-category';
+        $this->load->view('main',$data);
+    }
+
+    public function jobbylevel($slug){
+
+        /* Bootstrap Pagination  */
+
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+        /* End of Bootstrap Pagination */
+        $config['uri_segment'] = 4;
+        $config['per_page'] = 10;
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $config['base_url'] = base_url() . 'education/'.$slug;
+        $config['total_rows'] = $this->home_model->get_total_job_by_level($slug);
+        $config["cur_page"] = $page;
+        $this->pagination->initialize($config);
+
+        $data['menu'] = $slug;
+        $data['page_title'] = 'Finance Job Nepal.';
+        $data['joblists'] = $this->home_model->get_job_by_level($slug,$config['per_page'], $page);
+
+        $data['title'] ='Job List';
+        $data['main'] = 'job-by-category';
+        $this->load->view('main',$data);
+    }
+
+    public function jobbytitle($slug){
+        /* Bootstrap Pagination  */
+
+        $config['full_tag_open'] = "<ul class='pagination'>";
+        $config['full_tag_close'] ="</ul>";
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
+        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
+        $config['next_tag_open'] = "<li>";
+        $config['next_tagl_close'] = "</li>";
+        $config['prev_tag_open'] = "<li>";
+        $config['prev_tagl_close'] = "</li>";
+        $config['first_tag_open'] = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open'] = "<li>";
+        $config['last_tagl_close'] = "</li>";
+        /* End of Bootstrap Pagination */
+        $config['uri_segment'] = 4;
+        $config['per_page'] = 10;
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $config['base_url'] = base_url() . 'job-title/'.$slug;
+        $config['total_rows'] = $this->home_model->get_total_job_by_title($slug);
+
+        $config["cur_page"] = $page;
+        $this->pagination->initialize($config);
+
+        $data['menu'] = $slug;
+        $data['page_title'] = 'Finance Job Nepal.';
+        $data['joblists'] = $this->home_model->get_job_by_title($slug,$config['per_page'], $page);
+        //echo $this->db->last_query();
+        $data['title'] ='Job List';
+        $data['main'] = 'job-by-category';
         $this->load->view('main',$data);
     }
 }

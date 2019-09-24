@@ -26,6 +26,7 @@ class Dashboard extends MY_Controller {
         $data['total_employer'] = $this->general_model->countTotal('employer');
         $data['total_job_seeker'] = $this->general_model->countTotal('seeker');
         $data['total_job'] = $this->general_model->countTotal('jobs',"applybefore >= '".$date."'",'applybefore DESC');
+        $data['inactive_job'] = $this->general_model->countTotal('jobs',"applybefore <= '".$date."'",'applybefore DESC');
         //print_r($this->session->all_userdata());
         
         $user_id = $this->session->userdata('user_id');

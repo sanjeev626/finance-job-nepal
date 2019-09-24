@@ -1352,18 +1352,18 @@ header,
 	padding-top: 3px;
 }
 
-.top-company-list .company-list-details>h3 {
+/*.top-company-list .company-list-details>h3 {
 	font-size: 18px;
 	text-transform: capitalize;
 	font-family: 'Raleway', sans-serif;
 	font-weight: 500;
 	margin-bottom: 10px;
 	color: #202020;
-}
+}*/
 
-.top-company-list .company-list-details>h3>a {
+/*.top-company-list .company-list-details>h3>a {
 	color: #202020
-}
+}*/
 
 .company-list-details p {
 	display: inline-block;

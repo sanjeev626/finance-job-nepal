@@ -750,6 +750,103 @@ class Home_model extends CI_Model {
         return $query->num_rows();
     }
 
+    public function get_job_by_educations($education, $where = NULL, $orderBy = NULL, $select = NULL, $group_by = NULL,$limit = NULL, $offset = NULL) {
+        $this->db->where_in('required_education',$education);
+        if ($select)
+            $this->db->select($select);
+        if ($where)
+            $this->db->where($where);
+        if ($orderBy)
+            $this->db->order_by($orderBy);
+        if ($group_by)
+            $this->db->group_by($group_by);
+        if($limit)
+            $this->db->limit($limit);
+        if($offset)
+            $this->db->offset($offset);
+
+        $query = $this->db->get('jobs');
+        //echo $this->db->last_query();
+        if ($query->num_rows() == 0) {
+            return FALSE;
+        } else {
+            return $query->result();
+        }
+    }
+
+    public function get_Total_job_by_educations($education, $where = NULL) {
+
+        $this->db->where_in('required_education',$education);
+        if ($where)
+            $this->db->where($where);
+
+        $this->db->from('jobs');
+
+        return $this->db->count_all_results();
+
+    }
+
+    public function get_job_by_level($slug,$limit = NULL, $offset = NULL){
+        $date = date('Y-m-d');
+        $this->db->select();
+        $this->db->from('jobs as jb');
+        $this->db->join('dropdown as dp','dp.id = jb.joblevel');
+        $this->db->where('dp.slug',$slug);
+        $this->db->where('applybefore >=',$date);
+        $this->db->where('post_status','public');
+        if($limit)
+            $this->db->limit($limit);
+        if($offset)
+            $this->db->offset($offset);
+        $query = $this->db->get();
+        if ($query->num_rows() == 0) {
+            return FALSE;
+        } else {
+            return $query->result();
+        }
+    }
+
+    public function get_total_job_by_level($slug){
+        $date = date('Y-m-d');
+        $this->db->select();
+        $this->db->from('jobs as jb');
+        $this->db->join('dropdown as dp','dp.id = jb.joblevel');
+        $this->db->where('dp.slug',$slug);
+        $this->db->where('applybefore >=',$date);
+        $this->db->where('post_status','public');
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    public function get_job_by_title($slug,$limit = NULL, $offset = NULL){
+        $date = date('Y-m-d');
+        $this->db->select();
+        $this->db->like('jobtitle', $slug);
+        $this->db->where('applybefore >=',$date);
+        $this->db->where('post_status','public');
+        $this->db->order_by('post_date','DESC');
+        if($limit)
+            $this->db->limit($limit);
+        if($offset)
+            $this->db->offset($offset);
+        $query = $this->db->get('jobs');
+        //echo $this->db->last_query();
+        if ($query->num_rows() == 0) {
+            return FALSE;
+        } else {
+            return $query->result();
+        }
+    }
+    public function get_total_job_by_title($slug){
+        $date = date('Y-m-d');
+        $this->db->select();
+        $this->db->from('jobs as jb');
+        $this->db->like('jb.jobtitle', $slug);
+        $this->db->where('applybefore >=',$date);
+        $this->db->where('post_status','public');
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
 }
 
 /* End of file Home_model.php

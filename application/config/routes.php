@@ -117,6 +117,15 @@ $route['viewjobs/(:any)/([0-9]+)/([0-9]+)'] = 'home/Search/getBydisplayIn/$1/$2'
 
 $route['blog'] = 'home/Blog';
 $route['blog/(:any)'] = 'home/Blog/singlepage/$1';
+
+$route['education/(:any)'] = 'home/education/$1';
+$route['education/(:any)/([0-9]+)'] = 'home/education/$1/$2';
+
+$route['job-level/(:any)'] = 'home/jobbylevel/$1';
+$route['job-level/(:any)/([0-9]+)'] = 'home/jobbylevel/$1/$2';
+
+$route['job-title/(:any)'] = 'home/jobbytitle/$1';
+$route['job-title/(:any)/([0-9]+)'] = 'home/jobbytitle/$1/$2';
 /*$route['premium_jobs'] = 'home/premium_jobs';
 $route['top_jobs'] = 'home/top_jobs';*/
 

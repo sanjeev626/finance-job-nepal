@@ -79,10 +79,12 @@
                             <i class="fa fa-briefcase"></i>
                         </div> -->
                         <?php 
-                            $totaljobs = $this->general_model->countTotal('jobs',array('jobcategory' => $jc->id));
+                        $applydate = date('Y-m-d');
+                            $totaljobs = $this->general_model->countTotal('jobs',array('jobcategory' => $jc->id,'applybefore >='=>$applydate,'post_status'=>'public'));
+                            //echo $this->db->last_query();
                         ?>
                         <div class="category-holder-text">
-                            <h3><?php echo $jc->dropvalue .' ('.$totaljobs.')';?></h3>
+                            <h3><?php echo $jc->dropvalue .'<span style="font-weight:bold;"> ('.$totaljobs.')</span>';?></h3>
                         </div>
                         <?php
                             if(!empty($jc->image)){

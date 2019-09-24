@@ -2,15 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="541cec99-7595-46a6-93cc-4c8278930a92" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\xampp\htdocs\financejobnepal\application\modules\home\views\includes\home-blog-section.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\xampp\htdocs\financejobnepal\application\modules\home\views\includes\home-job-section.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/blog/add_blog.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/blog/add_blog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content_home/img/company-logo-4.png" afterPath="$PROJECT_DIR$/content_home/img/company-logo-4.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/controllers/Dashboard.php" afterPath="$PROJECT_DIR$/application/modules/admin/controllers/Dashboard.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/controllers/Home.php" afterPath="$PROJECT_DIR$/application/modules/home/controllers/Home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/models/Home_model.php" afterPath="$PROJECT_DIR$/application/modules/home/models/Home_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/controllers/Vacancy.php" afterPath="$PROJECT_DIR$/application/modules/admin/controllers/Vacancy.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content_home/img/au.svg" afterPath="$PROJECT_DIR$/content_home/img/au.svg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content_home/css/custom.css" afterPath="$PROJECT_DIR$/content_home/css/custom.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/includes/footer.php" afterPath="$PROJECT_DIR$/application/modules/home/views/includes/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/includes/header.php" afterPath="$PROJECT_DIR$/application/modules/home/views/includes/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/admin/views/dashboard_view.php" afterPath="$PROJECT_DIR$/application/modules/admin/views/dashboard_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content_home/img/de.svg" afterPath="$PROJECT_DIR$/content_home/img/de.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/includes/detail-page-similar-job.php" afterPath="$PROJECT_DIR$/application/modules/home/views/includes/detail-page-similar-job.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content_home/img/gb.svg" afterPath="$PROJECT_DIR$/content_home/img/gb.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/jobs/home-job-list.php" afterPath="$PROJECT_DIR$/application/modules/home/views/jobs/home-job-list.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/home.php" afterPath="$PROJECT_DIR$/application/modules/home/views/home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/job-by-category.php" afterPath="$PROJECT_DIR$/application/modules/home/views/job-by-category.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/job-detail.php" afterPath="$PROJECT_DIR$/application/modules/home/views/job-detail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/modules/home/views/blog/list-blog.php" afterPath="$PROJECT_DIR$/application/modules/home/views/blog/list-blog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content_home/img/pl.svg" afterPath="$PROJECT_DIR$/content_home/img/pl.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content_home/css/style.css" afterPath="$PROJECT_DIR$/content_home/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="finance-job-nepal.iws" />
@@ -39,41 +49,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="job-detail.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/job-detail.php">
+      <file leaf-file-name="Home.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4193548">
-              <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home-job-section.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobs/home-job-section.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.278481">
-              <caret line="211" column="63" selection-start-line="211" selection-start-column="63" selection-end-line="211" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.49618322">
+              <caret line="1586" column="0" selection-start-line="1586" selection-start-column="0" selection-end-line="1586" selection-end-column="0" />
               <folding>
-                <marker date="1568789194900" expanded="true" signature="5062:5448" placeholder="..." />
-                <marker date="1568789194900" expanded="false" signature="5150:5185" placeholder="..." />
-                <marker date="1568789194900" expanded="true" signature="5186:5386" placeholder="..." />
-                <marker date="1568789194900" expanded="true" signature="7291:7680" placeholder="..." />
-                <marker date="1568789194900" expanded="false" signature="7379:7414" placeholder="..." />
-                <marker date="1568789194900" expanded="true" signature="7415:7618" placeholder="..." />
-                <marker date="1568789194900" expanded="true" signature="9495:9878" placeholder="..." />
-                <marker date="1568789194900" expanded="false" signature="9583:9618" placeholder="..." />
-                <marker date="1568789194900" expanded="true" signature="9619:9816" placeholder="..." />
+                <element signature="e#15910#16191#0#PHP" expanded="false" />
+                <element signature="e#23991#26991#0#PHP" expanded="false" />
+                <element signature="e#69891#70221#0#PHP" expanded="false" />
+                <element signature="e#70227#72240#0#PHP" expanded="false" />
+                <element signature="e#72246#73758#0#PHP" expanded="false" />
+                <marker date="1569307589619" expanded="true" signature="45723:45764" placeholder="..." />
+                <marker date="1569307589619" expanded="true" signature="46005:46023" placeholder="..." />
+                <marker date="1569307589619" expanded="true" signature="46445:46462" placeholder="..." />
+                <marker date="1569307589619" expanded="true" signature="48569:48586" placeholder="..." />
+                <marker date="1569307589619" expanded="true" signature="50567:50584" placeholder="..." />
+                <marker date="1569307589619" expanded="true" signature="51784:51802" placeholder="..." />
+                <marker date="1569307589619" expanded="true" signature="54041:54090" placeholder="..." />
+                <marker date="1569307589619" expanded="true" signature="56528:56577" placeholder="..." />
+                <marker date="1569307589619" expanded="true" signature="58550:58599" placeholder="..." />
+                <marker date="1569307589619" expanded="true" signature="60425:60474" placeholder="..." />
+                <marker date="1569307589619" expanded="true" signature="62985:63003" placeholder="..." />
+                <marker date="1569307589619" expanded="true" signature="63257:63306" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <file leaf-file-name="Home_model.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/home/models/Home_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="46.83871">
-              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            <state vertical-scroll-proportion="-6.9">
+              <caret line="818" column="5" selection-start-line="752" selection-start-column="4" selection-end-line="818" selection-end-column="5" />
+              <folding>
+                <element signature="e#346#1259#0#PHP" expanded="false" />
+                <element signature="e#1267#1840#0#PHP" expanded="false" />
+                <element signature="e#1846#2343#0#PHP" expanded="false" />
+                <element signature="e#2353#2817#0#PHP" expanded="false" />
+                <element signature="e#2824#3508#0#PHP" expanded="false" />
+                <element signature="e#4546#5053#0#PHP" expanded="false" />
+                <element signature="e#23817#24611#0#PHP" expanded="false" />
+                <element signature="e#24617#24899#0#PHP" expanded="false" />
+                <element signature="e#24905#25569#0#PHP" expanded="false" />
+                <element signature="e#25575#26004#0#PHP" expanded="false" />
+                <marker date="1569307125252" expanded="true" signature="16347:16455" placeholder="SELECT emp.o..jobs..." />
+                <marker date="1569307125252" expanded="true" signature="22302:22369" placeholder="SELECT * FRO..jobs..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.8333335">
+              <caret line="124" column="62" selection-start-line="120" selection-start-column="0" selection-end-line="124" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -94,7 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/modules/admin/views/common/sidenav.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/views/banner/edit-banner.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/models/Advertisement_model.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/views/client/client_manager_view.php" />
@@ -104,8 +134,6 @@
         <option value="$PROJECT_DIR$/content_home/css/style.css" />
         <option value="$PROJECT_DIR$/application/modules/home/views/includes/home-job-section-back.php" />
         <option value="$PROJECT_DIR$/theme/includes/job-section.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/controllers/Home.php" />
-        <option value="$PROJECT_DIR$/application/modules/home/models/Home_model.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/views/advertisement/add-edit-advertisement.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/views/client/add-edit-client.php" />
         <option value="$PROJECT_DIR$/application/modules/admin/controllers/Advertisement.php" />
@@ -145,6 +173,9 @@
         <option value="$PROJECT_DIR$/application/modules/home/views/includes/home-job-section.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/job-detail.php" />
         <option value="$PROJECT_DIR$/application/modules/home/views/jobs/home-job-section.php" />
+        <option value="$PROJECT_DIR$/application/config/routes.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/models/Home_model.php" />
+        <option value="$PROJECT_DIR$/application/modules/home/controllers/Home.php" />
       </list>
     </option>
   </component>
@@ -189,7 +220,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -284,7 +314,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -310,11 +340,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jobs" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -336,20 +362,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finance-job-nepal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="financejobnepal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,10 +462,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189108" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25567323" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -458,7 +495,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20196672" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25567323" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -484,7 +521,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/modules/home/controllers/Jobseeker.php</url>
-          <line>1328</line>
+          <line>1326</line>
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/modules/home/controllers/Employer.php</url>
@@ -502,20 +539,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/modules/home/models/Home_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6299639">
-          <caret line="143" column="8" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/includes/home-job-section-back.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6967509">
-          <caret line="251" column="125" selection-start-line="251" selection-start-column="66" selection-end-line="251" selection-end-column="125" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/theme/includes/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.501805">
@@ -697,43 +720,43 @@
             <element signature="e#5872#21553#0#PHP" expanded="false" />
             <element signature="e#7074#21553#0#PHP" expanded="false" />
             <element signature="e#9269#10025#0#PHP" expanded="false" />
-            <element signature="e#25295#27778#0#PHP" expanded="false" />
-            <element signature="e#27784#29025#0#PHP" expanded="false" />
-            <element signature="e#29035#31432#0#PHP" expanded="false" />
-            <element signature="e#31438#32137#0#PHP" expanded="false" />
-            <element signature="e#32143#33668#0#PHP" expanded="false" />
-            <element signature="e#33877#34735#0#PHP" expanded="false" />
-            <element signature="e#34741#35287#0#PHP" expanded="false" />
-            <element signature="e#35297#36977#0#PHP" expanded="false" />
-            <element signature="e#37182#37773#0#PHP" expanded="false" />
-            <element signature="e#37779#39789#0#PHP" expanded="false" />
-            <element signature="e#39795#40498#0#PHP" expanded="false" />
-            <element signature="e#40504#41002#0#PHP" expanded="false" />
-            <element signature="e#41008#41529#0#PHP" expanded="false" />
-            <element signature="e#41535#42033#0#PHP" expanded="false" />
-            <element signature="e#42039#42542#0#PHP" expanded="false" />
-            <element signature="e#42749#44758#0#PHP" expanded="false" />
-            <element signature="e#44764#53593#0#PHP" expanded="false" />
-            <element signature="e#53599#56957#0#PHP" expanded="false" />
-            <element signature="e#56963#59084#0#PHP" expanded="false" />
-            <element signature="e#59090#60716#0#PHP" expanded="false" />
-            <element signature="e#60722#62266#0#PHP" expanded="false" />
-            <element signature="e#62273#63959#0#PHP" expanded="false" />
-            <element signature="e#63965#64973#0#PHP" expanded="false" />
-            <element signature="e#64979#65530#0#PHP" expanded="false" />
-            <element signature="e#65537#65956#0#PHP" expanded="false" />
-            <element signature="e#65963#66139#0#PHP" expanded="false" />
-            <element signature="e#66342#66779#0#PHP" expanded="false" />
-            <element signature="e#66785#75965#0#PHP" expanded="false" />
-            <element signature="e#75971#81123#0#PHP" expanded="false" />
-            <element signature="e#81129#84852#0#PHP" expanded="false" />
-            <element signature="e#84858#87840#0#PHP" expanded="false" />
-            <element signature="e#87846#95436#0#PHP" expanded="false" />
-            <element signature="e#95618#97619#0#PHP" expanded="false" />
-            <element signature="e#97625#101243#0#PHP" expanded="false" />
-            <element signature="e#101249#103896#0#PHP" expanded="false" />
-            <element signature="e#104080#105806#0#PHP" expanded="false" />
-            <element signature="e#105812#106737#0#PHP" expanded="false" />
+            <element signature="e#25293#27776#0#PHP" expanded="false" />
+            <element signature="e#27782#29023#0#PHP" expanded="false" />
+            <element signature="e#29033#31430#0#PHP" expanded="false" />
+            <element signature="e#31436#32135#0#PHP" expanded="false" />
+            <element signature="e#32141#33666#0#PHP" expanded="false" />
+            <element signature="e#33875#34733#0#PHP" expanded="false" />
+            <element signature="e#34739#35285#0#PHP" expanded="false" />
+            <element signature="e#35295#36975#0#PHP" expanded="false" />
+            <element signature="e#37180#37771#0#PHP" expanded="false" />
+            <element signature="e#37777#39787#0#PHP" expanded="false" />
+            <element signature="e#39793#40496#0#PHP" expanded="false" />
+            <element signature="e#40502#41000#0#PHP" expanded="false" />
+            <element signature="e#41006#41527#0#PHP" expanded="false" />
+            <element signature="e#41533#42031#0#PHP" expanded="false" />
+            <element signature="e#42037#42540#0#PHP" expanded="false" />
+            <element signature="e#42747#44756#0#PHP" expanded="false" />
+            <element signature="e#44762#53591#0#PHP" expanded="false" />
+            <element signature="e#53597#56955#0#PHP" expanded="false" />
+            <element signature="e#56961#59082#0#PHP" expanded="false" />
+            <element signature="e#59088#60714#0#PHP" expanded="false" />
+            <element signature="e#60720#62264#0#PHP" expanded="false" />
+            <element signature="e#62271#63957#0#PHP" expanded="false" />
+            <element signature="e#63963#64971#0#PHP" expanded="false" />
+            <element signature="e#64977#65528#0#PHP" expanded="false" />
+            <element signature="e#65535#65954#0#PHP" expanded="false" />
+            <element signature="e#65961#66137#0#PHP" expanded="false" />
+            <element signature="e#66340#66777#0#PHP" expanded="false" />
+            <element signature="e#66783#75963#0#PHP" expanded="false" />
+            <element signature="e#75969#81121#0#PHP" expanded="false" />
+            <element signature="e#81127#84850#0#PHP" expanded="false" />
+            <element signature="e#84856#87838#0#PHP" expanded="false" />
+            <element signature="e#87844#95434#0#PHP" expanded="false" />
+            <element signature="e#95616#97617#0#PHP" expanded="false" />
+            <element signature="e#97623#101241#0#PHP" expanded="false" />
+            <element signature="e#101247#103894#0#PHP" expanded="false" />
+            <element signature="e#104078#105804#0#PHP" expanded="false" />
+            <element signature="e#105810#106735#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -866,20 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/General_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9">
-          <caret line="66" column="42" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.741936">
-          <caret line="59" column="99" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/admin/controllers/Blog.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -894,36 +903,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/job-detail.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobs/home-job-section.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4193548">
-          <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
-          <folding />
+        <state vertical-scroll-proportion="-0.11211573">
+          <caret line="183" column="63" selection-start-line="183" selection-start-column="63" selection-end-line="183" selection-end-column="63" />
+          <folding>
+            <marker date="1568964459566" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1568964459566" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1568964459566" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1568964459566" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1568964459566" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1568964459566" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1568964459566" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1568964459566" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1568964459566" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="46.83871">
+        <state vertical-scroll-proportion="0.0">
           <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/home/views/jobs/home-job-section.php">
+    <entry file="file://$PROJECT_DIR$/application/modules/home/views/job-detail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.278481">
-          <caret line="211" column="63" selection-start-line="211" selection-start-column="63" selection-end-line="211" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.437613">
+          <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/admin/models/General_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4411764">
+          <caret line="109" column="25" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8333335">
+          <caret line="124" column="62" selection-start-line="120" selection-start-column="0" selection-end-line="124" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/models/Home_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.9">
+          <caret line="818" column="5" selection-start-line="752" selection-start-column="4" selection-end-line="818" selection-end-column="5" />
           <folding>
-            <marker date="1568789194900" expanded="true" signature="5062:5448" placeholder="..." />
-            <marker date="1568789194900" expanded="false" signature="5150:5185" placeholder="..." />
-            <marker date="1568789194900" expanded="true" signature="5186:5386" placeholder="..." />
-            <marker date="1568789194900" expanded="true" signature="7291:7680" placeholder="..." />
-            <marker date="1568789194900" expanded="false" signature="7379:7414" placeholder="..." />
-            <marker date="1568789194900" expanded="true" signature="7415:7618" placeholder="..." />
-            <marker date="1568789194900" expanded="true" signature="9495:9878" placeholder="..." />
-            <marker date="1568789194900" expanded="false" signature="9583:9618" placeholder="..." />
-            <marker date="1568789194900" expanded="true" signature="9619:9816" placeholder="..." />
+            <element signature="e#346#1259#0#PHP" expanded="false" />
+            <element signature="e#1267#1840#0#PHP" expanded="false" />
+            <element signature="e#1846#2343#0#PHP" expanded="false" />
+            <element signature="e#2353#2817#0#PHP" expanded="false" />
+            <element signature="e#2824#3508#0#PHP" expanded="false" />
+            <element signature="e#4546#5053#0#PHP" expanded="false" />
+            <element signature="e#23817#24611#0#PHP" expanded="false" />
+            <element signature="e#24617#24899#0#PHP" expanded="false" />
+            <element signature="e#24905#25569#0#PHP" expanded="false" />
+            <element signature="e#25575#26004#0#PHP" expanded="false" />
+            <marker date="1569307125252" expanded="true" signature="16347:16455" placeholder="SELECT emp.o..jobs..." />
+            <marker date="1569307125252" expanded="true" signature="22302:22369" placeholder="SELECT * FRO..jobs..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/home/controllers/Home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49618322">
+          <caret line="1586" column="0" selection-start-line="1586" selection-start-column="0" selection-end-line="1586" selection-end-column="0" />
+          <folding>
+            <element signature="e#15910#16191#0#PHP" expanded="false" />
+            <element signature="e#23991#26991#0#PHP" expanded="false" />
+            <element signature="e#69891#70221#0#PHP" expanded="false" />
+            <element signature="e#70227#72240#0#PHP" expanded="false" />
+            <element signature="e#72246#73758#0#PHP" expanded="false" />
+            <marker date="1569307589619" expanded="true" signature="45723:45764" placeholder="..." />
+            <marker date="1569307589619" expanded="true" signature="46005:46023" placeholder="..." />
+            <marker date="1569307589619" expanded="true" signature="46445:46462" placeholder="..." />
+            <marker date="1569307589619" expanded="true" signature="48569:48586" placeholder="..." />
+            <marker date="1569307589619" expanded="true" signature="50567:50584" placeholder="..." />
+            <marker date="1569307589619" expanded="true" signature="51784:51802" placeholder="..." />
+            <marker date="1569307589619" expanded="true" signature="54041:54090" placeholder="..." />
+            <marker date="1569307589619" expanded="true" signature="56528:56577" placeholder="..." />
+            <marker date="1569307589619" expanded="true" signature="58550:58599" placeholder="..." />
+            <marker date="1569307589619" expanded="true" signature="60425:60474" placeholder="..." />
+            <marker date="1569307589619" expanded="true" signature="62985:63003" placeholder="..." />
+            <marker date="1569307589619" expanded="true" signature="63257:63306" placeholder="..." />
           </folding>
         </state>
       </provider>

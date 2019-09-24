@@ -1,6 +1,11 @@
+<style type="text/css">
+     .company-list-details>h3{font-size: 18px;    height: 21px; overflow: hidden;}
+</style>
 <div class="single-candidate-widget">
     <h3>Similar Jobs</h3>
-
+    <div class="row">
+        
+    
     <?php
     if(!empty($similar_job)){
         foreach ($similar_job as $key => $sj) {
@@ -8,15 +13,18 @@
             $employerinfo = $this->general_model->getById('employer','id',$comId);
             
             if (empty($sj->displayname)){
+                $orgname = $employerinfo->orgname;
                 $url = base_url().'job/'.$employerinfo->organization_code.'/'.$sj->slug.'/'.$sj->id;
             }
             else{
+                $orgname = $sj->displayname;
                 $url = base_url().'job/'.$sj->slug.'/'.$sj->id;
             } 
 
 
             ?>
-            <div class="sidebar-list-single">
+            <div class="col-md-6">
+                <div class="sidebar-list-single">
                 <div class="top-company-list">
                     <div class="company-list-logo">
                         <a href="<?php echo $url;?>">
@@ -35,7 +43,14 @@
                         </a>
                     </div>
                     <div class="company-list-details">
-                        <h3><a href="<?php echo $url;?>"><?php echo $sj->jobtitle?></a></h3>
+                        <h3>
+                            <a href="<?php echo $url ?>" data-toggle="tooltip"
+                               title="<?php echo $sj->jobtitle  ?>">
+                                <?php echo substr($sj->jobtitle, 0, 25) . '' ?>
+                            </a>
+
+                        </h3>
+                        <p><i class="fa fa-building"></i><?php echo $orgname?></p>
                         <p class="company-state"><i class="fa fa-map-marker"></i> 
                             <?php
                                 if(!empty($sj->joblocation)){
@@ -71,21 +86,27 @@
 
 
                     </div>
-                    <div class="company-list-btn">
+                    <!-- <div class="company-list-btn">
                         <a href="<?php echo $url;?>" class="fjn-btn">View Details</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
+            </div>
+            
         <?php }
     }
     else{?>
-        <div class="sidebar-list-single">
+        <div class="col-md-12">
+            <div class="sidebar-list-single">
             <div class="top-company-list">
                 <p>No Similar Jobs found</p>
             </div>
         </div>
+        </div>
+        
     <?php }
 
     ?>
+</div>
 
 </div>

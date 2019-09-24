@@ -1,3 +1,9 @@
+<style type="text/css">
+    .job-grid-right .sidebar-list-single{padding: 10px}
+    .company-list-details>h3{font-size: 14px;    height: 21px; overflow: hidden;}
+    .company-list-details>h3 a{color: #035FB7;font-weight: bold;}
+</style>
+
 <!-- Breadcromb Area Start -->
 <section class="fjn-breadcromb-area">
 
@@ -11,53 +17,85 @@
                 <?php include('includes/search-left-menu.php');?>
             </div>
             <div class="col-md-12 col-lg-9">
-                <div class="job-grid-right">
+                <div class="job-grid-right row">
                     <?php
                         if($joblists){
                             foreach($joblists as $jl){
                                 $eid = $jl->eid;
                                 $empInfo = $this->general_model->getById('employer', 'id', $eid, '*');
                                 $orgcode = $empInfo->organization_code;
-                                $orgname = $empInfo->orgname;
-                                $url = base_url().'job/'.$orgcode.'/'.$jl->slug.'/'.$jl->id;
+                                //$orgname = $empInfo->orgname;
+                                //$url = base_url().'job/'.$orgcode.'/'.$jl->slug.'/'.$jl->id;
+                                if (empty($jl->displayname)) {
+                                    $orgname = $empInfo->orgname;
+                                    $url = base_url() . 'job/' . $orgcode . '/' . $jl->slug . '/' . $jl->id;
+                                } else {
+                                    $orgname = $jl->displayname;
+                                    $url = base_url() . 'job/' . $jl->slug . '/' . $jl->id;
+                                }
                                 ?>
+                                <div class="col-md-6">
+                                    <div class="sidebar-list-single ">
+                                        <div class="top-company-list">
+                                            <div class="company-list-logo">
+                                                <a href="<?php echo $url?>">
+                                                    <?php
+                                                    if (!empty($jl->complogo)) {
+                                                        $img = 'uploads/employer/' . $jl->complogo;
+                                                    } elseif (!empty($empInfo->organization_logo)) {
+                                                        $img = 'uploads/employer/' . $empInfo->organization_logo;
+                                                    } else {
+                                                        $img = 'content_home/img/company-logo-4.png';
+                                                    }
+                                                    ?>
+                                                    <img src="<?php echo base_url().$img?>" alt="<?php echo $jl->jobtitle ?>">
+                                                </a>
+                                            </div>
+                                            <div class="company-list-details">
+                                                <h3>
+                                                    <a href="<?php echo $url ?>" data-toggle="tooltip"
+                                                       title="<?php echo $jl->jobtitle  ?>">
+                                                        <?php echo substr($jl->jobtitle, 0, 25) . '' ?>
+                                                    </a>
+                                                </h3>
 
-                                <div class="sidebar-list-single">
-                                    <div class="top-company-list">
-                                        <div class="company-list-logo">
-                                            <a href="<?php echo $url?>">
-                                                <?php
-                                                if (!empty($empInfo->organization_logo)) {
-                                                    $img = 'uploads/employer/' . $empInfo->organization_logo;
-                                                } else {
-                                                    $img = 'content_home/img/company-logo-4.png';
-                                                }
-                                                ?>
-                                                <img src="<?php echo base_url().$img?>" alt="<?php echo $jl->jobtitle ?>">
-                                            </a>
-                                        </div>
-                                        <div class="company-list-details">
-                                            <h3><a href="<?php echo $url?>"><?php echo $jl->jobtitle ?></a></h3>
-                                            <p class="company-state"><i class="fa fa-map-marker"></i> <?php echo $empInfo->organization_address; ?></p>
-                                            <p class="company-state" title="Posted On"><i class="fa fa-calendar"></i> <?php echo date("M d, Y", strtotime($jl->post_date)) ?></p>
-                                            <p class="open-icon"  title="Apply Before"><i class="fa fa-calendar"></i><?php echo date("M d, Y", strtotime($jl->applybefore)) ?></p>
-                                            <p class="varify"><i class="fa fa-check"></i>
-                                                <?php
-                                                if(!empty($jl->jobtype && is_array($jl->jobtype))){
-                                                    $jobtype_arr = unserialize($jl->jobtype);
-                                                    if($jobtype_arr!=''){
-                                                        for($i=0;$i<count($jobtype_arr);$i++)
-                                                        {
-                                                            echo $this->general_model->getById('dropdown','id',$jobtype_arr[$i])->dropvalue;
-                                                            if(count($jobtype_arr)>0 && $i<(count($jobtype_arr)-1)) echo ', ';
+                                                <p><i class="fa fa-building"></i><?php echo $orgname?></p>
+                                                <p class="company-state"><i class="fa fa-map-marker"></i>
+                                                    <?php
+                                                        if(!empty($jl->joblocation)){
+                                                            $joblocation_arr = unserialize($jl->joblocation);
+                                                            $location = '';
+                                                            if($joblocation_arr !=''){
+                                                                for($i=0;$i<count($joblocation_arr);$i++)
+                                                                {
+                                                                    $location .= $this->general_model->getById('dropdown','id',$joblocation_arr[$i])->dropvalue;
+                                                                    if(count($joblocation_arr)>0 && $i<(count($joblocation_arr)-1)) $location .= ', ';
+                                                                }
+                                                            }
+                                                        }                            
+                                                        echo $location; 
+                                                    ?>
+                                                </p>
+                                                <p class="company-state" title="Posted On"><i class="fa fa-calendar"></i> <?php echo date("M d, Y", strtotime($jl->post_date)) ?></p>
+                                                <p class="open-icon"  title="Apply Before"><i class="fa fa-calendar"></i><?php echo date("M d, Y", strtotime($jl->applybefore)) ?></p>
+                                                <p class="varify"><i class="fa fa-check"></i>
+                                                    <?php
+                                                    if(!empty($jl->jobtype)){
+                                                        $jobtype_arr = unserialize($jl->jobtype);
+                                                        if($jobtype_arr!=''){
+                                                            for($i=0;$i<count($jobtype_arr);$i++)
+                                                            {
+                                                                echo $this->general_model->getById('dropdown','id',$jobtype_arr[$i])->dropvalue;
+                                                                if(count($jobtype_arr)>0 && $i<(count($jobtype_arr)-1)) echo ', ';
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                ?>
-                                            </p>
-                                        </div>
-                                        <div class="company-list-btn">
-                                            <a href="<?php echo $url?>" class="fjn-btn">View Details</a>
+                                                    ?>
+                                                </p>
+                                            </div>
+                                            <!-- <div class="company-list-btn">
+                                                <a href="<?php echo $url?>" class="fjn-btn">View Details</a>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

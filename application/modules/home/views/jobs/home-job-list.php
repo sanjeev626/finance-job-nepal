@@ -1,3 +1,7 @@
+<style type="text/css">
+    .homejoblist .job-content h3{height: 14px;
+    overflow: hidden;}
+</style>
 <?php 
 	foreach ($chunkarray as $key => $joblists) {
             echo '<div class="row homejoblist">';
@@ -18,12 +22,12 @@
                             <div class="col-md-4 col-sm-12 padding-left-right-0">
                                 <div class="job-content">
                                     <div class="top-company-list">
-                                        <h3>
+                                        <!-- <h3>
                                             <a href="<?php echo $url ?>" data-toggle="tooltip"
                                                    title="<?php echo $jl->jobtitle  ?>">
                                                 <?php echo substr($jl->jobtitle, 0, 25) . '' ?>
                                             </a>
-                                        </h3>
+                                        </h3> -->
                                         <div class="company-list-logo">
                                             <a href="<?php echo $url ?>">
                                                 <?php
@@ -40,6 +44,12 @@
                                             </a>
                                         </div>
                                         <div class="company-list-details">
+                                            <h3>
+                                            <a href="<?php echo $url ?>" data-toggle="tooltip"
+                                                   title="<?php echo $jl->jobtitle  ?>">
+                                                <?php echo substr($jl->jobtitle, 0, 25) . '' ?>
+                                            </a>
+                                        </h3>
                                             <p>
                                                 <i class="fa fa-building"></i>
                                                 <a href="javascript:void(0)"

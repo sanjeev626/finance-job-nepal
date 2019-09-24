@@ -107,7 +107,7 @@ class Search extends View_Controller {
 
         $data['joblists']= $this->home_model->get_search_job_by_parameter($config['per_page'], $page);
 
-        $data['main'] = 'job-search';
+        $data['main'] = 'job-by-category';
         $this->load->view('main',$data);
     }
 

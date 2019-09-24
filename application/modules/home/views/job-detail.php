@@ -15,7 +15,14 @@ else{
    $percent = '';
 }
 $jobDetail = $job_detail[0];
-
+$eid = $jobDetail->eid;
+$empInfo = $this->general_model->getById('employer', 'id', $eid, '*');
+if (empty($jobDetail->displayname)) {
+    $orgname = $empInfo->orgname;
+} else {
+    $orgname = $jobDetail->displayname;
+    
+}
 ?>
 <section class="single-candidate-page">
     <?php if(!empty($banner_image)){?>
@@ -43,6 +50,12 @@ $jobDetail = $job_detail[0];
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
                                 <?php echo $this->session->flashdata('success');?> </div>
                         <?php } ?>
+                        <div class="col-md-12 col-lg-6 job_overview">
+                            <p>
+                                <i class="fa fa-building"></i>
+                                    <strong><?php echo $orgname?> </strong>                           
+                            </p>
+                        </div>
                         <div class="col-md-12 col-lg-6 job_overview">
                             <p class="job_overview"><i class="fa fa-calendar"></i> <strong>Apply Before :</strong> <?php echo date("M d, Y", strtotime($jobDetail->applybefore))?></p>
                         </div>
@@ -108,14 +121,19 @@ $jobDetail = $job_detail[0];
                             </p>
                         </div>
                     </div>
+                    <?php if(!empty($jobDetail->specification)){?>
                     <div class="single-candidate-widget">
-                        <h3>job Description</h3>
+                        <h3>Job Description</h3>
                         <?php echo $jobDetail->specification?>
                     </div>
+                    <?php }
+                        if(!empty($jobDetail->requirements)){
+                    ?>
                     <div class="single-candidate-widget job-required">
                         <h3>Job Specification (Skills and Abilities)</h3>
                         <?php echo $jobDetail->requirements?>
                     </div>
+                    <?php }?>
 
                     <div class="single-candidate-widget clearfix">
                         <h3>Share This Vacancy</h3>
