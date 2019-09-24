@@ -843,7 +843,7 @@ class Home_model extends CI_Model {
     public function get_job_by_title($slug,$limit = NULL, $offset = NULL){
         $date = date('Y-m-d');
         $this->db->select();
-        $this->db->like('jobtitle', $slug);
+        $this->db->where('jobtitle', $slug);
         $this->db->where('applybefore >=',$date);
         $this->db->where('post_status','public');
         $this->db->order_by('post_date','DESC');
@@ -863,7 +863,7 @@ class Home_model extends CI_Model {
         $date = date('Y-m-d');
         $this->db->select();
         $this->db->from('jobs as jb');
-        $this->db->like('jb.jobtitle', $slug);
+        $this->db->where('jb.jobtitle', $slug);
         $this->db->where('applybefore >=',$date);
         $this->db->where('post_status','public');
         $query = $this->db->get();
