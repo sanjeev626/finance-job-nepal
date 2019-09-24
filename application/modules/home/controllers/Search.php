@@ -85,7 +85,7 @@ class Search extends View_Controller {
         /* End of Bootstrap Pagination */
 
         $config['uri_segment'] = 4;
-        $config['per_page'] = 25;
+        $config['per_page'] = 30;
 
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
@@ -97,12 +97,11 @@ class Search extends View_Controller {
         $data['menu'] = 'searchjob';
         $data['page_title'] = 'Finance Job Nepal';
         $data['title'] ='Search Job';
-
-        $data['job_category'] = $this->general_model->getAll('dropdown','fid = 1','','id,dropvalue');
-        $data['job_location'] = $this->general_model->getAll('dropdown','fid = 2','','id,dropvalue');
-        $data['job_education'] = $this->general_model->getAll('dropdown','fid = 3','','id,dropvalue');
-        $data['salary_range'] =$this->general_model->getAll('dropdown','fid = 4','','id,dropvalue');
-        $data['org_type'] =$this->general_model->getAll('dropdown','fid = 6','','id,dropvalue');
+        $data['job_title'] = $this->input->post('job_title');
+        $data['job_category'] = $this->input->post('job_category');
+        $data['job_location'] = $this->input->post('location');
+        $data['job_type'] = $this->input->post('job_type');
+        $data['job_level'] =$this->input->post('job_level');
         
 
         $data['joblists']= $this->home_model->get_search_job_by_parameter($config['per_page'], $page);

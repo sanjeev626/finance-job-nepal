@@ -1,3 +1,4 @@
+<form method="POST" action="<?php echo base_url().'search/job'?>">
 <div class="job-grid-sidebar">
     <div class="single-job-sidebar margin_bottom_5">
         <div class="job-sidebar-box">
@@ -9,7 +10,7 @@
         <div class="job-sidebar-box">
             <div class="search-title">Keywords</div>
             <p>
-                <input type="text" name="keywords" placeholder="Keywords">
+                <input type="text" name="job_title" placeholder="Keywords" value="<?php if(isset($job_title))echo $job_title;?>">
             </p>
         </div>
     </div>
@@ -17,49 +18,49 @@
     <!-- Single Job Sidebar Start -->
     <div class="single-job-sidebar sidebar-category margin_bottom_5">
         <div class="job-sidebar-box">
+            <?php 
+                $categories =  $this->general_model->getAll('dropdown','fid = 9','id ASC','*','','');
+
+            ?>
             <div class="search-title">Filter by Job Category</div>
-            <select class="sidebar-category-select-2" name="categories[]" multiple="multiple" placeholder="Filter by job category">
-                <option value="1">Information Technology</option>
-                <option value="2">accounting/finance</option>
-                <option value="3">automotive jobs</option>
-                <option value="4">construction</option>
-                <option value="5">design, art & multimedia</option>
-                <option value="6">education training</option>
-                <option value="7">restaurent/food</option>
-                <option value="7">programming/tech</option>
-                <option value="7">sales/marketing</option>
-                <option value="7">data science/analysis</option>
+            <select class="sidebar-category-select-2" name="job_category[]" multiple="multiple" placeholder="Filter by job category">
+                <?php 
+                    foreach ($categories as $key => $category) {
+                        if(isset($job_category) && in_array($category->id,$job_category)){
+                            $selected = 'selected="selected"';
+                        }
+                        else{
+                            $selected = '';
+                        }
+                       echo '<option value="'.$category->id.'" '.$selected.'>'.$category->dropvalue.'</option>';
+                    }
+                ?>
+                
             </select>
         </div>
     </div>
     <!-- Single Job Sidebar End -->
-    <!-- Single Job Sidebar Start -->
-    <div class="single-job-sidebar sidebar-category margin_bottom_5">
-        <div class="job-sidebar-box">
-            <div class="search-title">Filter by Job Industry</div>
-            <select class="sidebar-category-select-2 sidebar-industry" name="categories[]" multiple="multiple">
-                <option value="1">Information Technology</option>
-                <option value="2">accounting/finance</option>
-                <option value="3">automotive jobs</option>
-                <option value="4">construction</option>
-                <option value="5">design, art & multimedia</option>
-                <option value="6">education training</option>
-                <option value="7">restaurent/food</option>
-                <option value="7">programming/tech</option>
-                <option value="7">sales/marketing</option>
-                <option value="7">data science/analysis</option>
-            </select>
-        </div>
-    </div>
-    <!-- Single Job Sidebar End -->
+    
     <!-- Single Job Sidebar Start -->
     <div class="single-job-sidebar sidebar-category margin_bottom_5">
         <div class="job-sidebar-box">
             <div class="search-title">Filter by Job Location</div>
-            <select class="sidebar-category-select-2 sidebar-locations" name="categories[]" multiple="multiple">
-                <option value="1">Kathmandu</option>
-                <option value="2">Bhaktapur</option>
-                <option value="3">Lalitpur</option>
+            <?php 
+                $locations =  $this->general_model->getAll('dropdown','fid = 2','id ASC','*','','');
+            ?>
+            <select class="sidebar-category-select-2 sidebar-locations" name="location[]" multiple="multiple">
+                <?php 
+                    foreach ($locations as $key => $location) {
+                        if(isset($job_location) && in_array($location->id,$job_location)){
+                            $selected = 'selected="selected"';
+                        }
+                        else{
+                            $selected = '';
+                        }
+                        echo '<option value="'.$location->id.'" '.$selected.'>'.$location->dropvalue.'</option>';
+                    }
+                ?>
+                
             </select>
         </div>
     </div>
@@ -70,26 +71,23 @@
         <div class="job-sidebar-box">
             <div class="search-title">Filter by Job type</div>
             <ul>
-                <li class="checkbox">
-                    <input class="checkbox-spin" type="checkbox" id="Freelance" />
-                    <label for="Freelance"><span></span>Freelance</label>
-                </li>
-                <li class="checkbox">
-                    <input class="checkbox-spin" type="checkbox" id="Full_Time" />
-                    <label for="Full_Time"><span></span>Full Time</label>
-                </li>
-                <li class="checkbox">
-                    <input class="checkbox-spin" type="checkbox" id="Internship" />
-                    <label for="Internship"><span></span>Internship</label>
-                </li>
-                <li class="checkbox">
-                    <input class="checkbox-spin" type="checkbox" id="Part_Time" />
-                    <label for="Part_Time"><span></span>Part Time</label>
-                </li>
-                <li class="checkbox">
-                    <input class="checkbox-spin" type="checkbox" id="Temporary" />
-                    <label for="Temporary"><span></span>Temporary</label>
-                </li>
+                <?php 
+                    $jobtypes =  $this->general_model->getAll('dropdown','fid = 16','id ASC','*','','');
+             
+                    foreach ($jobtypes as $key => $jobtype) {
+                        if(isset($job_type) &&  in_array($jobtype->id,$job_type)){
+                            $selected = 'checked="checked"';
+                        }
+                        else{
+                            $selected = '';
+                        }
+                       echo '<li class="checkbox">
+                                <input class="checkbox-spin" type="checkbox" name="job_type[]" id="'.$jobtype->dropvalue.'" value="'.$jobtype->id.'" '.$selected.'/>
+                                <label for="'.$jobtype->dropvalue.'"><span></span>'.$jobtype->dropvalue.'</label>
+                            </li>';
+                    }
+                ?>
+                
             </ul>
         </div>
     </div>
@@ -99,24 +97,36 @@
         <div class="job-sidebar-box">
             <div class="search-title">Filter by Job Level</div>
             <ul>
-                <li class="checkbox">
-                    <input class="checkbox-spin" type="checkbox" id="entry_level" />
-                    <label for="entry_level"><span></span>Entry Level</label>
-                </li>
-                <li class="checkbox">
-                    <input class="checkbox-spin" type="checkbox" id="mid_level" />
-                    <label for="mid_level"><span></span>Mid Level</label>
-                </li>
-                <li class="checkbox">
-                    <input class="checkbox-spin" type="checkbox" id="senior_level" />
-                    <label for="senior_level"><span></span>Senior Level</label>
-                </li>
-                <li class="checkbox">
-                    <input class="checkbox-spin" type="checkbox" id="top_level" />
-                    <label for="top_level"><span></span>Top Level</label>
-                </li>
+
+                <?php 
+                    $joblevels =  $this->general_model->getAll('dropdown','fid = 17','id ASC','*','','');
+             
+                    foreach ($joblevels as $key => $joblevel) {
+                        if(isset($job_level) && in_array($joblevel->id,$job_level)){
+                            $selected = 'checked="checked"';
+                        }
+                        else{
+                            $selected = '';
+                        }
+                       echo '<li class="checkbox">
+                                <input class="checkbox-spin" name="job_level[]" type="checkbox" id="'.$joblevel->dropvalue.'" value="'.$joblevel->id.'" '.$selected.' />
+                                <label for="'.$joblevel->dropvalue.'"><span></span>'.$joblevel->dropvalue.'</label>
+                            </li>';
+                    }
+                ?>
+               
             </ul>
         </div>
     </div>
     <!-- Single Job Sidebar End -->
+    <!-- Single Job Sidebar Start -->
+    <div class="single-job-sidebar sidebar-type margin_bottom_5">
+        <div class="job-sidebar-box">
+            <button type="submit" name="search" class="btn btn-success" style="width: 100%">
+                Search
+            </button>
+        </div>
+    </div>
+    <!-- Single Job Sidebar End -->
 </div>
+</form>

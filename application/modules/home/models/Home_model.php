@@ -477,11 +477,11 @@ class Home_model extends CI_Model {
 
     public function get_search_job_by_parameter($limit,$offset,$total =''){
         $date = date('Y-m-d');
-
         $jobtitle = $this->input->post('job_title');
         $job_category = $this->input->post('job_category');
         $location = $this->input->post('location');
-
+        $jobtype = $this->input->post('job_type');
+        $job_level = $this->input->post('job_level');
         $this->db->select();
 
         if($jobtitle)
@@ -492,14 +492,36 @@ class Home_model extends CI_Model {
 
         if($job_category)
         {
-            $this->db->or_where('jobcategory',$job_category);
-            $this->db->order_by("jobcategory", "asc");
+            foreach ($job_category as $key => $value) {
+                $this->db->or_where('jobcategory',$value);
+                $this->db->order_by("jobcategory", "asc");
+            }
+            
         }
 
         if($location)
         {
-            $this->db->or_where('`joblocation` REGEXP','.*;s:[0-9]+:"'.$location.'".*');
-            $this->db->order_by("joblocation", "asc");
+            foreach ($location as $key => $value) {
+                 $this->db->or_where('`joblocation` REGEXP','.*;s:[0-9]+:"'.$value.'".*');
+                 $this->db->order_by("joblocation", "asc");
+            }
+           
+        }
+        if($jobtype)
+        {
+            foreach ($jobtype as $key => $value) {
+                 $this->db->or_where('`jobtype` REGEXP','.*;s:[0-9]+:"'.$value.'".*');
+                 $this->db->order_by("jobtype", "asc");
+            }
+           
+        }
+        if($job_level)
+        {
+            foreach ($job_level as $key => $value) {
+                 $this->db->or_where('joblevel',$value);
+                 $this->db->order_by("joblevel", "asc");
+            }
+           
         }
 
         $this->db->where('applybefore >=',$date);

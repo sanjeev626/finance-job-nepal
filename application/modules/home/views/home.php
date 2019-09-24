@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="banner-form-input">
                                     
-                                    <select class="banner-select" name="location">
+                                    <select class="banner-select" name="location[]">
                                         <option value="" selected>Select Location</option>
                                         <?php foreach ($joblocation as $key => $value) {?>
                                           <option value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
@@ -32,7 +32,7 @@
                                     </select>
                                 </div>
                                 <div class="banner-form-input">
-                                    <select class="banner-select" name="job_category">
+                                    <select class="banner-select" name="job_category[]">
                                         <option selected>Select Category</option>
                                         <?php foreach ($job_category as $key => $value) {?>
                                           <option value='<?php echo $value->id; ?>'><?php echo $value->dropvalue; ?></option>
