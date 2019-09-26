@@ -482,6 +482,11 @@ class Home_model extends CI_Model {
         $location = $this->input->post('location');
         $jobtype = $this->input->post('job_type');
         $job_level = $this->input->post('job_level');
+
+        $categories = array();
+        $joblevels = array();
+        $joblocations = '';
+        $jobtypes = '';
         $this->db->select();
 
         if($jobtitle)
@@ -493,34 +498,44 @@ class Home_model extends CI_Model {
         if($job_category)
         {
             foreach ($job_category as $key => $value) {
-                $this->db->or_where('jobcategory',$value);
-                $this->db->order_by("jobcategory", "asc");
+                $categories[] = $value; 
             }
-            
+            $this->db->where_in('jobcategory',$categories);
+            $this->db->order_by("jobcategory", "asc");  
         }
 
         if($location)
         {
             foreach ($location as $key => $value) {
-                 $this->db->or_where('`joblocation` REGEXP','.*;s:[0-9]+:"'.$value.'".*');
-                 $this->db->order_by("joblocation", "asc");
-            }
-           
+                 //$this->db->or_where('`joblocation` REGEXP','.*;s:[0-9]+:"'.$value.'".*');
+                 //$this->db->order_by("joblocation", "asc");
+                    for($i=0; $i<$key; $i++){
+                        $joblocations .=' OR ';
+                     }
+                 $joblocations .= "`joblocation` REGEXP '.*;s:[0-9]+:\"$value\".*'" ;                  
+                }
+            $this->db->where("($joblocations)");
         }
         if($jobtype)
         {
             foreach ($jobtype as $key => $value) {
-                 $this->db->or_where('`jobtype` REGEXP','.*;s:[0-9]+:"'.$value.'".*');
-                 $this->db->order_by("jobtype", "asc");
+                // $this->db->or_where('`jobtype` REGEXP','.*;s:[0-9]+:"'.$value.'".*');
+                 //$this->db->order_by("jobtype", "asc");
+                for($i=0; $i<$key; $i++){
+                        $jobtypes .=' OR ';
+                     }
+                $jobtypes .= "`jobtype` REGEXP '.*;s:[0-9]+:\"$value\".*'" ;                     
             }
+            $this->db->where("($jobtypes)");
            
         }
         if($job_level)
         {
             foreach ($job_level as $key => $value) {
-                 $this->db->or_where('joblevel',$value);
-                 $this->db->order_by("joblevel", "asc");
+                $joblevels[] = $value;                 
             }
+            $this->db->where_in('joblevel',$joblevels);
+            $this->db->order_by("joblevel", "asc");
            
         }
 
@@ -772,22 +787,26 @@ class Home_model extends CI_Model {
         return $query->num_rows();
     }
 
-    public function get_job_by_educations($education, $where = NULL, $orderBy = NULL, $select = NULL, $group_by = NULL,$limit = NULL, $offset = NULL) {
-        $this->db->where_in('required_education',$education);
-        if ($select)
-            $this->db->select($select);
-        if ($where)
-            $this->db->where($where);
-        if ($orderBy)
-            $this->db->order_by($orderBy);
-        if ($group_by)
-            $this->db->group_by($group_by);
+    public function get_job_by_educations($education, $limit = NULL, $offset = NULL) {
+        $applydate = date('Y-m-d');
+        
+        $this->db->from('jobs as jb');
+        
+        $this->db->join('dropdown as dp','dp.dropvalue = jb.required_education');
+        
+        $this->db->where_in('dp.slug',$education);
+        
+        $this->db->where('jb.applybefore >=',$applydate);
+        
+        $this->db->select('jb.*');
+        
         if($limit)
             $this->db->limit($limit);
+        
         if($offset)
             $this->db->offset($offset);
 
-        $query = $this->db->get('jobs');
+        $query = $this->db->get();
         //echo $this->db->last_query();
         if ($query->num_rows() == 0) {
             return FALSE;
@@ -796,13 +815,14 @@ class Home_model extends CI_Model {
         }
     }
 
-    public function get_Total_job_by_educations($education, $where = NULL) {
+    public function get_Total_job_by_educations($education) {
+        $applydate = date('Y-m-d');
+        $this->db->from('jobs as jb');
+        $this->db->join('dropdown as dp','dp.dropvalue = jb.required_education');
+        $this->db->where_in('dp.slug',$education);
+        $this->db->where('jb.applybefore >=',$applydate);
 
-        $this->db->where_in('required_education',$education);
-        if ($where)
-            $this->db->where($where);
-
-        $this->db->from('jobs');
+        $this->db->select('jb.*');
 
         return $this->db->count_all_results();
 

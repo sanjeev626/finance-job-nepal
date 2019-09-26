@@ -1541,14 +1541,13 @@ class Home extends View_Controller {
     }
 
     public function education($slug){
-        $applydate = date('Y-m-d');
         $data['job_list'] = '';
 
         if($slug=='charter-accountant'){
-            $edu = ['CA','ACCA','CFA','CPA','CA/ACCA','CA/ACCA/CFA/CPA/MBA','CA/ACCA/CPA'];
+            $edu = ['ca','acca','cfa','cpa','caacca','caaccacfacpamba','caaccacpa'];
 
-        }elseif($slug=='semi-qualified-ca'){
-            $edu = ['Semi Qualified CA'];
+        }else{
+            $edu = $slug;
         }
         /* Bootstrap Pagination  */
 
@@ -1571,7 +1570,7 @@ class Home extends View_Controller {
         $config['per_page'] = 10;
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $config['base_url'] = base_url() . 'education/'.$slug;
-        $config['total_rows'] = $this->home_model->get_Total_job_by_educations($edu ,array('applybefore >='=>$applydate),'','*');
+        $config['total_rows'] = $this->home_model->get_Total_job_by_educations($edu);
         $config["cur_page"] = $page;
         $this->pagination->initialize($config);
 
@@ -1579,8 +1578,9 @@ class Home extends View_Controller {
         $data['page_title'] = 'Finance Job Nepal.';
         //$data['joblists'] = $this->home_model->get_job_by_category($slug,$config['per_page'], $page);
 
-        $data['joblists'] = $this->home_model->get_job_by_educations($edu,array('applybefore >='=>$applydate),'','*','',$config['per_page'], $page);
+        $data['joblists'] = $this->home_model->get_job_by_educations($edu,$config['per_page'], $page);
 
+        //echo $this->db->last_query();
         $data['title'] ='Job List';
         $data['main'] = 'job-by-category';
         $this->load->view('main',$data);

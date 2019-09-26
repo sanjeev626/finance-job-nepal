@@ -354,14 +354,16 @@ class Jobseeker extends View_Controller {
                 $headers .= 'From: Finance Job Nepal <'.$admin_email.'>' . "\r\n";
                 //$headers .= 'From: '.$admin_email;
 
-                // Send Mail 
-                if(@mail($to, $subject, $mess, $headers)){            		
+                // Send Mail
+                $this->session->set_flashdata('success',"The username ".$username." has been created Successfully.");
+                redirect(base_url() . 'jobseeker/signup', 'refresh');
+                /*if(@mail($to, $subject, $mess, $headers)){
                 	$this->session->set_flashdata('success',"The username ".$username." has been created Successfully.<br>Please click on the activation link sent to your email address to activate your account.");
                     redirect(base_url() . 'jobseeker/signup', 'refresh');
                 }else{
                     $this->session->set_flashdata('error',"Mail Couldn't be Send. There must be something wrong with mail.");
                     redirect(base_url() . 'jobseeker/signup', 'refresh');
-                }
+                }*/
           }else{
               
               /*----------------------------------------------------------------

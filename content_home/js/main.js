@@ -142,6 +142,9 @@ JS INDEX
 		$('.sidebar-category-select-2').select2({
 			placeholder: 'Choose Category'
 		});
+		$('.sidebar-category-select-2.sidebar-locations').select2({
+			placeholder: 'Choose Location'
+		});
 
 
 		/* 

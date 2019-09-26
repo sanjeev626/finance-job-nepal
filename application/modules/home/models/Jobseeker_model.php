@@ -84,7 +84,7 @@ class Jobseeker_model extends CI_Model {
             'education_details' =>$this->input->post('education_details'),
             'latest_education_qualification' =>$this->input->post('latest_education_qualification'),*/
 
-            'isActivated' => '0',
+            'isActivated' => '1',
             'activation_code' =>$this->input->post('activation_code'),
             'facebook' =>$this->input->post('facebook'),
             'linkedin' =>$this->input->post('linkedin'),
