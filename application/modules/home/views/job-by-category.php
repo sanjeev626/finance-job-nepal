@@ -105,7 +105,7 @@
                         else{?>
                             <div class="sidebar-list-single">
                                 <div class="top-company-list">
-                                    No Jobs added to this category
+                                    No Jobs matches your search criteria
                                 </div>
                             </div>
                         <?php }

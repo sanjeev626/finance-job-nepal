@@ -70,12 +70,23 @@
                 }
                 ?> -->
                 <li class="">
-                  <a href="<?php echo base_url() . 'services/recruitment'?>" ><i class="fa fa-angle-double-right "></i>Recruitment</a>
+                  
+                  <?php 
+                    $recruitment = $this->service_model->get_service_by_id('2');
+                ?>
+                <a href="<?php echo base_url() . 'services/'.$recruitment->urlcode ?>"><i class="fa fa-angle-double-right "></i><?php echo $recruitment->title;?></a>
                 </li>
                 <li class="">
                   <a href="<?php echo base_url().'trainging'?>"><i class="fa fa-angle-double-right "></i>Training & Consulting</a>
                 </li>
-                <li class=""><a href="<?php echo base_url() . 'services/labour-audit' ?>"><i class="fa fa-angle-double-right "></i>Labour Audit</a></li>
+                <li class="">
+                  <?php 
+                      $hr = $this->service_model->get_service_by_id('7');
+                  ?>
+                  <a href="<?php echo base_url() . 'services/'.$hr->urlcode ?>">
+                    <i class="fa fa-angle-double-right "></i><?php echo $hr->title;?></a>
+
+                </li>
             </ul>
           </div>
         </div>
