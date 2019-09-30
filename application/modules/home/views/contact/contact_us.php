@@ -19,7 +19,7 @@
                         </div>
                         <div class="single-contact-btn">
                             <h4>Call Us</h4>
-                            <a href="tel:016226783" class="fjn-btn-2">977 01-6201360</a>
+                            <a href="tel:016226783" class="fjn-btn-2">+977 01-6201360</a>
                         </div>
                         <div class="social-links-contact">
                             <h4>Follow Us:</h4>
@@ -67,7 +67,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="single-contact-field">
-                                    <input type="text" name="subject" placeholder="Subject">
+                                    <input type="text" name="subject" placeholder="Subject" value="<?php if(!empty($subject))echo $subject;?>">
                                 </div>
                             </div>
                         </div>

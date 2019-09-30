@@ -40,6 +40,8 @@ class Jobseeker_model extends CI_Model {
             'phone_cell' =>$this->input->post('phonecell'),
             'address_current' =>$this->input->post('currentadd'),
             'faculty' =>$this->input->post('faculty'),
+            'highest_qualification' =>$this->input->post('faculty'),
+            'highest_professional_education' =>$this->input->post('highest_professional_education'),
             'experience_years' =>$this->input->post('expyrs'),
             'cjobposiiton' =>$this->input->post('cjobposiiton'),
             'desired_expected_salary' =>$this->input->post('expsal'),

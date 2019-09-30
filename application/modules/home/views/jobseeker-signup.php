@@ -160,12 +160,20 @@
                                         </select>
                                     </div>
                                     <div class="single-input">
-                                        <select class="form-control" name="expyrs">
-                                            <option>Select Experience in years</option>
-                                            <?php for($y=0;$y<=50;$y++){?>
-                                                <option value="<?php echo $y;?>" <?php echo  set_select('expyrs',$y); ?> ><?php echo $y;?> Years</option>
-                                            <?php } ?>
+                                        <select class="form-control" name="highest_professional_education" id="">
+                                            <option value="None">Highest Professionnal Education</option>
+                                            <?php
+                                                foreach($prof_education as $ped){
+                                                    echo '<option value="'.$ped->dropvalue.'">'.$ped->dropvalue.'</option>';
+                                                }
+                                            ?>
                                         </select>
+                                        <!--<select class="form-control" name="expyrs">
+                                            <option>Select Experience in years</option>
+                                            <?php /*for($y=0;$y<=50;$y++){*/?>
+                                                <option value="<?php /*echo $y;*/?>" <?php /*echo  set_select('expyrs',$y); */?> ><?php /*echo $y;*/?> Years</option>
+                                            <?php /*} */?>
+                                        </select>-->
                                     </div>
                                 </div>
                                 <div class="single-resume-feild feild-flex-2">

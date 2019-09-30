@@ -829,7 +829,12 @@ class Home extends View_Controller {
         $data['title'] ='Contact Us';
 //        $data['content'] = $this->general_model->getById('content','id','3')->contents;
         $data['main'] = 'contact/contact_us';
-
+        if(($this->input->post('subject'))){
+            $data['subject'] = $this->input->post('subject');
+        }
+        else{
+            $data['subject'] = '';
+        }
         $this->load->view('main',$data);
     }
     

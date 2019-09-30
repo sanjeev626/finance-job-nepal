@@ -88,6 +88,7 @@ class Jobseeker extends View_Controller {
         $data['functional_area'] =$this->general_model->getAll('dropdown','fid = 9','','id,dropvalue');
         $data['natureoforg'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');
         $data['nationality'] =$this->general_model->getAll('dropdown','fid = 8','','id,dropvalue');
+        $data['prof_education'] =$this->general_model->getAll('dropdown','fid = 3','','id,dropvalue');
         $data['main'] = 'jobseeker-signup';
         $data['message'] ='';
 
@@ -387,6 +388,7 @@ class Jobseeker extends View_Controller {
                 $data['functional_area'] =$this->general_model->getAll('dropdown','fid = 9','','id,dropvalue');
                 $data['natureoforg'] =$this->general_model->getAll('dropdown','fid = 10','','id,dropvalue');
                 $data['nationality'] =$this->general_model->getAll('dropdown','fid = 8','','id,dropvalue');
+                $data['prof_education'] =$this->general_model->getAll('dropdown','fid = 3','','id,dropvalue');
                 /*facebook login */
                 $data['authURL'] =  $this->facebook->login_url();
                 /*facebook login */

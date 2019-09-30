@@ -214,7 +214,12 @@
                                         <li><a href="<?php /*echo base_url().'services/corporate-training'*/ ?>">Corporate Training</a></li>
                                 </ul>
                             </li> -->
-                            <li><a href="<?php echo base_url().'services/recruitment' ?>">RECRUITMENT</a></li>
+                            <li>
+                                <?php 
+                                        $recruitment = $this->service_model->get_service_by_id('2');
+                                    ?>
+                                    <a href="<?php echo base_url() . 'services/'.$recruitment->urlcode ?>"><?php echo strtoupper($recruitment->title);?></a>
+                            </li>
                             <li class="">
                                 <a href="<?php echo base_url() . 'trainging' ?>">TRAINING & CONSULTING </a>
                             </li>
@@ -222,7 +227,10 @@
                                 <a href="<?php echo base_url() . 'contactus' ?>">CONTACT US</a>
                             </li> -->
                             <li class="">
-                                    <a href="<?php echo base_url() . 'services/labour-audit' ?>">LABOUR AUDIT</a>
+                                    <?php 
+                                        $hr = $this->service_model->get_service_by_id('7');
+                                    ?>
+                                    <a href="<?php echo base_url() . 'services/'.$hr->urlcode ?>"><?php echo strtoupper($hr->title);?></a>
                                 </li>
 
                             <?php
